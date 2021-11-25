@@ -21,7 +21,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/crops',[CropController::class,'index'])->name('crops');
-Route::get('/crops/new',[CropController::class,'create'])->name('addCrop');
+Route::get('/crops/new',[CropController::class,'create'])->middleware(['auth'])->name('addCrop');
 Route::get('/crops/{crop}',[CropController::class,'show']);
 Route::post('/crops',[CropController::class,'store']);
 require __DIR__.'/auth.php';

@@ -41,7 +41,7 @@ class CropPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(?User $user)
+    public function create(User $user)
     {
         return true;
         //
@@ -54,7 +54,7 @@ class CropPolicy
      * @param  \App\Models\Crop  $crop
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(?User $user, Crop $crop)
+    public function update(User $user, Crop $crop)
     {
         return true;
         //
@@ -67,7 +67,7 @@ class CropPolicy
      * @param  \App\Models\Crop  $crop
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(?User $user, Crop $crop)
+    public function delete(User $user, Crop $crop)
     {
         return true;
         //
@@ -80,7 +80,7 @@ class CropPolicy
      * @param  \App\Models\Crop  $crop
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(?User $user, Crop $crop)
+    public function restore(User $user, Crop $crop)
     {
         return true;
         //
@@ -93,7 +93,7 @@ class CropPolicy
      * @param  \App\Models\Crop  $crop
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(?User $user, Crop $crop)
+    public function forceDelete(User $user, Crop $crop)
     {
         return true;
         //

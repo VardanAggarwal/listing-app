@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Support\Facades\Auth;
 class StoreCropRequest extends FormRequest
 {
     /**
@@ -13,7 +13,9 @@ class StoreCropRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if (Auth::user()) {
+            return true;
+        }
     }
 
     /**
