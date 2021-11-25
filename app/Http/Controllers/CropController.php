@@ -15,7 +15,7 @@ class CropController extends Controller
      */
     public function index()
     {
-        return view('crops.index',['crops'=>Crop::orderByDesc('created_at')->get()]);
+        return view('crops.index',['crops'=>Crop::with(['categories'])->orderByDesc('created_at')->get()]);
         //
     }
 
@@ -52,7 +52,7 @@ class CropController extends Controller
      */
     public function show(Crop $crop)
     {
-        return view('crops.crop',['crop'=>$crop]);
+        return view('crops.crop',['crop'=>$crop->load('categories')]);
     }
 
     /**

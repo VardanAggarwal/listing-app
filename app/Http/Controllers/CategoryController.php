@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index',['categories'=>Category::orderByDesc('created_at')->get()]);
+        return view('categories.index',['categories'=>Category::with(['crops'])->orderByDesc('created_at')->get()]);
         //
     }
 
@@ -50,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('categories.category',['category'=>$category]);
+        return view('categories.category',['category'=>$category->load('crops')]);
     }
 
     /**

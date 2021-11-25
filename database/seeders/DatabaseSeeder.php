@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use \App\Models\Crop;
+use \App\Models\Category;
+use \App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,7 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\Crop::factory(10)->create();
-         \App\Models\Category::factory(10)->create();
+        $user=User::factory()->create([
+            'name'=>'Vardan Aggarwal',
+            'email'=>'vardan@seedsaversclub.com'
+        ]);
+         $categories=Category::factory(3)->create();
+         $crops=Crop::factory(10)->hasAttached($categories)->create();
     }
 }

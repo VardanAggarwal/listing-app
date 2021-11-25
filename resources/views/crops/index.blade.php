@@ -10,7 +10,12 @@
     </div>
   @foreach ($crops as $crop)
     <div class=" my-5 px-6 py-4 mx-4 rounded shadow">
-      <span class="font-semibold text-xl text-green-900">{{$crop->name}}</span>  
+      <span class="font-semibold text-xl text-green-900">{{$crop->name}}</span>
+      <div class="flex">
+        @foreach ($crop->categories as $category)
+        <a href="/categories/{{$category->id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$category->name}}</a>
+        @endforeach
+      </div>
       <div class="overflow-ellipsis overflow-hidden h-12">{{$crop->description}}</div>
       <a href="/crops/{{$crop->id}}" class="underline">{{__('See more...')}}</a>
     </div>
