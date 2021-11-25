@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-class UpdateCropRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class UpdateCropRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:crops',
+            'name'=>'required|unique:categories',
             'description'=>'',
             'links'=>'nullable|url'
         ];

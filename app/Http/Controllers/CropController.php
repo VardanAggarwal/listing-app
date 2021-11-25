@@ -39,7 +39,8 @@ class CropController extends Controller
     {
 
         $crop=Crop::create($request->all());
-        return view('crops.crop',['crop'=>$crop]);
+        return redirect('/crops/'.$crop->id);
+        //return view('crops.crop',['crop'=>$crop]);
         //
     }
 

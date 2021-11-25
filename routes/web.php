@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\CropController;
+use \App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,8 @@ Route::get('/crops',[CropController::class,'index'])->name('crops');
 Route::get('/crops/new',[CropController::class,'create'])->middleware(['auth'])->name('addCrop');
 Route::get('/crops/{crop}',[CropController::class,'show']);
 Route::post('/crops',[CropController::class,'store']);
+Route::get('/categories',[CategoryController::class,'index'])->name('categories');
+Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
+Route::get('/categories/{category}',[CategoryController::class,'show']);
+Route::post('/categories',[CategoryController::class,'store']);
 require __DIR__.'/auth.php';
