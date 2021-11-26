@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCropRequest;
 use App\Http\Requests\UpdateCropRequest;
 use App\Models\Crop;
+use App\Models\Resiliency;
+
 
 class CropController extends Controller
 {
@@ -15,7 +17,7 @@ class CropController extends Controller
      */
     public function index()
     {
-        return view('crops.index',['crops'=>Crop::with(['categories'])->orderByDesc('created_at')->get()]);
+        return view('crops.index',['crops'=> Resiliency::whereHasMorph('resilient',[Crop::class])->with(['categories','resilient'])->orderByDesc('created_at')->get()]);
         //
     }
 
@@ -52,7 +54,9 @@ class CropController extends Controller
      */
     public function show(Crop $crop)
     {
-        return view('crops.crop',['crop'=>$crop->load('categories')]);
+        return view('crops.crop',['crop'=>$crop->load(['resiliency'=>function($query){
+            $query->with(['categories']);
+        }])]);
     }
 
     /**

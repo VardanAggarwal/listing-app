@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCropsTable extends Migration
+class CreateReliablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateCropsTable extends Migration
      */
     public function up()
     {
-        Schema::create('crops', function (Blueprint $table) {
+        Schema::create('reliables', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('resiliency_id');
+            $table->integer('reliable_id');
+            $table->string('reliable_type');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateCropsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crops');
+        Schema::dropIfExists('reliables');
     }
 }

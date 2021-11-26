@@ -14,7 +14,7 @@
       <div class="overflow-ellipsis overflow-hidden h-12">{{$category->description}}</div>
       <a href="/categories/{{$category->id}}" class="underline">{{__('See more...')}}</a>
       <div class="flex mt-4">
-        @foreach ($category->crops as $crop)
+        @foreach ($category->resiliencies as $crop)
           @if ($loop->iteration == 5)
             @break
           @endif

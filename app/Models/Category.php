@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded=[];
 
-    public function crops(){
-        return $this->belongsToMany(Crop::class);
+    public function resiliencies(){
+        return $this->morphToMany(Resiliency::class,'reliable');
     }
 }

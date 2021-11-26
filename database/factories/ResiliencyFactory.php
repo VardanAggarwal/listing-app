@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CropFactory extends Factory
+class ResiliencyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,6 +14,9 @@ class CropFactory extends Factory
     public function definition()
     {
         return [
+            'name'=>$this->faker->unique()->word(),
+            'description'=>$this->faker->paragraph(),
+            'links'=>$this->faker->url()
             //
         ];
     }

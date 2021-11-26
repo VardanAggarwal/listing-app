@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Crop extends Model
+class Role extends Model
 {
     use HasFactory;
-    protected $guarded = [];
 
-    public function resiliency(){
-        return $this->morphOne(Resiliency::class,'resilient');
+    protected $guarded=[];
+
+    public function profiles(){
+
+        return $this->hasMany('Profile::class');
     }
 }

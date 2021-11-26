@@ -17,7 +17,7 @@
         @endforeach
       </div>
       <div class="overflow-ellipsis overflow-hidden h-12">{{$crop->description}}</div>
-      <a href="/crops/{{$crop->id}}" class="underline">{{__('See more...')}}</a>
+      <a href="/crops/{{$crop->resilient->id}}" class="underline">{{__('See more...')}}</a>
     </div>
   @endforeach
   </div>

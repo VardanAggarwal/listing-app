@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Crop;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index',['categories'=>Category::with(['crops'])->orderByDesc('created_at')->get()]);
+        return view('categories.index',['categories'=>Category::with(['resiliencies'=>function($query){
+            $query->whereHasMorph('resilient',[Crop::class]);
+        }])->orderByDesc('created_at')->get()]);
         //
     }
 
@@ -50,7 +53,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('categories.category',['category'=>$category->load('crops')]);
+        return view('categories.category',['category'=>$category->load(['resiliencies'=>function($query){
+            $query->whereHasMorph('resilient',[Crop::class]);
+        }])]);
     }
 
     /**
