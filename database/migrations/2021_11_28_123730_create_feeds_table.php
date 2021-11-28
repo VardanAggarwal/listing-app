@@ -17,6 +17,7 @@ class CreateFeedsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->json('event_data');
+            $table->string('type');
         });
     }
 

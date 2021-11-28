@@ -15,6 +15,7 @@ class Resiliency extends Model
         static::saved(function($resiliency){
             $feed= new Feed;
             $feed->event_data=$resiliency->toJson();
+            $feed->type='resiliency';
             $feed->save();
         });
     }

@@ -11,6 +11,7 @@ class Reliable extends MorphPivot
         static::saved(function($reliable){
             $feed= new Feed;
             $feed->event_data=$reliable->toJson();
+            $feed->type='reliable';
             $feed->save();
         });
     }

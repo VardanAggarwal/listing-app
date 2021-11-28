@@ -28,29 +28,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {  
-         $resiliencies=Resiliency::factory(3)->for(
-            Crop::factory(),'resilient'
-         )->create();
-         $resiliencies=$resiliencies->union(Resiliency::factory(3)->for(
-            Practice::factory(),'resilient'
-         )->create());
-         $resiliencies=$resiliencies->union(Resiliency::factory(3)->for(
-            Agrimodel::factory(),'resilient'
-         )->create());
-         $categories=Category::factory(10)->hasAttached($resiliencies->random(2))->create();
+         $resiliencies=[];
+         for ($i=0; $i < 10; $i++) { 
+           array_push($resiliencies,Resiliency::factory()->for(Crop::factory(),'resilient')->create());
+           array_push($resiliencies,Resiliency::factory()->for(Practice::factory(),'resilient')->create());
+           array_push($resiliencies,Resiliency::factory()->for(Agrimodel::factory(),'resilient')->create());
+         }
          $roles=Role::factory(4)->state(new Sequence(
             ['name'=>'farmer'],
             ['name'=>'farmer_network'],
             ['name'=>'enabler'],
             ['name'=>'buyer'],
          ))->create();
-         $profiles=Profile::factory(10)->for(User::factory())->hasAttached($roles->random())->hasAttached($resiliencies->random(2))->create();
-         $admin=User::factory()->has(Profile::factory(5)->hasAttached($roles->random()))->create([
+         $profiles=[];
+         $resiliencies=collect($resiliencies);
+         for ($i=0; $i < 10; $i++) { 
+           array_push($profiles,Profile::factory()->for(User::factory())->hasAttached($roles->random())->hasAttached($resiliencies->random(2))->create());
+           Category::factory()->hasAttached($resiliencies->random(2))->create();
+         }
+         $admin=User::factory()->create([
              'name'=>'Vardan Aggarwal',
              'email'=>'vardan@seedsaversclub.com'
          ]);
-         $stories=Story::factory(5)->for($profiles->random())->hasLinkages(3)->hasFinances(3)->hasAttached($resiliencies->random(2))->create();
-         $agriservices=Agriservice::factory(5)->for($profiles->random())->hasAttached($resiliencies->random(2))->create();
-         $listings=Listing::factory(5)->for($profiles->random())->hasAttached($resiliencies->random(2))->create();
+         for ($i=0; $i <10 ; $i++) { 
+            $stories=Story::factory()->for(collect($profiles)->random())->hasLinkages(3)->hasFinances(3)->hasAttached($resiliencies->random())->create();
+            $agriservices=Agriservice::factory()->for(collect($profiles)->random())->hasAttached($resiliencies->random())->create();
+            $listings=Listing::factory()->for(collect($profiles)->random())->hasAttached($resiliencies->random())->create();
+         }
     }
 }
