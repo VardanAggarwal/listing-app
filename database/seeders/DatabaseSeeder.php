@@ -12,6 +12,8 @@ use \App\Models\Profile;
 use \App\Models\Role;
 use \App\Models\Agrimodel;
 use \App\Models\Agriservice;
+use \App\Models\Finance;
+use \App\Models\Linkage;
 use \App\Models\Listing;
 use \App\Models\Practice;
 use \App\Models\Resiliency;
@@ -38,7 +40,6 @@ class DatabaseSeeder extends Seeder
          $categories=Category::factory(10)->hasAttached($resiliencies->random(2))->create();
          $agriservices=Agriservice::factory(5)->hasAttached($resiliencies->random(2))->create();
          $listings=Listing::factory(5)->hasAttached($resiliencies->random(2))->create();
-         $stories=Story::factory(5)->hasAttached($resiliencies->random(2))->create();
          $roles=Role::factory(4)->state(new Sequence(
             ['name'=>'farmer'],
             ['name'=>'farmer_network'],
@@ -50,6 +51,6 @@ class DatabaseSeeder extends Seeder
              'name'=>'Vardan Aggarwal',
              'email'=>'vardan@seedsaversclub.com'
          ]);
-
+         $stories=Story::factory(5)->hasLinkages(3)->hasFinances(3)->hasAttached($resiliencies->random(2))->create();
     }
 }

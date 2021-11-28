@@ -16,7 +16,16 @@ class CreateAgriservicesTable extends Migration
         Schema::create('agriservices', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('charges')->nullable();
+            $table->enum('type',['others','input','market','knowledge','contract_farming']);
+            $table->text('terms')->nullable();
+            $table->text('how_to')->nullable();
+            $table->string('serviceable_locations')->nullable();
+            $table->enum('target_audience',['farmers','networks']);
+            $table->string('min_audience')->nullable();
+
         });
     }
 

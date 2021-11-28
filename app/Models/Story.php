@@ -13,4 +13,10 @@ class Story extends Model
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable');
     }
+    public function linkages(){
+        return $this->hasMany(Linkage::class);
+    }
+    public function finances(){
+        return $this->hasMany(Finance::class);
+    }
 }
