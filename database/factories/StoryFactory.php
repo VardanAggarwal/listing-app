@@ -22,7 +22,8 @@ class StoryFactory extends Factory
             'season'=>$this->faker->randomElement(['kharif','rabi','any']),
             'lifetime'=>$this->faker->randomNumber(1,false).' months',
             'infra'=>$this->faker->sentences(2,true),
-            'services'=>$this->faker->randomElement(['inputs','guidance','market'])
+            'services'=>$this->faker->randomElement(['inputs','guidance','market']),
+            'links'=>$this->faker->url()
 
             //
         ];

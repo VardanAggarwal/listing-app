@@ -25,6 +25,7 @@ class CreateListingsTable extends Migration
             $table->boolean('price_negotiable')->nullable();
             $table->string('logistic_terms')->nullable();
             $table->string('payment_terms')->nullable();
+            $table->foreignId('profile_id')->nullable();
         });
     }
 

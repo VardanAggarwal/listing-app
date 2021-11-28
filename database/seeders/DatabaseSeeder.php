@@ -38,19 +38,19 @@ class DatabaseSeeder extends Seeder
             Agrimodel::factory(),'resilient'
          )->create());
          $categories=Category::factory(10)->hasAttached($resiliencies->random(2))->create();
-         $agriservices=Agriservice::factory(5)->hasAttached($resiliencies->random(2))->create();
-         $listings=Listing::factory(5)->hasAttached($resiliencies->random(2))->create();
          $roles=Role::factory(4)->state(new Sequence(
             ['name'=>'farmer'],
             ['name'=>'farmer_network'],
             ['name'=>'enabler'],
             ['name'=>'buyer'],
          ))->create();
-         $users=User::factory(10)->has(Profile::factory(1)->hasAttached($roles->random())->hasAttached($resiliencies->random(2)))->create();
+         $profiles=Profile::factory(10)->for(User::factory())->hasAttached($roles->random())->hasAttached($resiliencies->random(2))->create();
          $admin=User::factory()->has(Profile::factory(5)->hasAttached($roles->random()))->create([
              'name'=>'Vardan Aggarwal',
              'email'=>'vardan@seedsaversclub.com'
          ]);
-         $stories=Story::factory(5)->hasLinkages(3)->hasFinances(3)->hasAttached($resiliencies->random(2))->create();
+         $stories=Story::factory(5)->for($profiles->random())->hasLinkages(3)->hasFinances(3)->hasAttached($resiliencies->random(2))->create();
+         $agriservices=Agriservice::factory(5)->for($profiles->random())->hasAttached($resiliencies->random(2))->create();
+         $listings=Listing::factory(5)->for($profiles->random())->hasAttached($resiliencies->random(2))->create();
     }
 }

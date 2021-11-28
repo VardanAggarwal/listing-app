@@ -11,6 +11,9 @@ class Agriservice extends Model
     protected $guarded=[];
 
     public function resiliencies(){
-        return $this->morphToMany(Resiliency::class,'reliable');
+        return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);
+    }
+    public function profile(){
+        return $this->belongsTo(Profile::class);
     }
 }

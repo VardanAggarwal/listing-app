@@ -25,6 +25,8 @@ class CreateStoriesTable extends Migration
             $table->string('lifetime')->nullable();
             $table->text('infra')->nullable();
             $table->string('services')->nullable();
+            $table->string('links')->nullable();
+            $table->foreignId('profile_id')->nullable();
         });
     }
 

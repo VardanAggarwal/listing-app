@@ -20,4 +20,13 @@ class Profile extends Model
     public function roles(){
         return $this->belongsToMany(Role::class);
     }
+    public function listings(){
+        return $this->hasMany(Listing::class);
+    }
+    public function agriservices(){
+        return $this->hasMany(Agriservice::class);
+    }
+    public function stories(){
+        return $this->hasMany(Story::class);
+    }
 }

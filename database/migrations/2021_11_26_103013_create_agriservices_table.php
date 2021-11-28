@@ -25,7 +25,7 @@ class CreateAgriservicesTable extends Migration
             $table->string('serviceable_locations')->nullable();
             $table->enum('target_audience',['farmers','networks']);
             $table->string('min_audience')->nullable();
-
+            $table->foreignId('profile_id')->nullable();
         });
     }
 

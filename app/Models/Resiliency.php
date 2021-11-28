@@ -11,6 +11,14 @@ class Resiliency extends Model
 
     protected $guarded=[];
 
+    protected static function booted(){
+        static::saved(function($resiliency){
+            $feed= new Feed;
+            $feed->event_data=$resiliency->toJson();
+            $feed->save();
+        });
+    }
+
     public function resilient(){
         return $this->morphTo();
     }
