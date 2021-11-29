@@ -16,7 +16,7 @@ class AgriserviceFactory extends Factory
         return [
             'title'=>$this->faker->word(),
             'description'=>$this->faker->paragraph(),
-            'charges'=>$this->faker->randomNumber(2,false).$this->faker->randomElement([' %',' Rs.']),
+            'charges'=>$this->faker->randomNumber(2,false).$this->faker->randomElement(['%',' Rs.']),
             'type'=>$this->faker->randomElement(['others','input','market','knowledge','contract_farming']),
             'terms'=>$this->faker->paragraph(),
             'how_to'=>$this->faker->paragraph(),

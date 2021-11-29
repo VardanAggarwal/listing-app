@@ -14,7 +14,7 @@ class StoryFactory extends Factory
     public function definition()
     {
         return [
-            'overall'=>$this->faker->randomElement([-1,1]),
+            'overall'=>$this->faker->randomElement([1,2,3,4,5]),
             'advantages'=>$this->faker->sentences(5,true),
             'risks'=>$this->faker->sentences(5,true),
             'best_practices'=>$this->faker->sentences(5,true),

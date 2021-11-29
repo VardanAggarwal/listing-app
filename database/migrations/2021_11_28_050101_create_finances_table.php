@@ -19,7 +19,7 @@ class CreateFinancesTable extends Migration
             $table->enum('type',['expense','earning']);
             $table->enum('item_type',['input','labour','setup','seed','produce']);
             $table->string('item');
-            $table->string('amount');
+            $table->integer('amount');
             $table->string('frequency');
             $table->foreignId('story_id');
         });

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\CropController;
 use \App\Http\Controllers\CategoryController;
+use \App\Http\Controllers\FeedController;
+use \App\Http\Livewire\FeedList;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use \App\Http\Controllers\CategoryController;
 |
 */
 
-Route::redirect('/','crops');
+Route::get('/',FeedList::class)->name('feed');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

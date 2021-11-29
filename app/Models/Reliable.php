@@ -8,10 +8,11 @@ class Reliable extends MorphPivot
 {
     protected $table = 'reliables';
     protected static function booted(){
-        static::saved(function($reliable){
+        static::created(function($reliable){
             $feed= new Feed;
-            $feed->event_data=$reliable->toJson();
-            $feed->type='reliable';
+            $feed->feedable_id=$reliable->reliable_id;
+            $feed->feedable_type=$reliable->reliable_type;
+            $feed->resiliency_id=$reliable->resiliency_id;
             $feed->save();
         });
     }

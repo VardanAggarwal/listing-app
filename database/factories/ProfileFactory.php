@@ -15,7 +15,7 @@ class ProfileFactory extends Factory
     {
         return [
             'business_name'=>$this->faker->company(),
-            'address'=>$this->faker->address(),
+            'address'=>$this->faker->city(),
             'pincode'=>$this->faker->postcode(),
             'contact_number'=>$this->faker->phoneNumber()
             //

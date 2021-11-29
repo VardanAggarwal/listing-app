@@ -12,10 +12,11 @@ class Resiliency extends Model
     protected $guarded=[];
 
     protected static function booted(){
-        static::saved(function($resiliency){
+        static::created(function($resiliency){
             $feed= new Feed;
-            $feed->event_data=$resiliency->toJson();
-            $feed->type='resiliency';
+            $feed->feedable_id=$resiliency->resilient_id;
+            $feed->feedable_type=$resiliency->resilient_type;
+            $feed->resiliency_id=$resiliency->id;
             $feed->save();
         });
     }

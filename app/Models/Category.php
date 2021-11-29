@@ -11,6 +11,6 @@ class Category extends Model
     protected $guarded=[];
 
     public function resiliencies(){
-        return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);
+        return $this->morphToMany(Resiliency::class,'reliable');
     }
 }

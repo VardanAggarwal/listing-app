@@ -9,6 +9,7 @@ class Story extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    protected $with = ['linkages','finances'];
 
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);

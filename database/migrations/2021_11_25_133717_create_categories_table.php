@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->string('links')->nullable();
+            $table->string('image')->nullable();
         });
     }
 
