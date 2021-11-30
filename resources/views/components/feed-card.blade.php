@@ -5,7 +5,7 @@
                 @unless(App::isLocale('hi'))
                     {{__('for')}} 
                 @endunless
-                <a href="/{{Str::plural(Str::replace('App\\Models\\','',$item->resiliency->resilient_type))}}/{{$item->resiliency->resilient_id}}"  class="underline">{{Str::ucfirst($item->resiliency->name)}}</a>
+                <a href="/{{Str::lower(Str::plural(Str::replace('App\\Models\\','',$item->resiliency->resilient_type)))}}/{{$item->resiliency->resilient_id}}"  class="underline">{{Str::ucfirst($item->resiliency->name)}}</a>
                 @if(App::isLocale('hi'))
                     {{__('for')}} 
                 @endif
@@ -26,6 +26,6 @@
         @php
         $component=$item_type.'-card';
         @endphp
-        <x-dynamic-component :component="$component" :item="$item"/>
+        <x-dynamic-component :component="$component" :model="$item->feedable"/>
     @endif
 </div>

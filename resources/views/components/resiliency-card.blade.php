@@ -10,6 +10,6 @@
           @endforeach
         </div>
         <div class="overflow-ellipsis overflow-hidden h-12">{{$resiliency->description}}</div>
-        <a href="/{{Str::plural($resiliency->resilient_type)}}/{{$resiliency->resilient_id}}" class="underline">{{__('See more')}}...</a>
+        <a href="/{{Str::plural(Str::lower(Str::replace('App\\Models\\','',$resiliency->resilient_type)))}}/{{$resiliency->resilient_id}}" class="underline">{{__('See more')}}...</a>
     </div>
 </div>

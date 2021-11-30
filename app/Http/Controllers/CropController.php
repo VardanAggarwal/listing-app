@@ -17,7 +17,7 @@ class CropController extends Controller
      */
     public function index()
     {
-        return view('crops.index',['crops'=> Resiliency::whereHasMorph('resilient',[Crop::class])->with(['categories','resilient'])->orderByDesc('created_at')->get()]);
+        return view('crops.index',['crops'=> Resiliency::whereHasMorph('resilient',[Crop::class])->with(['categories','resilient'])->orderByDesc('id')->get()]);
         //
     }
 

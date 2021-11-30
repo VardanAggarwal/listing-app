@@ -53,9 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('categories.category',['category'=>$category->load(['resiliencies'=>function($query){
-            $query->whereHasMorph('resilient',[Crop::class]);
-        }])]);
+        return view('categories.category',['category'=>$category]);
     }
 
     /**

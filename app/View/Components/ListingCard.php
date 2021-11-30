@@ -12,9 +12,9 @@ class ListingCard extends Component
      * @return void
      */
     public $model;
-    public function __construct($item)
+    public function __construct($model)
     {
-        $this->model=$item->feedable;
+        $this->model=$model;
         //
     }
 

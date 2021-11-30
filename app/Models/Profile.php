@@ -10,6 +10,7 @@ class Profile extends Model
     use HasFactory;
 
     protected $guarded=[];
+    protected $with = ['user','roles'];
 
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable');

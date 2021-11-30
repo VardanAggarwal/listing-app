@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProfileRequest;
-use App\Http\Requests\UpdateProfileRequest;
-use App\Models\Profile;
+use App\Models\Listing;
+use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class ListingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +30,10 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProfileRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfileRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -42,23 +41,24 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Listing  $listing
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show(Listing $listing)
     {
-        $profile->loadCount(['listings','stories','agriservices']);
-        return view('profile',['profile'=>$profile]);
+        $listing->load(['profile']);
+        $listing->loadCount(['resiliencies']);
+        return view('listing',['listing'=>$listing]);
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Listing  $listing
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit(Listing $listing)
     {
         //
     }
@@ -66,11 +66,11 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProfileRequest  $request
-     * @param  \App\Models\Profile  $profile
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Listing  $listing
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProfileRequest $request, Profile $profile)
+    public function update(Request $request, Listing $listing)
     {
         //
     }
@@ -78,10 +78,10 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Listing  $listing
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy(Listing $listing)
     {
         //
     }

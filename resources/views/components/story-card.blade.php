@@ -1,5 +1,10 @@
 <div class="">
   <span class="font-semibold text-xl text-green-900">{{$model->profile->user->name}}{{__('\'s')}} {{__('experience')}}</span>
+  <div class="flex">
+    @foreach ($model->resiliencies as $resiliency)
+    <a href="/{{Str::plural(Str::lower(Str::replace('App//Models//','',$resiliency->resilient_type)))}}/{{$resiliency->resilient_id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$resiliency->name}}</a>
+    @endforeach
+  </div>
   <div class="rating text-yellow-400">
       {!! str_repeat('<span><i class="fas fa-star"></i></span>', $model->overall) !!}
       {!! str_repeat('<span><i class="far fa-star"></i></span>', 5 - $model->overall) !!}
