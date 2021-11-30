@@ -53,6 +53,19 @@ services:
             test: ["CMD", "redis-cli", "ping"]
             retries: 3
             timeout: 5s
+    meilisearch:
+        image: 'getmeili/meilisearch:latest'
+        platform: linux/x86_64
+        ports:
+            - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
+        volumes:
+            - 'sailmeilisearch:/data.ms'
+        networks:
+            - sail
+        healthcheck:
+            test: ["CMD", "wget", "--no-verbose", "--spider",  "http://localhost:7700/health"]
+            retries: 3
+            timeout: 5s
 networks:
     sail:
         driver: bridge
@@ -60,4 +73,6 @@ volumes:
     sailpgsql:
         driver: local
     sailredis:
+        driver: local
+    sailmeilisearch:
         driver: local

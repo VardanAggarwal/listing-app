@@ -14,6 +14,7 @@ use \App\Http\Livewire\AgriserviceList;
 use \App\Http\Livewire\ListingList;
 use \App\Http\Livewire\PracticeList;
 use \App\Http\Livewire\StoryList;
+use \App\Http\Livewire\Search;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use \App\Http\Livewire\StoryList;
 */
 //main page
 Route::get('/',FeedList::class)->name('feed');
+Route::get('/search',Search::class)->name('search');
 //listing pages
 Route::get('/crops',CropList::class)->name('crops');
 Route::get('/agrimodels',AgrimodelList::class)->name('agrimodels');

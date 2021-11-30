@@ -3,7 +3,7 @@
     <span class="font-semibold text-2xl text-green-900">{{$listing->profile->business_name}} {{__('wants to')}} {{__($listing->type)}} {{$listing->name}}</span>
     <div class="flex">
       @foreach ($listing->resiliencies as $resiliency)
-      <a href="/{{Str::plural(Str::lower(Str::replace('App//Models//','',$resiliency->resilient_type)))}}/{{$resiliency->resilient_id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$resiliency->name}}</a>
+      <a href="/{{Str::plural(Str::lower(Str::replace('App\\Models\\','',$resiliency->resilient_type)))}}/{{$resiliency->resilient_id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$resiliency->name}}</a>
       @endforeach
     </div>
     <div class="mt-4 grid grid-cols-2 sm:grid-cols-8 gap-4 items-center">

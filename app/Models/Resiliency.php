@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Laravel\Scout\Searchable;
 class Resiliency extends Model
 {
     use HasFactory;
-
+    use Searchable;
     protected $guarded=[];
 
     protected static function booted(){
@@ -38,5 +38,9 @@ class Resiliency extends Model
     }
     public function stories(){
         return $this->morphedByMany(Story::class, 'reliable');
+    }
+    protected function makeAllSearchableUsing($query)
+    {
+        return $query->with(['resilient','profiles','stories','listings','categories','agriservices']);
     }
 }
