@@ -10,7 +10,7 @@ class Profile extends Model
     use HasFactory;
 
     protected $guarded=[];
-    protected $with = ['user','roles'];
+    protected $with = ['user','userTypes'];
 
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable');
@@ -18,8 +18,8 @@ class Profile extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function roles(){
-        return $this->belongsToMany(Role::class);
+    public function userTypes(){
+        return $this->belongsToMany(UserType::class);
     }
     public function listings(){
         return $this->hasMany(Listing::class);

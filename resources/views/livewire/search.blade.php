@@ -1,8 +1,8 @@
 <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
-    <input type="text" placeholder="Search" wire:model="search" class="w-full">
+    <input type="text" placeholder="Search" wire:model.debounce.250ms="query" wire:keydown="resetPage"class="w-full">
 @if($results)
     @foreach($results as $result)
-    <div class=" my-5 px-6 py-4 mx-4 rounded-lg shadow border">
+    <div class=" my-5 px-6 py-4 mx-4 rounded-lg shadow border" wire:loading.class="opacity-50">
         <div class="border-b border-gray-200 mb-3">
             <span>
                 @php

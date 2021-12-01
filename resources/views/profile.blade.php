@@ -10,7 +10,7 @@
         @endif
         <div class="text-center sm:text-left col-span-1 sm:col-span-3">
             <div class="grid justify-items-center sm:justify-items-start">
-              @foreach ($profile->roles as $role)
+              @foreach ($profile->userTypes as $role)
               <span class="mr-4 inline-flex items-center py-1 px-2 bg-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest focus:ring focus:ring-gray-300 border">{{$role->name}}</span>
               @endforeach
             </div>

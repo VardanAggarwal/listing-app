@@ -15,7 +15,8 @@
         "laravel/scout": "^9.3",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
-        "meilisearch/meilisearch-php": "^0.20.0"
+        "meilisearch/meilisearch-php": "^0.20.0",
+        "tcg/voyager": "^1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
