@@ -47,6 +47,9 @@ Route::get('/stories/{story}',[StoryController::class,'show']);
 Route::get('/profiles/{profile}',[ProfileController::class,'show']);
 Route::get('/categories/{category}',[CategoryController::class,'show']);
 
+//Forms
+Route::get('/profile',[ProfileController::class,'create'])->middleware(['auth']);
+Route::post('/profiles',[ProfileController::class,'store'])->middleware(['auth']);
 Route::get('/crops/new',[CropController::class,'create'])->middleware(['auth'])->name('addCrop');
 Route::post('/crops',[CropController::class,'store']);
 Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');

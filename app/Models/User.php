@@ -59,8 +59,8 @@ class User extends \TCG\Voyager\Models\User
         'profile_photo_url',
     ];
 
-    public function profiles(){
+    public function profile(){
 
-        return $this->hasMany(Profile::class);
+        return $this->hasOne(Profile::class);
     }
 }

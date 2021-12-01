@@ -1,3 +1,7 @@
 {
-  "networks":"Farmer networks"  
+  "networks":"Farmer networks",
+  "farmer":"Farmer",
+  "farmer_network":"Farmer network",
+  "enabler":"Support & Guidance",
+  "buyer":"Buyer"  
 }

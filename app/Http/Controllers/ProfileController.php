@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
+use App\Models\UserType;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -25,6 +27,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
+        return view('profiles.new',['roles'=>UserType::all(),'profile'=>$user=Auth::user()->profile]);
         //
     }
 
@@ -36,6 +39,25 @@ class ProfileController extends Controller
      */
     public function store(StoreProfileRequest $request)
     {
+        $raw=$request->all();
+        $profile_id=$raw['id'];
+        $validated = $request->validate([
+            'business_name' => '',
+            'address' => '',
+            'pincode'=>'',
+            'contact_number'=>''
+        ]);
+        $user=Auth::user();
+
+        $profile=$user->profile()->findOrNew($profile_id);
+        $profile->fill($validated)->save();
+        
+        if(array_key_exists('userType', $raw))
+        {
+            $roles=array_map('intval', $raw['userType']);
+            $profile->userTypes()->sync($roles);
+        }
+        return redirect('/profile');
         //
     }
 
@@ -48,7 +70,7 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         $profile->loadCount(['listings','stories','agriservices']);
-        return view('profile',['profile'=>$profile]);
+        return view('profiles.profile',['profile'=>$profile]);
         //
     }
 

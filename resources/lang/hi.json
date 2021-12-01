@@ -58,6 +58,10 @@
   "Total":"कुल",
   "Minimum":"न्यूनतम",
   "quantity":"मात्रा",
-  "Price negotiable":"मोल-भाव किया जा सकता है"
+  "Price negotiable":"मोल-भाव किया जा सकता है",
+  "farmer":"किसान",
+  "farmer_network":"किसान समूह",
+  "enabler":"ट्रेनिंग और मार्गदर्शन",
+  "buyer":"खरीदार"
 
 }

@@ -3,5 +3,12 @@ return [
   "new_f"=>"नयी",
   "new_m"=>"नया",
   "contact_for_services"=>":services के लिए :Name से :contact पर संपर्क करें।",
-  "serviceable_audience"=>"कम से कम :requirement वाले :audience"
+  "serviceable_audience"=>"कम से कम :requirement वाले :audience",
+  "welcome"=>"नमस्कार! Seed Savers Club, भारत के पहले प्रगतिशील किसानों के समुदाय, में आपका स्वागत है। \nसमुदाय के किसानों के लिए अपना परिचय दें।",
+  "business_name"=>"आपके खेत/कंपनी का नाम",
+  "address"=>"आप कहाँ से हैं?",
+  "pincode"=>"आपका पिनकोड",
+  "contact_number"=>"आपका फोन नंबर",
+  "onboarding_submit"=>"परिचय दें",
+  "role_selection"=>"आप समुदाय में किस भूमिका में योगदान देना चाहते हैं?"
 ];
