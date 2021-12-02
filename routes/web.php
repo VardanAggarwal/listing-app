@@ -27,6 +27,7 @@ use \App\Http\Livewire\Search;
 |
 */
 //main page
+
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 //listing pages
@@ -47,10 +48,14 @@ Route::get('/stories/{story}',[StoryController::class,'show']);
 Route::get('/profiles/{profile}',[ProfileController::class,'show']);
 Route::get('/categories/{category}',[CategoryController::class,'show']);
 
-//Forms
+//Onboarding
 Route::get('/profile',[ProfileController::class,'create'])->middleware(['auth']);
 Route::post('/profiles',[ProfileController::class,'store'])->middleware(['auth']);
-Route::get('/crops/new',[CropController::class,'create'])->middleware(['auth'])->name('addCrop');
+Route::get('/profile/interests',[ProfileController::class,'interests'])->middleware(['auth']);
+
+//Create new pages
+Route::get('/crop/new',[CropController::class,'create'])->middleware(['auth'])->name('addCrop');
+Route::get('/agrimodel/new',[AgrimodelController::class,'create'])->middleware(['auth'])->name('addAgrimodel');
 Route::post('/crops',[CropController::class,'store']);
 Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
 Route::post('/categories',[CategoryController::class,'store']);

@@ -57,7 +57,7 @@ class ProfileController extends Controller
             $roles=array_map('intval', $raw['userType']);
             $profile->userTypes()->sync($roles);
         }
-        return redirect('/profile');
+        return redirect('/profile/interests');
         //
     }
 
@@ -106,5 +106,9 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
         //
+    }
+    public function interests()
+    {
+        return view('profiles.interests',['profile'=>Auth::user()->profile->load('resiliencies')]);
     }
 }

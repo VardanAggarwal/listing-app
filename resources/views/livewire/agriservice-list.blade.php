@@ -1,4 +1,10 @@
 <div class="py-8 max-w-7xl mx-4 sm:mx-auto" wire:loading.delay.class='opacity-50'>
+  <div class="mx-4 flex justify-between">
+    <h1 class="font-bold text-2xl">{{__('ui.models.agriservices')}}</h1>
+    <a href="\agriservice\new">
+      <x-jet-button>{{__('Add new')}}</x-jet-button>
+    </a>
+  </div>
     @foreach ($feed as $item)
         <div class=" my-5 px-6 py-4 mx-4 rounded-lg shadow border">    
             <x-agriservice-card :model="$item"/>

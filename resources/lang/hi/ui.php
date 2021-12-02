@@ -10,5 +10,14 @@ return [
   "pincode"=>"आपका पिनकोड",
   "contact_number"=>"आपका फोन नंबर",
   "onboarding_submit"=>"परिचय दें",
-  "role_selection"=>"आप समुदाय में किस भूमिका में योगदान देना चाहते हैं?"
+  "role_selection"=>"आप समुदाय में किस भूमिका में योगदान देना चाहते हैं?",
+  "models"=>[
+    "stories"=>"अनुभव",
+    "listings"=>"खरीद/बिक्री",
+    "agriservices"=>"सेवाएं",
+    "crops"=>"फसलें",
+    "practices"=>"खेती तकनीक",
+    "agrimodels"=>"मॉडल/एग्री-बिजनेस",
+    "feed"=>"नया क्या है?"
+  ]
 ];

@@ -4,7 +4,7 @@
   "See more":"और देखें",
   "No more records":"और सामग्री नहीं है",
   "crop":"फसल",
-  "agrimodel":"मॉडल",
+  "agrimodel":"मॉडल/एग्री-बिजनेस",
   "agriservice":"सेवा",
   "category":"श्रेणी",
   "listing":"सामग्री",
@@ -62,6 +62,7 @@
   "farmer":"किसान",
   "farmer_network":"किसान समूह",
   "enabler":"ट्रेनिंग और मार्गदर्शन",
-  "buyer":"खरीदार"
+  "buyer":"खरीदार",
+  "Add new":"नया जोड़ें"
 
 }

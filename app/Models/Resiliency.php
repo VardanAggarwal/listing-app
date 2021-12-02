@@ -39,8 +39,16 @@ class Resiliency extends Model
     public function stories(){
         return $this->morphedByMany(Story::class, 'reliable');
     }
-    protected function makeAllSearchableUsing($query)
-    {
-        return $query->with(['resilient','profiles','stories','listings','categories','agriservices']);
-    }
+    public function toSearchableArray()
+       {
+           $array = $this->toArray();
+           $array['stories']=$this->stories;
+           $array['resilient']=$this->resilient;
+           $array['agrimodels']=$this->agrimodels;
+           $array['listings']=$this->listings;
+           $array['profiles']=$this->profiles;
+           // Customize the data array...
+
+           return $array;
+       }
 }

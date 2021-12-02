@@ -10,5 +10,14 @@ return [
   "pincode"=>"Your pincode",
   "contact_number"=>"Your contact number",
   "onboarding_submit"=>"Introduce yourself",
-  "role_selection"=>"In what role do you want to contribute to the community?"
+  "role_selection"=>"In what role do you want to contribute to the community?",
+  "models"=>[
+    "stories"=>"Experiences",
+    "listings"=>"Buy/Sell",
+    "agriservices"=>"Services",
+    "crops"=>"Crops",
+    "practices"=>"Best practices",
+    "agrimodels"=>"Models",
+    "feed"=>"What's new"
+  ]
 ];

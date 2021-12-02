@@ -5,20 +5,40 @@
 			<div class="flex">
 				<!-- Logo -->
 				<div class="flex-shrink-0 flex items-center">
-					<a href="{{ route('crops') }}">
+					<a href="{{ route('feed') }}">
 						<x-jet-application-mark class="block h-9 w-auto" />
 					</a>
 				</div>
 
 				<!-- Navigation Links -->
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-jet-nav-link href="{{ route('crops') }}" :active="request()->routeIs('crops')">
-						{{ __('Crops') }}
+					<x-jet-nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
+						{{ __('ui.models.listings') }}
 					</x-jet-nav-link>
 				</div>
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-jet-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categories')">
-						{{ __('Categories') }}
+					<x-jet-nav-link href="{{ route('stories') }}" :active="request()->routeIs('stories')">
+						{{ __('ui.models.stories') }}
+					</x-jet-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-jet-nav-link href="{{ route('agriservices') }}" :active="request()->routeIs('agriservices')">
+						{{ __('ui.models.agriservices') }}
+					</x-jet-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-jet-nav-link href="{{ route('crops') }}" :active="request()->routeIs('crops')">
+						{{ __('ui.models.crops') }}
+					</x-jet-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-jet-nav-link href="{{ route('practices') }}" :active="request()->routeIs('practices')">
+						{{ __('ui.models.practices') }}
+					</x-jet-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-jet-nav-link href="{{ route('agrimodels') }}" :active="request()->routeIs('agrimodels')">
+						{{ __('ui.models.agrimodels') }}
 					</x-jet-nav-link>
 				</div>
 			</div>
@@ -161,13 +181,33 @@
 	<!-- Responsive Navigation Menu -->
 	<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
 		<div class="pt-2 pb-3 space-y-1">
-			<x-jet-responsive-nav-link href="{{ route('crops') }}" :active="request()->routeIs('crops')">
-				{{ __('Crops') }}
+			<x-jet-responsive-nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
+				{{ __('ui.models.listings') }}
 			</x-jet-responsive-nav-link>
 		</div>
 		<div class="pt-2 pb-3 space-y-1">
-			<x-jet-responsive-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categories')">
-				{{ __('Categories') }}
+			<x-jet-responsive-nav-link href="{{ route('stories') }}" :active="request()->routeIs('stories')">
+				{{ __('ui.models.stories') }}
+			</x-jet-responsive-nav-link>
+		</div>
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('agriservices') }}" :active="request()->routeIs('agriservices')">
+				{{ __('ui.models.agriservices') }}
+			</x-jet-responsive-nav-link>
+		</div>
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('crops') }}" :active="request()->routeIs('crops')">
+				{{ __('ui.models.crops') }}
+			</x-jet-responsive-nav-link>
+		</div>
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('practices') }}" :active="request()->routeIs('practices')">
+				{{ __('ui.models.practices') }}
+			</x-jet-responsive-nav-link>
+		</div>
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('agrimodels') }}" :active="request()->routeIs('agrimodels')">
+				{{ __('ui.models.agrimodels') }}
 			</x-jet-responsive-nav-link>
 		</div>
 

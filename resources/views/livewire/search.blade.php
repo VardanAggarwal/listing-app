@@ -1,5 +1,5 @@
 <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
-    <input type="text" placeholder="Search" wire:model.debounce.250ms="query" wire:keydown="resetPage"class="w-full">
+    <input type="text" placeholder="Search" wire:model.debounce.500ms="query" wire:keydown="resetPage"class="w-full">
 @if($results)
     @foreach($results as $result)
     <div class=" my-5 px-6 py-4 mx-4 rounded-lg shadow border" wire:loading.class="opacity-50">
@@ -15,25 +15,25 @@
         <x-resiliency-card :resiliency="$result"/>
     </div>
     @endforeach
-    <div
-        x-data="{
-            observe () {
-                let observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            @this.call('loadMore')
-                        }
-                    })
-                }, {
-                    root: null
-                })
-
-                observer.observe(this.$el)
-            }
-        }"
-        x-init="observe"
-    ></div>
     @if($results->hasMorePages())
+      <div
+          x-data="{
+              observe () {
+                  let observer = new IntersectionObserver((entries) => {
+                      entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                              @this.call('loadMore')
+                          }
+                      })
+                  }, {
+                      root: null
+                  })
+
+                  observer.observe(this.$el)
+              }
+          }"
+          x-init="observe"
+      ></div>  
       <x-jet-button wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
       @else
       <div class="text-center">{{__('No more records')}}</div>

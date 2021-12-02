@@ -20,7 +20,7 @@
         <span class="font-semibold text-m text-red-900">{{__('Expenses')}}: </span><span> {{__('Rs.')}} {{$story->finances->where('type','expense')->sum('amount')}}</span><br>
         @foreach($story->finances->where('type','expense') as $finance)  
         <span>
-          {{__('$finance->item')}}, {{__('$finance->item_type')}}: {{__('Rs.')}} {{$finance->amount}} {{__('every')}} {{$finance->frequency}}
+          {{__($finance->item)}}, {{__($finance->item_type)}}: {{__('Rs.')}} {{$finance->amount}} {{__('every')}} {{$finance->frequency}}
         </span><br>
         @endforeach
       </div>
