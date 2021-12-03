@@ -19,5 +19,7 @@ return [
     "practices"=>"Best practices",
     "agrimodels"=>"Models",
     "feed"=>"What's new"
-  ]
+  ],
+  "add_new_f"=>"Add new :name",
+  "add_new_m"=>"Add new :name"
 ];

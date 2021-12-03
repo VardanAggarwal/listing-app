@@ -7,6 +7,7 @@ use App\Models\Crop;
 use App\Models\Resiliency;
 use App\Models\Practice;
 use App\Models\Agrimodel;
+use App\Http\Livewire\CreateResiliency;
 
 class ResiliencyController extends Controller
 {
@@ -24,6 +25,15 @@ class ResiliencyController extends Controller
         $resiliency=$agrimodel->resiliency;
         $resiliency->loadCount(['listings','stories','agriservices']);
         return view('resiliency',['resiliency'=>$resiliency],);
+    }
+    public function createCrop(){
+        return (CreateResiliency::class);
+    }
+    public function createAgrimodel(){
+        
+    }
+    public function createPractice(){
+        
     }
     //
 }

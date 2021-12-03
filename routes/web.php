@@ -15,6 +15,7 @@ use \App\Http\Livewire\ListingList;
 use \App\Http\Livewire\PracticeList;
 use \App\Http\Livewire\StoryList;
 use \App\Http\Livewire\Search;
+use \App\Http\Livewire\CreateResiliency;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,6 @@ use \App\Http\Livewire\Search;
 |
 */
 //main page
-
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 //listing pages
@@ -38,6 +38,14 @@ Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/practices',PracticeList::class)->name('practices');
 Route::get('/stories',StoryList::class)->name('stories');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
+//create pages
+Route::get('/crops/new',CreateResiliency::class)->middleware(['auth']);
+Route::get('/agrimodels/new',CreateResiliency::class)->middleware(['auth']);
+Route::get('/practices/new',CreateResiliency::class)->middleware(['auth']);
+Route::get('/listings/new',[ListingController::class,'create'])->middleware(['auth']);
+Route::get('/agriservices/new',[AgriserviceController::class,'create'])->middleware(['auth']);
+Route::get('/stories/new',[StoryController::class,'create'])->middleware(['auth']);
+
 //detail pages
 Route::get('/crops/{crop}',[ResiliencyController::class,'showCrop']);
 Route::get('/practices/{practice}',[ResiliencyController::class,'showPractice']);
@@ -53,8 +61,8 @@ Route::get('/profile',[ProfileController::class,'create'])->middleware(['auth'])
 Route::post('/profiles',[ProfileController::class,'store'])->middleware(['auth']);
 Route::get('/profile/interests',[ProfileController::class,'interests'])->middleware(['auth']);
 
-//Create new pages
-Route::get('/crop/new',[CropController::class,'create'])->middleware(['auth'])->name('addCrop');
+
+
 Route::get('/agrimodel/new',[AgrimodelController::class,'create'])->middleware(['auth'])->name('addAgrimodel');
 Route::post('/crops',[CropController::class,'store']);
 Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
