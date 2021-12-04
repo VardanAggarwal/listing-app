@@ -14,10 +14,6 @@ return [
   "models"=>[
     "stories"=>"Experiences",
     "listings"=>"Buy/Sell",
-    "agriservices"=>"Services",
-    "crops"=>"Crops",
-    "practices"=>"Best practices",
-    "agrimodels"=>"Models",
     "feed"=>"What's new"
   ],
   "add_new_f"=>"Add new :name",

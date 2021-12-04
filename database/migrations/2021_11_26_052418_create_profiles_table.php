@@ -16,7 +16,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('business_name')->nullable();
+            $table->string('name')->nullable();
             $table->text('address')->nullable();
             $table->string('pincode')->nullable();
             $table->string('contact_number')->nullable();

@@ -18,14 +18,14 @@ class CreateListingsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->enum('type',['buy','sell']);
-            $table->enum('item_type',['input','machinery','animal','seed','produce']);
-            $table->string('image')->nullable();
-            $table->string('total_qty')->nullable();
-            $table->string('min_qty')->nullable();
+            $table->enum('item_type',['input','machinery','animal','seed','produce','training','contract_farming']);
+            $table->string('image_url')->nullable();
+            $table->json('media')->nullable();
             $table->string('price')->nullable();
-            $table->boolean('price_negotiable')->nullable();
-            $table->string('logistic_terms')->nullable();
-            $table->string('payment_terms')->nullable();
+            $table->text('description')->nullable();
+            $table->string('location')->nullable();
+            $table->date('expiry')->nullable();
+            $table->json('additional_info')->nullable();
             $table->foreignId('profile_id')->nullable();
         });
     }

@@ -14,15 +14,10 @@ class StoryFactory extends Factory
     public function definition()
     {
         return [
-            'overall'=>$this->faker->randomElement([1,2,3,4,5]),
-            'advantages'=>$this->faker->sentences(5,true),
-            'risks'=>$this->faker->sentences(5,true),
-            'best_practices'=>$this->faker->sentences(5,true),
-            'climate_conditions'=>$this->faker->sentences(5,true),
-            'season'=>$this->faker->randomElement(['kharif','rabi','any']),
-            'lifetime'=>$this->faker->randomNumber(1,false).' months',
-            'infra'=>$this->faker->sentences(2,true),
-            'services'=>$this->faker->randomElement(['inputs','guidance','market']),
+            'rating'=>$this->faker->randomElement([1,2,3,4,5]),
+            'title'=>$this->faker->sentence(),
+            'review'=>$this->faker->paragraph(),
+            'image_url'=>$this->faker->imageUrl(),
             'links'=>$this->faker->url()
 
             //

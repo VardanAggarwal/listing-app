@@ -30,11 +30,5 @@
       @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$resiliency])
       </div>
     @endif
-    @if($resiliency->agriservices_count)
-      <div class="font-semibold text-lg max-w-7xl  sm:mx-auto mt-4 border-b  py-4">
-        {{__('Related')}} {{__('agriservice')}}
-      @livewire('relationship-filtered-list',['relation'=>'agriservices','model'=>$resiliency])
-      </div>
-    @endif
   </div>
 </x-guest-layout>

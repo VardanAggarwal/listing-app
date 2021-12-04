@@ -13,4 +13,7 @@ class Category extends Model
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable');
     }
+    public function interested_profiles(){
+        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class);
+    }
 }

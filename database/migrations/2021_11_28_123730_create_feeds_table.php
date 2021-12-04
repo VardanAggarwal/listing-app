@@ -16,8 +16,8 @@ class CreateFeedsTable extends Migration
         Schema::create('feeds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('feedable_id');
-            $table->string('feedable_type');
+            $table->integer('feedable_id')->nullable();
+            $table->string('feedable_type')->nullable();
             $table->foreignId('resiliency_id');
         });
     }

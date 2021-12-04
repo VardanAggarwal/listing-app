@@ -5,7 +5,7 @@
                 @unless(App::isLocale('hi'))
                     {{__('for')}} 
                 @endunless
-                <a href="/{{Str::lower(Str::plural(Str::replace('App\\Models\\','',$item->resiliency->resilient_type)))}}/{{$item->resiliency->resilient_id}}"  class="underline">{{Str::ucfirst($item->resiliency->name)}}</a>
+                <a href="/resiliencies/{{$item->resiliency->id}}"  class="underline">{{Str::ucfirst($item->resiliency->name)}}</a>
                 @if(App::isLocale('hi'))
                     {{__('for')}} 
                 @endif

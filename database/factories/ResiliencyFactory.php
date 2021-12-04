@@ -17,7 +17,7 @@ class ResiliencyFactory extends Factory
             'name'=>$this->faker->unique()->word(),
             'description'=>$this->faker->paragraph(),
             'links'=>$this->faker->url(),
-            'image'=>$this->faker->imageUrl()
+            'image_url'=>$this->faker->imageUrl()
             //
         ];
     }

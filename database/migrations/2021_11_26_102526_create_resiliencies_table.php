@@ -18,10 +18,10 @@ class CreateResilienciesTable extends Migration
             $table->timestamps();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->string('links')->nullable();
-            $table->string('image')->nullable();
-            $table->integer('resilient_id')->nullable();
-            $table->string('resilient_type')->nullable();
+            $table->text('links')->nullable();
+            $table->string('image_url')->nullable();
+            $table->json('additional_info')->nullable();
+            $table->json('media')->nullable();
         });
     }
 

@@ -17,13 +17,10 @@ class ListingFactory extends Factory
             'name'=>$this->faker->unique()->word(),
             'type'=>$this->faker->randomElement(['buy','sell']),
             'item_type'=>$this->faker->randomElement(['input','machinery','animal','seed','produce']),
-            'image'=>$this->faker->imageUrl(),
-            'total_qty'=>$this->faker->randomNumber(4,false).' kg',
-            'min_qty'=>$this->faker->randomNumber(3,false).' kg',
+            'image_url'=>$this->faker->imageUrl(),
             'price'=>'Rs. '.$this->faker->randomNumber(3,false).'/kg',
-            'price_negotiable'=>$this->faker->randomElement([true,false]),
-            'logistic_terms'=>$this->faker->sentence(),
-            'payment_terms'=>$this->faker->sentence()
+            'description'=>$this->faker->paragraph(),
+            'location'=>$this->faker->city()
             //
         ];
     }

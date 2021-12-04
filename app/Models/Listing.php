@@ -16,4 +16,7 @@ class Listing extends Model
     public function profile(){
         return $this->belongsTo(Profile::class);
     }
+    public function interested_profiles(){
+        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class);
+    }
 }
