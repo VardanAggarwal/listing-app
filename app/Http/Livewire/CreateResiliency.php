@@ -23,6 +23,7 @@ class CreateResiliency extends Component
     ];
     public function mount(Request $request){
         $this->resiliency=new Resiliency;
+        $this->resiliency->type="crop";
     }
     public function save(){
         if($this->image){
