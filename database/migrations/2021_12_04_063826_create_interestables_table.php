@@ -17,7 +17,7 @@ class CreateInterestablesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('profile_id');
-            $table->string('interest');
+            $table->string('interest')->nullable();
             $table->integer('interestable_id');
             $table->string('interestable_type');
         });

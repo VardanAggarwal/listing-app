@@ -2,7 +2,7 @@
     @foreach ($feed as $item)
         <div class=" my-5 px-4 py-4 mx-4 rounded-lg shadow border">
         @if($type=='resiliency')
-            <x-resiliency-card :resiliency="$item"/>
+            <x-resiliency-card :model="$item"/>
         @else
             @php
             $component=$type.'-card';

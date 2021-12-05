@@ -17,6 +17,7 @@ class CreateResilienciesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->unique();
+            $table->string('type')->nullable();
             $table->text('description')->nullable();
             $table->text('links')->nullable();
             $table->string('image_url')->nullable();

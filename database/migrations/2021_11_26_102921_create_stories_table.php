@@ -20,7 +20,7 @@ class CreateStoriesTable extends Migration
             $table->string('title')->nullable();
             $table->string('image_url')->nullable();
             $table->text('review')->nullable();
-            $table->text('links')->nullable();
+            $table->string('links')->nullable();
             $table->json('media')->nullable();
             $table->json('additional_info')->nullable();
             $table->foreignId('profile_id')->nullable();

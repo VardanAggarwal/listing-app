@@ -4,15 +4,20 @@
     <form wire:submit.prevent="save">
         @csrf
         <h1 class="font-bold text-lg mb-4">
-          @if($type=='Agrimodel')
-          {{__('ui.new_m')}} {{trans_choice('ui.models.agrimodels',1)}}
-          @else
-          {{__('ui.new_f')}} {{trans_choice('ui.models.'.$type.'s',1)}}
-          @endif
+          {{__('ui.new_f')}} {{__('ui.models.resiliencies')}}
         </h1>
         <div class="mt-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="resiliency.name" autofocus/>
+        </div>
+        <div class="mt-4">
+            <x-jet-label for="type" value="{{__('Type')}}"/>
+            <select wire:model="resiliency.type">
+                <option value="crop">{{__('crop')}}</option>
+                <option value="agribusiness">{{__('agribusiness')}}</option>
+                <option value="model">{{__('model')}}</option>
+                <option value="practice">{{__('practice')}}</option>
+            </select>
         </div>
         <div class="mt-4">
             <x-jet-label for="description" value="{{ __('Description') }}" />
@@ -35,5 +40,4 @@
             </x-jet-button>
         </div>
     </form>
-
 </div>

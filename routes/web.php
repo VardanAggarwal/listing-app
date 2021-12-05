@@ -8,9 +8,12 @@ use \App\Http\Controllers\StoryController;
 use \App\Http\Controllers\ProfileController;
 use \App\Http\Livewire\FeedList;
 use \App\Http\Livewire\ListingList;
-use \App\Http\Livewire\PracticeList;
 use \App\Http\Livewire\StoryList;
+use \App\Http\Livewire\ResiliencyList;
 use \App\Http\Livewire\Search;
+use \App\Http\Livewire\InterestSearch;
+use \App\Http\Livewire\CreateStory;
+use \App\Http\Livewire\CreateListing;
 use \App\Http\Livewire\CreateResiliency;
 
 /*
@@ -29,21 +32,24 @@ Route::get('/search',Search::class)->name('search');
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/stories',StoryList::class)->name('stories');
+Route::get('/resiliencies',ResiliencyList::class)->name('resiliencies');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 //create pages
-Route::get('/listings/new',[ListingController::class,'create'])->middleware(['auth']);
-Route::get('/stories/new',[StoryController::class,'create'])->middleware(['auth']);
+Route::get('/listings/new',CreateListing::class)->middleware(['auth']);
+Route::get('/stories/new',CreateStory::class)->middleware(['auth']);
+Route::get('/resiliencies/new',CreateResiliency::class)->middleware(['auth']);
 
 //detail pages
 Route::get('/listings/{listing}',[ListingController::class,'show']);
 Route::get('/stories/{story}',[StoryController::class,'show']);
 Route::get('/profiles/{profile}',[ProfileController::class,'show']);
 Route::get('/categories/{category}',[CategoryController::class,'show']);
+Route::get('/resiliencies/{resiliency}',[ResiliencyController::class,'show']);
 
 //Onboarding
 Route::get('/profile',[ProfileController::class,'create'])->middleware(['auth']);
 Route::post('/profiles',[ProfileController::class,'store'])->middleware(['auth']);
-Route::get('/profile/interests',[ProfileController::class,'interests'])->middleware(['auth']);
+Route::get('/profile/interests',InterestSearch::class)->middleware(['auth']);
 
 
 

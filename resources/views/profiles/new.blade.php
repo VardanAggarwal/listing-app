@@ -9,8 +9,8 @@
 			  {{__('ui.welcome')}}
 			</h1>
 			<div class="mt-4">
-				<x-jet-label for="business_name" value="{{ __('ui.business_name') }}" />
-				<x-jet-input id="business_name" class="block mt-1 w-full" type="text" name="business_name" :value="$profile?$profile->business_name:''" autofocus />
+				<x-jet-label for="name" value="{{ __('ui.name') }}" />
+				<x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="$profile?$profile->name:''" autofocus />
 			</div>
 			<div class="mt-4">
 				<x-jet-label for="address" value="{{ __('ui.address') }}" />
@@ -23,16 +23,6 @@
 			<div class="mt-4">
 				<x-jet-label for="contact_number" value="{{ __('ui.contact_number') }}" />
 				<x-jet-input id="contact_number" class="block mt-1 w-full" type="text" name="contact_number" :value="$profile?$profile->contact_number:''" autofocus />
-			</div>
-			<div class="mt-4">
-				<x-jet-label>{{__('ui.role_selection')}}</x-jet-label>
-				<div class="grid grid-cols-4">
-					@foreach($roles as $role)
-						<div class="col-span-2 sm:col-span-1"><x-jet-checkbox name="userType[]" value="{{$role->id}}" :checked='$profile?($profile->userTypes->contains($role)?"checked":false):false'
-							/>
-							{{__($role->name)}}</div>
-					@endforeach
-				</div>
 			</div>
 			<div class="grid w-full mt-4 justify-items-center">
 				<x-jet-button class="max-w-md justify-center">

@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 class RelationshipFilteredList extends Component
 {
-    public $perPage = 1;
+    public $perPage = 3;
     public $loading=false;
     protected $feed;
     public $relation;
     public $model;
     public function loadMore()
        {
-           $this->perPage += 3;
+           $this->perPage += 5;
        }
     public function mount($relation,$model){
         $this->relation=$relation;

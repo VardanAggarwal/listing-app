@@ -2,10 +2,10 @@
 return [
   "new_m"=>"New",
   "new_f"=>"New",
-  "contact_for_services"=>"Contact :Name at :contact for :services",
+  "contact_for_services"=>"For more information contact :Name at :contact.",
   "serviceable_audience"=>":Audience with atleast :requirement",
   "welcome"=>"Hello! Welcome to the Seed Savers Club, India's first progressive farmers' community. \nIntroduce yourself to the farmers of the community.",
-  "business_name"=>"Name of your farm/company",
+  "business_name"=>"Your name",
   "address"=>"Where are you located?",
   "pincode"=>"Your pincode",
   "contact_number"=>"Your contact number",
@@ -14,8 +14,10 @@ return [
   "models"=>[
     "stories"=>"Experiences",
     "listings"=>"Buy/Sell",
+    "resiliencies"=>"Modern farming",
     "feed"=>"What's new"
   ],
   "add_new_f"=>"Add new :name",
-  "add_new_m"=>"Add new :name"
+  "add_new_m"=>"Add new :name",
+  "search"=>"Search"
 ];

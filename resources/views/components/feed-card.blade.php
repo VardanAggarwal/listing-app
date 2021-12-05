@@ -11,17 +11,13 @@
                 @endif
                 ,
             @endif
-            @if($item_type=='story'||$item_type=='agrimodel')
-            {{__('ui.new_m')}}
-            @else
             {{__('ui.new_f')}}
-            @endif 
             <a href="/{{Str::plural($item_type)}}/" class="underline">
-            {{Str::ucfirst(__($item_type))}}</a>
+            {{Str::ucfirst(__('ui.models.'.Str::plural($item_type)))}}</a>
         </span>
     </div>
     @if($type=='resiliency')
-        <x-resiliency-card :resiliency="$item->resiliency"/>
+        <x-resiliency-card :model="$item->resiliency"/>
     @else
         @php
         $component=$item_type.'-card';

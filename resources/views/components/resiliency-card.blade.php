@@ -1,15 +1,24 @@
-<div class="grid grid-cols-1 sm:grid-cols-8 gap-4">
-    @if($resiliency->image)
-    <div class="sm:col-span-1 justify-self-center"><img src="{{$resiliency->image}}" class="max-h-32" /></div>
-    @endif
-    <div class="sm:col-span-7">
-        <span class="font-semibold text-xl text-green-900">{{$resiliency->name}}</span>
-        <div class="flex">
-          @foreach ($resiliency->categories as $category)
-          <a href="/categories/{{$category->id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$category->name}}</a>
-          @endforeach
+<div class="">
+    <div class="flex justify-between">
+        <a href="/resiliencies/{{$model->id}}"><span class="font-semibold text-xl text-green-900">{{$model->name}}</span></a>
+        <span class="text-sm text-gray-500">{{__($model->type)}}</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 items-center">
+        @if($model->image_url)
+        <div class="sm:col-span-1 justify-self-center">
+            <a href="/resiliencies/{{$model->id}}"><img src="{{$model->image_url}}" class="rounded-lg h-24 w-24" /></a>
         </div>
-        <div class="overflow-ellipsis overflow-hidden h-12">{{$resiliency->description}}</div>
-        <a href="/resiliencies/{{$resiliency->id}}" class="underline">{{__('See more')}}...</a>
+        @endif
+        <div class="sm:col-span-7">
+            <div class="flex overflow-auto">
+              @foreach ($model->categories as $category)
+              <a href="/categories/{{$category->id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$category->name}}</a>
+              @endforeach
+            </div>
+            <a href="/resiliencies/{{$model->id}}">
+                <div class="overflow-ellipsis overflow-hidden h-12">{{$model->description}}</div>
+            </a>
+            <a href="/resiliencies/{{$model->id}}" class="underline">{{__('See more')}}...</a>
+        </div>
     </div>
 </div>

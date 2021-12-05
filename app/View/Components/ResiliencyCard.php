@@ -11,10 +11,10 @@ class ResiliencyCard extends Component
      *
      * @return void
      */
-    public $resiliency;
-    public function __construct($resiliency)
+    public $model;
+    public function __construct($model)
     {
-        $this->resiliency=$resiliency;
+        $this->model=$model;
         //
     }
 

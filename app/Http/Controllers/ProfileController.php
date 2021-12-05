@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
-use App\Models\UserType;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -27,7 +26,12 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('profiles.new',['roles'=>UserType::all(),'profile'=>$user=Auth::user()->profile]);
+        $profile=$user=Auth::user()->profile;
+        if(!$profile){
+            $profile=new Profile;
+            $profile->name=Auth::user()->name;
+        }
+        return view('profiles.new',['profile'=>$profile]);
         //
     }
 
@@ -42,7 +46,7 @@ class ProfileController extends Controller
         $raw=$request->all();
         $profile_id=$raw['id'];
         $validated = $request->validate([
-            'business_name' => '',
+            'name' => '',
             'address' => '',
             'pincode'=>'',
             'contact_number'=>''
@@ -51,12 +55,6 @@ class ProfileController extends Controller
 
         $profile=$user->profile()->findOrNew($profile_id);
         $profile->fill($validated)->save();
-        
-        if(array_key_exists('userType', $raw))
-        {
-            $roles=array_map('intval', $raw['userType']);
-            $profile->userTypes()->sync($roles);
-        }
         return redirect('/profile/interests');
         //
     }
@@ -69,7 +67,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        $profile->loadCount(['listings','stories','agriservices']);
+        $profile->loadCount(['listings','stories']);
         return view('profiles.profile',['profile'=>$profile]);
         //
     }
@@ -109,6 +107,6 @@ class ProfileController extends Controller
     }
     public function interests()
     {
-        return view('profiles.interests',['profile'=>Auth::user()->profile->load('resiliencies')]);
+        return view('profiles.interests',['profile'=>Auth::user()->profile->load('interest_resiliencies')]);
     }
 }

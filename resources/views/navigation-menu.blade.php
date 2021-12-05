@@ -21,6 +21,16 @@
 						{{ __('ui.models.stories') }}
 					</x-jet-nav-link>
 				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-jet-nav-link href="{{ route('resiliencies') }}" :active="request()->routeIs('resiliencies')">
+						{{ __('ui.models.resiliencies') }}
+					</x-jet-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
+						<img src="/assets/search.png" class="w-4 mr-1"> <span>{{__('ui.search') }}</span>
+					</x-jet-nav-link>
+				</div>
 			</div>
    @auth
  			<div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -167,7 +177,17 @@
 		</div>
 		<div class="pt-2 pb-3 space-y-1">
 			<x-jet-responsive-nav-link href="{{ route('stories') }}" :active="request()->routeIs('stories')">
-				{{trans_choice('ui.models.stories',1)}}
+				{{__('ui.models.stories')}}
+			</x-jet-responsive-nav-link>
+		</div>
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('resiliencies') }}" :active="request()->routeIs('resiliencies')">
+				{{__('ui.models.resiliencies')}}
+			</x-jet-responsive-nav-link>
+		</div>
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')" class="inline-flex">
+				<img src="/assets/search.png" class="w-4 h-4 mr-1"> <span>{{__('ui.search') }}</span>
 			</x-jet-responsive-nav-link>
 		</div>
 		<!-- Responsive Settings Options -->
