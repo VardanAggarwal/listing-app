@@ -16,7 +16,7 @@ class CreateReliablesTable extends Migration
         Schema::create('reliables', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('resiliency_id');
+            $table->foreignId('resiliency_id')->constrained();
             $table->integer('reliable_id');
             $table->string('reliable_type');
         });
