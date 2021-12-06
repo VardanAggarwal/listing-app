@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             $table->text('address')->nullable();
             $table->string('pincode')->nullable();
             $table->string('contact_number')->nullable();
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained();
         });
     }
 

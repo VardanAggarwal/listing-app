@@ -23,7 +23,7 @@ class CreateStoriesTable extends Migration
             $table->string('links')->nullable();
             $table->json('media')->nullable();
             $table->json('additional_info')->nullable();
-            $table->foreignId('profile_id')->nullable();
+            $table->foreignId('profile_id')->nullable()->constrained();
         });
     }
 

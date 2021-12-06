@@ -26,7 +26,7 @@ class CreateListingsTable extends Migration
             $table->string('location')->nullable();
             $table->date('expiry')->nullable();
             $table->json('additional_info')->nullable();
-            $table->foreignId('profile_id')->nullable();
+            $table->foreignId('profile_id')->nullable()->constrained();
         });
     }
 

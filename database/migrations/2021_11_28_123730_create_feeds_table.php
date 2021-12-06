@@ -18,7 +18,7 @@ class CreateFeedsTable extends Migration
             $table->timestamps();
             $table->integer('feedable_id')->nullable();
             $table->string('feedable_type')->nullable();
-            $table->foreignId('resiliency_id');
+            $table->foreignId('resiliency_id')->constrained();
         });
     }
 

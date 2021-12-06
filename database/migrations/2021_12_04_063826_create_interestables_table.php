@@ -16,7 +16,7 @@ class CreateInterestablesTable extends Migration
         Schema::create('interestables', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('profile_id');
+            $table->foreignId('profile_id')->constrained();
             $table->string('interest')->nullable();
             $table->integer('interestable_id');
             $table->string('interestable_type');
