@@ -13,7 +13,7 @@
       @endif
       <div class="col-span-1 sm:col-span-6">
         <div class="">
-          <div class="">{{$story->review}}</div>
+          <div class="prose">{!!$story->review!!}</div>
         </div>
         @if($story->profile)
           @if($story->profile->contact_number)

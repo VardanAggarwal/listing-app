@@ -12,7 +12,7 @@
             <a href="/categories/{{$category->id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$category->name}}</a>
             @endforeach
           </div>
-          <div class="">{{$resiliency->description}}</div>
+          <div class="prose">{!!$resiliency->description!!}</div>
           @if($resiliency->links)
             <a href="{{$resiliency->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
           @endif

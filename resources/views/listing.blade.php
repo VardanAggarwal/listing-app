@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="mt-4">      
-     <div class="">{{$listing->description}}</div>
+     <div class="prose">{!!$listing->description!!}</div>
     </div>
     @if($listing->profile)
       @if($listing->profile->contact_number)

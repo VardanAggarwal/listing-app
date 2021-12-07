@@ -15,6 +15,7 @@
         @livewireStyles
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        @stack('scripts')
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

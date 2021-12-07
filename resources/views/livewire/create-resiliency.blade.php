@@ -19,9 +19,9 @@
                 <option value="practice">{{__('practice')}}</option>
             </select>
         </div>
-        <div class="mt-4">
+        <div class="mt-4" wire:ignore>
             <x-jet-label for="description" value="{{ __('Description') }}" />
-            <x-jet-input id="description" class="block mt-1 w-full" type="text" name="description" wire:model="resiliency.description" autofocus/>
+            <textarea id="description" class="block mt-1 w-full tinymce" type="text" name="description" wire:model="resiliency.description"></textarea>
         </div>
         <div class="mt-4">
             <x-jet-label for="links" value="{{ __('Link') }}" />
@@ -34,10 +34,30 @@
                 <img src="{{$image->temporaryUrl()}}">
             @endif
         </div>
-        <div class="grid w-full mt-4 justify-items-center">
+        <div class="grid w-full mt-4 justify-items-center" wire:loading.class="opacity-20" wire:target="save">
             <x-jet-button class="max-w-md justify-center" type="submit">
                 {{ __('Submit') }}
             </x-jet-button>
         </div>
     </form>
 </div>
+@once
+    @push('scripts')
+        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+         <script>
+           tinymce.init({
+             selector: 'textarea.tinymce', // Replace this CSS selector to match the placeholder element for TinyMCE
+             plugins: 'code table lists',
+             toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+             setup: function (editor) {
+                         editor.on('init change', function () {
+                             editor.save();
+                         });
+                         editor.on('change', function (e) {
+                         @this.set('resiliency.description', editor.getContent());
+                         });
+                      }
+           });
+         </script>
+    @endpush
+@endonce

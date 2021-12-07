@@ -20,7 +20,7 @@ class CreateStory extends Component
     public $selected=[];
     public $search_resiliency;
     protected $rules=[
-        'story.rating'=>'integer',
+        'story.rating'=>'required|integer',
         'story.title'=>'string',
         'story.review'=>'text',
         'story.image_url'=>'string',
@@ -28,6 +28,7 @@ class CreateStory extends Component
     ];
     public function mount(){
         $this->story=new Story;
+        $this->story->rating=0;
     }
     public function toggleSelected($item){
         if(in_array($item,$this->selected)){
@@ -43,6 +44,9 @@ class CreateStory extends Component
             ]);
         $this->story->image_url=Storage::url($this->image->store('public/photos'));
         }
+        $this->validate([
+            'story.rating'=>'required|integer'
+        ]);
         $this->story->save();
         $this->story->resiliencies()->sync($this->selected);
         return redirect('/stories/'.$this->story->id);
