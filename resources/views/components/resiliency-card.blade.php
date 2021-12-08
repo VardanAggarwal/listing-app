@@ -16,7 +16,7 @@
               @endforeach
             </div>
             <a href="/resiliencies/{{$model->id}}">
-                <div class="overflow-ellipsis overflow-hidden h-12">{!!$model->description!!}</div>
+                <div class="overflow-ellipsis overflow-hidden h-12">{!!strip_tags($model->description)!!}</div>
             </a>
             <a href="/resiliencies/{{$model->id}}" class="underline">{{__('See more')}}...</a>
         </div>
