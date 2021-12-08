@@ -24,10 +24,6 @@
             <textarea id="description" class="block mt-1 w-full tinymce" type="text" name="description" wire:model="resiliency.description"></textarea>
         </div>
         <div class="mt-4">
-            <x-jet-label for="links" value="{{ __('Link') }}" />
-            <x-jet-input id="links" class="block mt-1 w-full" type="text" name="links" wire:model="resiliency.links" autofocus/>
-        </div>
-        <div class="mt-4">
             <x-jet-label for="image" value="{{ __('Image') }}" />
             <input id="image" class="block mt-1 w-full" type="file" name="image" wire:model="image" autofocus/>
             @if($image)

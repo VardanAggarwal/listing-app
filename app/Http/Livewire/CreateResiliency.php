@@ -22,8 +22,7 @@ class CreateResiliency extends Component
         'resiliency.name'=>'string',
         'resiliency.type'=>'string',
         'resiliency.description'=>'text',
-        'resiliency.image_url'=>'string',
-        'resiliency.links'=>'string'
+        'resiliency.image_url'=>'string'
     ];
     public function mount(Request $request){
         $this->resiliency=new Resiliency;

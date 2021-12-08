@@ -23,10 +23,6 @@
             <textarea id="review" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm tinymce" type="text" name="review" wire:model="story.review"> </textarea>
         </div>
         <div class="mt-4">
-            <x-jet-label for="links" value="{{ __('Link') }}" />
-            <x-jet-input id="links" class="block mt-1 w-full" type="text" name="links" wire:model="story.links" />
-        </div>
-        <div class="mt-4">
             <x-jet-label for="image" value="{{ __('Image') }}" />
             <input id="image" class="block mt-1 w-full" type="file" name="image" wire:model="image" />
             @if($image)

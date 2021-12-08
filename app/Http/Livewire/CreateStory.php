@@ -24,8 +24,7 @@ class CreateStory extends Component
         'story.rating'=>'required|integer',
         'story.title'=>'string',
         'story.review'=>'text',
-        'story.image_url'=>'string',
-        'story.links'=>'string'
+        'story.image_url'=>'string'
     ];
     public function mount(){
         $this->story=new Story;
