@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Listing;
 use App\Models\Resiliency;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class CreateListing extends Component
 {
@@ -49,6 +50,7 @@ class CreateListing extends Component
             ]);
         $this->listing->image_url=Storage::url($this->image->store('public/photos'));
         }
+        $this->listing->profile()->associate(Auth::user()->profile);
         $this->listing->save();
         $this->listing->resiliencies()->sync($this->selected);
         return redirect('/listings/'.$this->listing->id);

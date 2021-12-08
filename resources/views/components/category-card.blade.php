@@ -5,5 +5,5 @@
       <a href="/resiliencies/{{$resiliency->id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$resiliency->name}}</a>
     @endforeach
   </div>
-  <a href="/{{categories/{{$model->id}}" class="underline">{{__('See more...')}}</a>
+  <a href="/categories/{{$model->id}}" class="underline">{{__('See more...')}}</a>
 </div>

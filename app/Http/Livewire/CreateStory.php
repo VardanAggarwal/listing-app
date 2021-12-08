@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Story;
 use App\Models\Resiliency;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class CreateStory extends Component
 {
@@ -47,6 +48,7 @@ class CreateStory extends Component
         $this->validate([
             'story.rating'=>'required|integer'
         ]);
+        $this->story->profile()->associate(Auth::user()->profile);
         $this->story->save();
         $this->story->resiliencies()->sync($this->selected);
         return redirect('/stories/'.$this->story->id);
