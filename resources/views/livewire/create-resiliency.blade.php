@@ -34,6 +34,26 @@
                 <img src="{{$image->temporaryUrl()}}">
             @endif
         </div>
+        <div class="mt-4">
+            <x-jet-label for="categories" value="{{__('ui.models.categories')}}"/>
+            <div class="flex flex-wrap my-2 gap-2">
+                @foreach($categories as $result)
+                    <div class="p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
+                        {{$result->name}}
+                    </div>
+                @endforeach
+            </div>
+            <x-jet-input type="text" placeholder="{{__('Type to search')}}" name="categories" wire:model="search_category" class="w-full"/>
+            @if($results)
+            <div class="flex flex-wrap mt-5 gap-2">
+                @foreach($results as $result)
+                    <div class=" p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
+                        {{$result->name}}
+                    </div>
+                @endforeach
+            </div>
+            @endif
+        </div>
         <div class="grid w-full mt-4 justify-items-center" wire:loading.class="opacity-20" wire:target="save">
             <x-jet-button class="max-w-md justify-center" type="submit">
                 {{ __('Submit') }}

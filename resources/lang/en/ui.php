@@ -15,6 +15,7 @@ return [
     "stories"=>"Experiences",
     "listings"=>"Buy/Sell",
     "resiliencies"=>"Modern farming",
+    "categories"=>"Categories",
     "feed"=>"What's new"
   ],
   "add_new_f"=>"Add new :name",

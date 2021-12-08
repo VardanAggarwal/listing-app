@@ -15,6 +15,7 @@ return [
     "stories"=>"अनुभव",
     "listings"=>"खरीदी/बिक्री",
     "resiliencies"=>"उन्नत खेती",
+    "categories"=>"श्रेणी",
     "feed"=>"नया क्या है?"
   ],
   "add_new_f"=>"नयी :name",

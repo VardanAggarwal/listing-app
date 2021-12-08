@@ -18,7 +18,7 @@
         </div>
         <div>
           <a href="/stories/{{$model->id}}">
-            <div class="overflow-clip overflow-hidden max-h-12 max-w-full">{{$model->review}}</div>
+            <div class="overflow-clip overflow-hidden max-h-12 max-w-full">{!!$model->review!!}</div>
           </a>
           <a href="/stories/{{$model->id}}" class="underline">{{__('See more')}}...</a>
         </div>
