@@ -72,8 +72,8 @@
          <script>
            tinymce.init({
              selector: 'textarea.tinymce', // Replace this CSS selector to match the placeholder element for TinyMCE
-             plugins: 'code table lists',
-             toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+             plugins: 'code lists link paste autolink media',
+             toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | link | media',
              setup: function (editor) {
                          editor.on('init change', function () {
                              editor.save();
@@ -81,7 +81,9 @@
                          editor.on('change', function (e) {
                          @this.set('resiliency.description', editor.getContent());
                          });
-                      }
+                      },
+             smart_paste:true,
+             default_link_target: '_blank'
            });
          </script>
     @endpush
