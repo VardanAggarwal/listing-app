@@ -38,6 +38,7 @@ Route::get('/categories',[CategoryController::class,'index'])->name('categories'
 Route::get('/listings/new',CreateListing::class)->middleware(['auth']);
 Route::get('/stories/new',CreateStory::class)->middleware(['auth']);
 Route::get('/resiliencies/new',CreateResiliency::class)->middleware(['auth']);
+Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
 
 //detail pages
 Route::get('/listings/{listing}',[ListingController::class,'show']);
@@ -53,7 +54,7 @@ Route::get('/profile/interests',InterestSearch::class)->middleware(['auth']);
 
 
 
-Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
+
 Route::post('/categories',[CategoryController::class,'store']);
 Route::get('/dashboard', function () {
     return view('dashboard');
