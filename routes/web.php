@@ -53,6 +53,8 @@ Route::post('/profiles',[ProfileController::class,'store'])->middleware(['auth']
 Route::get('/profile/interests',InterestSearch::class)->middleware(['auth']);
 
 
+
+
 Route::post('/categories',[CategoryController::class,'store']);
 Route::get('/dashboard', function () {
     return view('dashboard');
