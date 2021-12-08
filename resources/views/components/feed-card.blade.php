@@ -11,7 +11,11 @@
                 @endif
                 ,
             @endif
-            {{__('ui.new_f')}}
+            @if($item_type=='story')
+                {{__('ui.new_m')}}
+            @else
+                {{__('ui.new_f')}}
+            @endif
             <a href="/{{Str::plural($item_type)}}/" class="underline">
             {{Str::ucfirst(__('ui.models.'.Str::plural($item_type)))}}</a>
         </span>

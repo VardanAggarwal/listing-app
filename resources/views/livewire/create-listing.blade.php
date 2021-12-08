@@ -58,10 +58,15 @@
             @if($results)
             <div class="flex flex-wrap mt-5 gap-2">
                 @foreach($results as $result)
-                    <div class=" p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
+                    <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
                         {{$result->name}}
                     </div>
                 @endforeach
+                @if($this->search_resiliency && !$this->results->contains('name',$this->search_resiliency))
+                    <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border" wire:click="newResiliency">
+                        {{$this->search_resiliency}}+
+                    </div>
+                @endif
             </div>
             @endif
         </div>

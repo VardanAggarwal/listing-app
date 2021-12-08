@@ -38,6 +38,11 @@ class CreateStory extends Component
         array_push($this->selected,$item);
         }        
     }
+    public function newResiliency(){
+        $resiliency=Resiliency::create(['name'=>$this->search_resiliency]);
+        $this->search_resiliency='';
+        array_push($this->selected,$resiliency->id);
+    }
     public function save(){
         if($this->image){
             $this->validate([

@@ -37,6 +37,11 @@ class CreateResiliency extends Component
         array_push($this->selected,$item);
         }        
     }
+    public function newCategory(){
+        $category=Category::create(['name'=>$this->search_category]);
+        $this->search_category='';
+        array_push($this->selected,$category->id);
+    }
     public function save(){
         if($this->image){
             $this->validate([
