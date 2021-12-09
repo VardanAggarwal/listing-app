@@ -33,6 +33,7 @@ class CreateListing extends Component
     public function mount(){
         $this->listing=new Listing;
         $this->listing->type="sell";
+        $this->listing->location=Auth::user()->profile->address;
         $this->listing->item_type="input";
         $this->results=Resiliency::all();
     }
