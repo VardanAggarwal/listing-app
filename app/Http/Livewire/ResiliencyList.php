@@ -17,7 +17,7 @@ class ResiliencyList extends Component
        }
     public function render()
     {
-        $this->feed=Resiliency::orderByDesc('id')->cursorPaginate($this->perPage);
+        $this->feed=Resiliency::withCount('stories')->withAvg('stories','rating')->orderByDesc('stories_count')->cursorPaginate($this->perPage);
         return view('livewire.resiliency-list',['feed'=>$this->feed])->layout('layouts.guest');
     }
 }

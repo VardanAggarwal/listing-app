@@ -9,7 +9,7 @@
       <div class="sm:col-span-7">
         <div class="flex overflow-auto">
           @foreach ($model->resiliencies as $resiliency)
-            <a href="/resiliencies/{{$resiliency->id}}" class="mr-4 inline-flex items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$resiliency->name}}</a>
+            <a href="/resiliencies/{{$resiliency->id}}" class="mr-4 whitespace-nowrap items-center py-1 px-2 bg-gray-800 rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:ring focus:ring-gray-300">{{$resiliency->name}}</a>
           @endforeach
         </div>
         <div class="rating text-yellow-400">
