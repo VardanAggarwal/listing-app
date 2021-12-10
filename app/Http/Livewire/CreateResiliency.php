@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Resiliency;
 use App\Models\Category;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class CreateResiliency extends Component
 {
@@ -50,6 +51,7 @@ class CreateResiliency extends Component
         }
         $this->resiliency->save();
         $this->resiliency->categories()->sync($this->selected);
+        Auth::user()->profile->interest_resiliencies()->attach([$this->resiliency->id]);
         return redirect('/resiliencies/'.$this->resiliency->id);
     }
     public function render()

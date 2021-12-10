@@ -67,7 +67,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        $profile->loadCount(['listings','stories']);
+        $profile->loadCount(['listings','stories','interest_resiliencies']);
         return view('profiles.profile',['profile'=>$profile]);
         //
     }

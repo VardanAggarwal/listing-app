@@ -18,7 +18,7 @@
         @if($story->profile)
           @if($story->profile->contact_number)
           <div class="mt-4">
-            <span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$story->profile->user->name,'contact'=>$story->profile->contact_number])}}</span>         
+            <a href="/profiles/{{$story->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$story->profile->user->name,'contact'=>$story->profile->contact_number])}}</span></a>         
           </div>
           @endif
         @endif
@@ -27,6 +27,11 @@
   @if($story->links)
     <a href="{{$story->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
   @endif
+  <div class="mt-4 w-full grid justify-items-center">
+    <a href="\stories\new">
+      <x-jet-button>{{__('Share your experience')}}</x-jet-button>
+    </a>
+  </div>
   @if($story->resiliencies)
     <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
       {{__('Related')}} {{__('ui.models.resiliencies')}}

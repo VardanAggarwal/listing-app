@@ -1,7 +1,7 @@
-<div class="max-w-7xl mx-4 sm:mx-auto" wire:loading.delay.class='opacity-50'>
+<div class="max-w-7xl sm:mx-auto" wire:loading.delay.class='opacity-50'>
     @foreach ($feed as $item)
-        <div class=" my-5 px-4 py-4 mx-4 rounded-lg shadow border">
-        @if($type=='resiliency')
+        <div class=" my-5 px-4 py-4 rounded-lg shadow border">
+        @if(str_contains($type,'resiliency'))
             <x-resiliency-card :model="$item"/>
         @else
             @php

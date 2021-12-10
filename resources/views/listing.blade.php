@@ -18,10 +18,15 @@
     @if($listing->profile)
       @if($listing->profile->contact_number)
         <div class="mt-4">
-          <span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$listing->profile->user->name,'contact'=>$listing->profile->contact_number])}}</span>
+          <a href="/profiles/{{$listing->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$listing->profile->user->name,'contact'=>$listing->profile->contact_number])}}</span></a>
         </div>
       @endif
     @endif
+    <div class="mt-4 w-full grid justify-items-center">
+      <a href="\listings\new">
+        <x-jet-button>{{__('Add your listing')}}</x-jet-button>
+      </a>
+    </div>
     @if($listing->resiliencies)
       <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
         {{__('Related')}} {{__('ui.models.resiliencies')}}

@@ -29,17 +29,39 @@
       </div>
     </div>
     @if($resiliency->stories_count)
-      <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b py-4">
-        {{__('Related')}} {{__('story')}}
+      <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
+        <div class="flex justify-between items-center">
+          <span class="font-semibold text-lg">{{__('Related')}} {{__('story')}}</span>
+          <a href="\stories\new">
+            <x-jet-button>{{__('Add new')}}</x-jet-button>
+          </a>
+        </div>
       @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$resiliency])
       </div>
+    @else
+    <div class="mt-4 w-full grid justify-items-center">
+      <a href="\stories\new">
+        <x-jet-button>{{__('Share your experience')}}</x-jet-button>
+      </a>
+    </div>
     @endif
 
     @if($resiliency->listings_count)
-      <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-        {{__('Related')}} {{__('listing')}}
+      <div class="max-w-7xl sm:mx-auto mt-4 border-b  py-4">
+        <div class="flex justify-between items-center">
+          <span class="font-semibold text-lg">{{__('Related')}} {{__('listing')}}</span>
+          <a href="\listings\new">
+            <x-jet-button>{{__('Add new')}}</x-jet-button>
+          </a>
+        </div>
       @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$resiliency])
       </div>
+    @else
+    <div class="mt-4 w-full grid justify-items-center">
+      <a href="\listings\new">
+        <x-jet-button>{{__('Add your listing')}}</x-jet-button>
+      </a>
+    </div>
     @endif
   </div>
 </x-guest-layout>

@@ -32,7 +32,7 @@
         </div>
         <div class="mt-4">
             <x-jet-label for="categories" value="{{__('ui.models.categories')}}"/>
-            <div class="flex flex-wrap my-2 gap-2">
+            <div class="flex flex-wrap my-2 gap-2 overflow-auto max-h-40">
                 @foreach($categories as $result)
                     <div class="p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
                         {{$result->name}}
@@ -41,7 +41,7 @@
             </div>
             <x-jet-input type="text" placeholder="{{__('Type to search')}}" name="categories" wire:model="search_category" class="w-full"/>
             @if($results)
-            <div class="flex flex-wrap mt-5 gap-2">
+            <div class="flex flex-wrap mt-5 gap-2 overflow-auto max-h-40">
                 @foreach($results as $result)
                     <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
                         {{$result->name}}
