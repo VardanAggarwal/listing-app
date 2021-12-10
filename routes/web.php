@@ -43,7 +43,7 @@ Route::get('/categories/new',[CategoryController::class,'create'])->middleware([
 //detail pages
 Route::get('/listings/{listing}',[ListingController::class,'show']);
 Route::get('/stories/{story}',[StoryController::class,'show']);
-Route::get('/profiles/{profile}',[ProfileController::class,'show']);
+Route::get('/profiles/{profile}',[ProfileController::class,'show'])->name('showProfile');
 Route::get('/categories/{category}',[CategoryController::class,'show']);
 Route::get('/resiliencies/{resiliency}',[ResiliencyController::class,'show']);
 

@@ -1,5 +1,8 @@
 <x-guest-layout>
   <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+    @if($profile->id==Auth::user()->profile->id)
+      <a href="/profile"><span class="float-right"><i class="fas fa-pen"></i></span></a>
+    @endif
     <div class="text-center sm:text-left font-semibold text-2xl text-green-900">
       <span>{{$profile->user->name}}</span><br>
     </div>
@@ -11,7 +14,7 @@
             <div class="grid justify-items-center sm:justify-items-start">
             </div>
             <span class="font-semibold text-lg">
-              {{$profile->pincode}}, {{$profile->address}}
+              {{$profile->address}}, {{$profile->pincode}}
             </span><br>
             <span>
               {{$profile->contact_number}}
