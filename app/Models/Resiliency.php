@@ -10,7 +10,6 @@ class Resiliency extends Model
     use HasFactory;
     use Searchable;
     protected $guarded=[];
-    protected $with=['stories'];
 
     protected static function booted(){
         static::created(function($resiliency){
