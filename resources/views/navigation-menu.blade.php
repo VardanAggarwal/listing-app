@@ -110,9 +110,11 @@
  							<div class="block px-4 py-2 text-xs text-gray-400">
  								{{ __('Manage Account') }}
  							</div>
- 							<x-jet-dropdown-link href="{{ route('showProfile',['profile'=>Auth::user()->profile->id]) }}">
- 								{{ __('Profile') }}
- 							</x-jet-dropdown-link>
+ 							@if(Auth::user()->profile)
+	 							<x-jet-dropdown-link href="{{ route('showProfile',['profile'=>Auth::user()->profile->id]) }}">
+	 								{{ __('Profile') }}
+	 							</x-jet-dropdown-link>
+ 							@endif
  							<x-jet-dropdown-link href="{{ route('profile.show') }}">
  								{{ __('Settings') }}
  							</x-jet-dropdown-link>
@@ -210,9 +212,11 @@
 
  			<div class="mt-3 space-y-1">
  				<!-- Account Management -->
- 				<x-jet-responsive-nav-link href="/profiles/{{Auth::user()->profile->id}}" :active="request()->routeIs('showProfile')">
- 					{{ __('Profile') }}
- 				</x-jet-responsive-nav-link>
+ 				@if(Auth::user()->profile)
+	 				<x-jet-responsive-nav-link href="/profiles/{{Auth::user()->profile->id}}" :active="request()->routeIs('showProfile')">
+	 					{{ __('Profile') }}
+	 				</x-jet-responsive-nav-link>
+ 				@endif
  				<x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
  					{{ __('Settings') }}
  				</x-jet-responsive-nav-link>

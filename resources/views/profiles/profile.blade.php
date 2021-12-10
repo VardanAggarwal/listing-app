@@ -8,7 +8,12 @@
     </div>
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-8 gap-4">
         @if($profile->user->profile_photo_url)
-        <div class="col-span-1 sm:col-span-1 justify-self-center"><img src="{{$profile->user->profile_photo_url}}" class="max-h-32" /></div>
+        <div class="relative col-span-1 sm:col-span-1 justify-self-center">
+          <img src="{{$profile->user->profile_photo_url}}" class="max-h-32" />
+          @if($profile->id==Auth::user()->profile->id)
+            <a href="{{route('profile.show')}}"><span class="absolute right-0 top-0"><i class="fas fa-pen"></i></span></a>
+          @endif
+        </div>
         @endif
         <div class="text-center sm:text-left col-span-1 sm:col-span-3">
             <div class="grid justify-items-center sm:justify-items-start">
