@@ -47,7 +47,7 @@ class CreateStory extends Component
             $this->validate([
             'image'=>'image'
             ]);
-        $this->story->image_url=Storage::url($this->image->store('public/photos'));
+        $this->story->image_url=Storage::url($this->image->storePublicly('user/story'));
         }
         $this->validate([
             'story.rating'=>'required|integer'

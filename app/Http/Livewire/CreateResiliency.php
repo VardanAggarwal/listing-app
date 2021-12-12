@@ -47,7 +47,7 @@ class CreateResiliency extends Component
             $this->validate([
             'image'=>'image'
             ]);
-        $this->resiliency->image_url=Storage::url($this->image->store('public/photos'));
+        $this->resiliency->image_url=Storage::url($this->image->storePublicly('user/resiliency'));
         }
         $this->resiliency->save();
         $this->resiliency->categories()->sync($this->selected);

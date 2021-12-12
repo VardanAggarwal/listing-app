@@ -54,7 +54,7 @@ class CreateListing extends Component
             $this->validate([
             'image'=>'image'
             ]);
-        $this->listing->image_url=Storage::url($this->image->store('public/photos'));
+        $this->listing->image_url=Storage::url($this->image->storePublicly('user/listing'));
         }
         $this->listing->profile()->associate(Auth::user()->profile);
         $this->listing->save();
