@@ -5,7 +5,13 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-
+        <div class="my-4 border-b pb-4">
+            <span>{{__('Login with social accounts')}}</span>
+            <div class="flex items-center justify-center mt-4 gap-4">
+                <a href="/auth/google/redirect"><span class="rounded-full px-4 py-2 bg-black text-white"><i class="fab fa-google mr-2"></i>{{__('Google')}}</span></a>
+                <a href="/auth/facebook/redirect"><span class="rounded-full px-4 py-2 bg-black text-white"><i class="fab fa-facebook-f mr-2"></i>{{__('Facebook')}}</span></a>
+            </div>
+        </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -50,5 +52,26 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    public function providerLogin($provider)
+    {
+        $user=Socialite::driver($provider)->user();
+        $user=User::firstOrCreate(['email'=>$user->getEmail()],['name'=>$user->getName(),'provider_id'=>$user->getId(),'provider_type'=>$provider]);
+        Auth::login($user,true);
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+    public function matrixLogin(Request $request)
+    {
+        $query=$request->all();
+        $user=User::updateOrCreate(
+            ['email'=>$query['email']],
+            [
+                'name'=>$query['name'],
+                'provider_id'=>$query['id'],
+                'provider_type'=>'matrix'
+            ]
+        );
+        Auth::login($user,true);
+        return redirect($query['redirecturl']);
     }
 }

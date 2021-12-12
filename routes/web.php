@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use \App\Http\Controllers\CategoryController;
 use \App\Http\Controllers\ResiliencyController;
 use \App\Http\Controllers\ListingController;
@@ -65,3 +67,8 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+Route::get('auth/{provider}/redirect',function($provider){
+    return Socialite::driver($provider)->redirect();
+});
+Route::get('auth/{provider}/callback',[AuthenticatedSessionController::class,'providerLogin']);
+Route::get('auth/matrix/login',[AuthenticatedSessionController::class,'matrixLogin']);
