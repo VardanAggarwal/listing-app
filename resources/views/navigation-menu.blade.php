@@ -11,23 +11,17 @@
 				</div>
 
 				<!-- Navigation Links -->
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+				<div class="ml-2 sm:ml-10 grid grid-flow-col gap-2 sm:gap-5">
 					<x-jet-nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
 						{{ __('ui.models.listings') }}
 					</x-jet-nav-link>
-				</div>
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 					<x-jet-nav-link href="{{ route('stories') }}" :active="request()->routeIs('stories')">
 						{{ __('ui.models.stories') }}
 					</x-jet-nav-link>
-				</div>
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 					<x-jet-nav-link href="{{ route('resiliencies') }}" :active="request()->routeIs('resiliencies')">
 						{{ __('ui.models.resiliencies') }}
 					</x-jet-nav-link>
-				</div>
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
+					<x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')" class="hidden sm:flex">
 						<img src="/assets/search.png" class="w-4 mr-1"> <span>{{__('ui.search') }}</span>
 					</x-jet-nav-link>
 				</div>
