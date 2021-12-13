@@ -1,4 +1,4 @@
-<div class=" my-5 px-6 py-4 mx-4 rounded-lg shadow border">
+<div class=" my-5 px-6 py-4 rounded-lg shadow border">
     <div class="border-b border-gray-200 mb-3">
         <span>
             @if($type=='reliable')
