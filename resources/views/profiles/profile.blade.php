@@ -1,8 +1,11 @@
 <x-guest-layout>
   <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
-    @if($profile->id==Auth::user()->profile->id)
-      <a href="/profile"><span class="float-right"><i class="fas fa-pen"></i></span></a>
+    @if(Auth::user())
+      @if($profile->id==Auth::user()->profile->id)
+        <a href="/profile"><span class="float-right"><i class="fas fa-pen"></i></span></a>
+      @endif
     @endif
+
     <div class="text-center sm:text-left font-semibold text-2xl text-green-900">
       <span>{{$profile->user->name}}</span><br>
     </div>
@@ -10,8 +13,10 @@
         @if($profile->user->profile_photo_url)
         <div class="relative col-span-1 sm:col-span-1 justify-self-center">
           <img src="{{$profile->user->profile_photo_url}}" class="max-h-32" />
-          @if($profile->id==Auth::user()->profile->id)
-            <a href="{{route('profile.show')}}"><span class="absolute right-0 top-0"><i class="fas fa-pen"></i></span></a>
+          @if(Auth::user())
+            @if($profile->id==Auth::user()->profile->id)
+              <a href="{{route('profile.show')}}"><span class="absolute right-0 top-0"><i class="fas fa-pen"></i></span></a>
+            @endif
           @endif
         </div>
         @endif
@@ -47,12 +52,14 @@
       @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$profile])
       </div>
     @else
-      @if($profile->id==Auth::user()->profile->id)
-        <div class="mt-4 w-full grid justify-items-center">
-          <a href="\stories\new">
-            <x-jet-button>{{__('Share your experience')}}</x-jet-button>
-          </a>
-        </div>
+      @if(Auth::user())
+        @if($profile->id==Auth::user()->profile->id)
+          <div class="mt-4 w-full grid justify-items-center">
+            <a href="\stories\new">
+              <x-jet-button>{{__('Share your experience')}}</x-jet-button>
+            </a>
+          </div>
+        @endif
       @endif
     @endif
 
@@ -67,12 +74,14 @@
         @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$profile])
       </div>
     @else
-      @if($profile->id==Auth::user()->profile->id)
-        <div class="mt-4 w-full grid justify-items-center">
-          <a href="\listings\new">
-            <x-jet-button>{{__('Add your listing')}}</x-jet-button>
-          </a>
-        </div>
+      @if(Auth::user())
+        @if($profile->id==Auth::user()->profile->id)
+          <div class="mt-4 w-full grid justify-items-center">
+            <a href="\listings\new">
+              <x-jet-button>{{__('Add your listing')}}</x-jet-button>
+            </a>
+          </div>
+        @endif
       @endif
     @endif
   </div>
