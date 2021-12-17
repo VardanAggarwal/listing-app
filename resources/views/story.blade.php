@@ -49,7 +49,10 @@
   </div>
 @push('meta')
 <meta property="og:title" content="{{$story->title}}">
-<meta property="og:description" content="{{Str::limit($story->review,300)}}">
+<meta property="og:url" content="{{url()->current()}}">
+<meta property="og:type" content="article">
+<meta property="fb:app_id" content="852906262106769">
+<meta property="og:description" content="{{Str::limit(strip_tags($story->review),300)}}">
 <meta property="og:image" content="{{$story->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/story.png'}}">
 @endpush
 </x-guest-layout>
