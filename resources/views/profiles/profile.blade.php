@@ -1,6 +1,6 @@
 <x-guest-layout>
   <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
-    @if(Auth::user())
+    @if(Auth::user()->profile)
       @if($profile->id==Auth::user()->profile->id)
         <a href="/profile"><span class="float-right"><i class="fas fa-pen"></i></span></a>
       @endif
@@ -13,7 +13,7 @@
         @if($profile->user->profile_photo_url)
         <div class="relative col-span-1 sm:col-span-1 justify-self-center">
           <img src="{{$profile->user->profile_photo_url}}" class="rounded-full max-h-32" />
-          @if(Auth::user())
+          @if(Auth::user()->profile)
             @if($profile->id==Auth::user()->profile->id)
               <a href="{{route('profile.show')}}"><span class="absolute right-0 top-0"><i class="fas fa-pen"></i></span></a>
             @endif
@@ -52,7 +52,7 @@
       @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$profile])
       </div>
     @else
-      @if(Auth::user())
+      @if(Auth::user()->profile)
         @if($profile->id==Auth::user()->profile->id)
           <div class="mt-4 w-full grid justify-items-center">
             <a href="\stories\new">
@@ -74,7 +74,7 @@
         @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$profile])
       </div>
     @else
-      @if(Auth::user())
+      @if(Auth::user()->profile)
         @if($profile->id==Auth::user()->profile->id)
           <div class="mt-4 w-full grid justify-items-center">
             <a href="\listings\new">
