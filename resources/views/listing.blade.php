@@ -21,6 +21,7 @@
           <a href="/profiles/{{$listing->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$listing->profile->user->name,'contact'=>$listing->profile->contact_number])}}</span></a>
         </div>
       @endif
+      <x-profile-card :model="$listing->profile"></x-profile-card>
     @endif
     <div class="mt-4 w-full grid justify-items-center">
       <a href="\listings\new">
