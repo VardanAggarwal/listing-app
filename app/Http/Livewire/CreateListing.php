@@ -59,7 +59,7 @@ class CreateListing extends Component
         $this->listing->profile()->associate(Auth::user()->profile);
         $this->listing->save();
         $this->listing->resiliencies()->sync($this->selected);
-        Auth::user()->profile->interest_resiliencies()->attach($this->selected);
+        Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching($this->selected);
         return redirect('/listings/'.$this->listing->id);
     }
     public function render()

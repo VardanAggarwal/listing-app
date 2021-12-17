@@ -12,7 +12,7 @@
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-8 gap-4">
         @if($profile->user->profile_photo_url)
         <div class="relative col-span-1 sm:col-span-1 justify-self-center">
-          <img src="{{$profile->user->profile_photo_url}}" class="max-h-32" />
+          <img src="{{$profile->user->profile_photo_url}}" class="rounded-full max-h-32" />
           @if(Auth::user())
             @if($profile->id==Auth::user()->profile->id)
               <a href="{{route('profile.show')}}"><span class="absolute right-0 top-0"><i class="fas fa-pen"></i></span></a>
