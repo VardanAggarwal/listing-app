@@ -53,7 +53,7 @@
 <meta property="og:type" content="article">
 <meta property="fb:app_id" content="852906262106769">
 <meta property="og:description" content="{{Str::limit(strip_tags($story->review),300)}}">
-<meta property="og:image" content="{{$story->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/story.png'}}">
+<meta property="og:image" content="{{$story->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/story_card.png'}}">
 @endpush
 </x-guest-layout>
 
