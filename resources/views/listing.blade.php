@@ -27,7 +27,13 @@
         <x-jet-button>{{__('Add your listing')}}</x-jet-button>
       </a>
     </div>
-    @if($listing->resiliencies)
+    @if($listing->profile->stories_count)
+      <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
+        {{__('Related')}} {{__('ui.models.stories')}}
+      @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$listing->profile])
+      </div>
+    @endif
+    @if($listing->resiliencies_count)
       <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
         {{__('Related')}} {{__('ui.models.resiliencies')}}
       @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$listing])

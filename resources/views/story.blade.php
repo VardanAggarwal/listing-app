@@ -20,6 +20,7 @@
           <div class="mt-4">
             <a href="/profiles/{{$story->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$story->profile->user->name,'contact'=>$story->profile->contact_number])}}</span></a>         
           </div>
+
           @endif
         @endif
     </div>
@@ -32,7 +33,13 @@
       <x-jet-button>{{__('Share your experience')}}</x-jet-button>
     </a>
   </div>
-  @if($story->resiliencies)
+  @if($story->profile->listings_count)
+    <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
+      {{__('Related')}} {{__('ui.models.listings')}}
+    @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$story->profile])
+    </div>
+  @endif
+  @if($story->resiliencies_count)
     <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
       {{__('Related')}} {{__('ui.models.resiliencies')}}
     @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$story])

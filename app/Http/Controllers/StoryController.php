@@ -48,7 +48,9 @@ class StoryController extends Controller
      */
     public function show(Story $story)
     {
-        $story->load(['profile','resiliencies']);
+        $story->load(['profile']);
+        $story->loadCount(['resiliencies']);
+        $story->profile->loadCount('listings');
         return view('story',['story'=>$story]);
     }
 

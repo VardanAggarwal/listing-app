@@ -48,6 +48,7 @@ class ListingController extends Controller
     {
         $listing->load(['profile']);
         $listing->loadCount(['resiliencies']);
+        $listing->profile->loadCount('stories');
         return view('listing',['listing'=>$listing]);
         //
     }
