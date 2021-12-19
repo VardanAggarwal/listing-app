@@ -65,4 +65,11 @@ class User extends \TCG\Voyager\Models\User
 
         return $this->hasOne(Profile::class);
     }
+
+    protected static function booted(){
+        static::created(function($user){
+            $profile=new Profile(['name'=>$user->name]);
+            $user->profile()->save($profile);
+        });
+    }
 }
