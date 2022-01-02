@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\DBAL;
-class ModifyUsersTable extends Migration
+class MakeEmailOptional extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,8 @@ class ModifyUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('password')->nullable()->change();
-            $table->string('provider_id')->nullable();
-            $table->string('provider_type')->nullable();
+            $table->string('email')->nullable()->change();
         });
-        //
     }
 
     /**
@@ -29,9 +26,7 @@ class ModifyUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['provider_type', 'provider_id']);
-            $table->string('password')->nullable(false)->change();
-        });
-
+                    $table->string('email')->nullable(false)->change();
+                });
     }
 }
