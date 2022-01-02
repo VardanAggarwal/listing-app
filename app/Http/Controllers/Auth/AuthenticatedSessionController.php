@@ -114,7 +114,7 @@ function extract_userinfo($response){
             }
         });
         if($threepids){
-            $user["email"]==$threepids[0]["address"];
+            $user["email"]=$threepids[0]["address"];
         }
         else{
             $user["email"]=null;
