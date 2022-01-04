@@ -16,7 +16,7 @@ class CardInterests extends Component
             Auth::user()->profile->interest_resiliencies()->toggle([$this->model->id]);
         }
         else{
-            return redirect('/login');
+            return redirect()->guest('login')->with('status', 'Please login to perform this action');
         }
     }
     public function render()

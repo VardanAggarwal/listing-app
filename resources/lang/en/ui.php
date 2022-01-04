@@ -20,5 +20,6 @@ return [
   ],
   "add_new_f"=>"Add new :name",
   "add_new_m"=>"Add new :name",
-  "search"=>"Search"
+  "search"=>"Search",
+  "interest_help"=>"Farmers who want to add this or are already implementing this on their farms."
 ];

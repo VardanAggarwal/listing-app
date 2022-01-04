@@ -12,6 +12,9 @@
         <p class="text-right">{{$resiliency->stories->count().' '.__('ui.models.stories')}}</p>
       </div>
     </div>
+    <div>
+        @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 border-b py-4">
       @if($resiliency->image_url)
       <div class="sm:col-span-1 justify-self-center"><img src="{{$resiliency->image_url}}" class="rounded-lg h-24 w-24" /></div>
