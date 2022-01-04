@@ -3,14 +3,14 @@
         @if(Auth::user())
             @if(Auth::user()->profile)
                 @if(Auth::user()->profile->interest_resiliencies->contains($model))
-                    <span class="text-green-500"><i class="fas fa-heart"></i></span>
+                    <span class="text-green-500"><i class="fas fa-bookmark"></i></span>
                 @else
-                    <span class="text-green-500"><i class="far fa-heart"></i></span>
+                    <span class="text-green-500"><i class="far fa-bookmark"></i></span>
                     {{__('Show interest')}}
                 @endif
             @endif
         @else
-            <span class="text-green-500"><i class="far fa-heart"></i></span>
+            <span class="text-green-500"><i class="far fa-bookmark"></i></span>
             {{__('Show interest')}}
         @endif
     </a>
