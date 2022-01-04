@@ -27,7 +27,7 @@ class InterestSearch extends Component
         }
     }
     public function save(){
-        Auth::user()->profile->interest_resiliencies()->syncWithPivotValues($this->selected,['interest'=>'like']);
+        Auth::user()->profile->interest_resiliencies()->sync($this->selected);
         return redirect('/');
     }
     public function render()
