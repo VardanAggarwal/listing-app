@@ -9,6 +9,7 @@
             @endif
 
         @else
+            <span class="text-green-500"><i class="far fa-heart"></i></span>
             {{__('Show interest')}}
         @endif
     </a>
