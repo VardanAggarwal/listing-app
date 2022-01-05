@@ -14,7 +14,7 @@ class RelationshipFilteredList extends Component
     public $model;
     public function loadMore()
        {
-           $this->perPage += 5;
+           $this->perPage += 10;
        }
     public function mount($relation,$model){
         $this->relation=$relation;
