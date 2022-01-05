@@ -4,6 +4,9 @@
   </div>
   @foreach ($feed as $item)
     <x-feed-card :item="$item"/>
+    @if ($loop->index==2)
+      <x-card-add-interests/>
+    @endif
   @endforeach
   <div
       x-data="{

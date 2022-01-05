@@ -13,11 +13,15 @@ class InterestSearch extends Component
     public $selected=[];
     public function loadMore()
        {
-           $this->perPage += 10;
+           $this->perPage += 15;
        }   
 
     public function mount(){
-        $this->selected=Auth::user()->profile->interest_resiliencies->modelKeys();
+        if(Auth::user()->profile){
+            $this->selected=Auth::user()->profile->interest_resiliencies->modelKeys();
+        }else{
+            return redirect('/profile');
+        }
     }
     public function toggleSelected($item){
         if(in_array($item,$this->selected)){
@@ -26,12 +30,18 @@ class InterestSearch extends Component
         array_push($this->selected,$item);
         }
     }
+    public function newResiliency(){
+        $resiliency=Resiliency::create(['name'=>$this->query]);
+        $this->query='';
+        array_push($this->selected,$resiliency->id);
+    }
     public function save(){
         Auth::user()->profile->interest_resiliencies()->sync($this->selected);
-        return redirect('/');
+        return redirect('/profile');
     }
     public function render()
     {
+        $this->resiliencies=Resiliency::findMany($this->selected);
         $this->results=Resiliency::search($this->query)->paginate($this->perPage);
         return view('livewire.interest-search',['results'=>$this->results,'selected'=>$this->selected])->layout('layouts.guest');
     }

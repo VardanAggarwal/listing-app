@@ -36,6 +36,7 @@
         </div>
       @endif
     </div>
+    <x-card-add-interests/>
     @if($resiliency->stories_count)
       <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
         <div class="flex justify-between items-center">

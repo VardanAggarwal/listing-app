@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
@@ -68,6 +69,7 @@ class AuthenticatedSessionController extends Controller
                 'provider_id'=>$user->getId(),
                 'provider_type'=>$provider
             ]);            
+        event(new Registered($user));
         }
         Auth::login($logged_user,true);
         return redirect()->intended(RouteServiceProvider::HOME);
@@ -93,6 +95,7 @@ class AuthenticatedSessionController extends Controller
                     'provider_id'=>$user["provider_id"],
                     'provider_type'=>$user["provider_type"]
                 ]);            
+                event(new Registered($user));
             }
             Auth::login($logged_user,true);
             return redirect($query['redirecturl']);
@@ -105,9 +108,15 @@ class AuthenticatedSessionController extends Controller
 function extract_userinfo($response){
         $user=[];
         $user["name"]=$response["displayname"];
-        $provider=$response["external_ids"][0];
-        $user["provider_type"]=str_replace("oidc-","",$provider["auth_provider"]);
-        $user["provider_id"]=$provider["external_id"];
+        if($response["external_ids"]){
+            $provider=$response["external_ids"][0];
+            $user["provider_type"]=str_replace("oidc-","",$provider["auth_provider"]);
+            $user["provider_id"]=$provider["external_id"];
+        }
+        else{
+         $user["provider_type"]=null;
+         $user["provider_id"]=null;   
+        }
         $threepids=array_filter($response["threepids"],function($item){
             if($item["medium"]=="email"){
                 return $item;

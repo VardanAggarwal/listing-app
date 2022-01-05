@@ -21,5 +21,8 @@ return [
   "add_new_f"=>"Add new :name",
   "add_new_m"=>"Add new :name",
   "search"=>"Search",
-  "interest_help"=>"Farmers who want to add this or are already implementing this on their farms."
+  "interest_help"=>"Farmers who want to add this or are already implementing this on their farms.",
+  "interest_title"=>"Let us know which crops & practices you want to know more about or need help with.",
+  "add_interest_card_text"=>"Do you need help with any specific crops & practices?",
+  "add_interest_button"=>"Add crops & practices"
 ];

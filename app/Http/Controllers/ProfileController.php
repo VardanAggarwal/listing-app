@@ -55,7 +55,7 @@ class ProfileController extends Controller
 
         $profile=$user->profile()->findOrNew($profile_id);
         $profile->fill($validated)->save();
-        return redirect('/profile/interests');
+        return redirect('/');
         //
     }
 

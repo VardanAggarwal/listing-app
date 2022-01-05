@@ -11,7 +11,9 @@
         @endif    
         </div>
     @endforeach
-
+    @if($type=='resiliency')
+        <x-card-add-interests/>
+    @endif
   @if($feed->hasMorePages())
     <div class="grid justify-items-center">
       <x-jet-button wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
