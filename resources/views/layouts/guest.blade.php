@@ -30,9 +30,18 @@
 
         // Enabling the debug mode flag is useful during implementation,
         // but it's recommended you remove it for production
-        mixpanel.init('356d40252226119fec46e32e2270c51f', {debug: true}); 
+        mixpanel.init('356d40252226119fec46e32e2270c51f'); 
         mixpanel.track('Page visited');
-        mixpanel.track_links('a','Link Clicked');
+        tracklinkclicksauto=(event)=>{
+                console.log("auto tracking", event);
+                mixpanel.track_links('a','Link Clicked');
+            }
+        let alinks=document.querySelectorAll('a');
+        alinks.forEach((a)=>{
+            if(a.onclick==null){
+                a.addEventListener('click',tracklinkclicksauto);
+            }
+        });
         </script>
         <!-- Hotjar Tracking Code for seedsaversclub.com -->
         <script>
