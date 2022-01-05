@@ -10,4 +10,12 @@
   <div class="font-semibold text-lg max-w-7xl mx-6 sm:mx-auto">
   </div>
   @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$category])
+@push('meta')
+<meta property="og:title" content="{{$category->name}}">
+<meta property="og:url" content="{{url()->current()}}">
+<meta property="og:type" content="article">
+<meta property="fb:app_id" content="852906262106769">
+<meta property="og:description" content="{{Str::limit(strip_tags($category->name),300)}}">
+<meta property="og:image" content="https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png">
+@endpush
 </x-guest-layout>

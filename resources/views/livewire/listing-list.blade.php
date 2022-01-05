@@ -41,3 +41,12 @@
     <div class="text-center">{{__('No more records')}}</div>
   @endif
   </div>
+@push('meta')
+<meta property="og:title" content="Seed Savers Club - {{__('ui.models.listings')}}">
+<meta property="og:url" content="{{url()->current()}}">
+<meta property="og:type" content="article">
+<meta property="fb:app_id" content="852906262106769">
+<meta property="og:image" content="{{$feed->first(function($value,$key){
+  return $value->image_url;
+})->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png'}}">
+@endpush

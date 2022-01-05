@@ -4,7 +4,7 @@
     <span class="font-semibold text-lg text-gray-600">{{__($listing->type)}}</span>
     <div class="mt-4 flex gap-4 items-center ">
         @if($listing->image_url)
-        <div class=""><img src="{{$listing->image_url}}" class="h-24 w-24 rounded" /></div>
+        <div class=""><img src="{{$listing->image_url}}" class="object-cover h-24 w-24 rounded" /></div>
         @endif
         <div class="">
             <span class="font-semibold text-lg">{{__('Type')}}: {{__($listing->item_type)}}</span><br>
@@ -41,5 +41,12 @@
       </div>
     @endif
 </div>
-
+@push('meta')
+<meta property="og:title" content="{{$listing->name}}">
+<meta property="og:url" content="{{url()->current()}}">
+<meta property="og:type" content="article">
+<meta property="fb:app_id" content="852906262106769">
+<meta property="og:description" content="{{Str::limit(strip_tags($listing->description),300)}}">
+<meta property="og:image" content="{{$listing->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png'}}">
+@endpush
 </x-guest-layout>

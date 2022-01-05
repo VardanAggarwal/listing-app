@@ -17,7 +17,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 border-b py-4">
       @if($resiliency->image_url)
-      <div class="sm:col-span-1 justify-self-center"><img src="{{$resiliency->image_url}}" class="rounded-lg h-24 w-24" /></div>
+      <div class="sm:col-span-1 justify-self-center"><img src="{{$resiliency->image_url}}" class="rounded-lg h-24 w-24 object-cover" /></div>
       @endif
       <div class="sm:col-span-7">
           <div class="flex overflow-auto flex-nowrap">
@@ -72,4 +72,12 @@
     </div>
     @endif
   </div>
+  @push('meta')
+  <meta property="og:title" content="{{$resiliency->name}}">
+  <meta property="og:url" content="{{url()->current()}}">
+  <meta property="og:type" content="article">
+  <meta property="fb:app_id" content="852906262106769">
+  <meta property="og:description" content="{{Str::limit(strip_tags($resiliency->description),300)}}">
+  <meta property="og:image" content="{{$resiliency->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png'}}">
+  @endpush
 </x-guest-layout>
