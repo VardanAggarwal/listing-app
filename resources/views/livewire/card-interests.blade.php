@@ -1,5 +1,5 @@
 <div class="mt-1 pt-2 border-t text-md">
-    <a class="cursor-pointer" wire:click="toggleInterest">
+    <a class="cursor-pointer" href="#interest-resiliency-{{$model->id}}" wire:click="toggleInterest">
         @if(Auth::user())
             @if(Auth::user()->profile)
                 @if(Auth::user()->profile->interest_resiliencies->contains($model))

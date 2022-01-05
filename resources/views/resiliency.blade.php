@@ -29,10 +29,12 @@
           @if($resiliency->links)
             <a href="{{$resiliency->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
           @endif
-          <div>
-              @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
-          </div>
       </div>
+      @if($resiliency->description)
+        <div class="sm:col-span-8">
+            @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
+        </div>
+      @endif
     </div>
     @if($resiliency->stories_count)
       <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">

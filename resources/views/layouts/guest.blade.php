@@ -32,6 +32,7 @@
         // but it's recommended you remove it for production
         mixpanel.init('356d40252226119fec46e32e2270c51f', {debug: true}); 
         mixpanel.track('Page visited');
+        mixpanel.track_links('a','Link Clicked');
         </script>
         <!-- Hotjar Tracking Code for seedsaversclub.com -->
         <script>
