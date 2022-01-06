@@ -34,16 +34,17 @@
       <x-jet-button>{{__('Share your experience')}}</x-jet-button>
     </a>
   </div>
-  @if($story->profile->listings_count)
-    <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-      {{__('Related')}} {{__('ui.models.listings')}}
-    @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$story->profile])
-    </div>
-  @endif
   @if($story->resiliencies_count)
     <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
       {{__('Related')}} {{__('ui.models.resiliencies')}}
     @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$story])
+    </div>
+  @endif
+
+  @if($story->profile->listings_count)
+    <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
+      {{__('Related')}} {{__('ui.models.listings')}}
+    @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$story->profile])
     </div>
   @endif
   </div>
