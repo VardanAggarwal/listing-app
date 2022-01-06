@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
-use App\Models\Crop;
 
 class CategoryController extends Controller
 {
@@ -16,9 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index',['categories'=>Category::with(['resiliencies'=>function($query){
-            $query->whereHasMorph('resilient',[Crop::class]);
-        }])->orderByDesc('created_at')->get()]);
+        return view('categories.index',['categories'=>Category::with('resiliencies')->orderByDesc('created_at')->get()]);
         //
     }
 
