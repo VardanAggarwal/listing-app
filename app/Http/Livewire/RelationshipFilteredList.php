@@ -22,7 +22,7 @@ class RelationshipFilteredList extends Component
     }
     public function render()
     {
-        $this->feed=$this->model->{$this->relation}()->orderByDesc('id')->cursorPaginate($this->perPage);
+        $this->feed=$this->model->{$this->relation}()->orderByDesc('updated_at')->cursorPaginate($this->perPage);
         return view('livewire.relationship-filtered-list',['feed'=>$this->feed,'type'=>Str::singular($this->relation)])->layout('layouts.guest');
     }
 }
