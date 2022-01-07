@@ -27,7 +27,6 @@
         <div class="absolute border rounded p-4 bg-white inset-x-4 sm:inset-x-auto" style="display: none;" x-init={open:false} x-show="open">
             @unless ($interest_recorded)
                 <form wire:submit.prevent="save_interest">
-                    {{var_dump($interest)}}{{var_dump($others)}}
                     @csrf
                     <h1 class="text-md font-bold">{{__("ui.help.title")}}</h1>
                     <div class="block mt-4">
