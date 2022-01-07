@@ -25,7 +25,7 @@ class Profile extends Model
         return $this->morphedByMany(Category::class, 'interestable');
     }
     public function interest_resiliencies(){
-        return $this->morphedByMany(Resiliency::class, 'interestable');
+        return $this->morphedByMany(Resiliency::class,'interestable')->using(Interestable::class)->withPivot('interest');
     }
     public function interest_listings(){
         return $this->morphedByMany(Listing::class, 'interestable');

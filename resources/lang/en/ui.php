@@ -24,5 +24,14 @@ return [
   "interest_help"=>"Farmers who want to add this or are already implementing this on their farms.",
   "interest_title"=>"Let us know which crops & practices you want to know more about or need help with.",
   "add_interest_card_text"=>"Do you need help with any specific crops & practices?",
-  "add_interest_button"=>"Add crops & practices"
+  "add_interest_button"=>"Add crops & practices",
+  "help"=>[
+    "title"=>"How can we help you?",
+    "input"=>"Need to buy inputs/seeds",
+    "market"=>"Need to sell produce",
+    "training"=>"Want to get training",
+    "others"=>"Need some information or other help",
+    "others_placeholder"=>"Ask your question",
+    "recorded_interest"=>"We have recieved your request, our team will get the relevant information to you soon."
+  ]
 ];
