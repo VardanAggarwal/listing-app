@@ -1,9 +1,9 @@
 <div class="flex justify-between mt-1 pt-2 border-t text-sm">
     <div>
-        <a class="cursor-pointer" href="#interest-resiliency-{{$model->id}}" wire:click="toggleInterest">
+        <a class="cursor-pointer" href="#interest-{{$type}}-{{$model->id}}" wire:click="toggleInterest">
             @if(Auth::user())
                 @if(Auth::user()->profile)
-                    @if(Auth::user()->profile->interest_resiliencies->contains($model))
+                    @if(Auth::user()->profile->{"interest_".Str::plural($type)}->contains($model))
                         <span class="text-green-500"><i class="fas fa-bookmark"></i></span>
                     @else
                         <span class="text-green-500"><i class="far fa-bookmark"></i></span>

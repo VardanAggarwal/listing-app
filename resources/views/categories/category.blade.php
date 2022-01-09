@@ -6,8 +6,9 @@
       @if($category->links)
         <a href="{{$category->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
       @endif
-  </div>
-  <div class="font-semibold text-lg max-w-7xl mx-6 sm:mx-auto">
+    <div>
+        @livewire('card-interests',['model'=>$category,'type'=>'Category'])
+    </div>
   </div>
   @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$category])
 @push('meta')

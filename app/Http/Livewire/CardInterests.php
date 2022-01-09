@@ -3,9 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Resiliency;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 class CardInterests extends Component
 {
     public $interest_recorded=false;
@@ -16,7 +16,7 @@ class CardInterests extends Component
 
     public function save_interest(){
         if(Auth::user()){
-            Auth::user()->profile->interest_resiliencies()->attach([$this->model->id],[
+            $this->model->interested_profiles()->attach([Auth::user()->profile->id],[
                 'interest'=>[
                     'interests'=>$this->interest,
                     'others'=>$this->others
@@ -30,7 +30,7 @@ class CardInterests extends Component
     }
     public function toggleInterest(){
         if(Auth::user()){
-            Auth::user()->profile->interest_resiliencies()->toggle([$this->model->id]);
+            $this->model->interested_profiles()->toggle([Auth::user()->profile->id]);
         }
         else{
             return redirect()->guest('login')->with('status', 'Please login to perform this action');
