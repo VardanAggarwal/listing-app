@@ -1,7 +1,9 @@
-<div class="static my-5 px-6 py-4 rounded-lg shadow-lg border">
-    <div class="block mt-1 p-4 w-full border border-gray-200 text-gray-500 rounded" wire:click="showForm">{{__("How can we help you today?")}}</div>
-    @if($form)
-        <div class="absolute border rounded p-4 bg-white inset-x-4 sm:inset-x-auto">
+<div class="static my-5 px-6 py-4 rounded-lg shadow-lg border" x-data={open:false}>
+    <div class="block mt-1 p-4 w-full border border-gray-200 text-gray-500 rounded" wire:click="$set('form',true)" x-on:click="open=!open">{{__("How can we help you today?")}}</div>
+    <div class="bg-gray-900 opacity-80 fixed inset-0" x-show="open" x-on:click="open=!open">    </div>
+    <div class="absolute border rounded p-4 bg-white top-10 inset-x-10 sm:inset-1/4" style="display: none;" x-init={open:false} x-show="open">
+        <span class="text-xl">{{__("What help do you need?")}}</span>
+        @if($form)
             <form wire:submit.prevent="save_interest">
                 @csrf
                 <div class="block mt-4">
@@ -34,35 +36,14 @@
                         <x-jet-input id="others" class="block mt-1 w-full" name="interest" wire:model="others" type="text" placeholder="{{ __('ui.help.others_placeholder') }}"/>
                     </div>
                 </div>
-                <div class="mt-4">
-                    <x-jet-label for="resiliencies" value="{{__('ui.models.resiliencies')}}"/>
-                    <div class="flex flex-wrap my-2 gap-2 overflow-auto max-h-40">
-                        @foreach($resiliencies as $result)
-                            <div class="p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
-                                {{$result->name}}
-                            </div>
-                        @endforeach
-                    </div>
-                    <x-jet-input type="text" placeholder="{{__('Type to search')}}" name="resiliencies" wire:model="search_resiliency" class="w-full"/>
-                    @if($results)
-                    <div class="flex flex-wrap mt-5 gap-2 overflow-auto max-h-40">
-                        @foreach($results as $result)
-                            <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
-                                {{$result->name}}
-                            </div>
-                        @endforeach
-                        @if($this->search_resiliency && !$this->results->contains('name',$this->search_resiliency))
-                            <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border" wire:click="newResiliency">
-                                {{$this->search_resiliency}}+
-                            </div>
-                        @endif
-                    </div>
-                    @endif
-                </div>
+                @livewire('relationship-search',['type'=>'Resiliency'])
                 <div class="mt-4 flex justify-center">
                     <x-jet-button type="submit" class="bg-green-400">{{__("Submit")}}</x-jet-button>
                 </div>
             </form>
-        </div>
-    @endif
+        @endif
+        @if($interest_recorded)
+            <div x-init="setTimeout(() => {open = false; $wire.interest_recorded=false;}, 2000)"x-on:click="open=false" class="text-green-700">{{__('ui.help.recorded_interest')}}</div>
+        @endif
+    </div>
 </div>

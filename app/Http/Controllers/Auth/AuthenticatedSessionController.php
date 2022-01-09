@@ -69,7 +69,8 @@ class AuthenticatedSessionController extends Controller
                 'provider_id'=>$user->getId(),
                 'provider_type'=>$provider
             ]);            
-        event(new Registered($user));
+            event(new Registered($user));
+            $logged_user->profile()->firstOrCreate(['name'=>$logged_user->name]);
         }
         Auth::login($logged_user,true);
         return redirect()->intended(RouteServiceProvider::HOME);
@@ -77,6 +78,9 @@ class AuthenticatedSessionController extends Controller
     public function matrixLogin(Request $request)
     {
         $query=$request->all();
+        if(!isset($query['redirecturl'])){
+            $query['redirecturl']='/';
+        }
         $response=Http::withHeaders(["Authorization"=>"Bearer ".env("MATRIX_ACCESS_TOKEN")])->get("https://matrix.seedsaversclub.com/_synapse/admin/v2/users/".$query['id']);
         if($response->ok()){
             $user=extract_userinfo($response);
@@ -96,6 +100,7 @@ class AuthenticatedSessionController extends Controller
                     'provider_type'=>$user["provider_type"]
                 ]);            
                 event(new Registered($user));
+                $logged_user->profile()->firstOrCreate(['name'=>$logged_user->name]);
             }
             Auth::login($logged_user,true);
             return redirect($query['redirecturl']);
