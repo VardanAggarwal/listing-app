@@ -7,6 +7,6 @@
   </div>
   <a href="/categories/{{$model->id}}" class="underline">{{__('See more...')}}</a>
   <div>
-      @livewire('card-interests',['model'=>$model,'type'=>'Category'])
+      @livewire('card-interests',['model'=>$model,'type'=>'Category'],, key('category-'.$model->id))
   </div>
 </div>
