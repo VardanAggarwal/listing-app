@@ -6,7 +6,6 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Resiliency;
-use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,9 +15,8 @@ class CreateResiliency extends Component
     public $type;
     public Resiliency $resiliency;
     public $image;
-    public $categories;
     public $selected=[];
-    public $search_category;
+    protected $listeners = ['updateSelected'];
     protected $rules=[
         'resiliency.name'=>'string',
         'resiliency.type'=>'string',
@@ -28,19 +26,9 @@ class CreateResiliency extends Component
     public function mount(Request $request){
         $this->resiliency=new Resiliency;
         $this->resiliency->type="crop";
-        $this->results=Category::all();
     }
-    public function toggleSelected($item){
-        if(in_array($item,$this->selected)){
-            $this->selected=array_diff( $this->selected, [$item] );
-        }else{
-        array_push($this->selected,$item);
-        }        
-    }
-    public function newCategory(){
-        $category=Category::create(['name'=>$this->search_category]);
-        $this->search_category='';
-        array_push($this->selected,$category->id);
+    public function updateSelected($selected){
+        $this->selected=$selected;
     }
     public function save(){
         if($this->image){
@@ -56,8 +44,6 @@ class CreateResiliency extends Component
     }
     public function render()
     {
-        $this->categories=Category::findMany($this->selected);
-        $this->results=Category::search($this->search_category)->get();
         return view('livewire.create-resiliency')->layout('layouts.guest');
     }
 }

@@ -6,7 +6,6 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Listing;
-use App\Models\Resiliency;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,10 +15,9 @@ class CreateListing extends Component
     public $type;
     public Listing $listing;
     public $image;
-    public $results;
-    public $resiliencies;
+
     public $selected=[];
-    public $search_resiliency;
+    protected $listeners = ['updateSelected'];
     public $item_types=['input','machinery','animal','seed','produce','training','contract_farming'];
     protected $rules=[
         'listing.name'=>'string',
@@ -37,19 +35,9 @@ class CreateListing extends Component
             $this->listing->location=Auth::user()->profile->address;
         }
         $this->listing->item_type="input";
-        $this->results=Resiliency::all();
     }
-    public function toggleSelected($item){
-        if(in_array($item,$this->selected)){
-            $this->selected=array_diff( $this->selected, [$item] );
-        }else{
-        array_push($this->selected,$item);
-        }        
-    }
-    public function newResiliency(){
-        $resiliency=Resiliency::create(['name'=>$this->search_resiliency]);
-        $this->search_resiliency='';
-        array_push($this->selected,$resiliency->id);
+    public function updateSelected($selected){
+        $this->selected=$selected;
     }
     public function save(){
         if($this->image){
@@ -66,8 +54,6 @@ class CreateListing extends Component
     }
     public function render()
     {
-        $this->resiliencies=Resiliency::findMany($this->selected);
-        $this->results=Resiliency::search($this->search_resiliency)->get();
         return view('livewire.create-listing')->layout('layouts.guest');
     }
 }
