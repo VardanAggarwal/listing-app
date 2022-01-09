@@ -28,7 +28,9 @@
     @endif
     <x-profile-card :model="$story->profile"></x-profile-card>
   @endif
-
+  <div>
+      @livewire('card-interests',['model'=>$story,'type'=>'Story'])
+  </div>
   <div class="mt-4 w-full grid justify-items-center">
     <a href="\stories\new">
       <x-jet-button>{{__('Share your experience')}}</x-jet-button>

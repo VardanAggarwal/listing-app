@@ -23,6 +23,9 @@
       @endif
       <x-profile-card :model="$listing->profile"></x-profile-card>
     @endif
+    <div>
+        @livewire('card-interests',['model'=>$listing,'type'=>'Listing'])
+    </div>
     <div class="mt-4 w-full grid justify-items-center">
       <a href="\listings\new">
         <x-jet-button>{{__('Add your listing')}}</x-jet-button>

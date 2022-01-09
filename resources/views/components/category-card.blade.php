@@ -6,4 +6,7 @@
     @endforeach
   </div>
   <a href="/categories/{{$model->id}}" class="underline">{{__('See more...')}}</a>
+  <div>
+      @livewire('card-interests',['model'=>$model,'type'=>'Category'])
+  </div>
 </div>

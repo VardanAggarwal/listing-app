@@ -21,4 +21,7 @@
           <a href="/listings/{{$model->id}}" class="underline">{{__('See more')}}...</a>
       </div>
   </div>
+  <div>
+      @livewire('card-interests',['model'=>$model,'type'=>'Listing'])
+  </div>
 </div>

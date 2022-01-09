@@ -24,4 +24,7 @@
         </div>
       </div>
   </div>
+  <div>
+      @livewire('card-interests',['model'=>$model,'type'=>'Story'])
+  </div>
 </div>

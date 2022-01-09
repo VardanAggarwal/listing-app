@@ -30,6 +30,9 @@ return [
     "input"=>"Need to buy inputs/seeds",
     "market"=>"Need to sell produce",
     "training"=>"Want to get training",
+    "connect"=>"Need help connecting with this person",
+    "payment"=>"Need help with payment",
+    "logistics"=>"Need help with delivery",
     "others"=>"Need some information or other help",
     "others_placeholder"=>"Ask your question",
     "recorded_interest"=>"We have recieved your request, our team will get the relevant information to you soon."
