@@ -15,6 +15,6 @@ class Category extends Model
         return $this->morphToMany(Resiliency::class,'reliable');
     }
     public function interested_profiles(){
-        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class);
+        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withPivot('interest');
     }
 }

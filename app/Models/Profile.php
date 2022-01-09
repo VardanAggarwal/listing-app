@@ -22,16 +22,16 @@ class Profile extends Model
         return $this->hasMany(Story::class);
     }
     public function interest_categories(){
-        return $this->morphedByMany(Category::class, 'interestable');
+        return $this->morphedByMany(Category::class, 'interestable')->using(Interestable::class)->withPivot('interest');
     }
     public function interest_resiliencies(){
         return $this->morphedByMany(Resiliency::class,'interestable')->using(Interestable::class)->withPivot('interest');
     }
     public function interest_listings(){
-        return $this->morphedByMany(Listing::class, 'interestable');
+        return $this->morphedByMany(Listing::class, 'interestable')->using(Interestable::class)->withPivot('interest');
     }
     public function interest_stories(){
-        return $this->morphedByMany(Story::class, 'interestable');
+        return $this->morphedByMany(Story::class, 'interestable')->using(Interestable::class)->withPivot('interest');
     }
     public function interest_profiles(){
         return $this->morphedByMany(Profile::class, 'interestable');

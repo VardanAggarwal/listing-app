@@ -13,7 +13,7 @@ class CardInterests extends Component
     public $model;
     public $interest=[];
     public $others="";
-
+    protected $listeners = ['interest_updated' => '$refresh'];
     public function save_interest(){
         if(Auth::user()){
             $this->model->interested_profiles()->attach([Auth::user()->profile->id],[
@@ -23,6 +23,7 @@ class CardInterests extends Component
                 ]
             ]);
             $this->interest_recorded=true;
+            $this->emit('help_added');
         }
         else{
             return redirect()->guest('login')->with('status', 'Please login to perform this action');
@@ -31,6 +32,7 @@ class CardInterests extends Component
     public function toggleInterest(){
         if(Auth::user()){
             $this->model->interested_profiles()->toggle([Auth::user()->profile->id]);
+            $this->emit('help_added');
         }
         else{
             return redirect()->guest('login')->with('status', 'Please login to perform this action');

@@ -25,6 +25,7 @@
     @endif
     <div>
         @livewire('card-interests',['model'=>$listing,'type'=>'Listing'])
+        @livewire('page-interests',['model'=>$listing,'type'=>'Listing'])
     </div>
     <div class="mt-4 w-full grid justify-items-center">
       <a href="\listings\new">

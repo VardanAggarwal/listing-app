@@ -12,9 +12,11 @@
         <p class="text-right">{{$resiliency->stories->count().' '.__('ui.models.stories')}}</p>
       </div>
     </div>
-    <div>
-        @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
-    </div>
+    @if($resiliency->description)
+      <div>
+          @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
+      </div>
+    @endif
     <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 border-b py-4">
       @if($resiliency->image_url)
       <div class="sm:col-span-1 justify-self-center"><img src="{{$resiliency->image_url}}" class="rounded-lg h-24 w-24 object-cover" /></div>
@@ -30,11 +32,10 @@
             <a href="{{$resiliency->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
           @endif
       </div>
-      @if($resiliency->description)
-        <div class="sm:col-span-8">
-            @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
-        </div>
-      @endif
+      <div class="sm:col-span-8">
+        @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
+        @livewire('page-interests',['model'=>$resiliency,'type'=>'Resiliency'])
+      </div>
     </div>
     <x-card-add-interests/>
     @if($resiliency->stories_count)

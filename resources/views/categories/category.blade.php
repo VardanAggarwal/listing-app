@@ -8,6 +8,7 @@
       @endif
     <div>
         @livewire('card-interests',['model'=>$category,'type'=>'Category'])
+        @livewire('page-interests',['model'=>$category,'type'=>'Category'])
     </div>
   </div>
   @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$category])
