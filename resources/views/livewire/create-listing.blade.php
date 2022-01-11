@@ -39,6 +39,10 @@
             <x-jet-input id="location" class="block mt-1 w-full" type="text" name="location" wire:model="listing.location" />
         </div>
         <div class="mt-4">
+            <x-jet-label for="phone_number" value="{{ __('ui.contact_number') }}" />
+            <x-jet-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" wire:model="listing.phone_number" />
+        </div>
+        <div class="mt-4">
             <x-jet-label for="image" value="{{ __('Image') }}" />
             <input id="image" class="block mt-1 w-full" type="file" name="image" wire:model="image" />
             @if($image)

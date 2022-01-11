@@ -20,19 +20,21 @@ class CreateListing extends Component
     protected $listeners = ['updateSelected'];
     public $item_types=['input','machinery','animal','seed','produce','training','contract_farming'];
     protected $rules=[
-        'listing.name'=>'string',
+        'listing.name'=>'string|required',
         'listing.type'=>'string',
         'listing.item_type'=>'string',
-        'listing.image_url'=>'string',
-        'listing.price'=>'string',
-        'listing.description'=>'text',
-        'listing.location'=>'string'
+        'listing.image_url'=>'string|nullable',
+        'listing.phone_number'=>'string|required',
+        'listing.price'=>'string|nullable',
+        'listing.description'=>'string|nullable',
+        'listing.location'=>'string|required'
     ];
     public function mount(){
         $this->listing=new Listing;
         $this->listing->type="sell";
         if(Auth::user()->profile){
             $this->listing->location=Auth::user()->profile->address;
+            $this->listing->phone_number=Auth::user()->profile->contact_number;
         }
         $this->listing->item_type="input";
     }
@@ -47,6 +49,7 @@ class CreateListing extends Component
         $this->listing->image_url=Storage::url($this->image->storePublicly('user/listing'));
         }
         $this->listing->profile()->associate(Auth::user()->profile);
+        $this->validate();
         $this->listing->save();
         $this->listing->resiliencies()->sync($this->selected);
         Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching($this->selected);
