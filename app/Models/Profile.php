@@ -21,6 +21,9 @@ class Profile extends Model
     public function stories(){
         return $this->hasMany(Story::class);
     }
+    public function statements(){
+        return $this->hasMany(Statement::class);
+    }
     public function interest_categories(){
         return $this->morphedByMany(Category::class, 'interestable')->using(Interestable::class)->withPivot('interest');
     }
@@ -32,6 +35,9 @@ class Profile extends Model
     }
     public function interest_stories(){
         return $this->morphedByMany(Story::class, 'interestable')->using(Interestable::class)->withPivot('interest');
+    }
+    public function interest_statements(){
+        return $this->morphedByMany(Statement::class, 'interestable')->using(Interestable::class)->withPivot('interest');
     }
     public function interest_profiles(){
         return $this->morphedByMany(Profile::class, 'interestable');
