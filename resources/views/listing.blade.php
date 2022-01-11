@@ -18,7 +18,7 @@
     @if($listing->profile)
       @if($listing->profile->contact_number)
         <div class="mt-4">
-          <a href="/profiles/{{$listing->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$listing->profile->user->name,'contact'=>$listing->profile->contact_number])}}</span></a>
+          <a href="/profiles/{{$listing->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$listing->profile->name,'contact'=>$listing->profile->contact_number])}}</span></a>
         </div>
       @endif
       <x-profile-card :model="$listing->profile"></x-profile-card>
