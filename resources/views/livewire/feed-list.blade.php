@@ -1,5 +1,5 @@
 <div class="py-8 max-w-7xl mx-4 sm:mx-auto" wire:loading.delay.class='opacity-50'>
-  @livewire('ask-anything')
+  @livewire('post-statement')
   <div class="flex justify-between">
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>

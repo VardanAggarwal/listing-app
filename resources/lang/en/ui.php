@@ -36,5 +36,9 @@ return [
     "others"=>"Need some information or other help",
     "others_placeholder"=>"Ask your question",
     "recorded_interest"=>"We have recieved your request, our team will get the relevant information to you soon."
+  ],
+  "statement"=>[
+    "placeholder"=>"Ask a question or share something",
+    "saved"=>"Your post has been published."
   ]
 ];

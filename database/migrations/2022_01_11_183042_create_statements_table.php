@@ -19,8 +19,9 @@ class CreateStatementsTable extends Migration
             $table->text('statement');
             $table->string('media')->nullable();
             $table->foreignId('profile_id');
-            $table->integer('parent_id')->nullable();
-            $table->string('parent_type')->nullable();
+            $table->integer('stateable_id')->nullable();
+            $table->string('stateable_type')->nullable();
+            $table->json('actions')->nullable();
         });
     }
 
