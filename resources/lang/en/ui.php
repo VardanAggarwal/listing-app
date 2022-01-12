@@ -16,7 +16,8 @@ return [
     "listings"=>"Buy/Sell",
     "resiliencies"=>"Modern farming",
     "categories"=>"Categories",
-    "feed"=>"What's new"
+    "feed"=>"What's new",
+    "statements"=>"Posts"
   ],
   "add_new_f"=>"Add new :name",
   "add_new_m"=>"Add new :name",

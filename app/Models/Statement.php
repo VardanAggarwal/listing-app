@@ -11,7 +11,16 @@ class Statement extends Model
     use HasFactory;
     use Searchable;
     protected $guarded=[];
-    
+    protected static function booted(){
+        static::created(function($statement){
+            if(!$statement->stateable){
+                $feed= new Feed;
+                $feed->feedable_id=$statement->id;
+                $feed->feedable_type="App\\Models\\Statement";
+                $feed->save();
+            }
+        });
+    }
     public function profile(){
         return $this->belongsTo(Profile::class);
     }

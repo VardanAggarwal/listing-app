@@ -14,16 +14,9 @@ class FeedCard extends Component
      */
     public $type;
     public $item;
-    public $item_type;
     public function __construct($item)
     {
-        $this->item_type=Str::lower(Str::replace('App\\Models\\','', $item->feedable_type));
-        if ($this->item_type=='resiliency'){
-            $this->type='resiliency';
-        }
-        else{
-            $this->type='reliable';
-        }
+        $this->type=Str::lower(Str::replace('App\\Models\\','', $item->feedable_type));
         $this->item=$item;
         //
     }

@@ -31,7 +31,7 @@ class RelationshipSearch extends Component
     {
         $namespace="App\\Models\\".$this->type;
         $this->models=$namespace::findMany($this->selected);
-        $this->results=$namespace::search($this->search_model)->get();
+        $this->results=$namespace::search($this->search_model)->take(20)->get();
         return view('livewire.relationship-search');
     }
 }

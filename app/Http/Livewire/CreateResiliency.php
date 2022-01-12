@@ -18,7 +18,7 @@ class CreateResiliency extends Component
     public $selected=[];
     protected $listeners = ['updateSelected'];
     protected $rules=[
-        'resiliency.name'=>'string',
+        'resiliency.name'=>'string|required',
         'resiliency.type'=>'string',
         'resiliency.description'=>'text',
         'resiliency.image_url'=>'string'
@@ -35,7 +35,7 @@ class CreateResiliency extends Component
             $this->validate([
             'image'=>'image'
             ]);
-        $this->resiliency->image_url=Storage::url($this->image->storePublicly('user/resiliency'));
+        $this->resiliency->image_url=Storage::url($this->image->storePublicly('user/resiliency','s3'));
         }
         $this->resiliency->save();
         $this->resiliency->categories()->sync($this->selected);

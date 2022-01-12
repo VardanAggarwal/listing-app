@@ -12,6 +12,14 @@ class Story extends Model
     use Searchable;
     protected $guarded=[];
 
+    protected static function booted(){
+        static::created(function($story){
+            $feed= new Feed;
+            $feed->feedable_id=$story->id;
+            $feed->feedable_type="App\\Models\\Story";
+            $feed->save();
+        });
+    }
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);
     }

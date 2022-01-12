@@ -36,7 +36,7 @@ class PostStatement extends Component
             $statement->profile()->associate(Auth::user()->profile);
             $media=collect([]);
             foreach ($this->media as $photo) {
-                       $media->push(Storage::url($photo->storePublicly('user/statement')));
+                       $media->push(Storage::url($photo->storePublicly('user/statement','s3')));
                    }
             $statement->media=trim($media->reduce(function($string,$url){
                 return $string.",".$url;
@@ -47,6 +47,7 @@ class PostStatement extends Component
             $statement->save();
             $statement->attached_resiliencies()->sync($this->selected);
             $this->saved=true;
+            $this->statement="";
             $this->selected=[];
             $this->media=[];
 

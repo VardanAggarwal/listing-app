@@ -16,7 +16,8 @@ return [
     "listings"=>"खरीदी/बिक्री",
     "resiliencies"=>"उन्नत खेती",
     "categories"=>"श्रेणी",
-    "feed"=>"नया क्या है?"
+    "feed"=>"नया क्या है?",
+    "statements"=>"पोस्ट"
   ],
   "add_new_f"=>"नयी :name",
   "add_new_m"=>"नयी :name",

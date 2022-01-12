@@ -11,7 +11,14 @@ class Listing extends Model
     use HasFactory;
     use Searchable;
     protected $guarded=[];
-
+    protected static function booted(){
+        static::created(function($listing){
+            $feed= new Feed;
+            $feed->feedable_id=$listing->id;
+            $feed->feedable_type="App\\Models\\Listing";
+            $feed->save();
+        });
+    }
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);
     }

@@ -16,7 +16,6 @@ class Resiliency extends Model
             $feed= new Feed;
             $feed->feedable_id=$resiliency->id;
             $feed->feedable_type="App\\Models\\Resiliency";
-            $feed->resiliency_id=$resiliency->id;
             $feed->save();
         });
     }

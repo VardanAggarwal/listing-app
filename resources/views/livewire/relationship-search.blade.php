@@ -13,9 +13,9 @@
     </div>
     <x-jet-input type="text" placeholder="{{__('Type to search')}}" name="model" wire:model="search_model" class="w-full"/>
     @if($results)
-    <div class="flex flex-wrap mt-5 gap-2 overflow-auto max-h-40">
+    <div class="flex mt-5 gap-2 overflow-auto">
         @foreach($results as $result)
-            <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
+            <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border flex-none {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">
                 @unless($type=="Story")
                     {{$result->name}}
                 @else

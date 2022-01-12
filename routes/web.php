@@ -12,11 +12,13 @@ use \App\Http\Livewire\FeedList;
 use \App\Http\Livewire\ListingList;
 use \App\Http\Livewire\StoryList;
 use \App\Http\Livewire\ResiliencyList;
+use \App\Http\Livewire\StatementList;
 use \App\Http\Livewire\Search;
 use \App\Http\Livewire\InterestSearch;
 use \App\Http\Livewire\CreateStory;
 use \App\Http\Livewire\CreateListing;
 use \App\Http\Livewire\CreateResiliency;
+use \App\Models\Statement;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ Route::get('/search',Search::class)->name('search');
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/stories',StoryList::class)->name('stories');
 Route::get('/resiliencies',ResiliencyList::class)->name('resiliencies');
+Route::get('/statements',StatementList::class)->name('statements');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 //create pages
 Route::get('/listings/new',CreateListing::class)->middleware(['auth']);
@@ -48,6 +51,9 @@ Route::get('/stories/{story}',[StoryController::class,'show']);
 Route::get('/profiles/{profile}',[ProfileController::class,'show'])->name('showProfile');
 Route::get('/categories/{category}',[CategoryController::class,'show']);
 Route::get('/resiliencies/{resiliency}',[ResiliencyController::class,'show']);
+Route::get('/statements/{statement}',function(Statement $statement){
+    return view('statement',['statement'=>$statement]);
+});
 
 //Onboarding
 Route::get('/profile',[ProfileController::class,'create'])->middleware(['auth']);

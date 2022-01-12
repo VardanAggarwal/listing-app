@@ -18,13 +18,13 @@ class CreateStory extends Component
     protected $listeners = ['updateSelected'];
     protected $rules=[
         'story.rating'=>'required|integer',
-        'story.title'=>'string',
+        'story.title'=>'string|required',
         'story.review'=>'text',
         'story.image_url'=>'string'
     ];
     public function mount(){
         $this->story=new Story;
-        $this->story->rating=0;
+        $this->story->rating=5;
     }
     public function updateSelected($selected){
         $this->selected=$selected;
@@ -34,7 +34,7 @@ class CreateStory extends Component
             $this->validate([
             'image'=>'image'
             ]);
-        $this->story->image_url=Storage::url($this->image->storePublicly('user/story'));
+        $this->story->image_url=Storage::url($this->image->storePublicly('user/story','s3'));
         }
         $this->validate([
             'story.rating'=>'required|integer'
