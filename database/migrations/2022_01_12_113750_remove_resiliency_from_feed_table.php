@@ -26,7 +26,7 @@ class RemoveResiliencyFromFeedTable extends Migration
     public function down()
     {
         Schema::table('feeds', function (Blueprint $table) {
-            $table->integer('resiliency_id');
+            $table->integer('resiliency_id')->nullable();
         });
     }
 }

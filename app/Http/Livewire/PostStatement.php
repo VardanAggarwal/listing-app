@@ -7,6 +7,9 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Statement;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
+
 class PostStatement extends Component
 {
     use WithFileUploads;
@@ -22,7 +25,7 @@ class PostStatement extends Component
     public function updateSelected($selected){
         $this->selected=$selected;
     }
-    public function removePhoto($index){
+    public function removeFile($index){
         $this->media=array_diff( $this->media, [$this->media[$index]] );
     }
     public function resetErrors(){
@@ -35,15 +38,30 @@ class PostStatement extends Component
             $statement->statement=$this->statement;
             $statement->profile()->associate(Auth::user()->profile);
             $media=collect([]);
-            foreach ($this->media as $photo) {
-                       $media->push(Storage::url($photo->storePublicly('user/statement','s3')));
-                   }
+            $img=null;
+            foreach ($this->media as $file) {
+                $image=Validator::make(['file'=>$file],['file' => 'image|max:1024'])->passes();
+                $video=Validator::make(['file'=>$file],['file' => 'mimetypes:video/avi,video/mp4,video/3gpp,video/3gpp2,video/ogg,video/webm,video/x-msvideo,video/mpeg,video/quicktime|max:10240'])->passes();
+                $pdf=Validator::make(['file'=>$file],['file' => 'mimetypes:application/pdf|max:10240'])->passes();
+                $audio=Validator::make(['file'=>$file],['file' => 'mimetypes:application/octet-stream,audio/ogg,audio/mp4,audio/mpeg,audio/basic,audio/webm,audio/x-aac,audio/x-wav|max:10240'])->passes();
+                if($image||$video||$pdf||$audio){
+                $url=Storage::url($file->storePublicly('user/statement','s3'));
+                $media->push($url);
+                }else{
+                    $this->addError('media', 'One of the files is too large or invalid');
+                    return;
+                }
+                if($image && !$img){
+                    $img=$url;
+                }
+            }
             $statement->media=trim($media->reduce(function($string,$url){
                 return $string.",".$url;
             },""),',');
             if($this->parent){
                 $statement->stateable()->associate($this->parent);
             }
+            $statement->image=$img;
             $statement->save();
             $statement->attached_resiliencies()->sync($this->selected);
             $this->saved=true;

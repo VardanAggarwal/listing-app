@@ -30,6 +30,6 @@ class CreateAttachableTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attachable');
+        Schema::dropIfExists('attachables');
     }
 }

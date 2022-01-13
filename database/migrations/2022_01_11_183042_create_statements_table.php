@@ -17,7 +17,8 @@ class CreateStatementsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->text('statement');
-            $table->string('media')->nullable();
+            $table->text('media')->nullable();
+            $table->string('image')->nullable();
             $table->foreignId('profile_id');
             $table->integer('stateable_id')->nullable();
             $table->string('stateable_type')->nullable();
