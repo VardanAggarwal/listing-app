@@ -23,7 +23,7 @@
             <audio src="{{$file}}" class="order-last" controls preload="none"></audio>
             @break
           @case (str_contains($type,'pdf'))
-              <a href="{{$file}}" class="order-last" target="_blank"><x-jet-button>{{__("Download file")}}</x-jet-button></a>
+              <a href="{{$file}}" class="order-last" target="_blank"><x-jet-button>{{__("Download pdf file")}}</x-jet-button></a>
             @break
         @endswitch
     @endforeach

@@ -20,8 +20,8 @@ class CreateResiliency extends Component
     protected $rules=[
         'resiliency.name'=>'string|required',
         'resiliency.type'=>'string',
-        'resiliency.description'=>'text',
-        'resiliency.image_url'=>'string'
+        'resiliency.description'=>'string|nullable',
+        'resiliency.image_url'=>'string|nullable'
     ];
     public function mount(Request $request){
         $this->resiliency=new Resiliency;
@@ -37,6 +37,7 @@ class CreateResiliency extends Component
             ]);
         $this->resiliency->image_url=Storage::url($this->image->storePublicly('user/resiliency','s3'));
         }
+        $this->validate();
         $this->resiliency->save();
         $this->resiliency->categories()->sync($this->selected);
         Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching([$this->resiliency->id]);

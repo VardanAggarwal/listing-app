@@ -12,6 +12,7 @@ class RelationshipFilteredList extends Component
     protected $feed;
     public $relation;
     public $model;
+    protected $listeners=['refreshStatement'=>'$refresh'];
     public function loadMore()
        {
            $this->perPage += 10;

@@ -30,6 +30,7 @@
             @endif
         </div>
         @livewire('relationship-search',['type'=>'Resiliency'])
+        <x-jet-validation-errors class="mb-4" />
         <div class="grid w-full mt-4 justify-items-center" wire:loading.class="opacity-20" wire:target="save">
             <x-jet-button class="max-w-md justify-center" type="submit">
                 {{ __('Submit') }}

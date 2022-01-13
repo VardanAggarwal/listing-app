@@ -19,8 +19,8 @@ class CreateStory extends Component
     protected $rules=[
         'story.rating'=>'required|integer',
         'story.title'=>'string|required',
-        'story.review'=>'text',
-        'story.image_url'=>'string'
+        'story.review'=>'string|nullable',
+        'story.image_url'=>'string|nullable'
     ];
     public function mount(){
         $this->story=new Story;
@@ -36,9 +36,7 @@ class CreateStory extends Component
             ]);
         $this->story->image_url=Storage::url($this->image->storePublicly('user/story','s3'));
         }
-        $this->validate([
-            'story.rating'=>'required|integer'
-        ]);
+        $this->validate();
         $this->story->profile()->associate(Auth::user()->profile);
         $this->story->save();
         $this->story->resiliencies()->sync($this->selected);

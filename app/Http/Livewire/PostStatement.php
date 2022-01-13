@@ -14,6 +14,7 @@ class PostStatement extends Component
 {
     use WithFileUploads;
     public $saved=false;
+    public $form=true;
     public $statement="";
     public $media=[];
     public $selected=[];
@@ -28,8 +29,15 @@ class PostStatement extends Component
     public function removeFile($index){
         $this->media=array_diff( $this->media, [$this->media[$index]] );
     }
-    public function resetErrors(){
+    public function resetForm(){
         $this->resetErrorBag();
+        $this->form=true;
+        $this->statement="";
+        $this->selected=[];
+        $this->media=[];
+        if(Auth::guest()){
+            return redirect()->guest('login')->with('status', 'Please login to perform this action');
+        }
     }
     public function save_statement(){
         if(Auth::user()){
@@ -48,7 +56,7 @@ class PostStatement extends Component
                 $url=Storage::url($file->storePublicly('user/statement','s3'));
                 $media->push($url);
                 }else{
-                    $this->addError('media', 'One of the files is too large or invalid');
+                    $this->addError('media', __('One of the files is too large or invalid. Just add photo, audio, video or pdf'));
                     return;
                 }
                 if($image && !$img){
@@ -65,6 +73,8 @@ class PostStatement extends Component
             $statement->save();
             $statement->attached_resiliencies()->sync($this->selected);
             $this->saved=true;
+            $this->form=false;
+            $this->emit('refreshStatement');
             $this->statement="";
             $this->selected=[];
             $this->media=[];

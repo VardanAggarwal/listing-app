@@ -144,6 +144,11 @@ return [
         ],
     ],
 
+    'custom' => [
+        'media' => [
+            'invalid' => 'One of the files is too large or invalid. Just add photo, audio, video or pdf',
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

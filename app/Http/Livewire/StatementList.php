@@ -10,6 +10,7 @@ class StatementList extends Component
     public $loading=false;
     public $query='';
     protected $feed;
+    protected $listeners=['refreshStatement'=>'$refresh'];
 
     public function loadMore()
        {

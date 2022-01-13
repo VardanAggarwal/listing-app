@@ -85,6 +85,20 @@
   "I need help with this":"इससे जुडी मदद चाहिए",
   "What is this related to?":"यह किससे संबंधित है?",
   "How can we help you today?":"हम आपके लिए क्या कर सकते हैं?",
-  "What help do you need?":"आपको क्या मदद/जानकारी चाहिए?"
+  "What help do you need?":"आपको क्या मदद/जानकारी चाहिए?",
+  "Download pdf file":"Pdf फाइल डाउनलोड करें",
+  "Whoops! Something went wrong.":"ओह! कुछ गलत हो गया।",
+  "One of the files is too large or invalid. Just add photo, audio, video or pdf":"कोई फाइल बहुत बड़ी या अमान्य है। सिर्फ फोटो, ऑडियो, वीडियो या pdf डालें।",
+  "Please login to perform this action":"कृपया इस क्रिया को करने के लिए लॉगिन करें",
+  "Login with social accounts":"मौजूदा खाते के साथ लॉगिन करें",
+  "Email":"ईमेल",
+  "Password":"पासवर्ड",
+  "Confirm Password":"पासवर्ड दोबारा",
+  "Remember me":"याद रखें",
+  "Forgot your password?":"पासवर्ड भूल गए?",
+  "Log in":"लॉग इन करें",
+  "Not yet registered? create an account":"अभी तक पंजीकृत नहीं है? खाता बनाएं",
+  "Already registered?":"पहले से खाता है?",
+  "Register":"रजिस्टर करें"
 
 }

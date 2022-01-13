@@ -10,7 +10,7 @@ class FeedList extends Component
     public $perPage = 10;
     public $loading=false;
     protected $feed;
-
+    protected $listeners=['refreshStatement'=>'$refresh'];
     public function loadMore()
        {
            $this->perPage += 10;

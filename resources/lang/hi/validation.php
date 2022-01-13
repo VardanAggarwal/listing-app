@@ -105,7 +105,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute फ़ील्ड आवश्यक है।',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -120,7 +120,7 @@ return [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => ':attribute में सिर्फ शब्द और अंक हो सकते हैं।',
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -144,6 +144,12 @@ return [
         ],
     ],
 
+    'custom' => [
+        'media' => [
+            'invalid' => 'कोई फाइल बहुत बड़ी या अमान्य है। सिर्फ फोटो, ऑडियो, वीडियो या pdf डालें। ',
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
@@ -155,6 +161,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' =>'नाम',
+        'title' => 'शीर्षक',
+        'image' => 'फोटो',
+        'statement' => 'पोस्ट',
+        'media'=>'फाइल'
+    ],
 
 ];
