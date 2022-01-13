@@ -1,7 +1,7 @@
 <div class="static my-5" x-data="{open:false,other:false}">
     <div class="p-5 sm:pl-10 rounded-full shadow-md border border-gray-200 bg-gray-100 text-gray-500 rounded" x-on:click="open=!open,other=false" wire:click="resetForm">{{__("ui.statement.placeholder")}}</div>
     <div class="bg-gray-900 opacity-80 fixed inset-0" x-show="open" style="display: none;" x-on:click="open=!open">    </div>
-    <div class="fixed max-w-full overflow-auto border rounded p-4 bg-white inset-x-5 inset-y-10 sm:inset-1/4" style="display: none;" x-init={open:false,other:false} x-show="open">
+    <div class="fixed max-w-full overflow-auto border rounded p-4 bg-white inset-10 sm:inset-1/4" style="display: none;" x-init={open:false,other:false} x-show="open">
         <x-jet-validation-errors class="mb-4" />
         <span x-on:click="open=false" class="absolute right-2 top-2 text-red-500"><i class="fas fa-times"></i></span>
         @if($form)
