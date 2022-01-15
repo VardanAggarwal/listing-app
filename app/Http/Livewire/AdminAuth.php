@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
-class PhoneAuth extends Component
+class AdminAuth extends Component
 {
     public $phone_number;
     public $profile;
@@ -45,11 +45,11 @@ class PhoneAuth extends Component
         $this->validate();
         Auth::User()->name=$this->profile->name;
         $this->profile->save();
-        Auth::user()->user->save();
+        Auth::User()->user->save();
         return redirect()->intended('/');
     }
     public function render()
     {
-        return view('livewire.phone-auth');
+        return view('livewire.admin-auth');
     }
 }
