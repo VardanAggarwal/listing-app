@@ -45,7 +45,7 @@ class AdminAuth extends Component
         $this->validate();
         Auth::User()->name=$this->profile->name;
         $this->profile->save();
-        Auth::User()->user->save();
+        Auth::User()->save();
         return redirect()->intended('/');
     }
     public function render()
