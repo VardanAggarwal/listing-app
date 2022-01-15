@@ -38,14 +38,12 @@ Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
 Route::get('admin_login',function(){
     if(Auth::user()){
-            if(Auth::User()->role_id=1){
-                return view('adminauth');
-            }
+        if(Auth::User()->role_id==1){
+            return view('adminauth');
         }
-        else{
-            return redirect('login');
-        }
-});
+    }
+    return redirect('login');
+})->name('admin_login');
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/stories',StoryList::class)->name('stories');
