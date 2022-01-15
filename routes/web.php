@@ -19,8 +19,9 @@ use \App\Http\Livewire\CreateStory;
 use \App\Http\Livewire\CreateListing;
 use \App\Http\Livewire\CreateResiliency;
 use \App\Http\Livewire\PhoneAuth;
+use \App\Http\Livewire\AdminAuth;
 use \App\Models\Statement;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,14 @@ use \App\Models\Statement;
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
+Route::get('admin_login',function(){
+    if(Auth::user()){
+        if(Auth::User()->role_id==1){
+            return view('adminauth');
+        }
+    }
+    return redirect('login');
+})->name('admin_login');
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/stories',StoryList::class)->name('stories');

@@ -112,7 +112,11 @@
  							<x-jet-dropdown-link href="{{ route('profile.show') }}">
  								{{ __('Settings') }}
  							</x-jet-dropdown-link>
-
+ 							@if(Auth::User()->role_id==1)
+ 							<x-jet-dropdown-link href="{{ route('admin_login') }}">
+ 								{{ __('Admin Login') }}
+ 							</x-jet-dropdown-link>
+ 							@endif
  							@if (Laravel\Jetstream\Jetstream::hasApiFeatures())
  								<x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
  									{{ __('API Tokens') }}
@@ -207,7 +211,11 @@
  				<x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
  					{{ __('Settings') }}
  				</x-jet-responsive-nav-link>
-
+ 				@if(Auth::User()->role_id==1)
+	 				<x-jet-responsive-nav-link href="/admin_login/" :active="request()->routeIs('admin_login')">
+	 					{{ __('Admin Login') }}
+	 				</x-jet-responsive-nav-link>
+ 				@endif
  				@if (Laravel\Jetstream\Jetstream::hasApiFeatures())
  					<x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
  						{{ __('API Tokens') }}
