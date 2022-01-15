@@ -11,6 +11,7 @@ class PhoneAuth extends Component
     public $phone_number;
     public $profile;
     public $show_phone=true;
+    public $code=false;
     public $show_profile=false;
     protected $rules=[
         'phone_number'=>'numeric|required|digits:10',
@@ -37,6 +38,7 @@ class PhoneAuth extends Component
             $this->profile=$profile;
             $this->show_profile=true;
             $this->show_phone=false;
+            $this->code=false;
         }
     }
     public function profile_submit(){

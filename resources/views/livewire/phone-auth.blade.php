@@ -1,4 +1,4 @@
-<div x-data="{phone:@entangle('show_phone'),code:false,show_profile:@entangle('show_profile')}">
+<div x-data="{phone:@entangle('show_phone'),code:@entangle('code'),show_profile:@entangle('show_profile')}">
   <x-jet-authentication-card>
       <x-slot name="logo">
           <x-jet-authentication-card-logo />
@@ -12,8 +12,8 @@
               <x-jet-input id="phone_number" class="block mt-1 w-full" wire:model="phone_number" type="text" name="phone_number" maxlength="10" required autofocus />
             </div>
         </div>
-        <div class="flex justify-center pb-2 mt-4">
-            <x-jet-button id="sign-in-button" type="submit" wire:click="sign_in">
+        <div wire:ignore class="flex justify-center pb-2 mt-4">
+            <x-jet-button id="sign-in-button">
                 {{ __('Log in') }}
             </x-jet-button>
         </div>
@@ -39,12 +39,22 @@
         </div>
       </div>
       <div x-show="code">
+        <span>{{__('ui.verification_code')}}</span>
         <div>
             <x-jet-label for="code" value="{{ __('Verification code') }}" />
             <x-jet-input id="code" class="block mt-1 w-full" type="text" name="code" required autofocus />
         </div>
-        <div class="flex items-center justify-center border-b pb-2 mt-4">
-            <x-jet-button id="verify-code" type="submit">
+        <div class="flex items-center justify-between pb-2 mt-4">
+          <div x-data="{countdown:false}" x-init="countdown=60,window.setInterval(()=>{if(countdown>0){countdown=countdown-1;}},1000)">
+            <template x-if="countdown > 0">
+              <div>
+                <span>00:</span><span x-text="countdown"></span>
+              </div>
+            </template>
+            <template x-if="countdown==0"><div x-init="countdown=false"></div></template>
+              <span class="underline cursor-pointer" x-show="!countdown" id='resend-code' x-on:click="countdown=60,window.setInterval(()=>{if(countdown>0){countdown=countdown-1;}},1000)">{{__('Resend code')}}</span>
+          </div>
+          <x-jet-button id="verify-code" type="submit">
                 {{ __('Verify code') }}
             </x-jet-button>
         </div>
@@ -90,6 +100,8 @@
         'callback': (response) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
           console.log('captcha_success');
+          @this.show_phone=false;
+          @this.code=true;
           onSignInSubmit();
         }
       }, auth);
@@ -99,22 +111,27 @@
     }
     function onSignInSubmit() {
       const phoneNumber="+91"+$("#phone_number").val();
-      console.log(phoneNumber);
       const appVerifier = window.recaptchaVerifier;
       signInWithPhoneNumber(auth, phoneNumber, appVerifier)
           .then((confirmationResult) => {
             // SMS sent. Prompt user to type the code from the message, then sign the
             // user in with confirmationResult.confirm(code).
             window.confirmationResult = confirmationResult;
+            console.log("SMS sent");
             // ...
           }).catch((error) => {
             // Error; SMS not sent
             // ...
             grecaptcha.reset(window.recaptchaWidgetId);
+            console.log("SMS not sent");
           });
     }
     $("#verify-code").click(function(){
       verifyCode();
+    });
+    $("#resend-code").click(function(){
+      grecaptcha.reset(window.recaptchaWidgetId);
+      onSignInSubmit();
     });
     function verifyCode(){
       const code = $("#code").val();
@@ -122,6 +139,7 @@
         // User signed in successfully.
         const user = result.user;
         console.log(user);
+        @this.sign_in();
         // ...
       }).catch((error) => {
         // User couldn't sign in (bad verification code?)

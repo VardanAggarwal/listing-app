@@ -41,5 +41,6 @@ return [
   "statement"=>[
     "placeholder"=>"Ask a question or share something",
     "saved"=>"Your post has been published."
-  ]
+  ],
+  "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS."
 ];

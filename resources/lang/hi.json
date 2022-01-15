@@ -99,6 +99,9 @@
   "Log in":"लॉग इन करें",
   "Not yet registered? create an account":"अभी तक पंजीकृत नहीं है? खाता बनाएं",
   "Already registered?":"पहले से खाता है?",
-  "Register":"रजिस्टर करें"
+  "Register":"रजिस्टर करें",
+  "Verification code":"OTP पुष्टि कोड",
+  "Verify code":"कोड सत्यापित करें",
+  "Resend code": "OTP कोड पुनः भेजें"
 
 }
