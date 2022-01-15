@@ -144,13 +144,6 @@
            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
          </button>
        </span>
-       @if (Route::has('register'))
-         <span class="inline-flex rounded-md">
-           <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
-             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-           </button>
-         </span>
-       @endif
      </div>
    </div>
    @endauth
@@ -270,10 +263,6 @@
        <div>
          <div class="font-medium text-base text-gray-800">           <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
          </div>
-         @if (Route::has('register'))
-         <div class="font-medium text-base text-gray-800">           <a href="{{ route('register') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-         </div>
-         @endif
        </div>
      </div>
    </div>
