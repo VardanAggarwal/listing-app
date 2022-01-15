@@ -11,7 +11,9 @@ class ResiliencyList extends Component
     public $loading=false;
     public $query='';
     protected $feed;
-
+    protected $queryString = [
+        'query'=>['except'=>'']
+    ];
     public function loadMore()
        {
            $this->perPage += 10;

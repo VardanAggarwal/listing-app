@@ -37,12 +37,7 @@ Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
 Route::get('admin_login',function(){
-    if(Auth::user()){
-        if(Auth::User()->role_id==1){
-            return view('adminauth');
-        }
-    }
-    return redirect('login');
+    return view('adminauth');
 })->name('admin_login');
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');

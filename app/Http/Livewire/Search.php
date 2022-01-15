@@ -15,7 +15,7 @@ class Search extends Component
     public $search_type='Resiliency';
     
    protected $queryString = [
-       'query' => ['except' => '','as'=>'q']
+       'query'=>['except'=>'']
    ];
     public function loadMore()
        {
