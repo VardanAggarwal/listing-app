@@ -28,7 +28,9 @@ class User extends \TCG\Voyager\Models\User
         'email',
         'password',
         'provider_id',
-        'provider_type'
+        'provider_type',
+        'phone_number',
+        'phone_number_verified'
     ];
 
     /**
@@ -68,7 +70,7 @@ class User extends \TCG\Voyager\Models\User
 
     protected static function booted(){
         static::created(function($user){
-            $profile=new Profile(['name'=>$user->name]);
+            $profile=new Profile(['name'=>$user->name,'contact_number'=>$user->phone_number]);
             $user->profile()->save($profile);
         });
     }

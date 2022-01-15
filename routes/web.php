@@ -18,6 +18,7 @@ use \App\Http\Livewire\InterestSearch;
 use \App\Http\Livewire\CreateStory;
 use \App\Http\Livewire\CreateListing;
 use \App\Http\Livewire\CreateResiliency;
+use \App\Http\Livewire\PhoneAuth;
 use \App\Models\Statement;
 
 /*
@@ -33,6 +34,7 @@ use \App\Models\Statement;
 //main page
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
+Route::get('phone_login',PhoneAuth::class);
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/stories',StoryList::class)->name('stories');
