@@ -18,7 +18,7 @@
             </x-jet-button>
         </div>
       </div>
-      <div x-show="show_profile">
+      <div style="display: none;" x-show="show_profile">
         <h1>{{__('ui.welcome')}}</h1>
         <div class="mt-4">
             <x-jet-label for="name" value="{{ __('ui.name') }}" />
@@ -38,7 +38,7 @@
             </x-jet-button>
         </div>
       </div>
-      <div x-show="code">
+      <div style="display: none;" x-show="code">
         <span>{{__('ui.verification_code')}}</span>
         <div>
             <x-jet-label for="code" value="{{ __('Verification code') }}" />
