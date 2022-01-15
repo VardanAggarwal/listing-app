@@ -45,7 +45,7 @@ class PhoneAuth extends Component
         $this->validate();
         Auth::User()->name=$this->profile->name;
         $this->profile->save();
-        $this->profile->user->save();
+        Auth::User()->save();
         return redirect()->intended('/');
     }
     public function render()

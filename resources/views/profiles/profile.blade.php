@@ -9,7 +9,7 @@
     @endif
 
     <div class="text-center sm:text-left font-semibold text-2xl text-green-900">
-      <span>{{$profile->user->name}}</span><br>
+      <span>{{$profile->name}}</span><br>
     </div>
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-8 gap-4">
         @if($profile->user->profile_photo_url)
