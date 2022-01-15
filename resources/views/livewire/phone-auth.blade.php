@@ -3,6 +3,11 @@
       <x-slot name="logo">
           <x-jet-authentication-card-logo />
       </x-slot>
+      @if (session('status'))
+          <div class="mb-4 font-medium text-sm text-red-600">
+              {{ __(session('status')) }}
+          </div>
+      @endif
       <x-jet-validation-errors/>
       <div x-show="phone">
         <div>
