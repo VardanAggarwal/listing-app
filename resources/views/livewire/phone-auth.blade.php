@@ -91,9 +91,9 @@
 
     const auth = getAuth();
     auth.languageCode = 'hi';
-    window.onload=function () {
+    $( document ).ready(function(){
       captcha();
-    };
+    });
     function captcha(){
       window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
         'size': 'invisible',
