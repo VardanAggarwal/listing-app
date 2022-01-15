@@ -45,7 +45,7 @@
             <x-jet-input id="code" class="block mt-1 w-full" type="text" name="code" required autofocus />
         </div>
         <div class="flex items-center justify-between pb-2 mt-4">
-          <div x-data="{countdown:false}" x-init="countdown=60,window.setInterval(()=>{if(countdown>0){countdown=countdown-1;}},1000)">
+          <div x-data="{countdown:false}" x-init="$watch('code',value=>{if(value){countdown=60,window.setInterval(()=>{if(countdown>0){countdown=countdown-1;}},1000);}})">
             <template x-if="countdown > 0">
               <div>
                 <span>00:</span><span x-text="countdown"></span>
@@ -100,8 +100,6 @@
         'callback': (response) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
           console.log('captcha_success');
-          @this.show_phone=false;
-          @this.code=true;
           onSignInSubmit();
         }
       }, auth);
@@ -118,12 +116,14 @@
             // user in with confirmationResult.confirm(code).
             window.confirmationResult = confirmationResult;
             console.log("SMS sent");
+            @this.show_phone=false;
+            @this.code=true;
             // ...
           }).catch((error) => {
             // Error; SMS not sent
             // ...
             grecaptcha.reset(window.recaptchaWidgetId);
-            console.log("SMS not sent");
+            window.alert("Something went wrong");
           });
     }
     $("#verify-code").click(function(){
@@ -131,7 +131,7 @@
     });
     $("#resend-code").click(function(){
       grecaptcha.reset(window.recaptchaWidgetId);
-      onSignInSubmit();
+      $("#sign-in-button").trigger("click");
     });
     function verifyCode(){
       const code = $("#code").val();

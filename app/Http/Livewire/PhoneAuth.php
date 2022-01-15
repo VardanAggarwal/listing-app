@@ -30,7 +30,7 @@ class PhoneAuth extends Component
             $profile->user()->associate($user);
             $profile->save();
         }
-        Auth::login($user,true);
+        Auth::login($user,$remember=true);
         if($profile->name&&$profile->pincode){
             return redirect()->intended('/');
         }
