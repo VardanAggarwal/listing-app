@@ -22,7 +22,7 @@
 			</div>
 			<div class="mt-4">
 				<x-jet-label for="contact_number" value="{{ __('ui.contact_number') }}" />
-				<x-jet-input id="contact_number" class="block mt-1 w-full" type="text" maxlength="10" name="contact_number" :value="$profile?$profile->contact_number:''" autofocus />
+				<div class="flex gap-1 items-center"><span>+91 </span><x-jet-input id="contact_number" class="block mt-1 w-full" type="text" maxlength="10" name="contact_number" :value="$profile?$profile->contact_number:''" autofocus /></div>
 			</div>
 			<div class="grid w-full mt-4 justify-items-center">
 				<x-jet-button class="max-w-md justify-center">

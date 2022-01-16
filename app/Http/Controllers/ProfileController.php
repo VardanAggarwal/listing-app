@@ -30,6 +30,8 @@ class ProfileController extends Controller
         if(!$profile){
             $profile=new Profile;
             $profile->name=Auth::user()->name;
+        }else{
+            $profile->contact_number=str_replace("+91","",$profile->contact_number);
         }
         return view('profiles.new',['profile'=>$profile]);
         //
@@ -54,6 +56,7 @@ class ProfileController extends Controller
         $user=Auth::user();
 
         $profile=$user->profile()->findOrNew($profile_id);
+        $validated["contact_number"]="+91".$validated["contact_number"];
         $profile->fill($validated)->save();
         return redirect('/');
         //
