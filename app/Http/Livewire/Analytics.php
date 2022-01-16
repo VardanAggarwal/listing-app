@@ -35,7 +35,7 @@ class Analytics extends Component
         $interest_listings=DB::table('interestables')->where('interestable_type','App\\Models\\Listing')->count();
         $interest_information=DB::table('interestables')->where('interestable_type','App\\Models\\Story')->orWhere('interestable_type','App\\Models\\Statement')->count();
         $counts['VCs/user']=$interest_resiliencies/$counts['users_interested_in_resiliencies'];
-        $counts['Listings/user']=$interest_listings/$counts['users_interested_in_resiliencies'];
+        $counts['Listings/user']=$interest_listings/$counts['users_interested_in_listings'];
         $counts['Information/user']=$interest_information/$counts['users_interested_in_information'];
         return view('livewire.analytics',['counts'=>$counts]);
     }
