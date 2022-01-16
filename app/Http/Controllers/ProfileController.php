@@ -46,10 +46,10 @@ class ProfileController extends Controller
         $raw=$request->all();
         $profile_id=$raw['id'];
         $validated = $request->validate([
-            'name' => '',
-            'address' => '',
-            'pincode'=>'',
-            'contact_number'=>''
+            'name' => 'string|required',
+            'address' => 'string|required',
+            'pincode'=>'numeric|required|digits:6',
+            'contact_number'=>'numeric|required|digits:10'
         ]);
         $user=Auth::user();
 

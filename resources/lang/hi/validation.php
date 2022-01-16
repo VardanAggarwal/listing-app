@@ -169,7 +169,9 @@ return [
         'media'=>'फाइल',
         'location'=>'पता',
         'address'=>'पता',
-        'pincode'=>'पिनकोड'
+        'pincode'=>'पिनकोड',
+        'contact_number'=>'फोन नंबर',
+        'phone_number'=>'फोन नंबर'
     ],
 
 ];
