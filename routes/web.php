@@ -20,6 +20,7 @@ use \App\Http\Livewire\CreateListing;
 use \App\Http\Livewire\CreateResiliency;
 use \App\Http\Livewire\PhoneAuth;
 use \App\Http\Livewire\AdminAuth;
+use \App\Http\Livewire\Analytics;
 use \App\Models\Statement;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -36,6 +37,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
+Route::get('analytics',Analytics::class);
 Route::get('admin_login',function(){
     return view('adminauth');
 })->name('admin_login');
