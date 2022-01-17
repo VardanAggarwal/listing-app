@@ -13,12 +13,16 @@ class PhoneAuth extends Component
     public $show_phone=true;
     public $code=false;
     public $show_profile=false;
+    public $status=null;
     protected $rules=[
         'phone_number'=>'numeric|required|digits:10',
         'profile.name'=>'sometimes|string|required',
         'profile.address'=>'sometimes|string|required',
         'profile.pincode'=>'sometimes|numeric|digits:6|required'
     ];
+    public function mount(){
+        $this->status=session('status');
+    }
     public function sign_in(){
         $this->validate();
         $phone_number="+91".$this->phone_number;
