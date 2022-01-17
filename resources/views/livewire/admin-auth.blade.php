@@ -4,7 +4,7 @@
           <x-jet-authentication-card-logo />
       </x-slot>
       <x-jet-validation-errors/>
-      <div x-show="phone">
+      <div x-show="phone"  x-init="{phone:@entangle('show_phone')}">
         <div>
             <x-jet-label for="phone_number" value="{{ __('ui.contact_number') }}" />
             <div class="flex items-center">
@@ -18,7 +18,7 @@
             </x-jet-button>
         </div>
       </div>
-      <div style="display: none;" x-show="show_profile">
+      <div style="display: none;" x-show="show_profile"  x-init="{show_profile:@entangle('show_profile')}">
         <h1>{{__('ui.welcome')}}</h1>
         <div class="mt-4">
             <x-jet-label for="name" value="{{ __('ui.name') }}" />
