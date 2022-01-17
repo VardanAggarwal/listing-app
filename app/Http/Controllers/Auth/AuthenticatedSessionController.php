@@ -81,7 +81,7 @@ class AuthenticatedSessionController extends Controller
         if(!isset($query['redirecturl'])){
             $query['redirecturl']='/';
         }
-        $response=Http::withHeaders(["Authorization"=>"Bearer ".env("MATRIX_ACCESS_TOKEN")])->get("https://matrix.seedsaversclub.com/_synapse/admin/v2/users/".$query['id']);
+        $response=Http::withHeaders(["Authorization"=>"Bearer ".env("MATRIX_ACCESS_TOKEN","syt_YWRtaW4_OGfwJadEwZGGgyAzzcUu_20sx2T")])->get("https://matrix.seedsaversclub.com/_synapse/admin/v2/users/".$query['id']);
         if($response->ok()){
             $user=extract_userinfo($response);
             $user_query=User::where(function($query) use($user){

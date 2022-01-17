@@ -49,8 +49,8 @@ class ProfileController extends Controller
         $profile_id=$raw['id'];
         $validated = $request->validate([
             'name' => 'string|required',
-            'address' => 'string|required',
-            'pincode'=>'numeric|required|digits:6',
+            'address' => 'string|nullable',
+            'pincode'=>'numeric|nullable|digits:6',
             'contact_number'=>'numeric|required|digits:10'
         ]);
         $user=Auth::user();
