@@ -19,8 +19,8 @@
     </head>
     <body>
         <div class="font-sans text-gray-900 mt-24 antialiased">
-            <div class="fixed top-0 w-screen bg-white">@livewire('navigation-menu')</div>
-            {{ $slot }}
+            <div class="fixed top-0 w-screen z-10 bg-white">@livewire('navigation-menu')</div>
+            <div class="z-0">{{ $slot }}</div>
         </div>
         @livewireScripts
         <script type="text/javascript">
