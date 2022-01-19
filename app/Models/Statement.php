@@ -20,6 +20,10 @@ class Statement extends Model
                 $feed->save();
             }
         });
+        static::updated(function($statement){
+            $feed= Feed::where('feedable_id',$statement->id)->where('feedable_type',"App\\Models\\Statement")->first();
+            $feed->touch();
+        });
     }
     public function profile(){
         return $this->belongsTo(Profile::class);

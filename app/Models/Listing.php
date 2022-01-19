@@ -18,6 +18,10 @@ class Listing extends Model
             $feed->feedable_type="App\\Models\\Listing";
             $feed->save();
         });
+        static::updated(function($listing){
+            $feed= Feed::where('feedable_id',$listing->id)->where('feedable_type',"App\\Models\\Listing")->first();
+            $feed->touch();
+        });
     }
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);

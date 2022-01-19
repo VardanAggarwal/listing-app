@@ -18,6 +18,10 @@ class Resiliency extends Model
             $feed->feedable_type="App\\Models\\Resiliency";
             $feed->save();
         });
+        static::updated(function($resiliency){
+            $feed= Feed::where('feedable_id',$resiliency->id)->where('feedable_type',"App\\Models\\Resiliency")->first();
+            $feed->touch();
+        });
     }
 
 

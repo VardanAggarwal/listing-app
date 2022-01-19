@@ -19,6 +19,10 @@ class Story extends Model
             $feed->feedable_type="App\\Models\\Story";
             $feed->save();
         });
+        static::updated(function($story){
+            $feed= Feed::where('feedable_id',$story->id)->where('feedable_type',"App\\Models\\Story")->first();
+            $feed->touch();
+        });
     }
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);

@@ -17,7 +17,7 @@ class FeedList extends Component
        }
     public function render()
     {
-        $this->feed=Feed::with(['feedable','resiliency'])->orderByDesc('id')->cursorPaginate($this->perPage);
+        $this->feed=Feed::with(['feedable','resiliency'])->orderByDesc('updated_at')->cursorPaginate($this->perPage);
         return view('livewire.feed-list',['feed'=>$this->feed])->layout('layouts.guest');
     }
 }
