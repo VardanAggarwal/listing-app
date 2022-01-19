@@ -1,4 +1,5 @@
 <div class="">
+  <x-inline-profile :model=$model/>
   <div class="flex justify-between">
     <a href="/listings/{{$model->id}}"><span class="font-semibold text-xl text-green-900">{{$model->name}}</span></a>
     <span class="text-sm text-gray-500">{{__($model->type)}}</span>
@@ -22,6 +23,6 @@
       </div>
   </div>
   <div>
-      @livewire('card-interests',['model'=>$model,'type'=>'Listing'],, key('listing-'.$model->id))
+      @livewire('card-interests',['model'=>$model,'type'=>'Listing'], key('listing-'.$model->id))
   </div>
 </div>

@@ -1,4 +1,5 @@
 <div class="">
+  <x-inline-profile :model=$model/>
   <a href="/stories/{{$model->id}}"><span class="font-semibold text-xl text-green-900">{{$model->title}}</span></a>
   <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 items-center">
       @if($model->image_url)

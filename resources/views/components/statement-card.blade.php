@@ -1,4 +1,5 @@
 <div class="">
+    <x-inline-profile :model=$model/>
     <div class="sm:flex sm:items-center">
         @if($model->image)
             <a href="/statements/{{$model->id}}"><img src="{{$model->image}}" class="object-cover max-h-40 w-full sm:w-60 rounded mb-4 sm:m-0"></a>

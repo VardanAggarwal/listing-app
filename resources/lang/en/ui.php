@@ -40,7 +40,8 @@ return [
   ],
   "statement"=>[
     "placeholder"=>"Ask a question or share something",
-    "saved"=>"Your post has been published."
+    "saved"=>"Your post has been published.",
+    "reply"=>"Add your comment"
   ],
   "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS."
 ];

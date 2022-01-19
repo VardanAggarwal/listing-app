@@ -1,5 +1,5 @@
 <x-guest-layout>
-  <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+  <div class="max-w-7xl mx-4 sm:mx-auto">
     <div class="prose">{!!$statement->statement!!}</div>
     @php
       $media=[];
@@ -7,7 +7,7 @@
         $media=explode(",",$statement->media);
       }
     @endphp
-    <div class="flex gap-4 flex-wrap justify-center">
+    <div class="flex gap-4 my-4 flex-wrap justify-center">
     @foreach($media as $file)
         @php
           $type=get_headers($file,true)["Content-Type"]
@@ -28,10 +28,17 @@
         @endswitch
     @endforeach
     </div>
+    <x-profile-card :model="$statement->profile"></x-profile-card>
     @livewire('card-interests',['model'=>$statement,'type'=>'Statement'])
     @livewire('page-interests',['model'=>$statement,'type'=>'Statement'])
-    @livewire('post-statement',['parent'=>$statement])
+    @livewire('post-statement',['parent'=>$statement,'view'=>'reply'])
     @livewire('relationship-filtered-list',['relation'=>'statements','model'=>$statement])
+    @if($statement->attached_resiliencies_count)
+      <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
+        {{__('Related')}} {{__('ui.models.resiliencies')}}
+      @livewire('relationship-filtered-list',['relation'=>'attached_resiliencies','model'=>$statement])
+      </div>
+    @endif
     <x-card-add-interests/>
   </div>
   @push('meta')

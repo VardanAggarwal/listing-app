@@ -17,6 +17,7 @@ class PostStatement extends Component
     public $form=true;
     public $statement="";
     public $media=[];
+    public $view;
     public $selected=[];
     public $parent;
     protected $listeners = ['updateSelected'];

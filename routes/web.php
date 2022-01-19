@@ -60,7 +60,7 @@ Route::get('/profiles/{profile}',[ProfileController::class,'show'])->name('showP
 Route::get('/categories/{category}',[CategoryController::class,'show']);
 Route::get('/resiliencies/{resiliency}',[ResiliencyController::class,'show']);
 Route::get('/statements/{statement}',function(Statement $statement){
-    return view('statement',['statement'=>$statement]);
+    return view('statement',['statement'=>$statement->loadCount('attached_resiliencies')]);
 });
 
 //Onboarding

@@ -18,8 +18,8 @@
         @stack('scripts')
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            @livewire('navigation-menu')
+        <div class="font-sans text-gray-900 mt-24 antialiased">
+            <div class="fixed top-0 w-screen bg-white">@livewire('navigation-menu')</div>
             {{ $slot }}
         </div>
         @livewireScripts

@@ -1,5 +1,13 @@
 <div class="flex justify-between mt-1 pt-2 border-t text-sm">
     <div>
+        <span class="static" x-data={open:false} @mouseleave="open=false">
+            <span class="" @mouseenter="open=!open">{{$model->interested_profiles_count}}</span>
+            @unless ($type=="Listing"||$type=="Story")
+                <div class="absolute border rounded p-2 bg-white max-w-xs" style="display: none;" x-show="open" x-on:click="open=false">
+                    <span x-init="setTimeout(() => open = false, 1000)">{{__('ui.interest_help')}}</span>
+                </div>
+            @endunless
+        </span>
         <a class="cursor-pointer" href="#interest-{{$type}}-{{$model->id}}" wire:click="toggleInterest">
             @if(Auth::user())
                 @if(Auth::user()->profile)
@@ -15,15 +23,12 @@
                 {{($type=='Listing'||$type=='Story')?__('Like'):__('Show interest')}}
             @endif
         </a>
-        <span class="static" x-data={open:false} @mouseleave="open=false">
-            <span class="pl-2" @mouseenter="open=!open">{{$model->interested_profiles_count}} {{__('interested')}}</span>
-            @unless ($type=="Listing"||$type=="Story")
-                <div class="absolute border rounded p-2 bg-white max-w-xs" style="display: none;" x-show="open" x-on:click="open=false">
-                    <span x-init="setTimeout(() => open = false, 1000)">{{__('ui.interest_help')}}</span>
-                </div>
-            @endunless
-        </span>
     </div>
+    @if($type=='Statement')
+    <div>
+        @livewire('post-statement',['parent'=>$model,'view'=>'card'])
+    </div>
+    @endif
     <div class="static" x-data={open:false} @mouseleave="open=false">
         <a class="underline" href="#help-{{$type}}-{{$model->id}}" x-on:click="open=!open">{{__('I need help with this')}}</a>
         <div class="absolute border rounded p-4 bg-white inset-x-4 sm:inset-x-auto" style="display: none;" x-init={open:false} x-show="open">

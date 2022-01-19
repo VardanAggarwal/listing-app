@@ -1,5 +1,15 @@
-<div class="static my-5" x-data="{open:false,other:false}">
-    <div class="p-5 sm:pl-10 rounded-full shadow-md border border-gray-200 bg-gray-100 text-gray-500 rounded" x-on:click="open=!open,other=false" wire:click="resetForm">{{__("ui.statement.placeholder")}}</div>
+<div class="static {{$view=='card'?'':'my-4'}}" x-data="{open:false,other:false}">
+    @if($view=='card')
+    <span x-on:click="open=!open,other=false" wire:click="resetForm"> {{$parent->statements->count()}} <i class="far fa-comment"></i></span>
+    @else
+    <div class="p-5 sm:pl-10 rounded-full shadow-md border border-gray-200 bg-gray-100 text-gray-500 rounded" x-on:click="open=!open,other=false" wire:click="resetForm">
+        @if($view=='reply')
+            {{__("ui.statement.reply")}}
+        @else
+            {{__("ui.statement.placeholder")}}
+        @endif
+    </div>
+    @endif
     <div class="bg-gray-900 opacity-80 fixed inset-0" x-show="open" style="display: none;" x-on:click="open=!open">    </div>
     <div class="fixed max-w-full overflow-auto border rounded p-4 bg-white inset-10 sm:inset-1/4" style="display: none;" x-init={open:false,other:false} x-show="open">
         <x-jet-validation-errors class="mb-4" />
@@ -8,7 +18,7 @@
         <form wire:submit.prevent="save_statement">
             @csrf
             <div class="mt-4">
-                <x-tinymce wire:model="statement" placeholder="{{__('ui.statement.placeholder')}}" />
+                <x-tinymce wire:model="statement" placeholder="{{$view=='reply'?__('ui.statement.reply'):__('ui.statement.placeholder')}}" />
             </div>
             <div class="mt-4">
                 <input type="file" name="media" wire:model="media" multiple>
