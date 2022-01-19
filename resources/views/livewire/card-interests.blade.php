@@ -24,11 +24,9 @@
             @endif
         </a>
     </div>
-    @if($type=='Statement')
     <div>
         @livewire('post-statement',['parent'=>$model,'view'=>'card'])
     </div>
-    @endif
     <div class="static" x-data={open:false} @mouseleave="open=false">
         <a class="underline" href="#help-{{$type}}-{{$model->id}}" x-on:click="open=!open">{{__('I need help with this')}}</a>
         <div class="absolute border rounded p-4 bg-white inset-x-4 sm:inset-x-auto" style="display: none;" x-init={open:false} x-show="open">
