@@ -1,5 +1,5 @@
 <x-guest-layout>
-  <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+  <div class="max-w-7xl mx-4 sm:mx-auto">
     <span class="font-semibold text-2xl text-green-900">{{$listing->name}}</span><br>
     <span class="font-semibold text-lg text-gray-600">{{__($listing->type)}}</span>
     <div class="mt-4 flex gap-4 items-center ">

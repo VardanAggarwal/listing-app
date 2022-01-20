@@ -1,4 +1,4 @@
-<div class="py-8 max-w-7xl mx-4 sm:mx-auto" wire:loading.delay.class='opacity-50'>
+<div class="max-w-7xl mx-4 sm:mx-auto" wire:loading.delay.class='opacity-50'>
     <div class="flex justify-between items-center">
       <h1 class="font-bold text-2xl">{{__('ui.models.statements')}}</h1>
       <div class="relative">

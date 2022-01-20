@@ -1,4 +1,4 @@
-<div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+<div class="max-w-7xl mx-4 sm:mx-auto">
               <x-jet-validation-errors class="mb-4" />
 
     <form wire:submit.prevent="save">

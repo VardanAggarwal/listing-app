@@ -1,5 +1,5 @@
 <x-guest-layout>
-  <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+  <div class="max-w-7xl mx-4 sm:mx-auto">
     <span class="font-semibold text-2xl text-green-900">{{$story->title}}</span><br>
     <div class="rating text-yellow-400">
         {!! str_repeat('<span><i class="fas fa-star"></i></span>', $story->rating) !!}

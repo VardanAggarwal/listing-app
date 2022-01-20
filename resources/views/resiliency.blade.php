@@ -1,5 +1,5 @@
 <x-guest-layout>
-  <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+  <div class="max-w-7xl mx-4 sm:mx-auto">
     <div class="flex justify-between items-center">
       <div>
         <span class="font-semibold text-3xl text-green-900">{{$resiliency->name}}</span><br>

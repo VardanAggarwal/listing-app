@@ -1,4 +1,4 @@
-<div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+<div class="max-w-7xl mx-4 sm:mx-auto">
   <div class="relative">
   <x-jet-input type="text" placeholder="{{__('Type to search')}}" wire:model="query" wire:keydown.enter="resetPage" class="w-full"></x-jet-input>
   @if($query)

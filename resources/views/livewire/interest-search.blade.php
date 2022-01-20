@@ -1,4 +1,4 @@
-<div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+<div class="max-w-7xl mx-4 sm:mx-auto">
     <h1 class="text-xl">{{__('ui.interest_title')}}</h1>
     <div class="flex flex-wrap my-2 gap-2 overflow-auto max-h-40">
         @foreach($resiliencies as $result)
