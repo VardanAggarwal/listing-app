@@ -21,7 +21,9 @@ class Story extends Model
         });
         static::updated(function($story){
             $feed= Feed::where('feedable_id',$story->id)->where('feedable_type',"App\\Models\\Story")->first();
-            $feed->touch();
+            if($feed){
+                $feed->touch();
+            }
         });
     }
     public function resiliencies(){

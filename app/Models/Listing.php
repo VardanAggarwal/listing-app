@@ -20,7 +20,9 @@ class Listing extends Model
         });
         static::updated(function($listing){
             $feed= Feed::where('feedable_id',$listing->id)->where('feedable_type',"App\\Models\\Listing")->first();
-            $feed->touch();
+            if($feed){
+                $feed->touch();
+            }
         });
     }
     public function resiliencies(){

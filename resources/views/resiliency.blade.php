@@ -43,15 +43,17 @@
     </div>
     <x-card-add-interests/>
     @if($resiliency->stories_count)
-      <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
-        <div class="flex justify-between items-center">
-          <span class="font-semibold text-lg">{{__('Related')}} {{__('story')}}</span>
-          <a href="\stories\new">
-            <x-jet-button>{{__('Add new')}}</x-jet-button>
-          </a>
+      <section id="stories">
+        <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-lg">{{__('Related')}} {{__('story')}}</span>
+            <a href="\stories\new">
+              <x-jet-button>{{__('Add new')}}</x-jet-button>
+            </a>
+          </div>
+          @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$resiliency])
         </div>
-      @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$resiliency])
-      </div>
+      </section>
     @else
     <div class="mt-4 w-full grid justify-items-center">
       <a href="\stories\new">
@@ -61,15 +63,17 @@
     @endif
 
     @if($resiliency->listings_count)
-      <div class="max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-        <div class="flex justify-between items-center">
-          <span class="font-semibold text-lg">{{__('Related')}} {{__('listing')}}</span>
-          <a href="\listings\new">
-            <x-jet-button>{{__('Add new')}}</x-jet-button>
-          </a>
+      <section id="listings">
+        <div class="max-w-7xl sm:mx-auto mt-4 border-b  py-4">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-lg">{{__('Related')}} {{__('listing')}}</span>
+            <a href="\listings\new">
+              <x-jet-button>{{__('Add new')}}</x-jet-button>
+            </a>
+          </div>
+        @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$resiliency])
         </div>
-      @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$resiliency])
-      </div>
+      </section>
     @else
     <div class="mt-4 w-full grid justify-items-center">
       <a href="\listings\new">

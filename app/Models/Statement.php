@@ -13,16 +13,16 @@ class Statement extends Model
     protected $guarded=[];
     protected static function booted(){
         static::created(function($statement){
-            if(!$statement->stateable){
                 $feed= new Feed;
                 $feed->feedable_id=$statement->id;
                 $feed->feedable_type="App\\Models\\Statement";
                 $feed->save();
-            }
         });
         static::updated(function($statement){
             $feed= Feed::where('feedable_id',$statement->id)->where('feedable_type',"App\\Models\\Statement")->first();
-            $feed->touch();
+            if($feed){
+                $feed->touch();
+            }
         });
     }
     public function profile(){
