@@ -37,6 +37,7 @@ class Analytics extends Component
         $counts['VCs/user']=$interest_resiliencies/$counts['users_interested_in_resiliencies'];
         $counts['Listings/user']=$interest_listings/$counts['users_interested_in_listings'];
         $counts['Information/user']=$interest_information/$counts['users_interested_in_information'];
+        $counts['Profiles with phone number']=Profile::where('contact_number','<>',null)->count();
         return view('livewire.analytics',['counts'=>$counts]);
     }
 }
