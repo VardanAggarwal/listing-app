@@ -43,5 +43,6 @@ return [
     "saved"=>"आपकी पोस्ट प्रकाशित हो चुकी है।",
     "reply"=>"अपनी प्रतिक्रिया जोड़ें"
   ],
-  "verification_code"=>"SMS द्वारा आपके फोन पर OTP कोड भेजा गया है, नीचे वो कोड दर्ज करें। "
+  "verification_code"=>"SMS द्वारा आपके फोन पर OTP कोड भेजा गया है, नीचे वो कोड दर्ज करें। ",
+  "contact_message"=>"नमस्कार! Seed Savers Club एप्प से आपका नंबर मिला। https://app.seedsaversclub.com"
 ];

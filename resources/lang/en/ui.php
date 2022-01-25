@@ -43,5 +43,6 @@ return [
     "saved"=>"Your post has been published.",
     "reply"=>"Add your comment"
   ],
-  "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS."
+  "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS.",
+  "contact_message"=>"Hi! Got your number from the Seed Savers Club app. https://app.seedsaversclub.com"
 ];
