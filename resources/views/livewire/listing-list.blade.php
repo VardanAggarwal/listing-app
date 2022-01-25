@@ -16,6 +16,9 @@
         <div class=" my-5 px-6 py-4 rounded-lg shadow border">    
             <x-listing-card :model="$item"/>
         </div>
+        @if ($loop->index==2)
+          <x-card-add-interests :type="'listing'"/>
+        @endif
     @endforeach
   <div
       x-data="{

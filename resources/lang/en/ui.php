@@ -28,6 +28,8 @@ return [
   "add_interest_button"=>"Add crops & practices",
   "add_story_card_text"=>"If you tried something new on your farm then share your experience with it",
   "add_story_button"=>"Share your experience",
+  "add_listing_card_text"=>"Do you want to sell or buy some agriculture related item?",
+  "add_listing_button"=>"Add your item",
   "help"=>[
     "title"=>"How can we help you?",
     "input"=>"Need to buy inputs/seeds",

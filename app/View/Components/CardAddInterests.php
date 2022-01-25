@@ -11,9 +11,11 @@ class CardAddInterests extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $type;
+    public function __construct($type=null)
     {
         //
+        $this->type=$type;
     }
 
     /**
