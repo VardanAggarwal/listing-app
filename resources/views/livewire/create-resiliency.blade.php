@@ -3,12 +3,13 @@
 
     <form wire:submit.prevent="save">
         @csrf
-        <h1 class="font-bold text-lg mb-4">
+        <h1 class="font-bold text-lg mb-0">
           {{__('ui.new_f')}} {{__('ui.models.resiliencies')}}
         </h1>
+        <span class="text-sm text-gray-500">{{__('ui.labels.resiliency_subtitle')}}</span>
         <div class="mt-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="resiliency.name" autofocus/>
+            <x-jet-label for="name" value="{{ __('ui.labels.resiliency_name') }}" />
+            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" placeholder="{{ __('ui.placeholders.resiliency_name') }}" wire:model="resiliency.name" autofocus/>
         </div>
         <div class="mt-4">
             <x-jet-label for="type" value="{{__('Type')}}"/>
@@ -21,7 +22,7 @@
         </div>
         <div class="mt-4" wire:ignore>
             <x-jet-label for="description" value="{{ __('Description') }}" />
-            <textarea id="description" class="block mt-1 w-full tinymce" type="text" name="description" wire:model="resiliency.description"></textarea>
+            <textarea id="description" class="block mt-1 w-full tinymce" type="text" name="description" placeholder="{{ __('ui.placeholders.resiliency_description') }}" wire:model="resiliency.description"></textarea>
         </div>
         <div class="mt-4">
             <x-jet-label for="image" value="{{ __('Image') }}" />

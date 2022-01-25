@@ -43,6 +43,14 @@ return [
     "saved"=>"आपकी पोस्ट प्रकाशित हो चुकी है।",
     "reply"=>"अपनी प्रतिक्रिया जोड़ें"
   ],
+  "labels"=>[
+    "resiliency_subtitle"=>"एक नयी फसल, कृषि व्यवसाय या खेती मॉडल आदि जोड़ें।",
+    "resiliency_name"=>"फसल/कृषि व्यवसाय का नाम",
+  ],
+  "placeholders"=>[
+    "resiliency_name"=>"जैसे: मशरुम/ Mushroom",
+    "resiliency_description"=>"इसके बारे में कुछ विस्तार में जानकारी दें। जैसे किसान भाइयों को ये क्यूँ अपनाना चाहिए। इसे अपनाने के लिए क्या करना होगा। लागत और कमाई पर क्या असर पड़ेगा।",
+  ],
   "verification_code"=>"SMS द्वारा आपके फोन पर OTP कोड भेजा गया है, नीचे वो कोड दर्ज करें। ",
   "contact_message"=>"नमस्कार! Seed Savers Club एप्प से आपका नंबर मिला। https://app.seedsaversclub.com"
 ];

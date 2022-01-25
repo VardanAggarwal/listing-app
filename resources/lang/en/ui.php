@@ -43,6 +43,14 @@ return [
     "saved"=>"Your post has been published.",
     "reply"=>"Add your comment"
   ],
+  "labels"=>[
+    "resiliency_subtitle"=>"Add a new crop or practice or model if you didn't find it on our app",
+    "resiliency_name"=>"Crop or Practice name",
+  ],
+  "placeholders"=>[
+    "resiliency_name"=>"Type a commonly known name in hindi & english like मशरुम/Mushroom",
+    "resiliency_description"=>"Provide some detail about this. Like why farmer brothers should adopt this. What needs to be done to adopt it? What will be the impact on cost and earnings.",
+  ],
   "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS.",
   "contact_message"=>"Hi! Got your number from the Seed Savers Club app. https://app.seedsaversclub.com"
 ];
