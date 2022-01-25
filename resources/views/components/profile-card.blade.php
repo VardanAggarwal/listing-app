@@ -15,4 +15,5 @@
         </a>
       </div>
   </div>
+  <div class="mt-4"><x-contact-profile :profile="$model"></x-contact-profile></div>
 </div>
