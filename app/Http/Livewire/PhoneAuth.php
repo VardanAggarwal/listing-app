@@ -26,7 +26,7 @@ class PhoneAuth extends Component
     public function sign_in(){
         $this->validate();
         $phone_number="+91".$this->phone_number;
-        $user=User::firstOrCreate(['phone_number'=>$phone_number]);
+        $user=User::firstOrCreate(['phone_number'=>$phone_number],['phone_number_verified'=>true]);
         if($user->profile){
             $profile=$user->profile;
         }else{

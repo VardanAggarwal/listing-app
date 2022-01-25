@@ -67,5 +67,6 @@ return [
     "story_review"=>"Share some details like how you started, expenses & income, challenges you faced etc."
   ],
   "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS.",
-  "contact_message"=>"Hi! Got your number from the Seed Savers Club app. https://app.seedsaversclub.com"
+  "contact_message"=>"Hi! Got your number from the Seed Savers Club app. https://app.seedsaversclub.com",
+  "verified_profile"=>""
 ];

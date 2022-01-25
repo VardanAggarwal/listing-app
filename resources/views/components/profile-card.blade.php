@@ -9,10 +9,15 @@
       @endif
       <div class="flex-auto">
           <a href="/profiles/{{$model->id}}">
-            <span class="font-semibold text-lg text-green-900">{{$model->name}}</span><br>
+            <span class="font-semibold text-lg text-green-900">{{$model->name}}</span></a>
+          @if($model->status)
+              <span class="p-2"><i class="text-green-500 fas fa-check-circle"></i></span>
+          @endif
+          <br>
+          <a href="/profiles/{{$model->id}}">
             <span class="">{{($model->address)}}, {{$model->pincode}}</span><br>
             <span>{{$model->contact_number}}</span><br>
-        </a>
+          </a>
       </div>
   </div>
 </div>
