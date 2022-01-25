@@ -26,6 +26,8 @@ return [
   "interest_title"=>"Let us know which crops & practices you want to know more about or need help with.",
   "add_interest_card_text"=>"Do you need help with any specific crops & practices?",
   "add_interest_button"=>"Add crops & practices",
+  "add_story_card_text"=>"If you tried something new on your farm then share your experience with it",
+  "add_story_button"=>"Share your experience",
   "help"=>[
     "title"=>"How can we help you?",
     "input"=>"Need to buy inputs/seeds",

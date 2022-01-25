@@ -16,6 +16,12 @@
         <div class=" my-5 px-6 py-4 rounded-lg shadow border">    
             <x-story-card :model="$item"/>
         </div>
+        @if ($loop->index==2)
+          <div class="bg-green-400 my-5 px-6 py-4 rounded-lg shadow-lg border border-green-500 grid">
+              <h1 class="text-xl">{{__('ui.add_story_card_text')}}</h1>
+              <a href="/stories/new" class="mt-3 mx-auto"><x-jet-button>{{__('ui.add_story_button')}}</x-jet-button></a>
+          </div>
+        @endif
     @endforeach
   <div
       x-data="{
