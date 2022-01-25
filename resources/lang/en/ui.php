@@ -46,10 +46,21 @@ return [
   "labels"=>[
     "resiliency_subtitle"=>"Add a new crop or practice or model if you didn't find it on our app",
     "resiliency_name"=>"Crop or Practice name",
+    "listing_subtitle"=>"If you want to buy or sell anything related to agriculture then add here.",
+    "listing_name"=>"What do you want to buy/sell",
+    "story_subtitle"=>"If you tried something new on your farm then share your experience with it",
+    "story_title"=>"Give it a title",
+    "story_review"=>"Share your experience",
+    "story_rating"=>"Would you recommend this to other farmers"
   ],
   "placeholders"=>[
     "resiliency_name"=>"Type a commonly known name in hindi & english like मशरुम/Mushroom",
     "resiliency_description"=>"Provide some detail about this. Like why farmer brothers should adopt this. What needs to be done to adopt it? What will be the impact on cost and earnings.",
+    "listing_name"=>"Like: Vegetable seeds",
+    "listing_description"=>"Add details about this item. Like how will the payment & delivery be done.",
+    "listing_price"=>"Like: Rs. 100/kg",
+    "story_title"=>"Like: My experience with Mushroom farming",
+    "story_review"=>"Share some details like how you started, expenses & income, challenges you faced etc."
   ],
   "verification_code"=>"Please enter the otp code that was sent to your phone number by SMS.",
   "contact_message"=>"Hi! Got your number from the Seed Savers Club app. https://app.seedsaversclub.com"

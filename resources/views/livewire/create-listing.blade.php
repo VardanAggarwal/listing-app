@@ -2,16 +2,17 @@
               <x-jet-validation-errors class="mb-4" />
     <form wire:submit.prevent="save">
         @csrf
-        <h1 class="font-bold text-lg mb-4">
+        <h1 class="font-bold text-lg mb-0">
           {{__('ui.new_f')}} {{__('listing')}}
         </h1>
+        <span class="text-sm text-gray-500">{{__('ui.labels.listing_subtitle')}}</span>
         <div class="mt-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="listing.name" autofocus/>
+            <x-jet-label for="name" value="{{ __('ui.labels.listing_name') }}" />
+            <x-jet-input id="name" class="block mt-1 w-full" type="text" placeholder="{{ __('ui.placeholders.listing_name') }}" name="name" wire:model="listing.name" autofocus/>
         </div>
         <div class="mt-4">
             <x-jet-label for="price" value="{{ __('Price') }}" />
-            <x-jet-input id="price" class="block mt-1 w-full" type="text" name="price" wire:model="listing.price" />
+            <x-jet-input id="price" class="block mt-1 w-full" type="text" name="price" placeholder="{{ __('ui.placeholders.listing_price') }}" wire:model="listing.price" />
         </div>
         <div class="mt-4 grid grid-cols-2 gap-4">
             <div>
@@ -32,7 +33,7 @@
         </div>
         <div class="mt-4" wire:ignore>
             <x-jet-label for="description" value="{{ __('Description') }}" />
-            <textarea id="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm tinymce" type="text" name="description" wire:model="listing.description"> </textarea>
+            <textarea id="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm tinymce" type="text" placeholder="{{ __('ui.placeholders.listing_description') }}"  name="description" wire:model="listing.description"> </textarea>
         </div>
         <div class="mt-4">
             <x-jet-label for="location" value="{{ __('Address') }}" />
