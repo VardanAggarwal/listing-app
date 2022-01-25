@@ -60,11 +60,4 @@
             </div>
         @endif
     </div>
-    @once
-        @push('scripts')
-            <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-             <script>
-             </script>
-        @endpush
-    @endonce
 </div>

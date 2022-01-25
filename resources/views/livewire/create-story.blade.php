@@ -13,7 +13,7 @@
         </div>
         <div class="mt-4" wire:ignore>
             <x-jet-label for="review" value="{{ __('ui.labels.story_review') }}" />
-            <textarea id="review" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm tinymce" type="text" name="review"  placeholder="{{ __('ui.placeholders.story_review') }}" wire:model="story.review"> </textarea>
+            <x-tinymce wire:model="story.review" placeholder="{{ __('ui.placeholders.story_review') }}" />
         </div>
         <div class="mt-4">
             <x-jet-label for="rating" value="{{ __('ui.labels.story_rating') }}"/>
@@ -39,25 +39,3 @@
         </div>
     </form>
 </div>
-@once
-    @push('scripts')
-        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-         <script>
-           tinymce.init({
-             selector: 'textarea.tinymce', // Replace this CSS selector to match the placeholder element for TinyMCE
-             plugins: 'code lists link paste autolink media',
-             toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | link | media',
-             setup: function (editor) {
-                         editor.on('init change', function () {
-                             editor.save();
-                         });
-                         editor.on('change', function (e) {
-                         @this.set('story.review', editor.getContent());
-                         });
-                      },
-             smart_paste:true,
-             default_link_target: '_blank'
-           });
-         </script>
-    @endpush
-@endonce

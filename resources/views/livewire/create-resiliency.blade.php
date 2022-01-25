@@ -22,7 +22,7 @@
         </div>
         <div class="mt-4" wire:ignore>
             <x-jet-label for="description" value="{{ __('Description') }}" />
-            <textarea id="description" class="block mt-1 w-full tinymce" type="text" name="description" placeholder="{{ __('ui.placeholders.resiliency_description') }}" wire:model="resiliency.description"></textarea>
+            <x-tinymce wire:model="resiliency.description" placeholder="{{ __('ui.placeholders.resiliency_description') }}" />
         </div>
         <div class="mt-4">
             <x-jet-label for="image" value="{{ __('Image') }}" />
@@ -40,25 +40,3 @@
         </div>
     </form>
 </div>
-@once
-    @push('scripts')
-        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-         <script>
-           tinymce.init({
-             selector: 'textarea.tinymce', // Replace this CSS selector to match the placeholder element for TinyMCE
-             plugins: 'code lists link paste autolink media',
-             toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | link | media',
-             setup: function (editor) {
-                         editor.on('init change', function () {
-                             editor.save();
-                         });
-                         editor.on('change', function (e) {
-                         @this.set('resiliency.description', editor.getContent());
-                         });
-                      },
-             smart_paste:true,
-             default_link_target: '_blank'
-           });
-         </script>
-    @endpush
-@endonce

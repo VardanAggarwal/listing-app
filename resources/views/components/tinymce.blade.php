@@ -4,6 +4,7 @@
         tinymce.init({
             target: $refs.tinymce,
             themes: 'modern',
+            relative_urls: false,
             menubar: false,
             statusbar: false,
             mobile:{
@@ -45,4 +46,11 @@
             {{ $attributes->whereDoesntStartWith('wire:model') }}
         >
     </div>
+    @once
+        @push('scripts')
+            <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+             <script>
+             </script>
+        @endpush
+    @endonce
 </div>
