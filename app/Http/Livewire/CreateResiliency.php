@@ -23,7 +23,7 @@ class CreateResiliency extends Component
         'resiliency.description'=>'string|nullable',
         'resiliency.image_url'=>'string|nullable'
     ];
-    public function mount(Resiliency $resiliency){
+    public function mount($resiliency=null){
         if ($resiliency){
             $this->resiliency=$resiliency;
             $this->selected=$resiliency->categories->modelKeys();

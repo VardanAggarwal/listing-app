@@ -2,7 +2,14 @@
   <div class="max-w-7xl mx-4 sm:mx-auto">
     <div class="flex justify-between items-center">
       <div>
-        <span class="font-semibold text-3xl text-green-900">{{$resiliency->name}}</span><br>
+        <span class="font-semibold text-3xl text-green-900">{{$resiliency->name}}</span>
+        @if(Auth::user())
+          @if(Auth::user()->role_id==1)
+          <a href="/resiliencies/{{$resiliency->id}}/edit"><i class="fas fa-pen"></i></a>
+          <a href="/resiliencies/{{$resiliency->id}}/delete"><i class="fas fa-trash-alt"></i></a>
+          @endif
+        @endif
+        <br>
         <span class="font-semibold text-lg text-gray-600">{{__($resiliency->type)}}</span>
       </div>
       <div>
