@@ -11,6 +11,9 @@ class Resiliency extends Model
     use Searchable;
     protected $guarded=[];
 
+    protected $casts = [
+             'additional_info' => 'array',
+         ];
     protected static function booted(){
         static::created(function($resiliency){
             $feed= new Feed;

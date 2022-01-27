@@ -11,6 +11,12 @@
             <x-jet-label for="name" value="{{ __('ui.labels.resiliency_name') }}" />
             <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" placeholder="{{ __('ui.placeholders.resiliency_name') }}" wire:model="resiliency.name" autofocus/>
         </div>
+        @if(Auth::user()->role_id==1)
+            <div class="mt-4">
+                <x-jet-label for="other_name" value="Other names" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="other_name" wire:model="other_names"/>
+            </div>
+        @endif
         <div class="mt-4">
             <x-jet-label for="type" value="{{__('Type')}}"/>
             <select wire:model="resiliency.type">

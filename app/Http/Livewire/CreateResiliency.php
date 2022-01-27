@@ -15,6 +15,7 @@ class CreateResiliency extends Component
     public $type;
     public Resiliency $resiliency;
     public $image;
+    public $other_names;
     public $selected=[];
     protected $listeners = ['updateSelected'];
     protected $rules=[
@@ -27,6 +28,9 @@ class CreateResiliency extends Component
         if ($resiliency){
             $this->resiliency=$resiliency;
             $this->selected=$resiliency->categories->modelKeys();
+            if($resiliency->additional_info){
+                $this->other_names=$resiliency->additional_info['other_names'];
+            }
         }
         else{
             $this->resiliency=new Resiliency;
@@ -44,6 +48,9 @@ class CreateResiliency extends Component
         $this->resiliency->image_url=Storage::url($this->image->storePublicly('user/resiliency','s3'));
         }
         $this->validate();
+        if($this->other_names){
+            $this->resiliency->additional_info=['other_names'=>$this->other_names];            
+        }
         $this->resiliency->save();
         $this->resiliency->categories()->sync($this->selected);
         Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching([$this->resiliency->id]);
