@@ -1,7 +1,11 @@
 <div class="">
     @if($parent_type && $model->stateable)
         @php
-            $component=$parent_type.'-card';
+            if($parent_type=='statement'){
+                $component='comment-card';
+            }else{
+                $component=$parent_type.'-card';
+            }
         @endphp
         <x-dynamic-component :component="$component" :model="$model->stateable"/>
         <div class="bg-gray-200 p-2 mt-2 rounded-lg">
