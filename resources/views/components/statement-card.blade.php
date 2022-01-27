@@ -10,7 +10,7 @@
         <x-dynamic-component :component="$component" :model="$model->stateable" :index="$index"/>
         <div class="bg-gray-200 p-2 mt-2 rounded-lg">
             <x-inline-profile :model=$model/>
-            <a href="/statements/{{$model->id}}"><div class="overflow-ellipsis overflow-hidden max-h-12 sm:max-h-40 sm:ml-4">{{strip_tags($model->statement)}}</div></a>
+            <a href="/statements/{{$model->id}}"><div class="overflow-ellipsis overflow-hidden max-h-12 sm:max-h-40 sm:ml-4">{!!strip_tags($model->statement)!!}</div></a>
         </div>
     @else
         <x-inline-profile :model=$model/>
