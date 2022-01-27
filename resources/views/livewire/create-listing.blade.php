@@ -47,10 +47,12 @@
             <x-jet-label for="image" value="{{ __('Image') }}" />
             <input id="image" class="block mt-1 w-full" type="file" name="image" wire:model="image" />
             @if($image)
-                <img src="{{$image->temporaryUrl()}}">
+                <img class="h-24" src="{{$image->temporaryUrl()}}">
+                @elseif($listing->image_url)
+                    <img class="h-24" src="{{$listing->image_url}}">
             @endif
         </div>
-        @livewire('relationship-search',['type'=>'Resiliency'])
+        @livewire('relationship-search',['type'=>'Resiliency','selected'=>$selected])
         <x-jet-validation-errors class="mb-4" />
         <div class="grid w-full mt-4 justify-items-center" wire:loading.class="opacity-20" wire:target="save">
             <x-jet-button class="max-w-md justify-center" type="submit">

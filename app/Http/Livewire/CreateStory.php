@@ -22,9 +22,15 @@ class CreateStory extends Component
         'story.review'=>'string|nullable',
         'story.image_url'=>'string|nullable'
     ];
-    public function mount(){
-        $this->story=new Story;
-        $this->story->rating=5;
+    public function mount($story=null){
+        if($story){
+            $this->story=$story;
+            $this->selected=$story->resiliencies->modelKeys();
+        }
+        else{
+            $this->story=new Story;
+            $this->story->rating=5;
+        }
     }
     public function updateSelected($selected){
         $this->selected=$selected;

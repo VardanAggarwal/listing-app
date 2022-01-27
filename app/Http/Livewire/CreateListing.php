@@ -29,14 +29,20 @@ class CreateListing extends Component
         'listing.description'=>'string|nullable',
         'listing.location'=>'string|required'
     ];
-    public function mount(){
-        $this->listing=new Listing;
-        $this->listing->type="sell";
-        if(Auth::user()->profile){
-            $this->listing->location=Auth::user()->profile->address;
-            $this->listing->phone_number=Auth::user()->profile->contact_number;
+    public function mount($listing=null){
+        if($listing){
+            $this->listing=$listing;
+            $this->selected=$listing->resiliencies->modelKeys();
         }
-        $this->listing->item_type="input";
+        else{
+            $this->listing=new Listing;
+            $this->listing->type="sell";
+            if(Auth::user()->profile){
+                $this->listing->location=Auth::user()->profile->address;
+                $this->listing->phone_number=Auth::user()->profile->contact_number;
+            }
+            $this->listing->item_type="input";
+        }
     }
     public function updateSelected($selected){
         $this->selected=$selected;
