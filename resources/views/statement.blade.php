@@ -35,7 +35,7 @@
       @endphp
       <div x-data={show:false} @mouseleave="show=false">
         <span class="cursor-pointer underline" x-on:click="show=!show">{{__('This is a comment on another post')}}</span>
-        <div x-show="show" class="mb-4 px-6 py-4 rounded-lg shadow border"><x-dynamic-component :component="$component" :model="$statement->stateable"/></div>
+        <div x-show="show" class="mb-4 px-6 py-4 rounded-lg shadow border"><x-dynamic-component :component="$component" :model="$statement->stateable" :index="0"/></div>
       </div>
     @endif
 
