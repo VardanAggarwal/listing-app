@@ -66,6 +66,9 @@
                   </div>                
       </div>
     @endif
+    @if($profile->statements)
+    @livewire('relationship-filtered-list',['relation'=>'statements','model'=>$profile])
+    @endif
     @if($profile->stories_count)
       <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
         <div class="flex justify-between items-center">
