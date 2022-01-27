@@ -31,6 +31,9 @@ class CreateResiliency extends Component
             if($resiliency->additional_info){
                 $this->other_names=$resiliency->additional_info['other_names'];
             }
+            if(!$resiliency->type){
+                $this->resiliency->type="crop";
+            }
         }
         else{
             $this->resiliency=new Resiliency;
