@@ -1,6 +1,13 @@
 <x-guest-layout>
   <div class="max-w-7xl mx-4 sm:mx-auto">
-    <span class="font-semibold text-2xl text-green-900">{{$listing->name}}</span><br>
+    <span class="font-semibold text-2xl text-green-900">{{$listing->name}}</span>
+    @if(Auth::user())
+      @if(Auth::user()->role_id==1 || Auth::user()->profile->id==$listing->profile_id)
+      <a href="/listings/{{$listing->id}}/edit"><i class="fas fa-pen"></i></a>
+      <a href="/listings/{{$listing->id}}/delete"><i class="fas fa-trash-alt"></i></a>
+      @endif
+    @endif
+    <br>
     <span class="font-semibold text-lg text-gray-600">{{__($listing->type)}}</span>
     <div class="mt-4 flex gap-4 items-center ">
         @if($listing->image_url)

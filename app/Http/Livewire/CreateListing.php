@@ -31,8 +31,12 @@ class CreateListing extends Component
     ];
     public function mount($listing=null){
         if($listing){
-            $this->listing=$listing;
-            $this->selected=$listing->resiliencies->modelKeys();
+            if(Auth::user()->role_id==1 || Auth::user()->profile->id==$listing->profile_id){
+                $this->listing=$listing;
+                $this->selected=$listing->resiliencies->modelKeys();
+            }else{
+                return redirect('/listings/'.$listing->id);
+            }
         }
         else{
             $this->listing=new Listing;

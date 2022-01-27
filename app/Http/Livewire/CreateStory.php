@@ -24,8 +24,13 @@ class CreateStory extends Component
     ];
     public function mount($story=null){
         if($story){
-            $this->story=$story;
-            $this->selected=$story->resiliencies->modelKeys();
+            if(Auth::user()->role_id==1 || Auth::user()->profile->id==$story->profile_id){
+                $this->story=$story;
+                $this->selected=$story->resiliencies->modelKeys();
+            }
+            else{
+                return redirect('/stories/'.$story->id);
+            }
         }
         else{
             $this->story=new Story;

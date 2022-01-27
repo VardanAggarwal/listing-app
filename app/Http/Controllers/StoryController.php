@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Story;
+use App\Models;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 
 class StoryController extends Controller
@@ -85,6 +87,19 @@ class StoryController extends Controller
      */
     public function destroy(Story $story)
     {
-        //
+        if(Auth::user()){
+            if(Auth::user()->role_id==1 || Auth::user()->profile->id==$story->profile_id){
+                Models\Feed::where('feedable_type','App\\Models\\Story')->where('feedable_id',$story->id)->delete();
+                $story->resiliencies()->sync([]);
+                $story->interested_profiles()->sync([]);
+                Models\Attachable::where('attachable_type','App\\Models\\Story')->where('attachable_id',$story->id)->delete();
+                foreach($story->statements as $statement){
+                    $statement->stateable()->dissociate();
+                }
+                $story->delete();
+                return redirect('/stories');
+            }
+        }
+        return redirect('/stories/'.$story->id);
     }
 }

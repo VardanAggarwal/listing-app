@@ -1,6 +1,13 @@
 <x-guest-layout>
   <div class="max-w-7xl mx-4 sm:mx-auto">
-    <span class="font-semibold text-2xl text-green-900">{{$story->title}}</span><br>
+    <span class="font-semibold text-2xl text-green-900">{{$story->title}}</span>
+    @if(Auth::user())
+      @if(Auth::user()->role_id==1 || Auth::user()->profile->id==$story->profile_id)
+      <a href="/stories/{{$story->id}}/edit"><i class="fas fa-pen"></i></a>
+      <a href="/stories/{{$story->id}}/delete"><i class="fas fa-trash-alt"></i></a>
+      @endif
+    @endif
+    <br>
     <div class="rating text-yellow-400">
         {!! str_repeat('<span><i class="fas fa-star"></i></span>', $story->rating) !!}
         {!! str_repeat('<span><i class="far fa-star"></i></span>', 5 - $story->rating) !!}
