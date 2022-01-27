@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Http\Request;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 
@@ -111,5 +112,12 @@ class ProfileController extends Controller
     public function interests()
     {
         return view('profiles.interests',['profile'=>Auth::user()->profile->load('interest_resiliencies')]);
+    }
+    public function verify(Request $request, Profile $profile){
+        if(Auth::user()->role_id==1){
+            $profile->status=$request->role;
+            $profile->save();
+        }
+        return redirect('/profiles/'.$profile->id);
     }
 }

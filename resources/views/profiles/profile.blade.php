@@ -1,5 +1,5 @@
 <x-guest-layout>
-  <div class="py-8 max-w-7xl mx-4 sm:mx-auto">
+  <div class="max-w-7xl mx-4 sm:mx-auto">
     @if(Auth::user())
       @if(Auth::user()->profile)
         @if($profile->id==Auth::user()->profile->id)
@@ -39,6 +39,23 @@
             </span><br>
         </div>
     </div>
+    @if(Auth::user())
+      @if(Auth::user()->role_id==1)
+      @unless($profile->status)
+        <div class="relative flex justify-center" x-data={show:false}>
+          <x-jet-button x-on:click="show=!show" >Verify</x-jet-button>
+          <div x-show="show" class="bg-white absolute bottom-0 border p-4">
+            <a href="/profiles/{{$profile->id}}/verify?role=farmer&status=verify" class="underline">Farmer</a><br>
+            <a href="/profiles/{{$profile->id}}/verify?role=trader&status=verify" class="underline">Trader</a>    
+          </div>
+        </div>
+      @else
+      <div class="flex justify-center">  
+        <a href="/profiles/{{$profile->id}}/verify?status=unverify"><x-jet-button x-on:click="show=!show" >Unverify</x-jet-button></a>
+      </div>
+      @endunless
+      @endif
+    @endif
     @if($profile->interest_resiliencies_count)
       <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
         <span class="font-semibold text-lg">{{__('ui.models.resiliencies')}}</span>

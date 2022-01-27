@@ -73,7 +73,7 @@ Route::get('/statements/{statement}',function(Statement $statement){
 Route::get('/profile',[ProfileController::class,'create'])->middleware(['auth']);
 Route::post('/profiles',[ProfileController::class,'store'])->middleware(['auth']);
 Route::get('/profile/interests',InterestSearch::class)->middleware(['auth']);
-
+Route::get('/profiles/{profile}/verify',[ProfileController::class,'verify'])->middleware(['auth']);
 
 
 
