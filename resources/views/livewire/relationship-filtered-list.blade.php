@@ -1,8 +1,10 @@
 <div class="max-w-7xl sm:mx-auto" wire:loading.delay.class='opacity-50'>
     @foreach ($feed as $item)
-        <div class=" my-5 px-4 py-4 rounded-lg shadow border">
+        <div class=" my-5 px-4 py-4 rounded-lg {{$type=='statement'?'bg-gray-200':''}} shadow border">
         @if(str_contains($type,'resiliency'))
             <x-resiliency-card :model="$item"/>
+        @elseif(str_contains($type,'statement'))
+            <x-comment-card :model="$item"/>
         @else
             @php
             $component=$type.'-card';

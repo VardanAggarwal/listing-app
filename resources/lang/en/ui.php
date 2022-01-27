@@ -17,7 +17,7 @@ return [
     "resiliencies"=>"Modern farming",
     "categories"=>"Categories",
     "feed"=>"What's new",
-    "statements"=>"Posts"
+    "statements"=>"Posts/Comments"
   ],
   "add_new_f"=>"Add new :name",
   "add_new_m"=>"Add new :name",
