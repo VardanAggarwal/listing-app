@@ -23,9 +23,15 @@ class CreateResiliency extends Component
         'resiliency.description'=>'string|nullable',
         'resiliency.image_url'=>'string|nullable'
     ];
-    public function mount(Request $request){
-        $this->resiliency=new Resiliency;
-        $this->resiliency->type="crop";
+    public function mount(Resiliency $resiliency){
+        if ($resiliency){
+            $this->resiliency=$resiliency;
+            $this->selected=$resiliency->categories->modelKeys();
+        }
+        else{
+            $this->resiliency=new Resiliency;
+            $this->resiliency->type="crop";
+        }
     }
     public function updateSelected($selected){
         $this->selected=$selected;

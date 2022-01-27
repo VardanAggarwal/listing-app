@@ -51,6 +51,7 @@ Route::get('/categories',[CategoryController::class,'index'])->name('categories'
 Route::get('/listings/new',CreateListing::class)->middleware(['auth']);
 Route::get('/stories/new',CreateStory::class)->middleware(['auth']);
 Route::get('/resiliencies/new',CreateResiliency::class)->middleware(['auth']);
+Route::get('/resiliencies/{resiliency}/edit',CreateResiliency::class)->middleware(['auth']);
 Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
 
 //detail pages
