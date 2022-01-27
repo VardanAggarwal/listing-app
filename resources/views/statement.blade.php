@@ -28,6 +28,17 @@
         @endswitch
     @endforeach
     </div>
+    @if($statement->stateable_id)
+      @php
+          $type=strtolower(str_replace('App\\Models\\','',$statement->stateable_type));
+          $component=$type.'-card';
+      @endphp
+      <div x-data={show:false} @mouseleave="show=false">
+        <span class="cursor-pointer underline" x-on:click="show=!show">{{__('This is a comment on another post')}}</span>
+        <div x-show="show" class="mb-4 px-6 py-4 rounded-lg shadow border"><x-dynamic-component :component="$component" :model="$statement->stateable"/></div>
+      </div>
+    @endif
+
     <x-profile-card :model="$statement->profile"></x-profile-card>
     @livewire('card-interests',['model'=>$statement,'type'=>'Statement'])
     @livewire('page-interests',['model'=>$statement,'type'=>'Statement'])
