@@ -40,7 +40,7 @@ class Resiliency extends Model
         return $this->morphedByMany(Story::class, 'reliable');
     }
     public function interested_profiles(){
-        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withPivot('interest');
+        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function statements()
         {

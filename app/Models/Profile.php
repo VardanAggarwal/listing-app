@@ -25,24 +25,24 @@ class Profile extends Model
         return $this->hasMany(Statement::class);
     }
     public function interest_categories(){
-        return $this->morphedByMany(Category::class, 'interestable')->using(Interestable::class)->withPivot('interest');
+        return $this->morphedByMany(Category::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interest_resiliencies(){
-        return $this->morphedByMany(Resiliency::class,'interestable')->using(Interestable::class)->withPivot('interest');
+        return $this->morphedByMany(Resiliency::class,'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interest_listings(){
-        return $this->morphedByMany(Listing::class, 'interestable')->using(Interestable::class)->withPivot('interest');
+        return $this->morphedByMany(Listing::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interest_stories(){
-        return $this->morphedByMany(Story::class, 'interestable')->using(Interestable::class)->withPivot('interest');
+        return $this->morphedByMany(Story::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interest_statements(){
-        return $this->morphedByMany(Statement::class, 'interestable')->using(Interestable::class)->withPivot('interest');
+        return $this->morphedByMany(Statement::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interest_profiles(){
-        return $this->morphedByMany(Profile::class, 'interestable');
+        return $this->morphedByMany(Profile::class, 'interestable')->withTimestamps();
     }
     public function interested_profiles(){
-        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class);
+        return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withTimestamps();
     }
 }
