@@ -25,6 +25,6 @@
         </div>
     </div>
     <div>
-        @livewire('card-interests',['model'=>$model,'type'=>'Resiliency'], key('resiliency-'.$model->id))
+        @livewire('card-interests',['model'=>$model,'type'=>'Resiliency'], key($index.'resiliency-'.$model->id))
     </div>
 </div>

@@ -13,5 +13,5 @@
     @php
         $component=$type.'-card';
     @endphp
-    <x-dynamic-component :component="$component" :model="$item->feedable"/>
+    <x-dynamic-component :component="$component" :model="$item->feedable" :index="$index"/>
 </div>

@@ -4,7 +4,7 @@
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
   @foreach ($feed as $item)
-    <x-feed-card :item="$item"/>
+    <x-feed-card :item="$item" :index="$loop->index"/>
     @if ($loop->index==2)
       <x-card-add-interests/>
     @endif

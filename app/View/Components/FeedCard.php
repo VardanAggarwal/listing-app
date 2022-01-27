@@ -14,8 +14,10 @@ class FeedCard extends Component
      */
     public $type;
     public $item;
-    public function __construct($item)
+    public $index;
+    public function __construct($item,$index)
     {
+        $this->index=$index;
         $this->type=Str::lower(Str::replace('App\\Models\\','', $item->feedable_type));
         $this->item=$item;
         //

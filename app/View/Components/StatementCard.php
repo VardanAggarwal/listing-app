@@ -9,8 +9,10 @@ class StatementCard extends Component
 {
   public $model;
   public $parent_type;
-  public function __construct($model)
+  public $index;
+  public function __construct($model,$index)
   {
+      $this->index=$index;
       $this->model=$model;
       $this->parent_type=Str::lower(Str::replace('App\\Models\\','', $model->stateable_type));
       //

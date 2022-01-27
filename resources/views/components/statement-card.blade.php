@@ -7,7 +7,7 @@
                 $component=$parent_type.'-card';
             }
         @endphp
-        <x-dynamic-component :component="$component" :model="$model->stateable"/>
+        <x-dynamic-component :component="$component" :model="$model->stateable" :index="$index"/>
         <div class="bg-gray-200 p-2 mt-2 rounded-lg">
             <x-inline-profile :model=$model/>
             <a href="/statements/{{$model->id}}"><div class="overflow-ellipsis overflow-hidden max-h-12 sm:max-h-40 sm:ml-4">{{strip_tags($model->statement)}}</div></a>
@@ -20,6 +20,6 @@
             @endif
             <a href="/statements/{{$model->id}}"><div class="overflow-ellipsis overflow-hidden max-h-12 sm:max-h-40 sm:ml-4">{{strip_tags($model->statement)}}</div></a>
         </div>
-        @livewire('card-interests',['model'=>$model,'type'=>'Statement'], key('statement-'.$model->id))
+        @livewire('card-interests',['model'=>$model,'type'=>'Statement'], key($index.'statement-'.$model->id))
     @endif
 </div>

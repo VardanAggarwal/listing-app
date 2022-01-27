@@ -14,8 +14,10 @@ class StoryCard extends Component
      * @return void
      */
     public $model;
-    public function __construct($model)
+    public $index;
+    public function __construct($model,$index)
     {
+        $this->index=$index;
         $this->model=$model;
         //
     }
