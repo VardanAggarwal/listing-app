@@ -13,7 +13,7 @@
     </div>
     @foreach ($feed as $item)
         <div class=" my-5 px-6 py-4 rounded-lg shadow border">
-            <x-statement-card :model="$item"/>
+            <x-statement-card :model="$item"  :index="$loop->index"/>
         </div>
         @if ($loop->index==2)
           <x-card-add-interests/>
