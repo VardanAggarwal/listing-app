@@ -125,12 +125,14 @@
             console.log("SMS sent");
             @this.show_phone=false;
             @this.code=true;
+            mixpanel.track('OTP Sent',{'Phone Number':phoneNumber});
             // ...
           }).catch((error) => {
             // Error; SMS not sent
             // ...
             grecaptcha.reset(window.recaptchaWidgetId);
             window.alert("Something went wrong");
+            mixpanel.track('OTP Failed',{'Phone Number':phoneNumber});
           });
     }
     $("#verify-code").click(function(){
@@ -146,11 +148,14 @@
         // User signed in successfully.
         const user = result.user;
         console.log(user);
+        mixpanel.track('OTP Verified',{'Phone Number':user.phoneNumber});
+        mixpanel.register({'Phone Number': user.phoneNumber});
         @this.sign_in();
         // ...
       }).catch((error) => {
         // User couldn't sign in (bad verification code?)
         // ...
+        mixpanel.track('OTP verification failed');
         alert("Wrong verification code");
       });
     }

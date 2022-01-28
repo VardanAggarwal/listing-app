@@ -59,10 +59,7 @@ class Resiliency extends Model
     public function toSearchableArray()
        {
            $array = $this->toArray();
-           $array['stories']=$this->stories;
            $array['categories']=$this->categories;
-           $array['listings']=$this->listings;
-           $array['profiles']=$this->profiles;
            // Customize the data array...
 
            return $array;
