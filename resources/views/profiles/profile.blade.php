@@ -34,7 +34,11 @@
             <span class="font-semibold text-lg">
               {{$profile->address}}, {{$profile->pincode}}
             </span><br>
-            <span>
+            <span x-init=""  @click="navigator.clipboard.writeText('{{$profile->contact_number}}').then(function() {
+    console.log('Async: Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });">
               {{$profile->contact_number}}
             </span><br>
         </div>
