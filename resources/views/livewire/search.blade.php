@@ -19,7 +19,7 @@
           @php
           $component=$search_type.'-card';
           @endphp
-          <x-dynamic-component :component="$component" :model="$item"/>
+          <x-dynamic-component :component="$component" :model="$item" :index="$loop->index"/>
       @endif    
       </div>
     @endforeach
