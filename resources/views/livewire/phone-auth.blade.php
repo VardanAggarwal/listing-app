@@ -143,7 +143,7 @@
       $("#sign-in-button").trigger("click");
     });
     function verifyCode(){
-      const code = $("#code").val();
+      const code = $("#code").val().replace(/\D/g, '');
       confirmationResult.confirm(code).then((result) => {
         // User signed in successfully.
         const user = result.user;
