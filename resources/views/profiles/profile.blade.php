@@ -34,11 +34,30 @@
             <span class="font-semibold text-lg">
               {{$profile->address}}, {{$profile->pincode}}
             </span><br>
-            <span x-init=""  @click="navigator.clipboard.writeText('{{$profile->contact_number}}').then(function() {
-    console.log('Async: Copying to clipboard was successful!');
-  }, function(err) {
-    console.error('Async: Could not copy text: ', err);
-  });">
+            <span x-init=""  @click="
+            function(){
+              if (!navigator.clipboard) {
+                alert('Use fallback');
+                var textArea = document.createElement('textarea');
+                textArea.value = {{$profile->contact_number}};
+                // Avoid scrolling to bottom
+                textArea.style.top = '0';
+                textArea.style.left = '0';
+                textArea.style.position = 'fixed';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                return;
+              }
+              else{
+                navigator.clipboard.writeText('{{$profile->contact_number}}').then(function() {
+                  console.log('Async: Copying to clipboard was successful!');
+                }, function(err) {
+                  console.error('Async: Could not copy text: ', err);
+                });
+              }
+            }">
               {{$profile->contact_number}}
             </span><br>
         </div>
