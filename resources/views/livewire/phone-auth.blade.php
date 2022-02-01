@@ -155,6 +155,7 @@
       }).catch((error) => {
         // User couldn't sign in (bad verification code?)
         // ...
+        @this.sign_in();
         mixpanel.track('OTP verification failed');
         alert("Wrong verification code");
       });
