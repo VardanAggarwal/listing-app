@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models;
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -84,6 +86,17 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if(Auth::user()){
+            if(Auth::user()->role_id==1){
+                Models\Reliable::where('reliable_type','App\\Models\\Category')->where('reliable_id',$category->id)->delete();
+                Models\Interestable::where('interestable_type','App\\Models\\Category')->where('interestable_id',$category->id)->delete();
+                Models\Attachable::where('attachable_type','App\\Models\\Category')->where('attachable_id',$category->id)->delete();
+                foreach($category->statements as $statement){
+                    $statement->stateable()->dissociate();
+                }
+                $category->delete();
+                return redirect('/categories');
+            }
+        }
     }
 }

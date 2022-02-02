@@ -57,6 +57,7 @@ Route::get('/listings/{listing}/edit',CreateListing::class)->middleware(['auth']
 Route::get('/resiliencies/{resiliency}/delete',[ResiliencyController::class,'destroy'])->middleware(['auth']);
 Route::get('/stories/{story}/delete',[StoryController::class,'destroy'])->middleware(['auth']);
 Route::get('/listings/{listing}/delete',[ListingController::class,'destroy'])->middleware(['auth']);
+Route::get('/categories/{category}/delete',[CategoryController::class,'destroy'])->middleware(['auth']);
 Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
 
 //detail pages
