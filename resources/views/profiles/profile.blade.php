@@ -68,7 +68,6 @@
     </div>
     @if(Auth::user())
       @if(Auth::user()->role_id==1)
-      <x-contact-profile :profile="$profile"/>
       @unless($profile->status)
         <div class="relative flex justify-center" x-data={show:false}>
           <x-jet-button x-on:click="show=!show" >Verify</x-jet-button>
