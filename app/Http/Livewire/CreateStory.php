@@ -34,6 +34,9 @@ class CreateStory extends Component
         }
         else{
             $this->story=new Story;
+            if(Auth::user()->profile){
+                $this->story->profile()->associate(Auth::user()->profile);
+            }
             $this->story->rating=5;
         }
     }
@@ -48,7 +51,6 @@ class CreateStory extends Component
         $this->story->image_url=Storage::url($this->image->storePublicly('user/story','s3'));
         }
         $this->validate();
-        $this->story->profile()->associate(Auth::user()->profile);
         $this->story->save();
         $this->story->resiliencies()->sync($this->selected);
         Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching($this->selected);

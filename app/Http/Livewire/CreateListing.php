@@ -44,6 +44,7 @@ class CreateListing extends Component
             if(Auth::user()->profile){
                 $this->listing->location=Auth::user()->profile->address;
                 $this->listing->phone_number=Auth::user()->profile->contact_number;
+                $this->listing->profile()->associate(Auth::user()->profile);
             }
             $this->listing->item_type="input";
         }
@@ -58,7 +59,6 @@ class CreateListing extends Component
             ]);
         $this->listing->image_url=Storage::url($this->image->storePublicly('user/listing','s3'));
         }
-        $this->listing->profile()->associate(Auth::user()->profile);
         $this->validate();
         $this->listing->save();
         $this->listing->resiliencies()->sync($this->selected);
