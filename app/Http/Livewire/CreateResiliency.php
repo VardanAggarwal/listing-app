@@ -56,7 +56,9 @@ class CreateResiliency extends Component
         }
         $this->resiliency->save();
         $this->resiliency->categories()->sync($this->selected);
-        Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching([$this->resiliency->id]);
+        if(Auth::user()->role_id!=1){
+            Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching([$this->resiliency->id]);
+        }
         return redirect('/resiliencies/'.$this->resiliency->id);
     }
     public function render()

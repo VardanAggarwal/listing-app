@@ -53,7 +53,9 @@ class CreateStory extends Component
         $this->validate();
         $this->story->save();
         $this->story->resiliencies()->sync($this->selected);
-        Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching($this->selected);
+        if(Auth::user()->role_id!=1){
+            Auth::user()->profile->interest_resiliencies()->syncWithoutDetaching($this->selected);
+        }
         return redirect('/stories/'.$this->story->id);
     }
     public function render()
