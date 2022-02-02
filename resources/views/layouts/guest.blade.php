@@ -30,7 +30,9 @@
 
 		// Enabling the debug mode flag is useful during implementation,
 		// but it's recommended you remove it for production
-		mixpanel.init('{{config('services.mixpanel.project_token')}}'); 
+		mixpanel.init('{{config('services.mixpanel.project_token')}}');
+		mixpanel.register({
+		        "user_agent": navigator.userAgent }); 
 		mixpanel.track('Page visited');
 		tracklinkclicksauto=(event)=>{
 				console.log("auto tracking", event);
