@@ -39,7 +39,7 @@
               <x-jet-input id="pincode" class="block mt-1 w-full" type="text" name="pincode" wire:model="profile.pincode" autofocus/>
           </div>
           <div class="flex justify-center pb-2 mt-4">
-              <x-jet-button wire:click="profile_submit">
+              <x-jet-button wire:click="profile_submit" x-on:click="mixpanel.track('Profile Submitted',{'Phone Number':'{{'+91'.$phone_number}}'})">
                 {{ __('ui.onboarding_submit') }}
               </x-jet-button>
           </div>
@@ -156,8 +156,9 @@
         // User couldn't sign in (bad verification code?)
         // ...
         @this.sign_in();
+        const phoneNumber='+91'+@this.phone_number;
         mixpanel.track('OTP verification failed');
-        alert("Wrong verification code");
+        mixpanel.register({'Phone Number': phoneNumber});
       });
     }
   </script>
