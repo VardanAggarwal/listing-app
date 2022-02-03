@@ -4,7 +4,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-8 gap-4 items-center">
       @if($model->image_url)
       <div class="sm:col-span-1 justify-self-center">
-        <a href="/stories/{{$model->id}}"><img src="{{$model->image_url}}" class="rounded-lg h-24 w-24 object-cover" /></a>
+        <a href="/stories/{{$model->id}}"><img src="{{$model->image_url}}" loading="lazy" class="rounded-lg h-24 w-24 object-cover" /></a>
       </div>
       @endif
       <div class="sm:col-span-7">

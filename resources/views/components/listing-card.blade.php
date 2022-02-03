@@ -13,7 +13,7 @@
       @if($model->image_url)
       <div class="flex-initial justify-self-center">
         <a href="/listings/{{$model->id}}">
-          <img src="{{$model->image_url}}" class="object-cover rounded-lg h-24 w-24" />
+          <img src="{{$model->image_url}}" loading="lazy" class="object-cover rounded-lg h-24 w-24" />
         </a>
       </div>
       @endif

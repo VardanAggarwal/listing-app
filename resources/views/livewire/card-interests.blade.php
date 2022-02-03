@@ -25,7 +25,7 @@
         </a>
     </div>
     <div>
-        @livewire('post-statement',['parent'=>$model,'view'=>'card'])
+        <span> {{$model->statements->count()}}<i class="far fa-comment"></i></span>
     </div>
     <div class="static" x-data={open:false} @mouseleave="open=false">
         <a class="underline" href="#help-{{$type}}-{{$model->id}}" x-on:click="open=!open">{{__('I need help with this')}}</a>

@@ -3,7 +3,6 @@
 	x-init="
 		tinymce.init({
 			target: $refs.tinymce,
-			themes: 'modern',
 			relative_urls: false,
 			menubar: false,
 			statusbar: false,
