@@ -12,8 +12,10 @@ class ContactProfile extends Component
      * @return void
      */
     public $number;
+    public $profile;
     public function __construct($profile)
     {
+        $this->profile=$profile;
         $this->number=$profile->contact_number;
     }
 

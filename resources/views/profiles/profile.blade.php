@@ -34,10 +34,10 @@
             <span class="font-semibold text-lg">
               {{$profile->address}}, {{$profile->pincode}}
             </span><br>
-            <div x-data="{show:false}" @click="show=!show">
+            <div x-data="{show:false}" @click="show=!show" @mouseleave="show=false">
               <span class="font-semibold text-lg"  @click="
               function(){
-                mixpanel.track('Phone Number Clicked',{'profile_id':{{$profile->id}},'number':{{$profile->contact_number}}});
+                mixpanel.track('Phone Number Clicked',{'profile_id':{{$profile->id}},'number':'{{$profile->contact_number}}'});
                 if (!navigator.clipboard) {
                   alert('Use fallback');
                   var textArea = document.createElement('textarea');
@@ -64,22 +64,7 @@
               </span><br>
               <div class="border rounded p-2 absolute bg-white" x-show="show">{{__('Long press to copy')}}</div>
             </div>
-            @php
-            $agent=request()->header('User-Agent');
-            if(($pos=strpos($agent,'Seed Savers Club')!==FALSE)){
-              if(($pos=strpos($agent,'Seed Savers Club-')!==FALSE)){
-                $version= str_replace('Seed Savers Club-','',request()->header('User-Agent')); 
-                request()->session()->put('version', $version);
-              }else{
-                $version='0';
-              }
-            }else{
-              $version='1';
-            }
-            @endphp
-            @unless($version==0)
               <x-contact-profile :profile="$profile"/>
-            @endunless
         </div>
     </div>
     @if(Auth::user())
