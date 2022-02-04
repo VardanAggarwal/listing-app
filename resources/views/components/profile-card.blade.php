@@ -20,4 +20,5 @@
           </a>
       </div>
   </div>
+  <x-contact-profile :profile='$model'/>
 </div>
