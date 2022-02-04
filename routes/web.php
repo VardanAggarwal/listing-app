@@ -18,6 +18,7 @@ use \App\Http\Livewire\InterestSearch;
 use \App\Http\Livewire\CreateStory;
 use \App\Http\Livewire\CreateListing;
 use \App\Http\Livewire\CreateResiliency;
+use \App\Http\Livewire\CreateCategory;
 use \App\Http\Livewire\PhoneAuth;
 use \App\Http\Livewire\AdminAuth;
 use \App\Http\Livewire\Analytics;
@@ -54,12 +55,12 @@ Route::get('/resiliencies/new',CreateResiliency::class)->middleware(['auth']);
 Route::get('/resiliencies/{resiliency}/edit',CreateResiliency::class)->middleware(['auth']);
 Route::get('/stories/{story}/edit',CreateStory::class)->middleware(['auth']);
 Route::get('/listings/{listing}/edit',CreateListing::class)->middleware(['auth']);
+Route::get('/categories/{category}/edit',CreateCategory::class)->middleware(['auth']);
 Route::get('/resiliencies/{resiliency}/delete',[ResiliencyController::class,'destroy'])->middleware(['auth']);
 Route::get('/stories/{story}/delete',[StoryController::class,'destroy'])->middleware(['auth']);
 Route::get('/listings/{listing}/delete',[ListingController::class,'destroy'])->middleware(['auth']);
 Route::get('/categories/{category}/delete',[CategoryController::class,'destroy'])->middleware(['auth']);
-Route::get('/categories/new',[CategoryController::class,'create'])->middleware(['auth'])->name('addCategory');
-
+Route::get('/categories/new',CreateCategory::class)->middleware(['auth'])->name('addCategory');
 //detail pages
 Route::get('/listings/{listing}',[ListingController::class,'show']);
 Route::get('/stories/{story}',[StoryController::class,'show']);
