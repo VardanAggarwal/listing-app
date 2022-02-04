@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-4 sm:mx-auto" wire:loading.delay.class='opacity-50'>
+<div class="max-w-7xl mx-4 sm:mx-auto">
     <div class="flex justify-between">
       <h1 class="font-bold text-2xl">{{__('ui.models.stories')}}</h1>
     <a href="\stories\new">
@@ -38,12 +38,14 @@
       }"
       x-init="observe"
   ></div>
+  <div class="flex justify-center">
+    <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
+  </div>
   @if($feed->hasMorePages())
-    <x-jet-button wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
+    <x-jet-button wire:loading.remove wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
     @else
     <div class="text-center">{{__('No more records')}}</div>
   @endif
-  </div>
 @push('meta')
 <meta property="og:title" content="Seed Savers Club - {{__('ui.models.stories')}}">
 <meta property="og:url" content="{{url()->current()}}">
@@ -53,3 +55,4 @@
   return $value->image_url;
 })->image_url??'https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png'}}">
 @endpush
+</div>

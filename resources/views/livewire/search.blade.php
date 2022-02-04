@@ -7,12 +7,12 @@
   </div>
   @if($results)
     <div class="flex gap-4 mt-2 border-b items-center">
-      <span class="font-bold px-2 py-1 {{$search_type=='Resiliency'?'bg-green-50 border-b-4 border-green-500':''}}" wire:click="$set('search_type','Resiliency')">{{__('ui.models.resiliencies')}}</span>
-      <span class="font-bold px-2 py-1 {{$search_type=='Listing'?'bg-green-50 border-b-4 border-green-500':''}}" wire:click="$set('search_type','Listing')">{{__('ui.models.listings')}}</span>
-      <span class="font-bold px-2 py-1 {{$search_type=='Story'?'bg-green-50 border-b-4 border-green-500':''}}" wire:click="$set('search_type','Story')">{{__('ui.models.stories')}}</span>
+      <span class="font-bold px-2 py-1 {{$search_type=='Resiliency'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Resiliency')">{{__('ui.models.resiliencies')}}</span>
+      <span class="font-bold px-2 py-1 {{$search_type=='Listing'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Listing')">{{__('ui.models.listings')}}</span>
+      <span class="font-bold px-2 py-1 {{$search_type=='Story'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Story')">{{__('ui.models.stories')}}</span>
     </div>
     @foreach($results as $item)
-    <div class=" my-5 px-6 py-4 rounded-lg shadow border" wire:loading.class.shortest="opacity-50">
+    <div class=" my-5 px-6 py-4 rounded-lg shadow border" >
       @if(str_contains($search_type,'resiliency'))
           <x-resiliency-card :model="$item"/>
       @else
@@ -42,7 +42,10 @@
           }"
           x-init="observe"
       ></div>  
-      <x-jet-button wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
+      <div class="flex justify-center">
+        <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
+      </div>
+      <x-jet-button wire:loading.remove wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
       @else
       <div class="text-center">{{__('No more records')}}</div>
     @endif
