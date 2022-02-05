@@ -25,7 +25,7 @@ class StatementList extends Component
         $this->feed=Statement::search($this->query)->paginate($this->perPage);
         }
         else{
-            $this->feed=Statement::where('stateable_id',null)->orderByDesc('updated_at')->cursorPaginate($this->perPage);
+            $this->feed=Statement::orderByDesc('updated_at')->cursorPaginate($this->perPage);
         }
         return view('livewire.statement-list',['feed'=>$this->feed])->layout('layouts.guest');
     }
