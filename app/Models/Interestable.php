@@ -10,4 +10,7 @@ class Interestable extends MorphPivot
     protected $casts = [
              'interest' => 'array',
          ];
+    public function interestable(){
+        return $this->morphTo();
+    }
 }

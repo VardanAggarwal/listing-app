@@ -9,6 +9,8 @@ use App\Models\Listing;
 use App\Models\Statement;
 use App\Models\Category;
 use App\Models\Profile;
+use Illuminate\Support\Str;
+use App\Models\Interestable;
 use Illuminate\Support\Facades\DB;
 class Analytics extends Component
 {
@@ -38,6 +40,24 @@ class Analytics extends Component
         $counts['Listings/user']=$interest_listings/$counts['users_interested_in_listings'];
         $counts['Information/user']=$interest_information/$counts['users_interested_in_information'];
         $counts['Profiles with phone number']=Profile::where('contact_number','<>',null)->count();
-        return view('livewire.analytics',['counts'=>$counts]);
+        $interests = [];
+        $interests['input']=Interestable::whereJsonContains('interest->interests','input');
+        $interests['market']=Interestable::whereJsonContains('interest->interests','market');
+        $interests['training']=Interestable::whereJsonContains('interest->interests','training');
+        $interests['logistics']=Interestable::whereJsonContains('interest->interests','logistics');
+        $interests['payment']=Interestable::whereJsonContains('interest->interests','payment');
+        $interests['connect']=Interestable::whereJsonContains('interest->interests','connect');
+
+        $interests['others']=Interestable::where('interest->others','<>','');
+        foreach($interests as $key=>$value){
+            if($key=="others"){
+                $interests[$key]=$value->select('interest->others as others','interestable_type','interestable_id', DB::raw('count(*) as total'))->groupBy('interestable_type','interestable_id','interest->others');
+            }else{
+                $interests[$key]=$value->select('interestable_type','interestable_id', DB::raw('count(*) as total'))->groupBy('interestable_type','interestable_id');
+            }
+            $interests[$key]=$value->with('interestable')->orderByDesc('total')->get();
+        }
+
+        return view('livewire.analytics',['counts'=>$counts,'interests'=>$interests]);
     }
 }
