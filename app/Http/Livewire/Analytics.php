@@ -55,7 +55,7 @@ class Analytics extends Component
             }else{
                 $interests[$key]=$value->select('interestable_type','interestable_id', DB::raw('count(*) as total'))->groupBy('interestable_type','interestable_id');
             }
-            $interests[$key]=$value->with('interestable')->orderByDesc('total')->get();
+            $interests[$key]=$value->where('created_at','>',now()->subDays(20))->with('interestable')->orderByDesc('total')->get();
         }
 
         return view('livewire.analytics',['counts'=>$counts,'interests'=>$interests]);
