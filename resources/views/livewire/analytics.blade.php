@@ -7,7 +7,7 @@
     <tr class="text-lg"><th>{{ucwords($key)}}</td></th>
         @foreach($value as $item)
             <tr class="">
-                <td class="w-32"><a class="overflow-clip" href="\{{Str::plural(Str::replace('App\\Models\\','',$item->interestable_type))}}\{{$item->interestable_id}}">{{$item->interestable->title}}{{$item->interestable->name}}{{$item->interestable->statement}}</a></td>
+                <td class="w-32"><a class="overflow-clip" href="\{{Str::lower(Str::plural(Str::replace('App\\Models\\','',$item->interestable_type)))}}\{{$item->interestable_id}}">{{$item->interestable->title}}{{$item->interestable->name}}{{$item->interestable->statement}}</a></td>
                 @if($item->others)
                     <td class="col-span-1">{{$item->others}}</td>
                 @endif
