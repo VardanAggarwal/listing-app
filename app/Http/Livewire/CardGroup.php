@@ -23,7 +23,7 @@ class CardGroup extends Component
             }
         }
         if($resiliency_ids){
-            $this->feed=Models\Resiliency::whereIn('id',$resiliency_ids)->orderBy('image_url')->take(10)->get();
+            $this->feed=Models\Resiliency::whereIn('id',$resiliency_ids)->orderByDesc('updated_at')->orderBy('image_url')->take(10)->get();
             $this->show=true;
         }else{
             $this->show=false;
