@@ -1,6 +1,6 @@
-<div class="border p-4 bg-white">
+<div class="border p-4 bg-white shadow-md rounded-lg">
     @if($image)
-        <a href="{{$url}}" class="text-xl"><img src="{{$image}}" class="h-24 sm:h-36 object-cover w-full" loading="lazy"/></a>
+        <a href="{{$url}}" class="text-xl"><img src="{{$image}}" class="h-24 sm:h-36 mb-2 object-cover w-full" loading="lazy"/></a>
         @if($title)
             <a href="{{$url}}" class="text-xl"><div class="max-h-12 overflow-hidden text-ellipsis text-xl">{{$title}}</div></a>
         @else
