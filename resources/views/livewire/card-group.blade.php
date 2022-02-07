@@ -1,6 +1,6 @@
-<div>
+<div wire:init="getFeed">
     @if($show)
-        <div class="bg-gray-100 py-4 pl-3" wire:init="getFeed" wire:loading.class="opacity-20">
+        <div class="bg-gray-100 py-4 pl-3" wire:loading.class="opacity-20" x-on:click="mixpanel.track('Card Group Shown',{'position':'{{$index}}'})">
             <span class="text-lg">{{__($title)}}</span>
             <div class="flex items-center overflow-auto gap-4 pr-5">
                 @forelse($feed as $item)

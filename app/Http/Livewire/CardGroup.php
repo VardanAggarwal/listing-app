@@ -9,7 +9,7 @@ class CardGroup extends Component
 {
     protected $feed=[];
     public $index;
-    public $show=true;
+    public $show=false;
     public $title="Recommended for you";
     public function mount(){
     }
