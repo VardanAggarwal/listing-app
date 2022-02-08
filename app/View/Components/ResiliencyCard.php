@@ -12,7 +12,7 @@ class ResiliencyCard extends Component
      * @return void
      */
     public $model;
-    public $index;
+    public $index=0;
     public function __construct($model,$index)
     {
         $this->index=$index;

@@ -14,7 +14,7 @@ class FeedCard extends Component
      */
     public $type;
     public $item;
-    public $index;
+    public $index=0;
     public function __construct($item,$index)
     {
         $this->index=$index;

@@ -7,7 +7,7 @@
     <x-feed-card :item="$item" :index="$loop->index"/>
     @if ($loop->index==2)
       <x-card-add-interests/>
-      @livewire('card-group',['index'=>$loop->index])
+      @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency'])
     @endif
   @endforeach
   <div

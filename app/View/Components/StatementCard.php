@@ -9,7 +9,7 @@ class StatementCard extends Component
 {
   public $model;
   public $parent_type;
-  public $index;
+  public $index=0;
   public function __construct($model,$index)
   {
       $this->index=$index;
