@@ -1,4 +1,4 @@
-<div wire:init="getFeed">
+<div>
     @if($show)
         <div class="bg-gray-100 pt-4 pl-3" wire:loading.class="opacity-20" x-on:click="mixpanel.track('Card Group Shown',{'position':'{{$index}}'})">
             <span class="text-lg">{{__($title,['type'=>__('ui.models.'.Str::plural(Str::lower($type)))])}}</span>
