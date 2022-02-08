@@ -11,7 +11,11 @@ class RelationshipSearch extends Component
     public $results;
     public $search_model;
     public $selected=[];
-
+    protected $listeners=['updateData'];
+    public function updateData($type,$selected){
+        $this->type=$type;
+        $this->selected=$selected;
+    }
     public function toggleSelected($item){
         if(in_array($item,$this->selected)){
             $this->selected=array_diff( $this->selected, [$item] );

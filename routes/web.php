@@ -21,6 +21,7 @@ use \App\Http\Livewire\CreateResiliency;
 use \App\Http\Livewire\CreateCategory;
 use \App\Http\Livewire\PhoneAuth;
 use \App\Http\Livewire\AdminAuth;
+use \App\Http\Livewire\FeedAdmin;
 use \App\Http\Livewire\Analytics;
 use \App\Models\Statement;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,8 @@ Route::get('analytics',Analytics::class);
 Route::get('admin_login',function(){
     return view('adminauth');
 })->name('admin_login');
+
+Route::get('feed_admin',FeedAdmin::class)->middleware(['auth','adminauth']);
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/stories',StoryList::class)->name('stories');

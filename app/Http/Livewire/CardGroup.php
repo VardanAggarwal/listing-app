@@ -43,7 +43,7 @@ class CardGroup extends Component
 				break;
 			case "Story":
 				if($resiliencies){
-					$story_ids=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Story')->whereIn('resiliency_id',$resiliencies)->distinct();
+					$story_ids=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Story')->whereIn('resiliency_id',$resiliencies)->distinct()->get('reliable_id');
 					$this->feed=Models\Story::whereIn('id',$story_ids)->where(function ($query) {
 						   $query->whereNotNull('image_url')
 						  ->orWhere('review','<>','');
@@ -55,7 +55,7 @@ class CardGroup extends Component
 				break;
 			case "Listing":
 				if($resiliencies){
-					$listing_ids=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Listing')->whereIn('resiliency_id',$resiliencies)->distinct();
+					$listing_ids=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Listing')->whereIn('resiliency_id',$resiliencies)->distinct()->get('reliable_id');
 					$this->feed=Models\Listing::whereIn('id',$listing_ids)->where(function ($query) {
 						   $query->whereNotNull('image_url')
 						  ->orWhere('description','<>','');
