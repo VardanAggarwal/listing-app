@@ -27,6 +27,8 @@ class FeedAdmin extends Component
     }
     public function save(){
         $feedgroup=FeedGroup::firstOrCreate(['model'=>$this->model,'purpose'=>'admin_pick'],['data'=>['type'=>'id','id'=>$this->selected]]);
+        $feedgroup->update(['data->id'=>$this->selected]);
+        $feedgroup->save();
         session()->flash('message','Feed for '.$this->model.' was saved.');
     }
     public function render()
