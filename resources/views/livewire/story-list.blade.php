@@ -18,6 +18,7 @@
         </div>
         @if ($loop->index==2)
           <x-card-add-interests :type="'story'"/>
+          @livewire('card-group',['index'=>$loop->index,'type'=>'Story'])
         @endif
     @endforeach
   <div
