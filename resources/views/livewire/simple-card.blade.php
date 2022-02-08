@@ -7,8 +7,8 @@
             <a href="{{$url}}" class=""><div class="max-h-12 overflow-hidden text-ellipsis">{{$subtitle}}</div></a>    
         @endif
     @elseif($title)
-        <a href="{{$url}}" class="text-xl"><div class="max-h-12 overflow-hidden text-ellipsis text-xl">{{$title}}</div></a>
-        <a href="{{$url}}" class=""><div class="max-h-20 overflow-hidden text-ellipsis">{{$subtitle}}</div></a>
+        <a href="{{$url}}" class="text-xl"><div class="max-h-12 overflow-hidden text-ellipsis text-xl mb-2">{{$title}}</div></a>
+        <a href="{{$url}}" class=""><div class="max-h-24 overflow-hidden text-ellipsis">{{$subtitle}}</div></a>
     @else
         <a href="{{$url}}"><div class="max-h-36 overflow-hidden text-ellipsis text-xl">{{$subtitle}}</div></a>
     @endif
