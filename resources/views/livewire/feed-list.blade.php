@@ -5,10 +5,18 @@
   </div>
   @foreach ($feed as $item)
     <x-feed-card :item="$item" :index="$loop->index"/>
-    @if ($loop->index==2)
-      <x-card-add-interests/>
-      @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency'])
-    @endif
+    @switch($loop->index)
+      @case(2)
+        <x-card-add-interests/>
+        @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency'])
+        @break
+      @case(5)
+        @livewire('card-group',['index'=>$loop->index,'type'=>'Listing'])
+        @break
+      @case(8)
+        @livewire('card-group',['index'=>$loop->index,'type'=>'Story'])
+        @break
+    @endswitch
   @endforeach
   <div
       x-data="{
