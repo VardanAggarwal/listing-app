@@ -110,5 +110,7 @@
   "Long press to copy":"कॉपी करने के लिए नंबर दबा कर रखें",
   "Follow some resiliencies to get personalised information":"सुझाव पाने के लिए, पहले कुछ उन्नत खेती फॉलो करें।",
   "Recommended for you":"आपके लिए सुझाव: :type",
-  "For":":stub के लिए :type"
+  "For":":stub के लिए :type",
+  "New items":"नए: :type",
+  "Other items":"अन्य: :type"
 }
