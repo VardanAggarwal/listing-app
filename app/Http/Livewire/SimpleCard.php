@@ -29,8 +29,8 @@ class SimpleCard extends Component
                     $this->image=$model->image_url;    
                 }elseif(preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $model->review, $match)){
                     $youtube_id = $match[1];
-                    if($youtube_id){
-                        $this->image="https://img.youtube.com/vi/".$youtube_id."/0.jpg";
+                    if(ctype_alnum($youtube_id)){
+                        $this->image="https://img.youtube.com/vi_webp/".$youtube_id."/0.webp";
                     }
                 }elseif($image_parent=$model->resiliencies->firstWhere('image_url','<>',null)){
                     $this->image=$image_parent->image_url;
@@ -43,8 +43,8 @@ class SimpleCard extends Component
                     $this->image=$model->image_url;    
                 }elseif(preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $model->description, $match)){
                     $youtube_id = $match[1];
-                    if($youtube_id){
-                        $this->image="https://img.youtube.com/vi/".$youtube_id."/0.jpg";
+                    if(ctype_alnum($youtube_id)){
+                        $this->image="https://img.youtube.com/vi_webp/".$youtube_id."/0.webp";
                     }
                 }elseif($image_parent=$model->resiliencies->firstWhere('image_url','<>',null)){
                     $this->image=$image_parent->image_url;
