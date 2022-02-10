@@ -30,7 +30,7 @@ class ListingList extends Component
     }
     public function render()
     {
-        $this->resiliencies=Resiliency::has('listings')->withCount(['listings','interested_profiles'])->orderByDesc('listings_count')->orderByDesc('interested_profiles_count')->paginate($this->cardCount);
+        $this->resiliencies=Resiliency::has('listings')->withCount(['listings','interested_profiles'])->orderByDesc('interested_profiles_count')->orderByDesc('listings_count')->paginate($this->cardCount);
         if($this->query){
             $this->feed=Listing::search($this->query)->paginate($this->perPage);
         }
