@@ -18,7 +18,7 @@ class ListingList extends Component
         'query'=>['except'=>'']
     ];
     public function mount(){
-        $this->resiliencies=Resiliency::has('listings')->withCount(['listings','interested_profiles'])->orderByDesc('listings_count')->orderByDesc('interested_profiles_count')->get();
+        $this->resiliencies=Resiliency::has('listings')->withCount(['listings','interested_profiles'])->orderByDesc('interested_profiles_count')->orderByDesc('listings_count')->get();
     }
     public function loadMore()
        {
