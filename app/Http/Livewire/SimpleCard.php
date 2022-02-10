@@ -25,12 +25,20 @@ class SimpleCard extends Component
             case 'Story':
                 $this->title=$model->title;
                 $this->subtitle=$model->review;
-                $this->image=$model->image_url;
+                if($model->image_url){
+                    $this->image=$model->image_url;    
+                }elseif($image_parent=$model->resiliencies->firstWhere('image_url','<>',null)){
+                    $this->image=$image_parent->image_url;
+                }
             break;
             case 'Listing':
                 $this->title=$model->name;
                 $this->subtitle=$model->description;
-                $this->image=$model->image_url;
+                if($model->image_url){
+                    $this->image=$model->image_url;    
+                }elseif($image_parent=$model->resiliencies->firstWhere('image_url','<>',null)){
+                    $this->image=$image_parent->image_url;
+                }
             break;
             case 'Statement':
                 $this->subtitle=$model->statement;

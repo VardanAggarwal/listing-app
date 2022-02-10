@@ -15,6 +15,7 @@ class CardGroup extends Component
 	public $type='Resiliency';
 	public $purpose='recommended';
 	public $model=null;
+	public $image=null;
 
 	public function mount(){
 	}
@@ -59,10 +60,7 @@ class CardGroup extends Component
 							}
 						}
 						if($story_ids){
-							$this->feed=Models\Story::whereIn('id',$story_ids)->where(function ($query) {
-								   $query->whereNotNull('image_url')
-								  ->orWhere('review','<>','');
-								   })->inRandomOrder()->take(10)->get();
+							$this->feed=Models\Story::whereIn('id',$story_ids)->inRandomOrder()->take(10)->get();
 						}
 						break;
 					case "Listing":
@@ -76,16 +74,14 @@ class CardGroup extends Component
 							}
 						}
 						if($listing_ids){
-							$this->feed=Models\Listing::whereIn('id',$listing_ids)->where(function ($query) {
-								   $query->whereNotNull('image_url')
-								  ->orWhere('description','<>','');
-								   })->inRandomOrder()->take(10)->get();
+							$this->feed=Models\Listing::whereIn('id',$listing_ids)->inRandomOrder()->take(10)->get();
 						}
 						break;
 				}
 				break;
 			case "children":
 				$parent=$this->model;
+				$this->image=$parent->image_url?$parent->image_url:$parent->image;
 				$title_stub=$parent->title?$parent->title:($parent->name?$parent->name:Str::limit($parent->statement,30));
 				$this->title=__("For",['stub'=>$title_stub,'type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				$child=Str::plural(Str::lower($this->type));
