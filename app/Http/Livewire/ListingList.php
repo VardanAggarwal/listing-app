@@ -4,16 +4,22 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Listing;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Resiliency;
 
 class ListingList extends Component
 {
     public $perPage = 10;
     public $loading=false;
     public $query='';
+    public $resiliencies;
     protected $feed;
     protected $queryString = [
         'query'=>['except'=>'']
     ];
+    public function mount(){
+        $this->resiliencies=Resiliency::has('listings')->withCount(['listings','interested_profiles'])->orderByDesc('listings_count')->orderByDesc('interested_profiles_count')->get();
+    }
     public function loadMore()
        {
            $this->perPage += 10;

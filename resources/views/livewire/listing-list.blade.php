@@ -12,15 +12,24 @@
     <div class="mt-2">{{__('Results for')}}: {{$this->query}}</div>
     @endif
   </div>
-    @foreach ($feed as $item)
-        <div class=" my-5 px-6 py-4 rounded-lg shadow border">    
-            <x-listing-card :model="$item"  :index="$loop->index"/>
-        </div>
-        @if ($loop->index==2)
-          <x-card-add-interests :type="'listing'"/>
-          @livewire('card-group',['index'=>$loop->index,'type'=>'Listing'])
-        @endif
-    @endforeach
+  @if(Auth::user())
+    @if(Auth::user()->role_id==1)
+      <div class="mt-4 mb-4 bg-white">
+        @foreach($resiliencies as $resiliency)
+            @livewire('card-group',['index'=>$loop->index,'type'=>'Listing','purpose'=>'children','model'=>$resiliency])
+        @endforeach
+      </div>
+    @endif
+  @endif
+  @foreach ($feed as $item)
+      <div class=" my-5 px-6 py-4 rounded-lg shadow border">    
+          <x-listing-card :model="$item"  :index="$loop->index"/>
+      </div>
+      @if ($loop->index==2)
+        <x-card-add-interests :type="'listing'"/>
+        @livewire('card-group',['index'=>$loop->index,'type'=>'Listing'])
+      @endif
+  @endforeach
   <div
       x-data="{
           observe () {
