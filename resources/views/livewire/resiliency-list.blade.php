@@ -8,26 +8,60 @@
     <div class="mt-4 relative">
       <x-jet-input name="search" type="text" placeholder="{{__('Type to search')}}" wire:model="query" wire:keydown.enter="resetPage" class="w-full"></x-jet-input>
       @if($this->query)
-      <span wire:click="$set('query','')"class="absolute top-2.5 right-2"><i class="fas fa-times"></i></span>
-      <div class="mt-2">{{__('Results for')}}: {{$this->query}}</div>
+      <span wire:click="$set('query','')" class="absolute top-2.5 right-2"><i class="fas fa-times"></i></span>
+      <div wire:click="$set('query','')" class="mt-2">{{__('Results for')}}: {{$this->query}}</div>
       @endif
     </div>
-    @foreach ($feed as $item)
-        <div class=" my-5 px-6 py-4 rounded-lg shadow border">
-            <x-resiliency-card :model="$item" :index="$loop->index"/>
-        </div>
-        @if ($loop->index==2)
-          <x-card-add-interests/>
-          @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency'])
+    @unless($query)
+      <div class="mt-4 mb-4 bg-white">
+        @livewire('card-group',['index'=>-2,'type'=>'Resiliency', 'purpose'=>'recommended'],key('card-group-resiliency-recommended-0'))
+        @livewire('card-group',['index'=>-1,'type'=>'Resiliency', 'purpose'=>'latest'],key('card-group-resiliency-latest-0'))
+        @foreach($categories as $category)
+            @livewire('card-group',['index'=>$loop->index+2,'type'=>'Resiliency','purpose'=>'children','model'=>$category],key('card-group-resiliency-children-'.$loop->index))
+        @endforeach
+        @if($categories->hasMorePages())
+          <div class="flex justify-center">
+            <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
+          </div>
+          <div 
+              x-data="{
+                  observe () {
+                      let observer = new IntersectionObserver((entries) => {
+                          entries.forEach(entry => {
+                              if (entry.isIntersecting) {
+                                  @this.call('loadMore','cardCount')
+                              }
+                          })
+                      }, {
+                          root: null
+                      })
+
+                      observer.observe(this.$el)
+                  }
+              }"
+              x-init="observe"
+          ></div>
         @endif
-    @endforeach
+        @livewire('card-group',['index'=>-3,'type'=>'Resiliency', 'purpose'=>'others','model'=>$others],key('card-group-resiliency-others-0'))
+      </div>    
+    @endunless
+    @if($query || !$categories->hasMorePages())
+      @foreach ($feed as $item)
+          <div class=" my-5 px-6 py-4 rounded-lg shadow border">
+              <x-resiliency-card :model="$item" :index="$loop->index"/>
+          </div>
+          @if ($loop->index==2)
+            <x-card-add-interests/>
+          @endif
+      @endforeach
+    @endif
   <div
       x-data="{
           observe () {
               let observer = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {
                       if (entry.isIntersecting) {
-                          @this.call('loadMore')
+                          @this.call('loadMore','perPage')
                       }
                   })
               }, {

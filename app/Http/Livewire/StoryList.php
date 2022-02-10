@@ -8,7 +8,7 @@ use App\Models\Resiliency;
 
 class StoryList extends Component
 {
-    public $perPage = 10;
+    public $perPage = 0;
     public $cardCount = 0;
     public $loading=false;
     public $query='';
