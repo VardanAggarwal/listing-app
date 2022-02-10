@@ -13,5 +13,5 @@
         <a href="{{$url}}"><div class="max-h-36 overflow-hidden text-ellipsis text-xl">{{$subtitle}}</div></a>
     @endif
     <x-inline-profile :model='$model'/>
-    @livewire('card-interests',['model'=>$model,'type'=>$type], key('card-group'.$group_index.$index.$type.'-'.$model->id))
+    @livewire('card-interests',['model'=>$model,'type'=>$type], key('card-group-'.$group_index.'-card_pos-'.$index.'-'.$type.'-'.$model->id))
 </div>

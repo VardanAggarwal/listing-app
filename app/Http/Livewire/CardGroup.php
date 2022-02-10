@@ -90,6 +90,16 @@ class CardGroup extends Component
 				$this->title=__("For",['stub'=>$title_stub,'type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				$child=Str::plural(Str::lower($this->type));
 				$this->feed=$parent->{$child}()->withCount('interested_profiles')->orderByDesc('interested_profiles_count')->get();
+				break;
+			case 'latest':
+				$model='App\\Models\\'.$this->type;
+				$this->feed=$model::latest()->take(10)->get();
+				$this->title=__("New items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
+				break;
+			case 'others':
+				$this->title=__("Other items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
+				$this->feed=$this->model;
+				break;
 		}
 		if($this->feed->count()>0){
 			$this->show=true;
