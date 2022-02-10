@@ -89,8 +89,13 @@ class CardGroup extends Component
 				break;
 			case 'latest':
 				$model='App\\Models\\'.$this->type;
-				$this->feed=$model::latest()->take(10)->get();
+				$this->feed=$model::orderByDesc('updated_at')->take(10)->get();
 				$this->title=__("New items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
+				break;
+			case 'popular':
+				$model='App\\Models\\'.$this->type;
+				$this->feed=$model::withCount('interested_profiles')->orderByDesc('interested_profiles_count')->take(10)->get();
+				$this->title=__("Popular items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				break;
 			case 'others':
 				$this->title=__("Other items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);

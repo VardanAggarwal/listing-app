@@ -14,10 +14,11 @@
     </div>
     @unless($query)
       <div class="mt-4 mb-4 bg-white">
-        @livewire('card-group',['index'=>-2,'type'=>'Resiliency', 'purpose'=>'recommended'],key('card-group-resiliency-recommended-0'))
+        @livewire('card-group',['index'=>-3,'type'=>'Resiliency', 'purpose'=>'recommended'],key('card-group-resiliency-recommended-0'))
+        @livewire('card-group',['index'=>-2,'type'=>'Resiliency', 'purpose'=>'popular'],key('card-group-resiliency-popular-0'))
         @livewire('card-group',['index'=>-1,'type'=>'Resiliency', 'purpose'=>'latest'],key('card-group-resiliency-latest-0'))
         @foreach($categories as $category)
-            @livewire('card-group',['index'=>$loop->index+2,'type'=>'Resiliency','purpose'=>'children','model'=>$category],key('card-group-resiliency-children-'.$loop->index))
+            @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency','purpose'=>'children','model'=>$category],key('card-group-resiliency-children-'.$loop->index))
         @endforeach
         @if($categories->hasMorePages())
           <div class="flex justify-center">
@@ -42,7 +43,7 @@
               x-init="observe"
           ></div>
         @endif
-        @livewire('card-group',['index'=>-3,'type'=>'Resiliency', 'purpose'=>'others','model'=>$others],key('card-group-resiliency-others-0'))
+        @livewire('card-group',['index'=>-4,'type'=>'Resiliency', 'purpose'=>'others','model'=>$others],key('card-group-resiliency-others-0'))
       </div>    
     @endunless
     @if($query || !$categories->hasMorePages())
