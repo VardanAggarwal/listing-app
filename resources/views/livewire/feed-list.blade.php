@@ -3,18 +3,14 @@
   <div class="flex justify-between">
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
+  @livewire('card-group',['index'=>-3,'type'=>'Listing'],key('card-group-listing-recommended--3'))
+  @livewire('card-group',['index'=>-2,'type'=>'Story'],key('card-group-story-recommended--2'))
+  @livewire('card-group',['index'=>-1,'type'=>'Resiliency'],key('card-group-resiliency-recommended--1'))
   @foreach ($feed as $item)
     <x-feed-card :item="$item" :index="$loop->index"/>
     @switch($loop->index)
       @case(2)
         <x-card-add-interests/>
-        @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency'])
-        @break
-      @case(5)
-        @livewire('card-group',['index'=>$loop->index,'type'=>'Listing'])
-        @break
-      @case(8)
-        @livewire('card-group',['index'=>$loop->index,'type'=>'Story'])
         @break
     @endswitch
   @endforeach
