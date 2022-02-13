@@ -32,15 +32,17 @@ class CardGroup extends Component
 				}
 				switch($this->type){
 					case "Resiliency":
-						$resiliency_ids=null;
+						$resiliency_ids=[];
 						if($resiliencies){
 							$categories=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Category')->whereIn('resiliency_id',$resiliencies)->distinct();
-							$resiliency_ids=Models\Reliable::select('resiliency_id')->where('reliable_type','App\\Models\\Category')->whereIn('reliable_id',$categories)->whereNotIn('resiliency_id',$resiliencies)->distinct()->get('resiliency_id');
-						}else{
-							$feedgroup=Models\FeedGroup::where(['model'=>'Resiliency','purpose'=>'admin_pick'])->first();
-							if($feedgroup){
-							    $resiliency_ids=$feedgroup->data['id'];
-							}
+							$found=Models\Reliable::select('resiliency_id')->where('reliable_type','App\\Models\\Category')->whereIn('reliable_id',$categories)->whereNotIn('resiliency_id',$resiliencies)->distinct()->get('resiliency_id');
+							$resiliency_ids=array_merge($resiliency_ids,$found->map(function($item,$key){
+								return $item->resiliency_id;
+							})->toArray());
+						}
+						$feedgroup=Models\FeedGroup::where(['model'=>'Resiliency','purpose'=>'admin_pick'])->first();
+						if($feedgroup){
+						    $resiliency_ids=array_merge($resiliency_ids,$feedgroup->data['id']);
 						}
 						if($resiliency_ids){
 							$this->feed=Models\Resiliency::whereIn('id',$resiliency_ids)->where(function ($query) {
@@ -89,7 +91,8 @@ class CardGroup extends Component
 				break;
 			case 'latest':
 				$model='App\\Models\\'.$this->type;
-				$this->feed=$model::orderByDesc('updated_at')->take(10)->get();
+				$this->feed=$model::orderByDesc('updated_at')->take(20)->get();
+				$this->feed=$this->feed->random($this->feed->count());
 				$this->title=__("New items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				break;
 			case 'popular':
