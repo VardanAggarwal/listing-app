@@ -52,28 +52,32 @@ class CardGroup extends Component
 						}
 						break;
 					case "Story":
-						$story_ids=null;
+						$story_ids=[];
 						if($resiliencies){
-							$story_ids=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Story')->whereIn('resiliency_id',$resiliencies)->distinct();
-						}else{
-							$feedgroup=Models\FeedGroup::where(['model'=>'Story','purpose'=>'admin_pick'])->first();
-							if($feedgroup){
-							    $story_ids=$feedgroup->data['id'];
-							}
+							$found=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Story')->whereIn('resiliency_id',$resiliencies)->distinct()->get('reliable_id');
+							$story_ids=array_merge($story_ids,$found->map(function($item,$key){
+								return $item->reliable_ids;
+							})->toArray());
+						}
+						$feedgroup=Models\FeedGroup::where(['model'=>'Story','purpose'=>'admin_pick'])->first();
+						if($feedgroup){
+						    $story_ids=array_merge($story_ids,$feedgroup->data['id']);
 						}
 						if($story_ids){
 							$this->feed=Models\Story::whereIn('id',$story_ids)->inRandomOrder()->take(10)->get();
 						}
 						break;
 					case "Listing":
-						$listing_ids=null;
+						$listing_ids=[];
 						if($resiliencies){
-							$listing_ids=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Listing')->whereIn('resiliency_id',$resiliencies)->distinct();
-						}else{
-							$feedgroup=Models\FeedGroup::where(['model'=>'Listing','purpose'=>'admin_pick'])->first();
-							if($feedgroup){
-							    $listing_ids=$feedgroup->data['id'];
-							}
+							$found=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Listing')->whereIn('resiliency_id',$resiliencies)->distinct()->get('reliable_id');
+							$listing_ids=array_merge($listing_ids,$found->map(function($item,$key){
+								return $item->reliable_ids;
+							})->toArray());
+						}
+						$feedgroup=Models\FeedGroup::where(['model'=>'Listing','purpose'=>'admin_pick'])->first();
+						if($feedgroup){
+						    $listing_ids=array_merge($listing_ids,$feedgroup->data['id']);
 						}
 						if($listing_ids){
 							$this->feed=Models\Listing::whereIn('id',$listing_ids)->inRandomOrder()->take(10)->get();
