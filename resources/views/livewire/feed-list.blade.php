@@ -3,9 +3,42 @@
   <div class="flex justify-between">
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
-  @livewire('card-group',['index'=>-3,'type'=>'Listing'],key('card-group-listing-recommended--3'))
-  @livewire('card-group',['index'=>-2,'type'=>'Story'],key('card-group-story-recommended--2'))
-  @livewire('card-group',['index'=>-1,'type'=>'Resiliency'],key('card-group-resiliency-recommended--1'))
+  @livewire('card-group',['index'=>0,'type'=>'Listing'],key('card-group-listing-recommended-0'))
+  @livewire('card-group',['index'=>1,'type'=>'Story'],key('card-group-story-recommended-1'))
+  @livewire('card-group',['index'=>2,'type'=>'Resiliency'],key('card-group-resiliency-recommended-2'))
+  @livewire('card-group',['index'=>3,'type'=>'Listing','purpose'=>'latest'],key('card-group-listing-new-3'))
+  @livewire('card-group',['index'=>4,'type'=>'Statement','purpose'=>'latest'],key('card-group-statement-new-4'))
+  @livewire('card-group',['index'=>5,'type'=>'Story','purpose'=>'latest'],key('card-group-story-new-5'))
+  @livewire('card-group',['index'=>6,'type'=>'Resiliency','purpose'=>'latest'],key('card-group-resiliency-new-6'))
+  @for($i=0;$i<$cardCount;$i++)
+    @if($resiliencies[$i])
+      @livewire('card-group',['index'=>$i*3+7,'type'=>'Listing','purpose'=>'children','model'=>$resiliencies[$i]],key('card-group-listing-children-'.$i*3+7))
+      @livewire('card-group',['index'=>$i*3+8,'type'=>'Story','purpose'=>'children','model'=>$resiliencies[$i]],key('card-group-story-children-'.$i*3+8))
+    @endif
+    @if($categories[$i])
+      @livewire('card-group',['index'=>$i*3+9,'type'=>'Resiliency','purpose'=>'children','model'=>$categories[$i]],key('card-group-resiliency-children-'.$i*3+9))
+    @endif
+  @endfor
+  @if($resiliencies->hasMorePages()||$categories->hasMorePages())
+    <div
+        x-data="{
+            observe () {
+                let observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            @this.call('loadMore','cardCount')
+                        }
+                    })
+                }, {
+                    root: null
+                })
+
+                observer.observe(this.$el)
+            }
+        }"
+        x-init="observe"
+    ></div>
+  @endif
   @foreach ($feed as $item)
     <x-feed-card :item="$item" :index="$loop->index"/>
     @switch($loop->index)
@@ -20,7 +53,7 @@
               let observer = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {
                       if (entry.isIntersecting) {
-                          @this.call('loadMore')
+                          @this.call('loadMore','perPage')
                       }
                   })
               }, {

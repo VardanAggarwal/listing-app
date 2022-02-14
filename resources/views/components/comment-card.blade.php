@@ -6,4 +6,5 @@
         @endif
         <a href="/statements/{{$model->id}}"><div class="overflow-ellipsis overflow-hidden max-h-12 sm:max-h-40 sm:ml-4">{!!strip_tags($model->statement)!!}</div></a>
     </div>
+    @livewire('card-interests',['model'=>$model,'type'=>'Statement'],, key('statement-reply'.$model->id))
 </div>

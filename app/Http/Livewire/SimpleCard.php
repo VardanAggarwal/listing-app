@@ -52,7 +52,19 @@ class SimpleCard extends Component
             break;
             case 'Statement':
                 $this->subtitle=$model->statement;
-                $this->image=$model->image;
+                if($model->image_url){
+                    $this->image=$model->image_url;    
+                }elseif(preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $model->description, $match)){
+                    $youtube_id = $match[1];
+                    if(ctype_alnum($youtube_id)){
+                        $this->image="https://img.youtube.com/vi_webp/".$youtube_id."/0.webp";
+                    }
+                }elseif($model->stateable){
+                    if($model->stateable->image||$model->stateable->image_url)
+                    {
+                        $this->image=$model->stateable->image_url?$model->stateable->image_url:$model->stateable->image;
+                    }
+                }
             break;
             default:
         }

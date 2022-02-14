@@ -7,7 +7,11 @@
                 $component=$parent_type.'-card';
             }
         @endphp
-        <x-dynamic-component :component="$component" :model="$model->stateable" :index="$index"/>
+        @if($parent_type=='statement')
+            <x-comment-card :model="$model->stateable" :index="$index"/>
+        @else
+            @livewire('simple-card',['model'=>$model->stateable, 'index'=>$index, 'group_index'=>'statement-group','type'=>$parent_type])
+        @endif
         <div class="bg-gray-200 p-2 mt-2 rounded-lg">
             <x-inline-profile :model=$model/>
             <a href="/statements/{{$model->id}}"><div class="overflow-ellipsis overflow-hidden max-h-12 sm:max-h-40 sm:ml-4">{!!strip_tags($model->statement)!!}</div></a>

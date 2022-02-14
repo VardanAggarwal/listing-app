@@ -15,12 +15,10 @@
                         <span class="text-green-500"><i class="fas {{($type=='Listing'||$type=='Story')?'fa-thumbs-up':'fa-bookmark'}}"></i></span>
                     @else
                         <span class="text-green-500"><i class="far {{($type=='Listing'||$type=='Story')?'fa-thumbs-up':'fa-bookmark'}}"></i></span>
-                        {{($type=='Listing'||$type=='Story')?__('Like'):__('Show interest')}}
                     @endif
                 @endif
             @else
                 <span class="text-green-500"><i class="far {{($type=='Listing'||$type=='Story')?'fa-thumbs-up':'fa-bookmark'}}"></i></span>
-                {{($type=='Listing'||$type=='Story')?__('Like'):__('Show interest')}}
             @endif
         </a>
     </div>
