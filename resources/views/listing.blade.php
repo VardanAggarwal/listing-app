@@ -41,18 +41,15 @@
         <x-jet-button>{{__('Add your listing')}}</x-jet-button>
       </a>
     </div>
-    @if($listing->profile->stories_count)
-      <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-        {{__('Related')}} {{__('ui.models.stories')}}
-      @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$listing->profile])
-      </div>
-    @endif
-    @if($listing->resiliencies_count)
-      <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-        {{__('Related')}} {{__('ui.models.resiliencies')}}
-      @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$listing])
-      </div>
-    @endif
+    <div class="mt-4">
+    @livewire('card-group',['index'=>-3,'type'=>'Resiliency','purpose'=>'children','model'=>$listing],key('card-group-resiliency-children'.$listing->id))
+    @livewire('card-group',['index'=>-2,'type'=>'Listing','purpose'=>'children','model'=>$listing->profile],key('card-group-listing-children-profile-'.$listing->profile_id))
+    @livewire('card-group',['index'=>-1,'type'=>'Story','purpose'=>'children','model'=>$listing->profile],key('card-group-story-children-profile-'.$listing->profile_id))
+    @foreach($listing->resiliencies as $resiliency)
+        @livewire('card-group',['index'=>$loop->index,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-'.$loop->index))
+        @livewire('card-group',['index'=>$loop->index,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$loop->index))
+    @endforeach
+    </div>
 </div>
 @push('meta')
 <meta property="og:title" content="{{$listing->name}}">

@@ -85,7 +85,11 @@ class CardGroup extends Component
 				$parent=$this->model;
 				$this->image=$parent->image_url?$parent->image_url:$parent->image;
 				$title_stub=$parent->title?$parent->title:($parent->name?$parent->name:Str::limit($parent->statement,30));
-				$this->title=__("For",['stub'=>$title_stub,'type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
+				if(get_class($parent)=="App\\Models\\Profile"){
+					$this->title=__("By user",['stub'=>$title_stub,'type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
+				}else{
+					$this->title=__("For",['stub'=>$title_stub,'type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
+				}
 				$child=Str::plural(Str::lower($this->type));
 				$this->feed=$parent->{$child}()->withCount('interested_profiles')->orderByDesc('interested_profiles_count')->get();
 				break;

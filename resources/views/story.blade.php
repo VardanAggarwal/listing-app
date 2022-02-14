@@ -22,43 +22,39 @@
         <div class="">
           <div class="prose">{!!$story->review!!}</div>
         </div>
+      </div>
     </div>
-  </div>
-  @if($story->links)
-    <a href="{{$story->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
-  @endif
-  @if($story->profile)
-    @if($story->profile->contact_number)
-    <div class="mt-4">
-      <a href="/profiles/{{$story->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$story->profile->name,'contact'=>$story->profile->contact_number])}}</span></a>         
-    </div>
+    @if($story->links)
+      <a href="{{$story->links}}" target="_blank"class="underline">{{__('See more')}}...</a>
     @endif
-    <x-profile-card :model="$story->profile"></x-profile-card>
-  @endif
-  <div>
+    @if($story->profile)
+      @if($story->profile->contact_number)
+      <div class="mt-4">
+        <a href="/profiles/{{$story->profile->id}}" class="underline"><span class="font-semibold text-md">{{__('ui.contact_for_services',['name'=>$story->profile->name,'contact'=>$story->profile->contact_number])}}</span></a>         
+      </div>
+      @endif
+      <x-profile-card :model="$story->profile"></x-profile-card>
+    @endif
+    <div>
       @livewire('card-interests',['model'=>$story,'type'=>'Story'])
       @livewire('page-interests',['model'=>$story,'type'=>'Story'])
       @livewire('post-statement',['parent'=>$story])
       @livewire('relationship-filtered-list',['relation'=>'statements','model'=>$story])
-  </div>
-  <div class="mt-4 w-full grid justify-items-center">
-    <a href="\stories\new">
-      <x-jet-button>{{__('Share your experience')}}</x-jet-button>
-    </a>
-  </div>
-  @if($story->resiliencies_count)
-    <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-      {{__('Related')}} {{__('ui.models.resiliencies')}}
-    @livewire('relationship-filtered-list',['relation'=>'resiliencies','model'=>$story])
     </div>
-  @endif
-
-  @if($story->profile->listings_count)
-    <div class="font-semibold text-lg max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-      {{__('Related')}} {{__('ui.models.listings')}}
-    @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$story->profile])
+    <div class="mt-4 w-full grid justify-items-center">
+      <a href="\stories\new">
+        <x-jet-button>{{__('Share your experience')}}</x-jet-button>
+      </a>
     </div>
-  @endif
+    <div class="mt-4">
+      @livewire('card-group',['index'=>-3,'type'=>'Resiliency','purpose'=>'children','model'=>$story],key('card-group-resiliency-children'.$story->id))
+      @livewire('card-group',['index'=>-2,'type'=>'Listing','purpose'=>'children','model'=>$story->profile],key('card-group-listing-children-profile-'.$story->profile_id))
+      @livewire('card-group',['index'=>-1,'type'=>'Story','purpose'=>'children','model'=>$story->profile],key('card-group-story-children-profile-'.$story->profile_id))
+      @foreach($story->resiliencies as $resiliency)
+          @livewire('card-group',['index'=>$loop->index,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-'.$loop->index))
+          @livewire('card-group',['index'=>$loop->index,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$loop->index))
+      @endforeach
+    </div>
   </div>
 @push('meta')
 <meta property="og:title" content="{{$story->title}}">

@@ -48,46 +48,14 @@
         @endif
       </div>
     </div>
+    <div class="mt-4">
+      @livewire('card-group',['index'=>-2,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-profile-'.$resiliency->id))
+      @livewire('card-group',['index'=>-1,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-profile-'.$resiliency->id))
+      @foreach($resiliency->categories as $category)
+          @livewire('card-group',['index'=>$loop->index,'type'=>'Resiliency','purpose'=>'children','model'=>$category],key('card-group-resiliency-children-'.$loop->index))
+      @endforeach
+    </div>
     <x-card-add-interests/>
-    @if($resiliency->stories_count)
-      <section id="stories">
-        <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
-          <div class="flex justify-between items-center">
-            <span class="font-semibold text-lg">{{__('Related')}} {{__('story')}}</span>
-            <a href="\stories\new">
-              <x-jet-button>{{__('Add new')}}</x-jet-button>
-            </a>
-          </div>
-          @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$resiliency])
-        </div>
-      </section>
-    @else
-    <div class="mt-4 w-full grid justify-items-center">
-      <a href="\stories\new">
-        <x-jet-button>{{__('Share your experience')}}</x-jet-button>
-      </a>
-    </div>
-    @endif
-
-    @if($resiliency->listings_count)
-      <section id="listings">
-        <div class="max-w-7xl sm:mx-auto mt-4 border-b  py-4">
-          <div class="flex justify-between items-center">
-            <span class="font-semibold text-lg">{{__('Related')}} {{__('listing')}}</span>
-            <a href="\listings\new">
-              <x-jet-button>{{__('Add new')}}</x-jet-button>
-            </a>
-          </div>
-        @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$resiliency])
-        </div>
-      </section>
-    @else
-    <div class="mt-4 w-full grid justify-items-center">
-      <a href="\listings\new">
-        <x-jet-button>{{__('Add your listing')}}</x-jet-button>
-      </a>
-    </div>
-    @endif
   </div>
   @push('meta')
   <meta property="og:title" content="{{$resiliency->name}}">
