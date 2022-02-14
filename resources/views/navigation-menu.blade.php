@@ -24,6 +24,7 @@
 					<x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')" class="hidden sm:flex">
 						<img src="/assets/search.png" class="w-4 mr-1"> <span>{{__('ui.search') }}</span>
 					</x-jet-nav-link>
+					<a href="https://wa.me/919667696536" x-on:click="mixpanel.track('SSC team contacted')" class="ml-4 flex items-center gap-1"><i class="text-green-500 text-xl fab fa-whatsapp"></i></a>
 				</div>
 			</div>
    @auth

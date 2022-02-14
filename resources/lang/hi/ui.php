@@ -67,6 +67,6 @@ return [
     "story_review"=>"आपने ये कब और क्यों शुरू किया, खर्च और कमाई पर क्या असर पड़ा, क्या समस्याएं आई और सफलता के लिए साथी किसानों को क्या करना चाहिए।"
   ],
   "verification_code"=>"SMS द्वारा आपके फोन पर OTP कोड भेजा गया है, नीचे वो कोड दर्ज करें। ",
-  "contact_message"=>"नमस्कार! Seed Savers Club एप्प से आपका नंबर मिला। https://app.seedsaversclub.com",
+  "contact_message"=>"नमस्कार! Seed Savers Club एप्प से आपका नंबर मिला। :url",
   "verified_profile"=>""
 ];
