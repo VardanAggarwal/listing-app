@@ -1,4 +1,5 @@
-<div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
+<div class="max-w-7xl sm:mx-auto mt-4 border-b py-4" wire:init="$set('load',true)">
+  @if($load)
   <span class="font-semibold text-lg">{{__('ui.expert.show.resiliencies')}}
     @if(Auth::user())
       @if(Auth::user()->profile)
@@ -24,5 +25,5 @@
       <span class="border rounded-lg px-2 py-1"><i class="fas fa-{{in_array($service,array_keys($service_types))?$service_types[$service]:$service_types['others']}}"></i> {{__(in_array($service,array_keys($service_types))?'ui.expert.services.'.$service:$service)}}</span>
     @endforeach
   </div>
-                
+  @endif              
 </div>
