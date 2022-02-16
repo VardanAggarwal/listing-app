@@ -1,4 +1,4 @@
-<div wire:init="getFeed">
+<div>
     <div wire:loading class="mb-6 w-full rounded-lg shadow-md bg-gray-100 p-4">
         <div class="bg-gradient-to-l from-gray-200 to-gray-500 w-full h-24 mb-4 animate-pulse"></div>
         <div class="bg-gradient-to-l from-gray-200 to-gray-500 w-full h-6 mb-4 animate-pulse"></div>

@@ -18,8 +18,6 @@ class CardGroup extends Component
 	public $image=null;
 
 	public function mount(){
-	}
-	public function getFeed(){
 		$this->feed=collect($this->feed);
 		switch($this->purpose){
 			case "recommended":
