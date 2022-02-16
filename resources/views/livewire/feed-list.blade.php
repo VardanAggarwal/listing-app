@@ -21,60 +21,32 @@
       @livewire('card-group',['index'=>$i*4+10,'type'=>'Resiliency','purpose'=>'children','model'=>$categories[$i]],key('card-group-resiliency-children-'.$i*4+10))
     @endif
   @endfor
-  @if($resiliencies->hasMorePages()||$categories->hasMorePages())
-    <div
-        x-data="{
-            observe () {
-                let observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            @this.call('loadMore','cardCount')
-                        }
-                    })
-                }, {
-                    root: null
-                })
-
-                observer.observe(this.$el)
-            }
-        }"
-        x-init="observe"
-    ></div>
-  @endif
-  @foreach ($feed as $item)
-    <x-feed-card :item="$item" :index="$loop->index"/>
-    @switch($loop->index)
-      @case(2)
-        <x-card-add-interests/>
-        @break
-    @endswitch
-  @endforeach
-  <div
-      x-data="{
-          observe () {
-              let observer = new IntersectionObserver((entries) => {
-                  entries.forEach(entry => {
-                      if (entry.isIntersecting) {
-                          @this.call('loadMore','perPage')
-                      }
+  <div wire:init="getFeed"></div>
+  @if($load)
+    @if($resiliencies->hasMorePages()||$categories->hasMorePages())
+      <div
+          x-data="{
+              observe () {
+                  let observer = new IntersectionObserver((entries) => {
+                      entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                              @this.call('loadMore','cardCount')
+                          }
+                      })
+                  }, {
+                      root: null
                   })
-              }, {
-                  root: null
-              })
 
-              observer.observe(this.$el)
-          }
-      }"
-      x-init="observe"
-  ></div>
+                  observer.observe(this.$el)
+              }
+          }"
+          x-init="observe"
+      ></div>
+    @endif
+  @endif
   <div class="flex justify-center">
     <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
   </div>
-  @if($feed->hasMorePages())
-    <x-jet-button wire:loading.remove wire:click.prevent="loadMore" class="text-center">{{__('Load More')}}</x-jet-button>
-    @else
-    <div class="text-center">{{__('No more records')}}</div>
-  @endif
   @push('meta')
   <meta property="og:title" content="Seed Savers Club">
   <meta property="og:url" content="{{url()->current()}}">
