@@ -3,7 +3,7 @@
     @if($img=$profile->user->profile_photo_url)
         <img src="{{$img}}" class="w-12 h-12 rounded-full" loading="lazy">
     @endif
-    <span class="text-xl">{{$profile->name}}</span>
+    <span class="text-lg max-h-12">{{$profile->name}}</span>
   </div>
   <div class="flex overflow-auto flex-nowrap">
     @foreach ($profile->expert_resiliencies as $resiliency)
