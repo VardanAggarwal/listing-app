@@ -52,6 +52,10 @@ return [
       "whatsapp"=>"Whatsapp",
       "call"=>"Call"
     ],
+    "show"=>[
+      "resiliencies"=>"Supported Value chains",
+      "services"=>"Services"
+    ],
     "services"=>[
       "seed"=>"Seeds/Saplings",
       "input"=>"Other inputs",

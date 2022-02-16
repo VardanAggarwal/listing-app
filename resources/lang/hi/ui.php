@@ -52,6 +52,10 @@ return [
       "whatsapp"=>"व्हाट्सएप",
       "call"=>"कॉल"
     ],
+    "show"=>[
+      "resiliencies"=>"फसलें/कृषि व्यवसाय",
+      "services"=>"सेवाएं"
+    ],
     "services"=>[
       "seed"=>"बीज/पौधे",
       "input"=>"अन्य इनपुट",
