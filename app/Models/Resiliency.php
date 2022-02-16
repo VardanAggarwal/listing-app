@@ -42,6 +42,9 @@ class Resiliency extends Model
     public function interested_profiles(){
         return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
+    public function expert_profiles(){
+        return $this->belongsToMany(Profile::class,'expert_resiliencies')->using(ExpertResiliency::class)->withPivot('data')->withTimestamps();
+    }
     public function statements()
         {
             return $this->morphMany(Statement::class, 'stateable');

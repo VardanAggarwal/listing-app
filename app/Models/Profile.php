@@ -11,7 +11,9 @@ class Profile extends Model
 
     protected $guarded=[];
     protected $with = ['user'];
-
+    protected $casts = [
+             'additional_info' => 'array',
+         ];
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -29,6 +31,9 @@ class Profile extends Model
     }
     public function interest_resiliencies(){
         return $this->morphedByMany(Resiliency::class,'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
+    }
+    public function expert_resiliencies(){
+        return $this->belongsToMany(Resiliency::class,'expert_resiliencies')->using(ExpertResiliency::class)->withPivot('data')->withTimestamps();
     }
     public function interest_listings(){
         return $this->morphedByMany(Listing::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();

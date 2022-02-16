@@ -13,10 +13,14 @@ class ContactProfile extends Component
      */
     public $number;
     public $profile;
+    public $contact;
     public function __construct($profile)
     {
         $this->profile=$profile;
         $this->number=$profile->contact_number;
+        if($profile->additional_info){
+            $this->contact=$profile->additional_info['contact'];
+        }
     }
 
     /**

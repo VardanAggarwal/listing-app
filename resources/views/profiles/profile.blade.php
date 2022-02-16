@@ -84,7 +84,9 @@
       @endunless
       @endif
     @endif
-    @if($profile->interest_resiliencies_count)
+    @if($profile->expert_resiliencies_count)
+      @livewire('expert.show',['profile'=>$profile])
+    @elseif($profile->interest_resiliencies_count)
       <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
         <span class="font-semibold text-lg">{{__('ui.models.resiliencies')}}</span>
         <div class="flex overflow-auto flex-nowrap">
