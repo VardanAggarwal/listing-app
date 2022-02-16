@@ -52,7 +52,9 @@ class Form extends Component
         ];
         Auth::user()->profile->expert_resiliencies()->syncWithPivotValues($this->selected, ['data' => $data]);
         foreach ($this->contact as $key => $value) {
-            $this->contact[$key]="+91".$value;
+            if($value){
+                $this->contact[$key]="+91".$value;
+            }
         }
         Auth::user()->profile->additional_info=["contact"=>$this->contact];
         Auth::user()->profile->save();

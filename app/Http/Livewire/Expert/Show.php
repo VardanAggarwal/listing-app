@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Expert;
 
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Auth;
 class Show extends Component
 {
     public $profile;

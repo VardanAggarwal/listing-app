@@ -22,7 +22,7 @@
       @foreach($contact as $type=>$number)
       	<div>
 	      	<span>
-		      <x-jet-input type="checkbox"  wire:click="toggleContact('{{$type}}')" checked="{{$type}}"/>
+		      <input type="checkbox" class="rounded border-gray-400"  wire:click="toggleContact('{{$type}}')" {{$number?'checked':''}}/>
 		      {{__('ui.expert.form.'.$type)}}
 	    		</span><br>
 	    		@if($number)

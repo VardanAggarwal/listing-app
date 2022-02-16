@@ -1,5 +1,13 @@
 <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
-  <span class="font-semibold text-lg">{{__('ui.expert.show.resiliencies')}}</span>
+  <span class="font-semibold text-lg">{{__('ui.expert.show.resiliencies')}}
+    @if(Auth::user())
+      @if(Auth::user()->profile)
+        @if($profile->id==Auth::user()->profile->id)
+          <a href="/expert/form"><span class="float-right"><i class="fas fa-pen"></i></span></a>
+        @endif
+      @endif
+    @endif
+  </span>
   <div class="mb-4 overflow-auto flex flex-nowrap gap-4">
     @foreach ($profile->expert_resiliencies as $resiliency)
       <div class="flex-none border rounded-lg p-2">
