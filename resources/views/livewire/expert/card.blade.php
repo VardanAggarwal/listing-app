@@ -3,9 +3,9 @@
     @if($img=$profile->user->profile_photo_url)
         <img src="{{$img}}" class="w-12 h-12 rounded-full" loading="lazy">
     @endif
-    <span class="text-lg max-h-12 overflow-hidden">{{$profile->name}}</span>
+    <span class="leading-6 text-xl max-h-12 text-clip overflow-hidden">{{$profile->name}}</span>
   </div>
-  <div class="flex overflow-auto flex-nowrap">
+  <div class="mt-4 flex overflow-auto flex-nowrap">
     @foreach ($profile->expert_resiliencies as $resiliency)
     <a href="/resiliencies/{{$resiliency->id}}" class="mr-2 border rounded-md py-1 px-2 whitespace-nowrap tracking-widest">{{$resiliency->name}}</a>
     @endforeach
