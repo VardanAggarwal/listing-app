@@ -9,6 +9,7 @@ class Form extends Component
     public $selected=[];
     protected $listeners = ['updateSelected'];
     public $services=[];
+    public $other_services;
     public $contact=['whatsapp'=>null,'call'=>null];
     public $rules=[
         'contact.whatsapp'=>'numeric|nullable|digits:10',
@@ -18,12 +19,34 @@ class Form extends Component
 
     public function mount(){
         if($profile=Auth::user()->profile){
-            $number=str_replace("+91","",$profile->contact_number);
-            $this->contact['whatsapp']=$number;
-            $this->contact['call']=$number;
+            $contact=$profile->additional_info['contact'];
+            if($contact){
+                foreach ($contact as $key => $value) {
+                    $contact[$key]=str_replace("+91","",$value);
+                }
+                $this->contact=$contact;
+            }
+            else{
+                $number=str_replace("+91","",$profile->contact_number);
+                $this->contact['whatsapp']=$number;
+                $this->contact['call']=$number;
+            }
+            $this->selected=$profile->expert_resiliencies->modelKeys();
+            $this->services=$profile->expert_resiliencies->reduce(function($services,$item){
+                return $services=array_unique(array_merge($services,$item->pivot->data['services']));
+            },[]);
+            $other_services=array_diff($this->services,$this->service_types);
+            if($other_services){
+                $this->services=array_merge(array_diff($this->services,$other_services),["others"]);
+                $this->other_services=implode(",", $other_services);
+            }
         }
     }
     public function save(){
+        if(in_array('others',$this->services)){
+            $this->services=array_diff($this->services, ['others']);
+            $this->services=array_merge($this->services,explode(",",$this->other_services));
+        }
         $data=[
             'services'=>$this->services
         ];

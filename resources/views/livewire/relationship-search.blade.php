@@ -1,5 +1,5 @@
 <div class="mt-4">
-    <x-jet-label for="model" value="{{__('What is this related to?')}}"/>
+    <x-jet-label for="model" value="{{__($title)}}"/>
     <div class="flex flex-wrap my-2 gap-2 overflow-auto max-h-40">
         @foreach($models as $result)
             <div class="p-2 text-xs sm:text-sm rounded-lg shadow border {{in_array($result->id,$selected)?'bg-green-300':''}}" wire:click="toggleSelected({{$result->id}})">

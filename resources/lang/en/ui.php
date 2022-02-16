@@ -42,6 +42,26 @@ return [
     "others_placeholder"=>"Ask your question",
     "recorded_interest"=>"We have recieved your request, our team will get the relevant information to you soon."
   ],
+  "expert"=>[
+    "form"=>[
+      "title"=>"Add your expertise",
+      "subtitle"=>"Let us know how you can help the farmers of the community",
+      "resiliency"=>"Which value chains are you expert in?",
+      "services"=>"What services/help do you offer to farmers?",
+      "contact"=>"How can farmers contact you?"
+      "whatsapp"=>"Whatsapp",
+      "call"=>"Call"
+    ],
+    "services"=>[
+      "seed"=>"Seeds/Saplings",
+      "input"=>"Other inputs",
+      "training"=>"Training",
+      "knowledge"=>"Information & Support",
+      "marketing"=>"Marketing",
+      "contract_farming"=>"Contract farming/Buy-back",
+      "others"=>"Other services"
+    ]
+  ],
   "statement"=>[
     "placeholder"=>"Ask a question or share something",
     "saved"=>"Your post has been published.",

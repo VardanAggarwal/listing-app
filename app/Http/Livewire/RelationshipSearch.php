@@ -10,6 +10,7 @@ class RelationshipSearch extends Component
     public $models;
     public $results;
     public $search_model;
+    public $title='What is this related to?';
     public $selected=[];
     protected $listeners=['updateData'];
     public function updateData($type,$selected){

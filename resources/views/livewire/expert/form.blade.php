@@ -2,25 +2,28 @@
 	<x-jet-validation-errors class="mb-4" />
 	<form wire:submit.prevent="save">
 		@csrf
-		@livewire('relationship-search',['type'=>'Resiliency','selected'=>$selected])
+		<h1 class="font-bold text-lg mb-0">
+			{{__('ui.expert.form.title')}}
+		</h1>
+		@livewire('relationship-search',['type'=>'Resiliency','selected'=>$selected,'title'=>'ui.expert.form.resiliency'])
 		<div class="mt-4">
-	    <x-jet-label for="services" value="{{ __('Type') }}" />
-	    	<div class="flex flex-wrap gap-2">
+	    <x-jet-label for="services" value="{{__('ui.expert.form.services')}}" />
+	    	<div class="flex flex-wrap gap-2 mt-4">
         @foreach($service_types as $type)
-        <div  wire:click="toggleService('{{$type}}')" class="p-2 border rounded-md {{in_array($type,$services)?'bg-green-300':''}}">{{__($type)}}</div>
+        <div  wire:click="toggleService('{{$type}}')" class="p-1 px-2 border rounded-md {{in_array($type,$services)?'bg-green-300':''}}">{{__('ui.expert.services.'.$type)}}</div>
         @endforeach
         @if(in_array('others',$services))
-       		<x-jet-input wire:model="other_services"/> 	
+       		<x-jet-input type="text" wire:model="other_services"/> 	
         @endif
         </div>
 		</div>
 		<div class="mt-4">
-	    <x-jet-label for="contact" value="{{ __('contact_number') }}" />
+	    <x-jet-label for="contact" value="{{__('ui.expert.form.contact')}}" />
       @foreach($contact as $type=>$number)
       	<div>
 	      	<span>
 		      <x-jet-input type="checkbox"  wire:click="toggleContact('{{$type}}')" checked="{{$type}}"/>
-		      {{__($type)}}
+		      {{__('ui.expert.form.'.$type)}}
 	    		</span><br>
 	    		@if($number)
 	    		<x-jet-input type="text" wire:model="contact.{{$type}}"/>
