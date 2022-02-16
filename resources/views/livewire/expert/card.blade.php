@@ -5,9 +5,14 @@
     @endif
     <span class="text-xl">{{$profile->name}}</span>
   </div>
+  <div class="flex overflow-auto flex-nowrap">
+    @foreach ($profile->expert_resiliencies as $resiliency)
+    <a href="/resiliencies/{{$resiliency->id}}" class="mr-2 border rounded-md py-1 px-2 whitespace-nowrap tracking-widest">{{$resiliency->name}}</a>
+    @endforeach
+  </div>
   <div class="mt-2 flex flex-wrap gap-2">
     @foreach($services as $service)
-      <span><i class="fas fa-{{in_array($service,array_keys($service_types))?$service_types[$service]:$service_types['others']}}"></i> <span class="text-sm">{{__(in_array($service,array_keys($service_types))?'ui.expert.services.'.$service:$service)}}</span></span>
+      <span><i class="fas fa-{{in_array($service,array_keys($service_types))?$service_types[$service]:$service_types['others']}}"></i> <span class="text-xs">{{__(in_array($service,array_keys($service_types))?'ui.expert.services.'.$service:$service)}}</span></span>
     @endforeach
   </div></a>
   <div class="mt-4 border-t pt-2">

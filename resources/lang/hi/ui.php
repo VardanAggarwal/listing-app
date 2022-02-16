@@ -63,7 +63,7 @@ return [
       "training"=>"ट्रेनिंग",
       "knowledge"=>"जानकारी",
       "marketing"=>"बाजार",
-      "contract_farming"=>"अनुबंध खेती/Buy-back",
+      "contract_farming"=>"Buy-back",
       "others"=>"अन्य सेवाएं"
     ]
   ],

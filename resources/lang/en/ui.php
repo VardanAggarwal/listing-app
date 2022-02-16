@@ -60,9 +60,9 @@ return [
       "seed"=>"Seeds/Saplings",
       "input"=>"Other inputs",
       "training"=>"Training",
-      "knowledge"=>"Information & Support",
+      "knowledge"=>"Information",
       "marketing"=>"Marketing",
-      "contract_farming"=>"Contract farming/Buy-back",
+      "contract_farming"=>"Buy-back",
       "others"=>"Other services"
     ]
   ],

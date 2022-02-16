@@ -103,7 +103,11 @@ class CardGroup extends Component
 				break;
 			case 'latest':
 				$model='App\\Models\\'.$this->type;
-				$this->feed=$model::orderByDesc('updated_at')->take(20)->get();
+				if($this->type=="Profile"){
+					$this->feed=$model::whereHas('expert_resiliencies')->orderByDesc('updated_at')->take(20)->get();
+				}else{
+					$this->feed=$model::orderByDesc('updated_at')->take(20)->get();
+				}
 				$this->feed=$this->feed->random($this->feed->count());
 				$this->title=__("New items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				break;
