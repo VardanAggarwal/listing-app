@@ -95,7 +95,11 @@ class CardGroup extends Component
 					$this->title=__("For",['stub'=>$title_stub,'type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				}
 				$child=Str::plural(Str::lower($this->type));
-				$this->feed=$parent->{$child}()->withCount('interested_profiles')->orderByDesc('interested_profiles_count')->get();
+				if($this->type=="Profile"){
+					$this->feed=$parent->expert_profiles()->withCount('listings')->withPivot('data')->orderByDesc('listings_count')->get();
+				}else{
+					$this->feed=$parent->{$child}()->withCount('interested_profiles')->orderByDesc('interested_profiles_count')->get();
+				}
 				break;
 			case 'latest':
 				$model='App\\Models\\'.$this->type;

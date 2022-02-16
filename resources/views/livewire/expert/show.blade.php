@@ -10,12 +10,12 @@
   </span>
   <div class="mb-4 overflow-auto flex flex-nowrap gap-4">
     @foreach ($profile->expert_resiliencies as $resiliency)
-      <div class="flex flex-none border rounded-lg p-2 gap-2">
+      <a href="/resiliencies/{{$resiliency->id}}" class="flex-none"><div class="flex flex-none border rounded-lg p-2 gap-2">
           @if($resiliency->image_url)
               <img src="{{$resiliency->image_url}}" loading="lazy" class="h-8 w-8 rounded-full"/>
           @endif
           <span class="text-xl">{{$resiliency->name}}</span><br>
-      </div>
+      </div></a>
     @endforeach
   </div>
     <span class="font-semibold text-lg">{{__('ui.expert.show.services')}}</span>

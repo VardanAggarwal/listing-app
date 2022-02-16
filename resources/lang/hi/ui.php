@@ -17,7 +17,8 @@ return [
     "resiliencies"=>"उन्नत खेती",
     "categories"=>"श्रेणी",
     "feed"=>"नया क्या है?",
-    "statements"=>"पोस्ट/कमेंट"
+    "statements"=>"पोस्ट/कमेंट",
+    "profiles"=>"एक्सपर्ट",
   ],
   "add_new_f"=>"नयी :name",
   "add_new_m"=>"नयी :name",
@@ -60,8 +61,8 @@ return [
       "seed"=>"बीज/पौधे",
       "input"=>"अन्य इनपुट",
       "training"=>"ट्रेनिंग",
-      "knowledge"=>"जानकारी/समस्या समाधान",
-      "marketing"=>"बाजार/उपज खरीद",
+      "knowledge"=>"जानकारी",
+      "marketing"=>"बाजार",
       "contract_farming"=>"अनुबंध खेती/Buy-back",
       "others"=>"अन्य सेवाएं"
     ]
