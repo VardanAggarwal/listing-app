@@ -13,6 +13,7 @@ class PhoneAuth extends Component
     public $show_phone=true;
     public $code=false;
     public $show_profile=false;
+    public $is_expert=false;
     public $status=null;
     protected $rules=[
         'phone_number'=>'numeric|required|digits:10',
@@ -36,7 +37,7 @@ class PhoneAuth extends Component
         }
         Auth::login($user,$remember=true);
         if($profile->name&&$profile->pincode){
-            return redirect()->intended('/');
+            return redirect()->intended($this->is_expert?'/expert/form':'/');
         }
         else{
             $this->profile=$profile;
@@ -50,7 +51,7 @@ class PhoneAuth extends Component
         Auth::User()->name=$this->profile->name;
         $this->profile->save();
         Auth::User()->save();
-        return redirect()->intended('/');
+        return redirect()->intended($this->is_expert?'/expert/form':'/');
     }
     public function render()
     {

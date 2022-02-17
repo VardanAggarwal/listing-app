@@ -18,6 +18,9 @@
                 <x-jet-input id="phone_number" class="block mt-1 w-full" wire:model="phone_number" type="text" name="phone_number" maxlength="10" required autofocus />
               </div>
           </div>
+          <div class="mt-4">
+              <x-jet-input id="expert" class="" type="checkbox" name="expert" wire:model="is_expert" autofocus/>{{ __('ui.expert.form.onboarding') }}
+          </div>
           <div wire:ignore class="flex justify-center pb-2 mt-4">
               <x-jet-button id="sign-in-button">
                   {{ __('Log in') }}
@@ -37,6 +40,9 @@
           <div class="mt-4">
               <x-jet-label for="pincode" value="{{ __('ui.pincode') }}" />
               <x-jet-input id="pincode" class="block mt-1 w-full" type="text" name="pincode" wire:model="profile.pincode" autofocus/>
+          </div>
+          <div class="mt-4">
+              <x-jet-input id="expert" class="" type="checkbox" name="expert" wire:model="is_expert" autofocus/>{{ __('ui.expert.form.onboarding') }}
           </div>
           <div class="flex justify-center pb-2 mt-4">
               <x-jet-button wire:click="profile_submit" x-on:click="mixpanel.track('Profile Submitted',{'Phone Number':'{{'+91'.$phone_number}}'})">

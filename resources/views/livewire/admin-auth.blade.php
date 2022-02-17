@@ -12,6 +12,9 @@
               <x-jet-input id="phone_number" class="block mt-1 w-full" wire:model="phone_number" type="text" name="phone_number" maxlength="10" required autofocus />
             </div>
         </div>
+        <div class="mt-4">
+            <x-jet-input id="expert" class="" type="checkbox" name="expert" wire:model="is_expert" autofocus/>{{ __('ui.expert.form.onboarding') }}
+        </div>
         <div wire:ignore class="flex justify-center pb-2 mt-4">
             <x-jet-button id="sign-in-button" wire:click="sign_in">
                 {{ __('Log in') }}
