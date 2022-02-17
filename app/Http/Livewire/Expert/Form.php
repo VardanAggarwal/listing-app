@@ -15,7 +15,7 @@ class Form extends Component
         'contact.whatsapp'=>'numeric|nullable|digits:10',
         'contact.call'=>'numeric|nullable|digits:10'
     ];
-    public $service_types=['seed','input','knowledge','training','contract_farming','marketing','others'];
+    public $service_types=['seed','input','knowledge','training','contract_farming','marketing','animal','machinery','others'];
 
     public function mount(){
         if($profile=Auth::user()->profile){

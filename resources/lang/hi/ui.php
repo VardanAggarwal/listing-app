@@ -65,6 +65,8 @@ return [
       "knowledge"=>"जानकारी",
       "marketing"=>"बाजार",
       "contract_farming"=>"Buy-back",
+      "animal"=>"पशु",
+      "machinery"=>"मशीन",
       "others"=>"अन्य सेवाएं"
     ]
   ],
