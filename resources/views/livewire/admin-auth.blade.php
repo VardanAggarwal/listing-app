@@ -32,6 +32,10 @@
             <x-jet-label for="pincode" value="{{ __('ui.pincode') }}" />
             <x-jet-input id="pincode" class="block mt-1 w-full" type="text" name="pincode" wire:model="profile.pincode" autofocus/>
         </div>
+        <div class="mt-4">
+            <x-jet-input id="expert" class="" type="checkbox" name="expert" wire:model="is_expert" autofocus/>{{ __('ui.expert.form.onboarding') }}
+        </div>
+        
         <div class="flex justify-center pb-2 mt-4">
             <x-jet-button wire:click="profile_submit">
               {{ __('ui.onboarding_submit') }}

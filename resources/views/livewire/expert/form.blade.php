@@ -8,7 +8,7 @@
 		@livewire('relationship-search',['type'=>'Resiliency','selected'=>$selected,'title'=>'ui.expert.form.resiliency'])
 		<div class="mt-4">
 	    <x-jet-label for="services" value="{{__('ui.expert.form.services')}}" />
-	    	<div class="flex flex-wrap gap-2 mt-4">
+	    	<div class="cursor-pointer flex flex-wrap gap-2 mt-4">
         @foreach($service_types as $type)
         <div  wire:click="toggleService('{{$type}}')" class="p-1 px-2 border rounded-md {{in_array($type,$services)?'bg-green-300':''}}">{{__('ui.expert.services.'.$type)}}</div>
         @endforeach

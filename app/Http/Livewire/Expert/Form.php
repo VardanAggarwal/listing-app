@@ -19,14 +19,17 @@ class Form extends Component
 
     public function mount(){
         if($profile=Auth::user()->profile){
-            $contact=$profile->additional_info['contact'];
-            if($contact){
-                foreach ($contact as $key => $value) {
-                    $contact[$key]=str_replace("+91","",$value);
+            $contact=null;
+            if($profile->additional_info){
+                if(array_key_exists('contact', $profile->additional_info)){
+                    $contact=$profile->additional_info['contact'];
+                    foreach ($contact as $key => $value) {
+                        $contact[$key]=str_replace("+91","",$value);
+                    }
+                    $this->contact=$contact;
                 }
-                $this->contact=$contact;
             }
-            else{
+            if(!$contact){
                 $number=str_replace("+91","",$profile->contact_number);
                 $this->contact['whatsapp']=$number;
                 $this->contact['call']=$number;
