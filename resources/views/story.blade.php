@@ -51,6 +51,7 @@
       @livewire('card-group',['index'=>-2,'type'=>'Listing','purpose'=>'children','model'=>$story->profile],key('card-group-listing-children-profile-'.$story->profile_id))
       @livewire('card-group',['index'=>-1,'type'=>'Story','purpose'=>'children','model'=>$story->profile],key('card-group-story-children-profile-'.$story->profile_id))
       @foreach($story->resiliencies as $resiliency)
+          @livewire('card-group',['index'=>$loop->index,'type'=>'Profile','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-profile-'.$resiliency->id.'-'.$loop->index))
           @livewire('card-group',['index'=>$loop->index,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-'.$loop->index))
           @livewire('card-group',['index'=>$loop->index,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$loop->index))
       @endforeach
