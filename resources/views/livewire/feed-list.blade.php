@@ -11,7 +11,6 @@
   @livewire('card-group',['index'=>4,'type'=>'Listing'],key('card-group-listing-recommended-4'))
   @livewire('card-group',['index'=>5,'type'=>'Story'],key('card-group-story-recommended-5'))
   @livewire('card-group',['index'=>6,'type'=>'Resiliency'],key('card-group-resiliency-recommended-6'))
-  @livewire('card-group',['index'=>7,'type'=>'Resiliency','purpose'=>'latest'],key('card-group-resiliency-new-7'))
   @foreach($resiliencies as $resiliency)
     @php
       $i=$loop->index;
