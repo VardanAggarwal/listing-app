@@ -22,7 +22,6 @@ class FeedList extends Component
     {
         $feedgroup=Models\FeedGroup::where(['model'=>'Resiliency','purpose'=>'admin_pick'])->first();
         $resiliencies=Models\Resiliency::whereIn('id',$feedgroup->data['id'])->paginate($this->cardCount);
-        $categories=Models\Category::whereIn('id',Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Category')->whereIn('resiliency_id',$feedgroup->data['id'])->distinct()->get('reliable_id'))->paginate($this->cardCount);
-        return view('livewire.feed-list',['resiliencies'=>$resiliencies,'categories'=>$categories])->layout('layouts.guest');
+        return view('livewire.feed-list',['resiliencies'=>$resiliencies])->layout('layouts.guest');
     }
 }

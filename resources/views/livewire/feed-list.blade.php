@@ -11,19 +11,17 @@
   @livewire('card-group',['index'=>5,'type'=>'Statement','purpose'=>'latest'],key('card-group-statement-new-5'))
   @livewire('card-group',['index'=>6,'type'=>'Story','purpose'=>'latest'],key('card-group-story-new-6'))
   @livewire('card-group',['index'=>7,'type'=>'Resiliency','purpose'=>'latest'],key('card-group-resiliency-new-7'))
-  @for($i=1;$i<=$cardCount;$i++)
-    @if($resiliencies[$i])
-      @livewire('card-group',['index'=>$i*4+7,'type'=>'Profile','purpose'=>'children','model'=>$resiliencies[$i]],key('card-group-profile-children-'.$i*4+7))
-      @livewire('card-group',['index'=>$i*4+8,'type'=>'Listing','purpose'=>'children','model'=>$resiliencies[$i]],key('card-group-listing-children-'.$i*4+8))
-      @livewire('card-group',['index'=>$i*4+9,'type'=>'Story','purpose'=>'children','model'=>$resiliencies[$i]],key('card-group-story-children-'.$i*4+9))
-    @endif
-    @if($categories[$i])
-      @livewire('card-group',['index'=>$i*4+10,'type'=>'Resiliency','purpose'=>'children','model'=>$categories[$i]],key('card-group-resiliency-children-'.$i*4+10))
-    @endif
-  @endfor
+  @foreach($resiliencies as $resiliency)
+    @php
+      $i=$loop->index;
+    @endphp
+    @livewire('card-group',['index'=>$i*3+7,'type'=>'Profile','purpose'=>'children','model'=>$resiliency],key('card-group-profile-children-'.$i*3+7))
+    @livewire('card-group',['index'=>$i*3+8,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-'.$i*3+8))
+    @livewire('card-group',['index'=>$i*3+9,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$i*3+9))
+  @endforeach
   <div wire:init="getFeed"></div>
   @if($load)
-    @if($resiliencies->hasMorePages()||$categories->hasMorePages())
+    @if($resiliencies->hasMorePages())
       <div
           x-data="{
               observe () {
