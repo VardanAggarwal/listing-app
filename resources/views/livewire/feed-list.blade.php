@@ -25,6 +25,26 @@
     @livewire('card-group',['index'=>$i*3+9,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$i*3+9))
   @endforeach
   </div>
+  @if($resiliencies->hasMorePages())
+    <div
+        x-data="{
+            observe () {
+                let observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            @this.call('loadMore','cardCount')
+                        }
+                    })
+                }, {
+                    root: null
+                })
+
+                observer.observe(this.$el)
+            }
+        }"
+        x-init="observe"
+    ></div>
+  @endif
   @endif
   </div>
   <div class="flex justify-center">
@@ -38,27 +58,5 @@
   <meta property="og:image" content="https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png">
   @endpush
   <div wire:init="getFeed">
-    @if($load)
-    @if($resiliencies->hasMorePages())
-      <div
-          x-data="{
-              observe () {
-                  let observer = new IntersectionObserver((entries) => {
-                      entries.forEach(entry => {
-                          if (entry.isIntersecting) {
-                              @this.call('loadMore','cardCount')
-                          }
-                      })
-                  }, {
-                      root: null
-                  })
-
-                  observer.observe(this.$el)
-              }
-          }"
-          x-init="observe"
-      ></div>
-    @endif
-    @endif
   </div>
 </div>
