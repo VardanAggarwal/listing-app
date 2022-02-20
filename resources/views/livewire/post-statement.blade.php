@@ -46,7 +46,7 @@
                 <x-jet-button type="button" class="bg-green-400" x-on:click="other=true" x-show="!other">{{__("Continue")}}</x-jet-button>
             </div>
             <div style="display: none;" x-show="other">
-                @livewire('relationship-search',['type'=>'Resiliency'],key('post-statement-relationship-search'))
+                <div wire:key="post-statement-relationship-search">@livewire('relationship-search',['type'=>'Resiliency'])</div>
                 <x-jet-validation-errors class="mb-4" />
                 <div class="mt-4 flex justify-center">
                     <x-jet-button type="submit" class="bg-green-400">{{__("Submit")}}</x-jet-button>
