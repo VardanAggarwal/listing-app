@@ -45,10 +45,12 @@
         x-init="observe"
     ></div>
   @endif
-  @endif
-  </div>
   <div class="flex justify-center">
     <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
+  </div>
+  @endif
+  </div>
+  <div wire:init="getFeed">
   </div>
   @push('meta')
   <meta property="og:title" content="Seed Savers Club">
@@ -57,6 +59,4 @@
   <meta property="fb:app_id" content="852906262106769">
   <meta property="og:image" content="https://listing-app.s3.ap-south-1.amazonaws.com/public/ssc.png">
   @endpush
-  <div wire:init="getFeed">
-  </div>
 </div>
