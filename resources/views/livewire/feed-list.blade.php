@@ -31,7 +31,7 @@
   </div>
   <div wire:key="feed-list-post-load-dynamic-loader">
   @if($resiliencies->hasMorePages())
-    <div class="mb-6"
+    <div
         x-data="{
             observe () {
                 let observer = new IntersectionObserver((entries) => {
@@ -48,7 +48,7 @@
             }
         }"
         x-init="$nextTick(()=>observe())"
-    >
+    ><div class="w-full h-6"></div>
     </div>
   @endif
   </div>
