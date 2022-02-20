@@ -16,7 +16,7 @@ class FeedList extends Component
     }
     public function loadMore($type='perPage')
        {
-           $this->{$type} += 1;
+           $this->{$type} += 2;
        }
     public function render()
     {
