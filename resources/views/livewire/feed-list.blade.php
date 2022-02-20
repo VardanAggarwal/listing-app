@@ -4,9 +4,10 @@
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
   <div wire:key="feed-list-pre-load">
-  @livewire('card-group',['index'=>0,'type'=>'Profile','purpose'=>'latest'],key('card-group-profile-new-0'))
-  @livewire('card-group',['index'=>1,'type'=>'Listing','purpose'=>'latest'],key('card-group-listing-new-1'))
-  @livewire('card-group',['index'=>2,'type'=>'Statement','purpose'=>'latest'],key('card-group-statement-new-2'))
+  <div>@livewire('card-group',['index'=>0,'type'=>'Profile','purpose'=>'latest'],key('card-group-profile-new-0'))</div>
+  <div>@livewire('card-group',['index'=>1,'type'=>'Listing','purpose'=>'latest'],key('card-group-listing-new-1'))</div>
+  <div>
+  @livewire('card-group',['index'=>2,'type'=>'Statement','purpose'=>'latest'],key('card-group-statement-new-2'))</div>
   </div>
   <div wire:key="feed-list-post-load">
   @if($load)
