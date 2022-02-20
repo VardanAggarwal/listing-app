@@ -27,10 +27,13 @@
                                 <x-statement-card :model='$item' :index='$loop->index'/>
                                 @break
                             @case('Profile')
-                                @livewire('expert.card',['profile'=>$item,'index'=>$loop->index],key('card-group-'.$type.'-'.$index.'-'.$loop->index))
+                                <div>@livewire('expert.card',['profile'=>$item,'index'=>$loop->index],key('card-group-'.$type.'-'.$index.'-'.$loop->index))
+                                </div>
                                 @break
                             @default
+                                <div>
                                 @livewire('simple-card',['model'=>$item, 'index'=>$loop->index, 'group_index'=>$index,'type'=>$type],key('card-group-'.$type.'-'.$index.'-'.$loop->index))
+                                </div>
                                 @break
                             @endswitch
                         </div>
