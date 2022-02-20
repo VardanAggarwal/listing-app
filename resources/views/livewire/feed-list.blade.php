@@ -29,6 +29,9 @@
     </div>
   @endforeach
   </div>
+  <div class="flex justify-center">
+    <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
+  </div>
   <div wire:key="feed-list-post-load-dynamic-loader">
   @if($resiliencies->hasMorePages())
     <div
@@ -51,9 +54,6 @@
     ><div class="w-full h-6"></div>
     </div>
   @endif
-  </div>
-  <div class="flex justify-center">
-    <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
   </div> 
   @endif
   </div>
