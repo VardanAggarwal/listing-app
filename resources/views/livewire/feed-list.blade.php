@@ -11,20 +11,25 @@
   </div>
   <div wire:key="feed-list-post-load">
   @if($load)
+  <div wire:key="feed-list-post-load-fixed">
   @livewire('card-group',['index'=>3,'type'=>'Story','purpose'=>'latest'],key('card-group-story-new-3'))
   @livewire('card-group',['index'=>4,'type'=>'Listing'],key('card-group-listing-recommended-4'))
   @livewire('card-group',['index'=>5,'type'=>'Story'],key('card-group-story-recommended-5'))
   @livewire('card-group',['index'=>6,'type'=>'Resiliency'],key('card-group-resiliency-recommended-6'))
-  <div>
+  </div>
+  <div wire:key="feed-list-post-load-dynamic">
   @foreach($resiliencies as $resiliency)
     @php
       $i=$loop->index;
     @endphp
+    <div wire:key="feed-list-post-load-dynamic-group">
     @livewire('card-group',['index'=>$i*3+7,'type'=>'Profile','purpose'=>'children','model'=>$resiliency],key('card-group-profile-children-'.$i*3+7))
     @livewire('card-group',['index'=>$i*3+8,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-'.$i*3+8))
     @livewire('card-group',['index'=>$i*3+9,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$i*3+9))
+    </div>
   @endforeach
   </div>
+  <div wire:key="feed-list-post-load-dynamic-loader">
   @if($resiliencies->hasMorePages())
     <div
         x-data="{
@@ -42,12 +47,13 @@
                 observer.observe(this.$el)
             }
         }"
-        x-init="observe"
+        x-init="$nextTick(()=>observe())"
     ></div>
   @endif
+  </div>
   <div class="flex justify-center">
     <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
-  </div>
+  </div> 
   @endif
   </div>
   <div wire:init="getFeed">
