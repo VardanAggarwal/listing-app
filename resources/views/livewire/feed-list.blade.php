@@ -1,16 +1,20 @@
 <div class="max-w-7xl mx-4 sm:mx-auto">
-  @livewire('post-statement')
+  <div>@livewire('post-statement')</div>
   <div class="flex justify-between">
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
+  <div>
   @livewire('card-group',['index'=>0,'type'=>'Profile','purpose'=>'latest'],key('card-group-profile-new-0'))
   @livewire('card-group',['index'=>1,'type'=>'Listing','purpose'=>'latest'],key('card-group-listing-new-1'))
   @livewire('card-group',['index'=>2,'type'=>'Statement','purpose'=>'latest'],key('card-group-statement-new-2'))
+  </div>
+  <div>
   @if($load)
   @livewire('card-group',['index'=>3,'type'=>'Story','purpose'=>'latest'],key('card-group-story-new-3'))
   @livewire('card-group',['index'=>4,'type'=>'Listing'],key('card-group-listing-recommended-4'))
   @livewire('card-group',['index'=>5,'type'=>'Story'],key('card-group-story-recommended-5'))
   @livewire('card-group',['index'=>6,'type'=>'Resiliency'],key('card-group-resiliency-recommended-6'))
+  <div>
   @foreach($resiliencies as $resiliency)
     @php
       $i=$loop->index;
@@ -19,7 +23,9 @@
     @livewire('card-group',['index'=>$i*3+8,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-'.$i*3+8))
     @livewire('card-group',['index'=>$i*3+9,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-'.$i*3+9))
   @endforeach
+  </div>
   @endif
+  </div>
   <div class="flex justify-center">
     <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
   </div>
