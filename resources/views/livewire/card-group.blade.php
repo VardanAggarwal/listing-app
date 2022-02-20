@@ -5,7 +5,7 @@
         <div class="bg-gradient-to-l from-gray-200 to-gray-500 w-3/4 h-6 mb-4 animate-pulse"></div>
         <div class="bg-gradient-to-l from-gray-200 to-gray-500 w-3/4 h-6 mb-4 animate-pulse"></div>
     </div>
-    <div>
+    <div wire:key="{{$type.'-'.$purpose.'-'.$index}}">
     @if($show)
         @php
             $parent=$model?str_replace("App\\Models\\","",get_class($model)):null;
