@@ -45,7 +45,6 @@
             <div class="mt-4 flex justify-center">
                 <x-jet-button type="button" class="bg-green-400" x-on:click="other=true" x-show="!other">{{__("Continue")}}</x-jet-button>
             </div>
-            @if($form)
             <div style="display: none;" x-show="other">
                 @livewire('relationship-search',['type'=>'Resiliency'])
                 <x-jet-validation-errors class="mb-4" />
@@ -53,7 +52,6 @@
                     <x-jet-button type="submit" class="bg-green-400">{{__("Submit")}}</x-jet-button>
                 </div>
             </div>
-            @endif
         </form>
         @endif
         @if($saved)
