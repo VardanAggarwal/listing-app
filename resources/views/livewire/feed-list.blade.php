@@ -3,12 +3,12 @@
   <div class="flex justify-between">
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
-  <div>
+  <div wire:key="feed-list-pre-load">
   @livewire('card-group',['index'=>0,'type'=>'Profile','purpose'=>'latest'],key('card-group-profile-new-0'))
   @livewire('card-group',['index'=>1,'type'=>'Listing','purpose'=>'latest'],key('card-group-listing-new-1'))
   @livewire('card-group',['index'=>2,'type'=>'Statement','purpose'=>'latest'],key('card-group-statement-new-2'))
   </div>
-  <div>
+  <div wire:key="feed-list-post-load">
   @if($load)
   @livewire('card-group',['index'=>3,'type'=>'Story','purpose'=>'latest'],key('card-group-story-new-3'))
   @livewire('card-group',['index'=>4,'type'=>'Listing'],key('card-group-listing-recommended-4'))
