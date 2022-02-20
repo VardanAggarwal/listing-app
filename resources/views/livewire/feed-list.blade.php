@@ -31,7 +31,7 @@
   </div>
   <div wire:key="feed-list-post-load-dynamic-loader">
   @if($resiliencies->hasMorePages())
-    <div wire:key="feed-loader"
+    <div
         x-data="{
             observe () {
                 let observer = new IntersectionObserver((entries) => {
@@ -48,7 +48,9 @@
             }
         }"
         x-init="$nextTick(()=>observe())"
-    ></div>
+    >
+      <x-jet-button wire:click="loadMore('cardCount')">{{__('Load more')}}</x-jet-button>
+    </div>
   @endif
   </div>
   <div class="flex justify-center">
