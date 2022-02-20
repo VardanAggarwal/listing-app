@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class="mt-4" wire:key="relationship-search">
     <x-jet-label for="model" value="{{__($title)}}"/>
     <div class="flex flex-wrap my-2 gap-2 overflow-auto max-h-40">
         @foreach($models as $result)
