@@ -49,9 +49,9 @@
       </div>
     </div>
     <div class="mt-4">
-      @livewire('card-group',['index'=>1,'type'=>'Profile','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-profile-'.$resiliency->id))
-      @livewire('card-group',['index'=>2,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-listing-'.$resiliency->id))
-      @livewire('card-group',['index'=>3,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-story-'.$resiliency->id))
+      <div id="profiles">@livewire('card-group',['index'=>1,'type'=>'Profile','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-profile-'.$resiliency->id))</div>
+      <div id="listings">@livewire('card-group',['index'=>2,'type'=>'Listing','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-listing-'.$resiliency->id))</div>
+      <div id="stories">@livewire('card-group',['index'=>3,'type'=>'Story','purpose'=>'children','model'=>$resiliency],key('card-group-story-children-story-'.$resiliency->id))</div>
       @foreach($resiliency->categories as $category)
           @livewire('card-group',['index'=>$loop->index+3,'type'=>'Resiliency','purpose'=>'children','model'=>$category],key('card-group-resiliency-children-'.$loop->index+3))
       @endforeach
