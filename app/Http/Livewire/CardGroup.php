@@ -108,9 +108,6 @@ class CardGroup extends Component
 				}else{
 					$this->feed=$model::orderByDesc('updated_at')->take(20)->get();
 				}
-				$this->feed=$this->feed->sortBy(function($item){
-				  return rand();
-				});
 				$this->title=__("New items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				break;
 			case 'popular':
