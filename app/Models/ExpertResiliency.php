@@ -12,4 +12,9 @@ class ExpertResiliency extends Pivot
     protected $casts = [
              'data' => 'array',
          ];
+    protected static function booted(){
+        static::updated(function($item){
+            Profile::find($item->profile_id)->searchable();
+        });
+    }
 }

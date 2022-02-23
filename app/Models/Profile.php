@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Profile extends Model
 {
     use HasFactory;
-
+    use Searchable;
     protected $guarded=[];
     protected $with = ['user'];
     protected $casts = [
@@ -49,5 +50,9 @@ class Profile extends Model
     }
     public function interested_profiles(){
         return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withTimestamps();
+    }
+    public function shouldBeSearchable()
+    {
+        return $this->expert_resiliencies->count()>0;
     }
 }

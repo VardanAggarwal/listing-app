@@ -21,7 +21,7 @@ class FeedList extends Component
     public function render()
     {
         $feedgroup=Models\FeedGroup::where(['model'=>'Resiliency','purpose'=>'admin_pick'])->first();
-        $resiliencies=Models\Resiliency::whereIn('id',$feedgroup->data['id'])->withCount(['interested_profiles','expert_profiles','listings'])->orderByDesc('interested_profiles_count')->orderByDesc('expert_profiles_count')->orderByDesc('listings_count')->paginate($this->cardCount);
+        $resiliencies=Models\Resiliency::whereIn('id',$feedgroup->data['id'])->inRandomOrder()->paginate($this->cardCount);
         return view('livewire.feed-list',['resiliencies'=>$resiliencies])->layout('layouts.guest');
     }
 }
