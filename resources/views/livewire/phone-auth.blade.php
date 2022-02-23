@@ -81,6 +81,8 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js";
+    import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app-check.js";
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -116,7 +118,8 @@
           onSignInSubmit();
         }
       }, auth);
-      recaptchaVerifier.render().then(function(widgetId) {
+      recaptchaVerifier.render().then(function(widgetId) {        
+        window.recaptchaVerifier.parameters.sitekey='6Lc6hZceAAAAAJ6BN4Ov2q8VCLB4U0gaMQfK5LTm';
          window.recaptchaWidgetId = widgetId;
        });
     }
