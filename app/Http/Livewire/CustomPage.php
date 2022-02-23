@@ -20,7 +20,8 @@ class CustomPage extends Component
     public function render()
     {
         if($this->parent_type&&$this->parent_id){
-            $this->model=
+            $namespace="App\\Models\\".$this->parent_type;
+            $this->model=$namespace::find($this->parent_id);
         }
         return view('livewire.custom-page')->layout('layouts.guest');
     }
