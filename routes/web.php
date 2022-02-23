@@ -40,6 +40,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
+Route::get('custom_feed',Livewire\CustomPage::class);
 Route::get('analytics',Analytics::class);
 Route::get('admin_login',function(){
     return view('adminauth');

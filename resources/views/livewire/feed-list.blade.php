@@ -9,7 +9,7 @@
   @endphp
   @foreach($preLoad as $item)
     @php $i++; @endphp
-    <div>@livewire('card-group',['index'=>$i,'type'=>$item["type"],'purpose'=>$item["purpose"]],key('card-group-'.$item["type"].'-'.$item["purpose"].'-'.$i))</div>
+    <div>@livewire('card-group',['index'=>$i,'type'=>$item["type"],'purpose'=>$item["purpose"],'view'],key('card-group-'.$item["type"].'-'.$item["purpose"].'-'.$i))</div>
   @endforeach
   <div wire:key="feed-list-post-load">
   @if($load)

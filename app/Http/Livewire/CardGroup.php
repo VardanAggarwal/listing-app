@@ -14,6 +14,7 @@ class CardGroup extends Component
 	public $title="Recommended for you";
 	public $type='Resiliency';
 	public $purpose='recommended';
+	public $view='carousel';
 	public $model=null;
 	public $image=null;
 
