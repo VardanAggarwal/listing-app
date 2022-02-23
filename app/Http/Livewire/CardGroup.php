@@ -56,7 +56,7 @@ class CardGroup extends Component
 						if($resiliencies){
 							$found=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Story')->whereIn('resiliency_id',$resiliencies)->distinct()->get('reliable_id');
 							$story_ids=array_merge($story_ids,$found->map(function($item,$key){
-								return $item->reliable_ids;
+								return $item->reliable_id;
 							})->toArray());
 						}
 						$feedgroup=Models\FeedGroup::where(['model'=>'Story','purpose'=>'admin_pick'])->first();
@@ -72,7 +72,7 @@ class CardGroup extends Component
 						if($resiliencies){
 							$found=Models\Reliable::select('reliable_id')->where('reliable_type','App\\Models\\Listing')->whereIn('resiliency_id',$resiliencies)->distinct()->get('reliable_id');
 							$listing_ids=array_merge($listing_ids,$found->map(function($item,$key){
-								return $item->reliable_ids;
+								return $item->reliable_id;
 							})->toArray());
 						}
 						$feedgroup=Models\FeedGroup::where(['model'=>'Listing','purpose'=>'admin_pick'])->first();
@@ -81,6 +81,22 @@ class CardGroup extends Component
 						}
 						if($listing_ids){
 							$this->feed=Models\Listing::whereIn('id',$listing_ids)->inRandomOrder()->take(10)->get();
+						}
+						break;
+					case "Profile":
+						$profile_ids=[];
+						if($resiliencies){
+							$found=Models\ExpertResiliency::select('profile_id')->whereIn('resiliency_id',$resiliencies)->distinct()->get('profile_id');
+							$profile_ids=array_merge($profile_ids,$found->map(function($item,$key){
+								return $item->profile_id;
+							})->toArray());
+						}
+						$feedgroup=Models\FeedGroup::where(['model'=>'Profile','purpose'=>'admin_pick'])->first();
+						if($feedgroup){
+						    $profile_ids=array_merge($profile_ids,$feedgroup->data['id']);
+						}
+						if($profile_ids){
+							$this->feed=Models\Profile::whereIn('id',$profile_ids)->inRandomOrder()->take(10)->get();
 						}
 						break;
 				}
