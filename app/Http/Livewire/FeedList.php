@@ -11,6 +11,9 @@ class FeedList extends Component
     public $cardCount = 1;
     public $load=false;
     protected $listeners=['refreshStatement'=>'$refresh'];
+    public $preLoad=[["type"=>"Profile","purpose"=>"latest"],["type"=>"Listing","purpose"=>"recommended"]];
+    public $postLoad=[["type"=>"Listing","purpose"=>"latest"],["type"=>"Statement","purpose"=>"latest"],["type"=>"Story","purpose"=>"recommended"],["type"=>"Story","purpose"=>"latest"],["type"=>"Resiliency","purpose"=>"recommended"]];
+    public $children=["Profile","Listing","Story"];
     public function getFeed(){
         $this->load=true;
     }

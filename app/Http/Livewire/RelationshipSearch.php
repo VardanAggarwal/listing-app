@@ -26,11 +26,13 @@ class RelationshipSearch extends Component
         $this->emit('updateSelected',$this->selected);        
     }
     public function newModel(){
-        $namespace="App\\Models\\".$this->type;
-        $model=$namespace::create(['name'=>$this->search_model]);
-        $this->search_model='';
-        array_push($this->selected,$model->id);
-        $this->emit('updateSelected',$this->selected);
+        if($this->type!='Profile'){
+            $namespace="App\\Models\\".$this->type;
+            $model=$namespace::create(['name'=>$this->search_model]);
+            $this->search_model='';
+            array_push($this->selected,$model->id);
+            $this->emit('updateSelected',$this->selected);
+        }
     }
     public function render()
     {

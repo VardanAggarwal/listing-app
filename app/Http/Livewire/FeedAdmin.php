@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\FeedGroup;
 class FeedAdmin extends Component
 {
-    public $models=['Resiliency','Story','Listing'];
+    public $models=['Resiliency','Story','Listing','Profile'];
     public $model = 'Resiliency';
     public $selected=[];
     protected $listeners = ['updateSelected'];

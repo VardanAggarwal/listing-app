@@ -23,11 +23,11 @@
                 @endunless
             </div>
         @endforeach
-        @if($this->search_model && !($this->results->contains('name',$this->search_model)||$this->results->contains('title',$this->search_model)))
+        {{--@if($this->type!='Profile' && $this->search_model && !($this->results->contains('name',$this->search_model)||$this->results->contains('title',$this->search_model)))
             <div class="cursor-pointer p-2 text-xs sm:text-sm rounded-lg shadow border" wire:click="newModel">
                 {{$this->search_model}}+
             </div>
-        @endif
+        @endif--}}
     </div>
     @endif
 </div>
