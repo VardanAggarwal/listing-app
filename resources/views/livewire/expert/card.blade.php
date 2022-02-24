@@ -1,7 +1,7 @@
 <div>
   <a href="/profiles/{{$profile->id}}"><div class="grid grid-cols-1 justify-items-center">
     @if($img=$profile->user->profile_photo_url)
-        <img src="{{$img}}" class="w-12 h-12 rounded-full" loading="lazy">
+        <img src="{{$img}}" class="w-12 h-12 rounded-full object-cover object-center" loading="lazy">
     @endif
     <span class="leading-6 text-xl max-h-12 text-clip overflow-hidden">{{$profile->name}}</span>
   </div>

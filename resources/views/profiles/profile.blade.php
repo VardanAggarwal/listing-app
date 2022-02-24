@@ -18,7 +18,7 @@
     <div class="mt-4 grid grid-cols-1 sm:grid-cols-8 gap-4">
         @if($profile->user->profile_photo_url)
         <div class="relative col-span-1 sm:col-span-1 justify-self-center">
-          <img loading="lazy" src="{{$profile->user->profile_photo_url}}" class="rounded-full h-24 w-24" />
+          <a href="{{$profile->user->profile_photo_url}}"><img loading="lazy" src="{{$profile->user->profile_photo_url}}" class="rounded-full h-24 w-24 object-cover object-center" /></a>
           @if(Auth::user())
             @if(Auth::user()->profile)
               @if($profile->id==Auth::user()->profile->id)

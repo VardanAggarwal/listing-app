@@ -11,7 +11,7 @@
     <span class="font-semibold text-lg text-gray-600">{{__($listing->type)}}</span>
     <div class="mt-4 flex gap-4 items-center ">
         @if($listing->image_url)
-        <div class=""><img src="{{$listing->image_url}}" class="object-cover h-24 w-24 rounded" /></div>
+        <div class=""><a href="{{$listing->image_url}}"><img src="{{$listing->image_url}}" class="object-cover h-24 w-24 rounded object-center" /></a></div>
         @endif
         <div class="">
             <span class="font-semibold text-lg">{{__('Type')}}: {{__($listing->item_type)}}</span><br>

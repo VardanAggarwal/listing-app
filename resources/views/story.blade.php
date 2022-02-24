@@ -15,7 +15,7 @@
     <div class="my-4 grid grid-cols-1 sm:grid-cols-8 gap-4 items-center">
       @if($story->image_url)
         <div class="col-span-1 sm:col-span-2 justify-self-center">
-          <img src="{{$story->image_url}}" class="rounded-lg h-36 w-screen sm:w-36 object-center object-cover" />
+          <a href="{{$story->image_url}}"><img src="{{$story->image_url}}" class="rounded-lg h-36 w-screen sm:w-36 object-center object-cover" /></a>
         </div>
       @endif
       <div class="col-span-1 sm:col-span-6">
