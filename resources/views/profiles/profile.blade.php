@@ -96,26 +96,6 @@
                   </div>                
       </div>
     @endif
-    @if($profile->statements)
-    @livewire('relationship-filtered-list',['relation'=>'statements','model'=>$profile])
-    @endif
-    @if($profile->stories_count)
-      <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
-        <div class="flex justify-between items-center">
-          <span class="font-semibold text-lg">{{__('story')}}</span>
-          <a href="\stories\new">
-            <x-jet-button>{{__('Add new')}}</x-jet-button>
-          </a>
-        </div>
-      @livewire('relationship-filtered-list',['relation'=>'stories','model'=>$profile])
-      </div>
-    @else
-          <div class="mt-4 w-full grid justify-items-center">
-            <a href="\stories\new">
-              <x-jet-button>{{__('Share your experience')}}</x-jet-button>
-            </a>
-          </div>
-    @endif
 
     @if($profile->listings_count)
       <div class="max-w-7xl  sm:mx-auto mt-4 border-b  py-4">
@@ -125,7 +105,8 @@
             <x-jet-button>{{__('Add new')}}</x-jet-button>
           </a>
         </div>
-        @livewire('relationship-filtered-list',['relation'=>'listings','model'=>$profile])
+        <div id="listings" class="mt-4">@livewire('card-group',['index'=>1,'type'=>'Listing','purpose'=>'children','model'=>$profile],key('card-group-listing-children-listing-'.$profile->id))
+        </div>
       </div>
     @else
           <div class="mt-4 w-full grid justify-items-center">
@@ -133,6 +114,33 @@
               <x-jet-button>{{__('Add your listing')}}</x-jet-button>
             </a>
           </div>
+    @endif
+    @if($profile->stories_count)
+      <div class="max-w-7xl sm:mx-auto mt-4 border-b py-4">
+        <div class="flex justify-between items-center">
+          <span class="font-semibold text-lg">{{__('story')}}</span>
+          <a href="\stories\new">
+            <x-jet-button>{{__('Add new')}}</x-jet-button>
+          </a>
+        </div>
+      <div id="stories"  class="mt-4">@livewire('card-group',['index'=>0,'type'=>'Story','purpose'=>'children','model'=>$profile],key('card-group-story-children-story-'.$profile->id))</div>
+      </div>
+    @else
+          <div class="mt-4 w-full grid justify-items-center">
+            <a href="\stories\new">
+              <x-jet-button>{{__('Share your experience')}}</x-jet-button>
+            </a>
+          </div>
+    @endif
+    @if($profile->statements)
+    <div id="stories"  class="mt-4">@livewire('card-group',['index'=>0,'type'=>'Statement','purpose'=>'children','model'=>$profile],key('card-group-statement-children-statement-'.$profile->id))</div>
+    @endif
+
+
+    @if($profile->expert_resiliencies_count)
+      @foreach($profile->expert_resiliencies as $resiliency)
+        <div>@livewire('card-group',['index'=>$loop->index+3,'type'=>'Profile','purpose'=>'children','model'=>$resiliency],key('card-group-listing-children-profile-'.$resiliency->id))</div>
+      @endforeach
     @endif
   </div>
 </x-guest-layout>
