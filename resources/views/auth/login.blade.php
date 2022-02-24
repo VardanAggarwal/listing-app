@@ -1,3 +1,3 @@
 <x-guest-layout>
-  @livewire('phone-auth')
+  @livewire('admin-auth')
 </x-guest-layout>
