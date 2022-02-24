@@ -50,6 +50,7 @@ Route::get('feed_admin',FeedAdmin::class)->middleware(['auth','adminauth']);
 Route::get('expert/form',Livewire\Expert\Form::class)->middleware('auth');
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
+Route::get('/experts',Livewire\ExpertList::class)->name('experts');
 Route::get('/stories',StoryList::class)->name('stories');
 Route::get('/resiliencies',ResiliencyList::class)->name('resiliencies');
 Route::get('/statements',StatementList::class)->name('statements');

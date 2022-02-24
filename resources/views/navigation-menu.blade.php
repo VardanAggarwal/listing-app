@@ -12,13 +12,16 @@
 
 				<!-- Navigation Links -->
 				<div class="ml-2 sm:ml-10 grid grid-flow-col gap-2 sm:gap-5">
+					<x-jet-nav-link href="{{ route('experts') }}" :active="request()->routeIs('experts')">
+						{{ __('ui.models.profiles') }}
+					</x-jet-nav-link>
 					<x-jet-nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
 						{{ __('ui.models.listings') }}
 					</x-jet-nav-link>
 					<x-jet-nav-link href="{{ route('stories') }}" :active="request()->routeIs('stories')">
 						{{ __('ui.models.stories') }}
 					</x-jet-nav-link>
-					<x-jet-nav-link href="{{ route('resiliencies') }}" :active="request()->routeIs('resiliencies')">
+					<x-jet-nav-link href="{{ route('resiliencies') }}" :active="request()->routeIs('resiliencies')" class="hidden sm:flex">
 						{{ __('ui.models.resiliencies') }}
 					</x-jet-nav-link>
 					<x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')" class="hidden sm:flex">
@@ -166,6 +169,11 @@
 
 	<!-- Responsive Navigation Menu -->
 	<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+		<div class="pt-2 pb-3 space-y-1">
+			<x-jet-responsive-nav-link href="{{ route('experts') }}" :active="request()->routeIs('experts')">
+				{{ __('ui.models.profiles') }}
+			</x-jet-responsive-nav-link>
+		</div>
 		<div class="pt-2 pb-3 space-y-1">
 			<x-jet-responsive-nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
 				{{ __('ui.models.listings') }}

@@ -7,14 +7,15 @@
   </div>
   @if($results)
     <div class="flex gap-4 mt-2 border-b items-center">
+      <span class="font-bold px-2 py-1 {{$search_type=='Profile'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Profile')">{{__('ui.models.profiles')}}</span>
       <span class="font-bold px-2 py-1 {{$search_type=='Resiliency'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Resiliency')">{{__('ui.models.resiliencies')}}</span>
       <span class="font-bold px-2 py-1 {{$search_type=='Listing'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Listing')">{{__('ui.models.listings')}}</span>
       <span class="font-bold px-2 py-1 {{$search_type=='Story'?'bg-green-50 border-b-4 border-green-500':''}} cursor-pointer" wire:click="$set('search_type','Story')">{{__('ui.models.stories')}}</span>
     </div>
     @foreach($results as $item)
     <div class=" my-5 px-6 py-4 rounded-lg shadow border" >
-      @if(str_contains($search_type,'resiliency'))
-          <x-resiliency-card :model="$item"/>
+      @if(str_contains($search_type,'Profile'))
+          @livewire('expert.card',['profile'=>$item,'index'=>$loop->index],key('expert-'.$loop->index))
       @else
           @php
           $component=$search_type.'-card';

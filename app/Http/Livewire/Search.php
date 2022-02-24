@@ -12,10 +12,11 @@ class Search extends Component
     public $perPage = 10;
     public $query='';
     protected $results;
-    public $search_type='Resiliency';
+    public $search_type='Profile';
     
    protected $queryString = [
-       'query'=>['except'=>'']
+       'query'=>['except'=>''],
+       'search_type'
    ];
     public function loadMore()
        {
