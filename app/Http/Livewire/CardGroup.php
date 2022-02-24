@@ -121,9 +121,9 @@ class CardGroup extends Component
 			case 'latest':
 				$model='App\\Models\\'.$this->type;
 				if($this->type=="Profile"){
-					$this->feed=$model::whereHas('expert_resiliencies')->orderByDesc('updated_at')->take(20)->get();
+					$this->feed=$model::whereHas('expert_resiliencies')->orderByDesc('created_at')->take(20)->get();
 				}else{
-					$this->feed=$model::orderByDesc('updated_at')->take(20)->get();
+					$this->feed=$model::orderByDesc('created_at')->take(20)->get();
 				}
 				$this->title=__("New items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				break;
