@@ -17,6 +17,14 @@ class Analytics extends Component
     public function render()
     {
         $counts=[];
+        $latest=[];
+        $updated=[];
+        $latest['experts']=Profile::has('expert_resiliencies')->where('created_at','>',now()->subDays(7))->count();
+        $latest['stories']=Story::where('created_at','>',now()->subDays(7))->count();
+        $latest['listings']=Listing::where('created_at','>',now()->subDays(7))->count();
+        $updated['experts']=Profile::has('expert_resiliencies')->where('created_at','<=',now()->subDays(7))->where('updated_at','>',now()->subDays(7))->count();
+        $updated['stories']=Story::where('created_at','<=',now()->subDays(7))->where('updated_at','>',now()->subDays(7))->count();
+        $updated['listings']=Listing::where('created_at','<=',now()->subDays(7))->where('updated_at','>',now()->subDays(7))->count();
         $counts['resiliencies']=Resiliency::count();
         $counts['stories']=Story::has('resiliencies')->count();
         $counts['listings']=Listing::has('resiliencies')->count();
@@ -58,6 +66,6 @@ class Analytics extends Component
             $interests[$key]=$value->where('created_at','>',now()->subDays(7))->with('interestable')->orderByDesc('total')->get();
         }
 
-        return view('livewire.analytics',['counts'=>$counts,'interests'=>$interests]);
+        return view('livewire.analytics',['counts'=>$counts,'interests'=>$interests,'latest'=>$latest,'updated'=>$updated]);
     }
 }
