@@ -40,7 +40,7 @@
         </div>
         
         <div class="flex justify-center pb-2 mt-4">
-            <x-jet-button wire:click="profile_submit">
+            <x-jet-button wire:click="profile_submit" x-on:click="mixpanel.track('Profile Submitted',{'Phone Number':'{{'+91'.$phone_number}}'})">
               {{ __('ui.onboarding_submit') }}
             </x-jet-button>
         </div>
