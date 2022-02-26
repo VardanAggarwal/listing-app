@@ -11,7 +11,8 @@
     </div>
     @endif
     <div class="bg-gray-900 opacity-80 fixed inset-0" x-show="open" style="display: none;" x-on:click="open=!open">    </div>
-    <div class="fixed max-w-full overflow-auto z-50 border rounded p-4 bg-white inset-10 inset-20" style="display: none;" x-init={open:false,other:false} x-show="open">
+    <div class="fixed max-w-full overflow-auto z-50 border rounded p-4 bg-white inset-10
+    " style="display: none;" x-init={open:false,other:false} x-show="open">
         <x-jet-validation-errors class="mb-4" />
         <span x-on:click="open=false" class="absolute right-2 top-2 text-red-500"><i class="fas fa-times"></i></span>
         @if($form)
