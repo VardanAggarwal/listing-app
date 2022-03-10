@@ -1,5 +1,4 @@
 <div class="max-w-7xl mx-4 sm:mx-auto">
-  <div wire:key="post-statement">@livewire('post-statement',key('post-statement'))</div>
   <div class="flex justify-between">
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>

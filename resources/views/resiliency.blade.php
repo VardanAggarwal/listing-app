@@ -42,9 +42,6 @@
       <div class="sm:col-span-8">
         @livewire('card-interests',['model'=>$resiliency,'type'=>'Resiliency'])
         @livewire('page-interests',['model'=>$resiliency,'type'=>'Resiliency'])
-        @livewire('post-statement',['parent'=>$resiliency])
-        @if($resiliency->statements)
-        @livewire('relationship-filtered-list',['relation'=>'statements','model'=>$resiliency])
         @endif
       </div>
     </div>

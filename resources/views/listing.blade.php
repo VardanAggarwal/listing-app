@@ -33,8 +33,6 @@
     <div>
         @livewire('card-interests',['model'=>$listing,'type'=>'Listing'])
         @livewire('page-interests',['model'=>$listing,'type'=>'Listing'])
-        @livewire('post-statement',['parent'=>$listing])
-        @livewire('relationship-filtered-list',['relation'=>'statements','model'=>$listing])
     </div>
     <div class="mt-4 w-full grid justify-items-center">
       <a href="\listings\new">
