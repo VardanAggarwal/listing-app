@@ -1,4 +1,4 @@
-<div class="w-full border rounded shadow-lg my-4 p-4 bg-gradient-to-br from-yellow-400 via-amber-400 to-yellow-400 justify-center grid grid-cols-1" x-init="mixpanel.track('Order Card Shown',{'position':'{{$index}}','title':'{{__('ui.leads.card.title')}}','subtitle':'{{__('ui.leads.card.subtitle')}}','button':'{{__('ui.leads.card.button')}}'})">
+<div class="w-full border rounded shadow-lg my-4 p-4 bg-gradient-to-br from-yellow-400 via-amber-400 to-yellow-400 justify-items-center grid grid-cols-1" x-init="mixpanel.track('Order Card Shown',{'position':'{{$index}}','title':'{{__('ui.leads.card.title')}}','subtitle':'{{__('ui.leads.card.subtitle')}}','button':'{{__('ui.leads.card.button')}}'})">
     <h1 class="text-2xl mb-4">{{__('ui.leads.card.title')}}</h1>
     <span class="font-medium">{{__('ui.leads.card.subtitle')}}</span>
     <div class="mt-2 flex justify-center">
