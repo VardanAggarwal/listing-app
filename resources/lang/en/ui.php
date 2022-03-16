@@ -66,6 +66,13 @@ return [
       "others"=>"Other services"
     ]
   ],
+  "leads"=>[
+    "card"=>[
+      "title"=>"Buy best quality seeds",
+      "subtitle"=>"Seeds,earthworms, plants, spawn & animals sourced from succesful farmers across the country",
+      "button"=>"Order now"
+    ]
+  ],
   "statement"=>[
     "placeholder"=>"Ask a question or share something",
     "saved"=>"Your post has been published.",
