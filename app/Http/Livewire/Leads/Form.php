@@ -39,6 +39,9 @@ class Form extends Component
                 $this->profile->contact_number=str_replace('+91','',$this->profile->contact_number);
             }
         }
+        if(!$this->profile){
+            $this->profile=new Models\Profile;
+        }
     }
     public function submit(){
         $this->validate();
