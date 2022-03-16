@@ -71,6 +71,28 @@ return [
       "title"=>"Buy best quality seeds",
       "subtitle"=>"Seeds,earthworms, plants, spawn & animals sourced from succesful farmers across the country",
       "button"=>"Order now"
+    ],
+    "form"=>[
+      "title"=>"Buy top quality seeds, get support across the season",
+      "subtitle"=>"Our goal is to help farmers adopt high income agri-businesses. To achieve the same, we are providing you high quality seeds & mentoring from nationwide experts across high income crops & agri-businesses.",
+      "advantage_title"=>"Achieve success with best seeds",
+      "advantage1"=>"Our high quality inputs are used by and sourced from successful farmers across the country.",
+      "advantage2"=>"We will deliver the seeds to your doorstep at lowest price.",
+      "advantage3"=>"You will get seasonwide support from our expert network to achieve success.",
+      "advantage4"=>"When you buy seeds from us, then you get an option to sell your produce through us.",
+      "how_title"=>"Our team will support you throughout the process",
+      "how1"=>"Fill a simple form to let us know which agri-business you need seeds for.",
+      "how2"=>"If you know exact crop or variety & quantity then you can let us know. Else our team will help you with that over call.",
+      "how3"=>"Once you fill the form, our team will get the best prices available for you from experts across the country.",
+      "how4"=>"You can then finalise the quantity, make payment & we will deliver the seeds to you.",
+      "button1"=>"Book seeds now",
+      "select_vc_title"=>"Which agri-business do you need seed for?",
+      "select_vc_subtitle"=>"You can add specific crop or item in comment below.",
+      "comments_label"=>"Additional details about what you need?",
+      "comments_placeholder"=>"Specific crop/variety. Quantity. Etc.",
+      "submit_button"=>"Book seeds",
+      "submit_message"=>"We have received your details. Someone from our team will get back to you for further process.",
+      "redirect_button"=>"Go to home",
     ]
   ],
   "statement"=>[

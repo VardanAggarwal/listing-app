@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->text('comments')->nullable();
             $table->integer('item_id');
             $table->string('item_type');
+            $table->string('status')->default('order recieved');
         });
     }
 
