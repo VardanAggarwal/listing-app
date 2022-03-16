@@ -1,26 +1,37 @@
-<div class="max-w-7xl mx-4 sm:mx-auto">
+<div class="">
     @unless($form||$success)
     <div>
-        <h1 class="text-2xl">{{__('ui.leads.form.title')}}</h1>
-        <span>{{__('ui.leads.form.purpose')}}</span>
-        <h1 class="text-xl">{{__('ui.leads.form.advantage_title')}}</h1>
-        <ul class="list-disc list-inside">
-            <li>{{__('ui.leads.form.advantage1')}}</li>
-            <li>{{__('ui.leads.form.advantage2')}}</li>
-            <li>{{__('ui.leads.form.advantage3')}}</li>
-            <li>{{__('ui.leads.form.advantage4')}}</li>
-        </ul>
-        <h1 class="text-xl">{{__('ui.leads.form.how_title')}}</h1>
-        <ul class="list-disc list-inside">
-            <li>{{__('ui.leads.form.how1')}}</li>
-            <li>{{__('ui.leads.form.how2')}}</li>
-            <li>{{__('ui.leads.form.how3')}}</li>
-            <li>{{__('ui.leads.form.how4')}}</li>
-        </ul>
-        <div class="h-20"></div>
-        <div class="mt-2 p-2 flex fixed sm:relative bottom-0 inset-x-0 justify-center bg-white border-t">
-        <x-jet-button class="border rounded p-2 bg-gray-900 text-white" wire:click="$set('form',true)">{{__('ui.leads.form.button1')}}</x-jet-button>
+      <div class="w-full pt-12 px-4 pb-4 bg-gradient-to-br from-lime-100 to-zinc-50">
+        <h1 class="text-3xl mb-4">{{__('ui.leads.form.title')}}</h1>
+        <span class="text-gray-700">{{__('ui.leads.form.purpose')}}</span>
+        <div class="mt-2 p-2 flex justify-center">
+        <x-jet-button class="border rounded-full p-2 bg-gray-900 text-white" wire:click="$set('form',true)">{{__('ui.leads.form.button1')}}</x-jet-button>
         </div>
+      </div>
+      <div class="mt-8 px-4">
+        <h1 class="text-3xl">{{__('ui.leads.form.advantage_title')}}</h1>
+        <ul class="sm:flex sm:gap-5">
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.advantage1')}}</li>
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.advantage2')}}</li>
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.advantage3')}}</li>
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.advantage4')}}</li>
+        </ul>
+        <div class="mt-2 p-2 flex justify-center">
+        <x-jet-button class="border rounded-full p-2 bg-gray-900 text-white" wire:click="$set('form',true)">{{__('ui.leads.form.button1')}}</x-jet-button>
+        </div>
+      </div>
+      <div class="mt-8 px-4">
+        <h1 class="text-3xl">{{__('ui.leads.form.how_title')}}</h1>
+        <ul class="sm:flex sm:gap-5">
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.how1')}}</li>
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.how2')}}</li>
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.how3')}}</li>
+            <li class="border rounded-lg border-gray-100 bg-gray-100 p-4 my-4">{{__('ui.leads.form.how4')}}</li>
+        </ul>
+        <div class="mt-2 p-2 flex justify-center">
+        <x-jet-button class="border rounded-full p-2 bg-gray-900 text-white" wire:click="$set('form',true)">{{__('ui.leads.form.button1')}}</x-jet-button>
+        </div>
+      </div>
     </div>
     @endunless
     @if($form)
