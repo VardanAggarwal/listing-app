@@ -27,6 +27,9 @@ class Profile extends Model
     public function statements(){
         return $this->hasMany(Statement::class);
     }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
     public function interest_categories(){
         return $this->morphedByMany(Category::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }

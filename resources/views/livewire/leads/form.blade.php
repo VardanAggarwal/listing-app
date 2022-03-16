@@ -35,7 +35,7 @@
     </div>
     @endunless
     @if($form)
-    <div class="px-4">
+    <div class="px-4" x-init="window.scrollTo(0, 0);">
         <h1 class="text-xl">{{__('ui.leads.form.select_vc_title')}}</h1>
         <splan class="font-medium">{{__('ui.leads.form.select_vc_subtitle')}}</h1>
         <div class="mb-4 overflow-auto flex flex-wrap gap-4 py-4">
@@ -49,30 +49,31 @@
           @endforeach
         </div>
         <span class="text-xl">{{__('ui.leads.form.comments_label')}}</span>
-        <textarea class="w-full rounded border-gray-400" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="{{__('ui.leads.form.comments_placeholder')}}"></textarea>
-        @if($profile)
+        <textarea class="w-full rounded border-gray-400" wire:model="comments" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="{{__('ui.leads.form.comments_placeholder')}}"></textarea>
         <div>
           <div>
               <x-jet-label for="phone_number" value="{{ __('ui.contact_number') }}" />
               <div class="flex items-center">
                 <span class="text-lg mr-2">+91</span>
-                <x-jet-input id="phone_number" class="block mt-1 w-full" wire:model="phone_number" type="text" name="phone_number" maxlength="10" required autofocus />
+                <x-jet-input id="phone_number" class="block mt-1 w-full" wire:model="profile.contact_number" type="text" name="phone_number" maxlength="10" required />
               </div>
           </div>
           <div class="mt-4">
               <x-jet-label for="name" value="{{ __('ui.name') }}" />
-              <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="profile.name" autofocus/>
+              <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model="profile.name"/>
           </div>
           <div class="mt-4">
               <x-jet-label for="address" value="{{ __('ui.address') }}" />
-              <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" wire:model="profile.address" autofocus/>
+              <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" wire:model="profile.address"/>
           </div>
           <div class="mt-4">
               <x-jet-label for="pincode" value="{{ __('ui.pincode') }}" />
-              <x-jet-input id="pincode" class="block mt-1 w-full" type="text" name="pincode" wire:model="profile.pincode" autofocus/>
+              <x-jet-input id="pincode" class="block mt-1 w-full" type="text" name="pincode" wire:model="profile.pincode"/>
           </div>
         </div>
-        @endif
+        <div class="my-4">
+          <x-jet-validation-errors/>
+        </div>
         <div class="mt-2 flex justify-center">
         <x-jet-button class="border rounded p-2 bg-gray-900 text-white" wire:click="submit">{{__('ui.leads.form.submit_button')}}</x-jet-button>
         </div>

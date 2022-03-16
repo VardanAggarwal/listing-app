@@ -55,6 +55,9 @@ class Resiliency extends Model
     public function items(){
         return $this->hasMany(Item::class);
     }
+    public function orders(){
+        return $this->morphMany(Order::class,'item');
+    }
     public function keyword()
         {
             return $this->morphOne(Keyword::class, 'taggable');
