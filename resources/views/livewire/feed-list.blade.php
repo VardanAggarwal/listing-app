@@ -3,7 +3,6 @@
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
   <div wire:key="feed-list-pre-load">
-  @livewire('leads.card')
   @php
     $i=0;
   @endphp

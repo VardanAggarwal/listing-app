@@ -22,9 +22,6 @@
 			@endif
 		</a>
 	</div>
-	<div>
-		<span> {{$model->statements->count()}}<i class="far fa-comment"></i></span>
-	</div>
 	<div class="static" x-data={open:false} @mouseleave="open=false">
 		<a class="underline" href="#help-{{$type}}-{{$model->id}}" x-on:click="open=!open">{{__('I need help with this')}}</a>
 		<div class="absolute border rounded p-4 bg-white inset-x-4 sm:inset-x-auto" style="display: none;" x-init={open:false} x-show="open">
