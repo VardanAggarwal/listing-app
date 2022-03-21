@@ -14,6 +14,7 @@
     </div>
     @unless($query)
       <div class="mt-4 mb-4 bg-white">
+        @livewire('onboarding.card')
         <div>@livewire('card-group',['index'=>-2,'type'=>'Story', 'purpose'=>'recommended'],key('card-group-story-recommended-0'))</div>
         <div>@livewire('card-group',['index'=>-1,'type'=>'Story', 'purpose'=>'latest'],key('card-group-story-latest-0'))</div>
         @foreach($resiliencies as $resiliency)

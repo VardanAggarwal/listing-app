@@ -40,6 +40,7 @@
       </a>
     </div>
     <div class="mt-4">
+      @livewire('onboarding.card')
     @livewire('card-group',['index'=>-3,'type'=>'Resiliency','purpose'=>'children','model'=>$listing],key('card-group-resiliency-children'.$listing->id))
     @livewire('card-group',['index'=>-2,'type'=>'Listing','purpose'=>'children','model'=>$listing->profile],key('card-group-listing-children-profile-'.$listing->profile_id))
     @livewire('card-group',['index'=>-1,'type'=>'Story','purpose'=>'children','model'=>$listing->profile],key('card-group-story-children-profile-'.$listing->profile_id))
