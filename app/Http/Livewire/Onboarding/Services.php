@@ -42,27 +42,40 @@ class Services extends Component
         $this->selected=$selected;
     }
     public function submit(){
-        $services=collect($this->services)->mapToGroups(function($item,$key){
-            return [$item=>$key];
-        });
-        $resiliencies=$this->selected;
-        $interest=[];
-        if(isset($services['user'])){
-            $interest=[
-                'interests'=>$services['user']
-            ];
+        if(count($this->selected)==0){
+            $this->addError('selected', __('Select at least one Agri-business'));
+        }else{
+
+            $interest=[];
+            $data=null;
+            $resiliencies=$this->selected;
+            if(count($this->services)>0){
+                $services=collect($this->services)->mapToGroups(function($item,$key){
+                    return [$item=>$key];
+                });
+                if(isset($services['user'])){
+                    $interest=[
+                        'interests'=>$services['user']
+                    ];
+                }
+                if(isset($services['expert'])){
+                    $data=[
+                        'services'=>$services['expert']
+                    ];
+                    if(count($services['expert'])>0){
+                        $this->profile->expert_resiliencies()->syncWithPivotValues($resiliencies, ['data' => $data]);
+                    }
+                }
+            }
+            $this->profile->interest_resiliencies()->attach($resiliencies,['interest'=>$interest]);
+            if($this->profile->additional_info){
+                $this->profile->additional_info=array_merge($this->profile->additional_info,["onboarding"=>true]);
+            }else{
+                $this->profile->additional_info=["onboarding"=>true];
+            }
+            $this->profile->save();
+            return redirect('/');
         }
-        $this->profile->interest_resiliencies()->attach($resiliencies,['interest'=>$interest]);
-        $data=null;
-        if(isset($services['expert'])){
-            $data=[
-                'services'=>$services['expert']
-            ];
-        }
-        if(count($services['expert'])>0){
-            $this->profile->expert_resiliencies()->syncWithPivotValues($resiliencies, ['data' => $data]);
-        }
-        return redirect('/');
     }
     public function render()
     {   $resiliencies=Models\Resiliency::findMany($this->resiliency_ids);

@@ -81,6 +81,9 @@
 			@endforeach
 		</div>
 		@livewire('relationship-search',['type'=>'Resiliency','selected'=>$selected,'title'=>__('ui.onboarding.vcs.others')])
+		<div class="my-4">
+		  <x-jet-validation-errors/>
+		</div>
 		<div class="py-2 bg-white border-t flex justify-center fixed sm:static inset-x-0 bottom-0 sm:inset-auto sm:bottom-auto">
 			<x-jet-button class="border rounded-full p-2 bg-gray-900 text-white" wire:click="submit">{{__('ui.onboarding.vcs.submit')}}</x-jet-button>
 		</div>

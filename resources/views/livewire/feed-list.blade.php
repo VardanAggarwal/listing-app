@@ -3,8 +3,9 @@
     <h1 class="font-bold text-2xl">{{__('ui.models.feed')}}</h1>
   </div>
   <div wire:key="feed-list-pre-load">
+    @livewire('onboarding.card')
   @php
-    $i=0;
+    $i=1;
   @endphp
   @foreach($preLoad as $item)
     @php $i++; @endphp

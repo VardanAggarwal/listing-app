@@ -19,7 +19,9 @@ class ContactProfile extends Component
         $this->profile=$profile;
         $this->number=$profile->contact_number;
         if($profile->additional_info){
-            $this->contact=$profile->additional_info['contact'];
+            if(isset($profile->additional_info['contact'])){
+                $this->contact=$profile->additional_info['contact'];
+            }
         }
     }
 

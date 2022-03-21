@@ -6,6 +6,10 @@
       <x-jet-validation-errors/>
       <div x-show="phone"  x-init="{phone:@entangle('show_phone')}">
         <div>
+          <div class="grid justify-items-center">
+            <h1 class="text-3xl mb-4">Seed Savers Club</h1>
+            <span class="text-lg text-gray-800 mb-4">{{__('ui.login_title')}}</span>
+          </div>
             <x-jet-label for="phone_number" value="{{ __('ui.contact_number') }}" />
             <div class="flex items-center">
               <span class="text-lg mr-2">+91</span>

@@ -1,5 +1,6 @@
 <?php
 return [
+  "login_title"=>"Join to get end-to-end services for your agri-business",
   "new_m"=>"New",
   "new_f"=>"New",
   "contact_for_services"=>"For more information contact :Name at :contact.",
@@ -95,7 +96,12 @@ return [
       "redirect_button"=>"Go to home",
     ]
   ],
-    "onboarding"=>[
+  "onboarding"=>[
+    "card"=>[
+      "title"=>"Get high quality seeds, training & market for niche value chains.",
+      "subtitle"=>"Make the most out of Seed Savers Club. Join as a farmer or an expert.",
+      "button"=>"Join now"
+    ],
     "services"=>[
       "title"=>"Let us know how can the community be of help to you.",
       "seeds"=>"Seeds, plants, animals etc.",
