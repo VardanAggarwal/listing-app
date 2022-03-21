@@ -33,7 +33,7 @@ class AdminAuth extends Component
         }
         Auth::login($user,$remember=true);
         if($profile->name&&$profile->pincode){
-            return redirect()->intended('/');
+            return redirect()->intended('/onboarding');
         }
         else{
             $this->profile=$profile;
