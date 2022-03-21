@@ -33,7 +33,7 @@ class AdminAuth extends Component
         }
         Auth::login($user,$remember=true);
         if($profile->name&&$profile->pincode){
-            return redirect()->intended($this->is_expert?'/expert/form':'/');
+            return redirect()->intended('/');
         }
         else{
             $this->profile=$profile;
@@ -47,7 +47,7 @@ class AdminAuth extends Component
         Auth::User()->name=$this->profile->name;
         $this->profile->save();
         Auth::User()->save();
-        return redirect()->intended($this->is_expert?'/expert/form':'/');
+        return redirect('/onboarding');
     }
     public function render()
     {

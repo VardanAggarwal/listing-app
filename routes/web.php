@@ -49,6 +49,7 @@ Route::get('admin_login',function(){
 Route::get('feed_admin',FeedAdmin::class)->middleware(['auth','adminauth']);
 Route::get('expert/form',Livewire\Expert\Form::class)->middleware('auth');
 Route::get('order',Livewire\Leads\Form::class);
+Route::get('onboarding',Livewire\Onboarding\Services::class)->middleware('auth');
 //listing pages
 Route::get('/listings',ListingList::class)->name('listings');
 Route::get('/experts',Livewire\ExpertList::class)->name('experts');

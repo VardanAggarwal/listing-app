@@ -95,6 +95,26 @@ return [
       "redirect_button"=>"Go to home",
     ]
   ],
+    "onboarding"=>[
+    "services"=>[
+      "title"=>"Let us know how can the community be of help to you.",
+      "seeds"=>"Seeds, plants, animals etc.",
+      "other_inputs"=>"Fertiliser, feed etc.",
+      "training"=>"Training & support",
+      "produce"=>"Farm/animal produce",
+      "advice"=>"Advice on which agri-business to start",
+      "get_button"=>"Get",
+      "give_button"=>"Give",
+      "buy_button"=>"Buy",
+      "sell_button"=>"Sell",
+      "continue"=>"Continue"
+    ],
+    "vcs"=>[
+      "title"=>"Select agri-business for which we can help you.",
+      "others"=>"Search for specific crop or agri-business",
+      "submit"=>"Submit"
+    ]
+  ],
   "statement"=>[
     "placeholder"=>"Ask a question or share something",
     "saved"=>"Your post has been published.",
