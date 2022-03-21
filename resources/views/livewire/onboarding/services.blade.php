@@ -85,7 +85,7 @@
 		  <x-jet-validation-errors/>
 		</div>
 		<div class="py-2 bg-white border-t flex justify-center fixed sm:static inset-x-0 bottom-0 sm:inset-auto sm:bottom-auto">
-			<x-jet-button class="border rounded-full p-2 bg-gray-900 text-white" wire:click="submit">{{__('ui.onboarding.vcs.submit')}}</x-jet-button>
+			<x-jet-button class="border rounded-full p-2 bg-gray-900 text-white" wire:click="submit" x-on:click="mixpanel.track('onboarding Submitted');">{{__('ui.onboarding.vcs.submit')}}</x-jet-button>
 		</div>
 		<div class="h-20"></div>
 	</div>
