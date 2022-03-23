@@ -4,6 +4,7 @@
         <img src="{{$img}}" class="w-12 h-12 rounded-full object-cover object-center" loading="lazy">
     @endif
     <span class="leading-6 text-xl max-h-12 text-clip overflow-hidden">{{$profile->name}}</span>
+    <span class="text-sm max-h-8 text-clip overflow-hidden">{{$profile->address}}, {{$profile->pincode}}</span>
   </div>
   <div class="mt-4 flex overflow-auto flex-nowrap">
     @foreach ($profile->expert_resiliencies as $resiliency)
