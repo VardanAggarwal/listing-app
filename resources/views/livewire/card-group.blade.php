@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="flex justify-center"><a class="underline" href="/resiliencies">{{__('Follow some resiliencies to get personalised information')}}</a></div>
+                    <div class="flex justify-center"><a class="underline" href="/onboarding">{{__('Complete profile to get personalised information')}}</a></div>
                 @endforelse
             </div>
         </div>

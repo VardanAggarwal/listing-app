@@ -132,6 +132,19 @@ class CardGroup extends Component
 				$this->feed=$model::withCount('interested_profiles')->orderByDesc('interested_profiles_count')->take(10)->get();
 				$this->title=__("Popular items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				break;
+			case 'nearest':
+				$pincode=null;
+				if(Auth::user()){
+					if(Auth::user()->profile){
+						$pincode=Auth::user()->profile->pincode;
+					}
+				}
+				if($pincode){
+					$digits=substr($pincode,0,3);
+					$this->feed=Models\Profile::has('expert_resiliencies')->where('pincode','like',$digits.'%')->get();
+					$this->title=__("Experts near you");
+				}
+				break;
 			case 'others':
 				$this->title=__("Other items",['type'=>__('ui.models.'.Str::plural(Str::lower($this->type)))]);
 				$this->feed=$this->model;

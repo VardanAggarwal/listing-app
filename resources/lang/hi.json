@@ -108,12 +108,13 @@
   "Whatsapp":"WhatsApp",
   "This is a comment on another post":"यह एक अन्य पोस्ट पर एक टिप्पणी है",
   "Long press to copy":"कॉपी करने के लिए नंबर दबा कर रखें",
-  "Follow some resiliencies to get personalised information":"सुझाव पाने के लिए, पहले कुछ उन्नत खेती फॉलो करें।",
+  "Complete profile to get personalised information":"सुझाव पाने के लिए प्रोफाइल में जानकारी जोड़ें",
   "Recommended for you":"आपके लिए सुझाव: :type",
   "For":":stub से जुडे :type",
   "By user":":stub के :type",
   "New items":"नए: :type",
   "Other items":"अन्य: :type",
   "Popular items":"अधिकतम पसंद किए गए: :type",
-  "Select at least one Agri-business":"कम से कम एक कृषि व्यवसाय चुनें"
+  "Select at least one Agri-business":"कम से कम एक कृषि व्यवसाय चुनें",
+  "Experts near you": "आपके आस पास के एक्सपर्ट"
 }
