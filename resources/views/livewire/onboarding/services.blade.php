@@ -2,63 +2,44 @@
 	@if($stage=='services')
 	<div id="services">
 		<h1 class="text-2xl my-4">{{__('ui.onboarding.services.title')}}</h1>
-		<div id="seed" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['seed'])?$services['seed']=='user'?'bg-lime-200':'bg-sky-200':''}}">
+		<div id="seed" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['seed'])?$services['seed']=='user'?'bg-lime-200':'bg-sky-200':''}}"  wire:click="setService('seed','user')">
 			<div class="col-span-1">
 				<img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/Seeds.png" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
 			</div>
 			<div class="col-span-2">
 				<h1 class="text-xl mb-4">{{__('ui.onboarding.services.seeds')}}</h1>
-				<div class="mt-2 flex justify-center gap-10">
-					<x-jet-button class="border rounded-full p-2 bg-green-900 text-white" wire:click="setService('seed','user')">{{__('ui.onboarding.services.buy_button')}}</x-jet-button>
-					<x-jet-button class="border rounded-full p-2 bg-sky-900 text-white" wire:click="setService('seed','expert')">{{__('ui.onboarding.services.sell_button')}}</x-jet-button>
-				</div>
 			</div>
 		</div>
-		<div id="other-input" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['input'])?$services['input']=='user'?'bg-lime-200':'bg-sky-200':''}}">
+		<div id="other-input" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['input'])?$services['input']=='user'?'bg-lime-200':'bg-sky-200':''}}" wire:click="setService('input','user')">
 			<div class="col-span-1">
 				<img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/fertiliser.png" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
 			</div>
 			<div class="col-span-2">
 				<h1 class="text-xl mb-4">{{__('ui.onboarding.services.other_inputs')}}</h1>
-				<div class="mt-2 flex justify-center gap-10">
-					<x-jet-button class="border rounded-full p-2 bg-green-900 text-white" wire:click="setService('input','user')">{{__('ui.onboarding.services.buy_button')}}</x-jet-button>
-					<x-jet-button class="border rounded-full p-2 bg-sky-900 text-white" wire:click="setService('input','expert')">{{__('ui.onboarding.services.sell_button')}}</x-jet-button>
-				</div>
 			</div>
 		</div>
-		<div id="training" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['training'])?$services['training']=='user'?'bg-lime-200':'bg-sky-200':''}}">
+		<div id="training" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['training'])?$services['training']=='user'?'bg-lime-200':'bg-sky-200':''}}" wire:click="setService('training','user')">
 			<div class="col-span-1">
 				<img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/training.png" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
 			</div>
 			<div class="col-span-2">
 				<h1 class="text-xl mb-4">{{__('ui.onboarding.services.training')}}</h1>
-				<div class="mt-2 flex justify-center gap-10">
-					<x-jet-button class="border rounded-full p-2 bg-green-900 text-white" wire:click="setService('training','user')">{{__('ui.onboarding.services.get_button')}}</x-jet-button>
-					<x-jet-button class="border rounded-full p-2 bg-sky-900 text-white" wire:click="setService('training','expert')">{{__('ui.onboarding.services.give_button')}}</x-jet-button>
-				</div>
 			</div>
 		</div>
-		<div id="produce" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['marketing'])?$services['marketing']=='user'?'bg-lime-200':'bg-sky-200':''}}">
+		<div id="produce" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 {{isset($services['marketing'])?$services['marketing']=='user'?'bg-lime-200':'bg-sky-200':''}}" wire:click="setService('marketing','user')">
 			<div class="col-span-1">
 				<img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/market.png" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
 			</div>
 			<div class="col-span-2">
 				<h1 class="text-xl mb-4">{{__('ui.onboarding.services.produce')}}</h1>
-				<div class="mt-2 flex justify-center gap-10">
-					<x-jet-button class="border rounded-full p-2 bg-green-900 text-white" wire:click="setService('marketing','user')">{{__('ui.onboarding.services.sell_button')}}</x-jet-button>
-					<x-jet-button class="border rounded-full p-2 bg-sky-900 text-white" wire:click="setService('marketing','expert')">{{__('ui.onboarding.services.buy_button')}}</x-jet-button>
-				</div>
 			</div>
 		</div>
-		<div id="advice" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 mb-20 {{isset($services['advice'])?$services['advice']=='user'?'bg-lime-200':'bg-sky-200':''}}">
+		<div id="advice" class="w-full border rounded shadow-lg my-4 p-4 justify-items-center grid grid-cols-3 gap-5 mb-20 {{isset($services['advice'])?$services['advice']=='user'?'bg-lime-200':'bg-sky-200':''}}" wire:click="setService('advice','user')">
 			<div class="col-span-1">
 				<img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/advice.png" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
 			</div>
 			<div class="col-span-2">
 				<h1 class="text-xl mb-4">{{__('ui.onboarding.services.advice')}}</h1>
-				<div class="mt-2 flex justify-center">
-					<x-jet-button class="border rounded-full p-2 bg-green-900 text-white" wire:click="setService('advice','user')">{{__('ui.onboarding.services.get_button')}}</x-jet-button>
-				</div>
 			</div>
 		</div>
 		<div class="py-2 bg-white border-t flex justify-center fixed sm:static inset-x-0 bottom-0 sm:inset-auto sm:bottom-auto">

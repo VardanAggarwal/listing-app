@@ -100,7 +100,8 @@ return [
     "card"=>[
       "title"=>"Get high quality seeds, training & market for niche value chains.",
       "subtitle"=>"Make the most out of Seed Savers Club. Join as a farmer or an expert.",
-      "button"=>"Join now"
+      "farmer_button"=>"Join as farmer",
+      "expert_button"=>"Join as expert"
     ],
     "services"=>[
       "title"=>"Let us know how can the community be of help to you.",
