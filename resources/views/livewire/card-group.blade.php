@@ -43,6 +43,11 @@
                 @endforelse
             </div>
         </div>
+    @else
+        @if($view!='carousel')
+            <div class="py-10"><a href="profile"><h1 class="text-xl text-center underline">{{__("Complete profile to get personalised information")}}</h1></a></div>
+            @livewire('onboarding.card')
+        @endif
     @endif
     </div>
 </div>

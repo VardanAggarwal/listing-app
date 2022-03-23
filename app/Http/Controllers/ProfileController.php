@@ -59,7 +59,12 @@ class ProfileController extends Controller
         $profile=$user->profile()->findOrNew($profile_id);
         $validated["contact_number"]="+91".$validated["contact_number"];
         $profile->fill($validated)->save();
-        return redirect('/');
+        if($profile->additional_info){
+            if($profile->additional_info['onboarding']){
+                return redirect('/');                
+            }
+        }
+        return redirect('/onboarding');
         //
     }
 
