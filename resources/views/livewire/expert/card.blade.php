@@ -17,6 +17,6 @@
     @endforeach
   </div></a>
   <div class="mt-4 border-t pt-2">
-    <x-contact-profile :profile=$profile/>
+    @livewire('expert.contact',['profile'=>$profile])
   </div>
 </div>

@@ -14,6 +14,7 @@ class ContactProfile extends Component
     public $number;
     public $profile;
     public $contact;
+    public $expert=false;
     public function __construct($profile)
     {
         $this->profile=$profile;
@@ -22,6 +23,9 @@ class ContactProfile extends Component
             if(isset($profile->additional_info['contact'])){
                 $this->contact=$profile->additional_info['contact'];
             }
+        }
+        if($profile->expert_resiliencies){
+            $this->expert=true;
         }
     }
 
