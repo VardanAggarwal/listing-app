@@ -20,6 +20,10 @@ class Contact extends Component
     public $selected=['resiliency'=>[],'service'=>[]];
     public $services;
     public $service_types=['seed'=>'seedling','input'=>'basket-shopping','knowledge'=>'handshake-angle','training'=>'user-graduate','animal'=>'horse','machinery'=>'tractor','contract_farming'=>'sync','marketing'=>'money-bill-wave','others'=>'basket-shopping'];
+    protected $rules=[
+        'phone_number'=>'sometimes|numeric|required|digits:10',
+        'pincode'=>'sometimes|numeric|digits:6|required'
+    ];
     public function mount($profile){
         $this->profile=$profile;
         $number=$profile->contact_number;
@@ -63,12 +67,37 @@ class Contact extends Component
     }
 
     public function toggleSelected($type,$item){
-        dd($type,$item);
         if(in_array($item,$this->selected[$type])){
             $this->selected[$type]=array_diff( $this->selected[$type], [$item] );
         }else{
         array_push($this->selected[$type],$item);
         }
+    }
+    public function submit(){
+        $selected=$this->selected;
+        if(Auth::user()->profile){
+            $profile=Auth::user()->profile;
+        }
+        else{
+            $this->validate();
+            $phone_number="+91".$this->phone_number;
+            $user=User::firstOrCreate(['phone_number'=>$phone_number]);
+            if($user->profile){
+                $profile=$user->profile;
+            }else{
+                $profile=Profile::firstOrCreate(['contact_number'=>$phone_number]);
+                $profile->user()->associate($user);
+                $profile->save();
+            }
+            Auth::login($user,$remember=true);
+        }
+        $interest=["interests"=>array_values($selected['service'])];
+        if($selected['resiliency']){
+            $profile->interest_resiliencies()->attach(array_values($selected['resiliency']),["interest"=>$interest]);
+        }
+        $interest=["resiliencies"=>$selected['resiliency'],"interests"=>$selected['service']];
+        $profile->interest_profiles()->attach([$this->profile->id],["interest"=>$interest]);
+        return redirect($this->href);
     }
     public function render()
     {

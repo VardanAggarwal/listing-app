@@ -49,7 +49,7 @@ class Profile extends Model
         return $this->morphedByMany(Statement::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interest_profiles(){
-        return $this->morphedByMany(Profile::class, 'interestable')->withTimestamps();
+        return $this->morphedByMany(Profile::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
     public function interested_profiles(){
         return $this->morphToMany(Profile::class,'interestable')->using(Interestable::class)->withTimestamps();

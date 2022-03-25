@@ -45,6 +45,12 @@ return [
     "recorded_interest"=>"हमें आपका सन्देश प्राप्त हो गया है, हमारी टीम जल्द ही आपको उचित जानकारी प्रदान करेगी।"
   ],
   "expert"=>[
+    "contact"=>[
+      "title"=>"What kind of help do you need from the expert?",
+      "resiliency"=>"Which crop/agri-business do you need help with?",
+      "service"=>"What services do you need?",
+      "button"=>"Contact expert"
+    ],
     "form"=>[
       "title"=>"अपना अनुभव एवं सेवाएं जोड़ें",
       "subtitle"=>"आप समुदाय के किसानों की किस प्रकार मदद कर सकते हैं?",
