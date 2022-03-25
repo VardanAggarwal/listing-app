@@ -44,6 +44,12 @@ return [
     "recorded_interest"=>"We have recieved your request, our team will get the relevant information to you soon."
   ],
   "expert"=>[
+    "contact"=>[
+      "title"=>"What kind of help do you need from the expert?",
+      "resiliency"=>"Which crop/agri-business do you need help with?",
+      "service"=>"What services do you need?",
+      "button"=>"Contact expert"
+    ],
     "form"=>[
       "title"=>"Add your expertise",
       "subtitle"=>"Let us know how you can help the farmers of the community",

@@ -46,10 +46,10 @@ return [
   ],
   "expert"=>[
     "contact"=>[
-      "title"=>"What kind of help do you need from the expert?",
-      "resiliency"=>"Which crop/agri-business do you need help with?",
-      "service"=>"What services do you need?",
-      "button"=>"Contact expert"
+      "title"=>"आपको एक्सपर्ट से किस तरह की मदद चाहिए?",
+      "resiliency"=>"आपको किस फसल/कृषि-व्यवसाय में सहायता चाहिए?",
+      "service"=>"आपको किन सेवाओं की आवश्यकता है?",
+      "button"=>"संपर्क करें"
     ],
     "form"=>[
       "title"=>"अपना अनुभव एवं सेवाएं जोड़ें",

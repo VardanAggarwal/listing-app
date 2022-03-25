@@ -4,11 +4,12 @@ namespace App\Http\Livewire\Expert;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Profile;
 class Contact extends Component
 {
     public $profile;
     public $version=1;
-    public $form=false;
     public $call=null;
     public $whatsapp=null;
     public $type;
@@ -75,7 +76,7 @@ class Contact extends Component
     }
     public function submit(){
         $selected=$this->selected;
-        if(Auth::user()->profile){
+        if(isset(Auth::user()->profile)){
             $profile=Auth::user()->profile;
         }
         else{
@@ -85,7 +86,7 @@ class Contact extends Component
             if($user->profile){
                 $profile=$user->profile;
             }else{
-                $profile=Profile::firstOrCreate(['contact_number'=>$phone_number]);
+                $profile=Profile::firstOrCreate(['contact_number'=>$phone_number],['pincode'=>$this->pincode]);
                 $profile->user()->associate($user);
                 $profile->save();
             }
