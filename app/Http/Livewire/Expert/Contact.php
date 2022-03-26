@@ -4,8 +4,10 @@ namespace App\Http\Livewire\Expert;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Resiliency;
 class Contact extends Component
 {
     public $profile;
@@ -98,6 +100,12 @@ class Contact extends Component
         }
         $interest=["resiliencies"=>$selected['resiliency'],"interests"=>$selected['service']];
         $profile->interest_profiles()->attach([$this->profile->id],["interest"=>$interest]);
+        $resiliencies=Resiliency::findMany($selected['resiliency']);
+        $resiliency_string=$resiliencies->reduce(function($string="",$item){return $string.$item->name.', ';});
+        $services_string=collect($selected['service'])->reduce(function($string="",$item){return $string.__('ui.expert.services.'.$item).', ';});
+        if($this->type=="whatsapp"){
+            $this->href="https://wa.me/".Str::remove('+',$this->whatsapp)."?text=".__('ui.contact_message',['url'=>'https://app.seedsaversclub.com/profiles/'.$profile->id,'resiliency'=>rtrim($resiliency_string,', '),'services'=>rtrim($services_string,', ')]);
+        }
         return redirect($this->href);
     }
     public function render()
