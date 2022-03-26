@@ -16,7 +16,7 @@ class PageInterests extends Component
             if($this->user_interests->contains($key)){
                 $this->model->interested_profiles()->detach(Auth::user()->profile->id);
             }else{
-                if(in_array($key,['input','market','training','connect','payment','logistics'])){
+                if(in_array($key,['seed','input','market','marketing','advice','training','connect','payment','logistics'])){
                     $interest=[
                         'interests'=>[$key],
                         'others'=>''

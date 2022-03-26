@@ -2,7 +2,7 @@
     @foreach($interests as $key=>$interest)
         @if($key && $key!="others")
             <div class="border rounded p-4 my-2 bg-white">
-                @if(in_array($key,['input','market','training','connect','payment','logistics']))
+                @if(in_array($key,['seed','input','market','marketing','advice','training','connect','payment','logistics']))
                     {{__('ui.help.'.$key)}}
                 @else
                 {{$key}}
