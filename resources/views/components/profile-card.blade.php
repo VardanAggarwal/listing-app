@@ -20,5 +20,5 @@
           </a>
       </div>
   </div>
-  <x-contact-profile :profile='$model'/>
+  @livewire('expert.contact',['profile'=>$model])
 </div>

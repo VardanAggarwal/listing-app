@@ -16,7 +16,7 @@
             <span class="">{{__('ui.expert.contact.resiliency')}}</span>
             <div class="mb-4 flex overflow-auto flex-nowrap">
               @foreach ($profile->expert_resiliencies as $resiliency)
-              <a class="mr-2 border rounded-md py-1 px-2 whitespace-nowrap tracking-widest {{in_array($resiliency->id,$selected['resiliency'])?'bg-green-300':''}}" wire:click="toggleSelected('resiliency','{{$resiliency->id}}')">{{$resiliency->name}}</a>
+              <span class="mr-2 border rounded-md py-1 px-2 whitespace-nowrap tracking-widest {{in_array($resiliency->id,$selected['resiliency'])?'bg-green-300':''}}" wire:click="toggleSelected('resiliency','{{$resiliency->id}}')">{{$resiliency->name}}</span>
               @endforeach
             </div>
             <span>{{__('ui.expert.contact.service')}}</span>

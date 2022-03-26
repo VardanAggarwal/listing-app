@@ -64,9 +64,9 @@
               </span><br>
               <div class="border rounded p-2 absolute bg-white" x-show="show">{{__('Long press to copy')}}</div>
             </div>
-              <x-contact-profile :profile="$profile"/>
         </div>
     </div>
+    @livewire('expert.contact',['profile'=>$profile])
     @if(Auth::user())
       @if(Auth::user()->role_id==1)
       @unless($profile->status)
