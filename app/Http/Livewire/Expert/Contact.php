@@ -101,8 +101,17 @@ class Contact extends Component
         $interest=["resiliencies"=>$selected['resiliency'],"interests"=>$selected['service']];
         $profile->interest_profiles()->attach([$this->profile->id],["interest"=>$interest]);
         $resiliencies=Resiliency::findMany($selected['resiliency']);
-        $resiliency_string=$resiliencies->reduce(function($string="",$item){return $string.$item->name.', ';});
-        $services_string=collect($selected['service'])->reduce(function($string="",$item){return $string.__('ui.expert.services.'.$item).', ';});
+        if(count($selected['resiliency'])){
+            $resiliency_string=$resiliencies->reduce(function($string="",$item){return $string.$item->name.', ';});
+        }else{
+            $resiliency_string=__('ui.expert.contact.resiliency_default');
+        }
+        if(count($selected['service'])){
+            $services_string=collect($selected['service'])->reduce(function($string="",$item){return $string.__('ui.expert.services.'.$item).', ';});
+        }else{
+            $services_string=__('ui.expert.contact.service_default');
+        }
+
         if($this->type=="whatsapp"){
             $this->href="https://wa.me/".Str::remove('+',$this->whatsapp)."?text=".__('ui.contact_message',['url'=>'https://app.seedsaversclub.com/profiles/'.$profile->id,'resiliency'=>rtrim($resiliency_string,', '),'services'=>rtrim($services_string,', ')]);
         }
