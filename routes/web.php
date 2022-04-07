@@ -36,6 +36,12 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//e2e
+Route::get('/e2e/role',Livewire\E2E\Role::class);
+Route::get('/e2e/details',Livewire\E2E\Details::class);
+Route::get('/e2e/vcs',Livewire\E2E\VCs::class);
+Route::get('/e2e/actions',Livewire\E2E\Actions::class);
+Route::get('/e2e/login',Livewire\E2E\Login::class);
 //main page
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');

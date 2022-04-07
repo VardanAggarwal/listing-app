@@ -160,6 +160,17 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' =>'name',
+        'title' => 'title',
+        'image' => 'image',
+        'statement' => 'statement',
+        'media'=>'file',
+        'location'=>'address',
+        'address'=>'address',
+        'pincode'=>'pincode',
+        'contact_number'=>'contact number',
+        'phone_number'=>'phone number'
+    ],
 
 ];

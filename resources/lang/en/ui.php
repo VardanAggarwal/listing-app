@@ -55,7 +55,7 @@ return [
       "subtitle"=>"Let us know how you can help the farmers of the community",
       "resiliency"=>"Which value chains are you expert in?",
       "services"=>"What services/help do you offer to farmers?",
-      "contact"=>"How can farmers contact you?"
+      "contact"=>"How can farmers contact you?",
       "whatsapp"=>"Whatsapp",
       "call"=>"Call"
     ],
