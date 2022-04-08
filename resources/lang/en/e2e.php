@@ -5,14 +5,6 @@ return [
     "app_tagline"=>"From seed to industry",
     "app_description"=>"India's first networking platform for input dealers, farmers, traders and buyers.",
   ],
-  "login"=>[
-    "phone_number_label"=>"Your whatsapp number",
-    "button"=>"Login"
-  ],
-  "role_selection"=>[
-    "title"=>"Select which role(s) fit you the best",
-    "selected_roles"=>"You will be joining as :roles"
-  ],
   "roles"=>[
     "production_support"=>[
       "label"=>"Input dealer/Advisor",
@@ -39,5 +31,39 @@ return [
       "personas"=>"Brand, Exporter, Retailer",
       "activities"=>"Buy produce, Buy processed items"
     ],
+  ],
+  "login"=>[
+    "phone_number_label"=>"Your whatsapp number",
+    "button"=>"Login"
+  ],
+  "role_selection"=>[
+    "title"=>"Select which role(s) fit you the best",
+    "selected_roles"=>"You will be joining as :roles"
+  ],
+  "profile"=>[
+    "title"=>"Tell us about yourself",
+    "name"=>"Organisation/Your name",
+    "address"=>"Address",
+    "pincode"=>"Pincode",
+    "producer_type"=>[
+      "label"=>"Are you a farmer or represent a farmer group?",
+      "farmer"=>"Farmer",
+      "farmer_group"=>"Farmer group"
+    ],
+    "organisation_type"=>[
+      "label"=>"How is your group registered?",
+      "fpo"=>"FPO",
+      "co_operative"=>"Co-operative",
+      "self_help_group"=>"Self help group",
+      "ngo"=>"NGO",
+      "private_company"=>"Private Limited",
+      "unregistered_group"=>"Unregistered group"
+    ],
+    "org"=>[
+      "members"=>"How many farmers are in your group?",
+      "landholding"=>"Total landholding of those farmers?"
+    ],
+    "landholding"=>"Your farm area"
   ]
+
 ];

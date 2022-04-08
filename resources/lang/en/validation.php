@@ -170,7 +170,14 @@ return [
         'address'=>'address',
         'pincode'=>'pincode',
         'contact_number'=>'contact number',
-        'phone_number'=>'phone number'
+        'phone_number'=>'phone number',
+        'profile.name'=>'name',
+        'profile.address'=>'address',
+        'profile.pincode'=>'pincode',
+        'landholding'=>'area',
+        'org.type'=>'organisation type',
+        'org.members'=>'members',
+        'org.landholding'=>'landholding'
     ],
 
 ];

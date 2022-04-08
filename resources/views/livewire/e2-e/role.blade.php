@@ -3,7 +3,7 @@
     @foreach($roles as $role)
     <div id="" class="w-full border rounded shadow-lg my-4 p-4 justify-items-left grid grid-cols-3 gap-5" x-on:click="toggle(selected,'{{$role}}')" :class="selected.indexOf('{{$role}}')>=0?'bg-green-400':''">
         <div class="col-span-1">
-            <img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/Seeds.png" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
+            <img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/roles/{{$role}}.jpg" loading="lazy" class="rounded-t-lg object-cover h-24 w-24">
         </div>
         <div class="col-span-2">
             <h1 class="text-xl">{{__('e2e.roles.'.$role.'.label')}}</h1>
