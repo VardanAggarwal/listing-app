@@ -31,15 +31,7 @@ class Role extends Component
         $profile=Auth::user()->profile;
         $profile->personas=$role_string;
         $profile->save();
-        if($profile->name&&$profile->pincode){
-            if($profile->interest_resiliencies){
-                return redirect()->intended('/e2e/actions');
-            }else{
-                return redirect()->intended('/e2e/vcs');
-            }
-        }else{
-            return redirect()->intended('/e2e/details');                
-        }
+        return redirect('/e2e/details');                
     }
     public function set_string(){
         $role_string="";

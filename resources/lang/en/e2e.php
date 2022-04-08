@@ -64,6 +64,10 @@ return [
       "landholding"=>"Total landholding of those farmers?"
     ],
     "landholding"=>"Your farm area"
+  ],
+  "vc_selection"=>[
+    "title"=>"Select which value chains you work in",
+    "search"=>"Type to search",
+    "selected"=>"value chains selected: "
   ]
-
 ];
