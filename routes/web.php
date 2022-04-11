@@ -42,6 +42,7 @@ Route::get('/e2e/details',Livewire\E2E\Details::class);
 Route::get('/e2e/vcs',Livewire\E2E\VCs::class);
 Route::get('/e2e/actions',Livewire\E2E\Actions::class);
 Route::get('/e2e/login',Livewire\E2E\Login::class);
+Route::get('/e2e',Livewire\E2E\Home::class);
 //main page
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');

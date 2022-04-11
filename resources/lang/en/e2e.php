@@ -69,5 +69,19 @@ return [
     "title"=>"Select which value chains you work in",
     "search"=>"Type to search",
     "selected"=>"value chains selected: "
+  ],
+  "actions"=>[
+    "title"=>"How can we help you today?",
+    "sell_input"=>"Sell inputs",
+    "buy_input"=>"Buy inputs",
+    "sell_material"=>"Sell material",
+    "buy_material"=>"Buy material",
+    "offer_training"=>"Promote training",
+    "offer_contract_farming"=>"Promote contract farming",
+    "sell_rent_machinery"=>"Sell/Rent machinery",
+    "get_training"=>"Training",
+    "do_contract_farming"=>"Contract farming",
+    "buy_rent_machinery"=>"Buy/Rent machinery",
+    "vc_discovery"=>"Suggest crop"
   ]
 ];
