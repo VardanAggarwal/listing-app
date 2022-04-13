@@ -35,7 +35,7 @@
 
             <!-- Page Content -->
             <main>
-                <div class="grid min-h-screen items-center w-screen sm:max-w-3xl sm:p-4 mx-4 sm:mx-auto">
+                <div class="grid min-h-screen items-center w-screen sm:max-w-3xl sm:p-4 sm:mx-auto">
                     {{ $slot }}
                 </div>
             </main>
