@@ -71,7 +71,7 @@ class Resiliency extends Model
         return $this->morphToMany(Statement::class,'attachable')->using(Attachable::class)->withPivot('attachement_type');
     }
     public function items(){
-        return $this->hasMany(Item::class);
+        return $this->morphedByMany(Item::class, 'reliable');
     }
     public function orders(){
         return $this->morphMany(Order::class,'item');

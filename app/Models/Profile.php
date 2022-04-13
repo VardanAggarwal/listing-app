@@ -30,6 +30,9 @@ class Profile extends Model
     public function orders(){
         return $this->hasMany(Order::class);
     }
+    public function trades(){
+        return $this->hasMany(Trade::class);
+    }
     public function interest_categories(){
         return $this->morphedByMany(Category::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
     }
@@ -47,6 +50,9 @@ class Profile extends Model
     }
     public function interest_statements(){
         return $this->morphedByMany(Statement::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
+    }
+    public function interest_items(){
+        return $this->morphedByMany(Item::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();   
     }
     public function interest_profiles(){
         return $this->morphedByMany(Profile::class, 'interestable')->using(Interestable::class)->withPivot('interest')->withTimestamps();
