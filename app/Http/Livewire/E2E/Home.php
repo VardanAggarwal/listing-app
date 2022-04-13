@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class Home extends Component
 {
+    public $screen="price-discovery";
     public function render()
     {
         return view('livewire.e2-e.home')->layout('layouts.e2e');

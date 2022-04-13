@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="grid gap-4 px-2 py-5">
-        @foreach($selected_resiliency->items->where('created_at','>',now()->subDays(30)) as $item)
+        @foreach($selected_resiliency->items as $item)
         @if(in_array($item->type,['produce','processed_material']))
         <div class="w-full p-4 flex gap-2 border rounded items-center bg-white shadow">
             <img src="{{$item->image_url}}" class="rounded-full w-12 h-12" />
@@ -15,25 +15,25 @@
                 <div class="flex justify-between">
                     <div class="">
                         <span class="text-xs">Min: </span>
-                        <span class="text-sm">{{$item->trades->min('price')}}/kg</span>
+                        <span class="text-sm">{{$item->trades->where('created_at','>',now()->subDays(30))->min('price')}}/kg</span>
                     </div>
                     <div class="">
                         <span class="text-xs">Avg: </span>
-                        <span class="text-sm">{{$item->trades->avg('price')}}/kg</span>
+                        <span class="text-sm">{{$item->trades->where('created_at','>',now()->subDays(30))->avg('price')}}/kg</span>
                     </div>
                     <div class="">
                         <span class="text-xs">Max: </span>
-                        <span class="text-sm">{{$item->trades->max('price')}}/kg</span>
+                        <span class="text-sm">{{$item->trades->where('created_at','>',now()->subDays(30))->max('price')}}/kg</span>
                     </div>
                 </div>
                 <div class="flex justify-between">
                     <div class="">
                         <span class="text-xs">Supply: </span>
-                        <span class="text-sm">{{$item->trades->filter(function($value,$key){return $value->type=='sell';})->sum('quantity')}} kg</span>
+                        <span class="text-sm">{{$item->trades->where('created_at','>',now()->subDays(30))->filter(function($value,$key){return $value->type=='sell';})->sum('quantity')}} kg</span>
                     </div>
                     <div class="">
                         <span class="text-xs">Demand: </span>
-                        <span class="text-sm">{{$item->trades->filter(function($value,$key){return $value->type=='buy';})->sum('quantity')}} kg</span>
+                        <span class="text-sm">{{$item->trades->where('created_at','>',now()->subDays(30))->filter(function($value,$key){return $value->type=='buy';})->sum('quantity')}} kg</span>
                     </div>
                 </div>
             </div>
