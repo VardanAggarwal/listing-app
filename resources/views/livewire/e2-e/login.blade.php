@@ -1,6 +1,6 @@
-<div>
-  <div class="float-right m-4 underline"><span class="text-blue">English <i class="fas fa-globe text-center text-primary"></i></span></div>
-  <div class="grid justify-items-center p-4 my-16">
+<div class="grid">
+  <div>@livewire('e2-e.language')</div>
+  <div class="grid justify-items-center p-4 my-10">
       <x-jet-application-logo  class="w-24 h-24"/>
       <h1 class="text-2xl font-semibold text-black">Let's get started</h1>
       <span class="text-lg text-center text-brown italic">You are joining as <a href="/e2e/role/?selected={{$role}}" class="text-blue underline">{{__('e2e.roles.'.$role.'.label')}}</a></span>

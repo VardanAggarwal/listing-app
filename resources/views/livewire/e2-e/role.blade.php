@@ -1,6 +1,6 @@
-<div x-data="{selected: @entangle('selected').defer}">
-    <div class="float-right m-4 underline"><span class="text-blue">English <i class="fas fa-globe text-center text-primary"></i></span></div>
-    <div class="grid justify-items-center p-4 my-16">
+<div x-data="{selected: @entangle('selected').defer}" class="grid">
+    <div>@livewire('e2-e.language')</div>
+    <div class="grid justify-items-center p-4 my-10">
         <x-jet-application-logo  class="w-24 h-24"/>
         <h1 class="text-2xl font-semibold text-black">Seed Savers Club</h1>
         <span class="text-lg text-center text-brown italic">India’s first end to end platform for Medicinal & Aromatic Plants.</span>
