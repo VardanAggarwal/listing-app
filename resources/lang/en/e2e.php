@@ -3,7 +3,7 @@ return [
   "global"=>[
     "app_name"=>"Seed Savers Club",
     "app_tagline"=>"From seed to industry",
-    "app_description"=>"India's first networking platform for input dealers, farmers, traders and buyers.",
+    "app_description"=>"India’s first end to end platform for Medicinal & Aromatic Plants.",
   ],
   "roles"=>[
     "input_provider"=>[
@@ -25,11 +25,12 @@ return [
   ],
   "login"=>[
     "phone_number_label"=>"Your whatsapp number",
+    "title"=>"Let's get started",
     "button"=>"Login"
   ],
   "role_selection"=>[
-    "title"=>"Select which role(s) fit you the best",
-    "selected_roles"=>"You will be joining as :roles"
+    "alert"=>"Choose one of the roles above",
+    "selected_roles"=>"You will be joining as"
   ],
   "profile"=>[
     "title"=>"Tell us about yourself",

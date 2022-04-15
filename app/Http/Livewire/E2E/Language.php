@@ -15,7 +15,7 @@ class Language extends Component
         if(App::isLocale('en')){
             $this->locale="English";
         }elseif(App::isLocale('hi')){
-            $this->locale="Hindi";
+            $this->locale="हिन्दी";
         }
         return view('livewire.e2-e.language');
     }

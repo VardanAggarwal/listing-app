@@ -27,7 +27,9 @@ class Login extends Component
             $profile->user()->associate($user);
         }
         Auth::login($user,$remember=true);
-        $profile->personas=$this->role;
+        if(in_array($this->role, ["input_provider", "farmer", "trader", "buyer"])){
+            $profile->personas=$this->role;
+        }
         $profile->save();
         return redirect('/e2e');
     }

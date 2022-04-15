@@ -2,8 +2,8 @@
     <div>@livewire('e2-e.language')</div>
     <div class="grid justify-items-center p-4 my-10">
         <x-jet-application-logo  class="w-24 h-24"/>
-        <h1 class="text-2xl font-semibold text-black">Seed Savers Club</h1>
-        <span class="text-lg text-center text-brown italic">India’s first end to end platform for Medicinal & Aromatic Plants.</span>
+        <h1 class="text-2xl font-semibold text-black">{{__('e2e.global.app_name')}}</h1>
+        <span class="text-lg text-center text-brown italic">{{__('e2e.global.app_description')}}</span>
     </div>
     <div class="grid px-4 gap-5">
         @foreach($roles as $role)
@@ -15,5 +15,5 @@
         </div>
         @endforeach
     </div>
-    <span class="text-center grid justify-items-center text-brown my-10">Choose one of the roles above</span>
+    <span class="text-center grid justify-items-center text-brown my-10">{{__('e2e.role_selection.alert')}}</span>
 </div>

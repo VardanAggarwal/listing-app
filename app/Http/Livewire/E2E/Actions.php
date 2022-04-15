@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 class Actions extends Component
 {
-    public $actions=["production_support"=>["sell_input", "offer_training","offer_contract_farming","sell_rent_machinery"], "producer"=>["buy_input","get_training","do_contract_farming","buy_rent_machinery","sell_material","vc_discovery"], "trader"=>["buy_material","sell_material"], "processor"=>["buy_material","sell_material"], "buyer"=>["buy_material"]];
+    public $actions=["input_provider"=>["sell_input"], "farmer"=>["buy_input","sell_material"], "trader"=>["buy_material","sell_material"], "buyer"=>["buy_material"]];
     public $user_actions=[];
     public function mount(){
         $roles=[];
