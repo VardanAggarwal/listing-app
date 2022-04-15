@@ -6,30 +6,21 @@ return [
     "app_description"=>"India's first networking platform for input dealers, farmers, traders and buyers.",
   ],
   "roles"=>[
-    "production_support"=>[
-      "label"=>"Input dealer/Advisor",
-      "personas"=>"Input dealers, Training providers, Contract farming etc.",
-      "activities"=>"Sell inputs, Provide training, Offer contract farming"
+    "input_provider"=>[
+      "label"=>"Input provider",
+      "activities"=>"Sell inputs to farmers"
     ],
-    "producer"=>[
-      "label"=>"Farmer/Farmer Group",
-      "personas"=>"Farmers, Farmer groups, FPOs, NGOs etc.",
-      "activities"=>"Buy inputs, Get training & advisory, Sell produce"
+    "farmer"=>[
+      "label"=>"Farmer",
+      "activities"=>"Buy inputs, Sell produce"
     ],
     "trader"=>[
-      "label"=>"Trader",
-      "personas"=>"Local traders, Aggregators",
-      "activities"=>"Buy produce, Sell produce"
-    ],
-    "processor"=>[
-      "label"=>"Processor",
-      "personas"=>"Processing units, Mills, Manufacturers",
-      "activities"=>"Buy farm produce, Sell processed items"
+      "label"=>"Aggregator",
+      "activities"=>"Buy from farmers, Sell to buyers"
     ],
     "buyer"=>[
       "label"=>"Buyer",
-      "personas"=>"Brand, Exporter, Retailer",
-      "activities"=>"Buy produce, Buy processed items"
+      "activities"=>"Buy quality material"
     ],
   ],
   "login"=>[

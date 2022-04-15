@@ -4,41 +4,31 @@ namespace App\Http\Livewire\E2E;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class Role extends Component
 {
-    public $roles=["production_support", "producer", "trader", "processor", "buyer"];
-    public $role_string='';
-    public $selected=[];
+    public $roles=["input_provider", "farmer", "trader", "buyer"];
+    public $selected="";
+    protected $queryString = [
+        'selected'=>['except'=>'']
+    ];
     public function mount(){
         if(Auth::user()){
             if(Auth::user()->profile->personas){
-                $this->selected=explode(", ", Auth::user()->profile->personas);
+                $this->selected=Auth::user()->profile->personas;
             }
         }
-        $role_string="";
-        foreach ($this->selected as $value) {
-            $role_string.=__('e2e.roles.'.$value.'.label').', ';
-        }
-        $this->role_string=rtrim($role_string,", ");
     }
-    public function submit(){
-        $role_string="";
-        foreach ($this->selected as $value) {
-            $role_string.=$value.', ';
+    public function submit($role){
+        if(Auth::user()){
+            $profile=Auth::user()->profile;
+            $profile->personas=$role;
+            $profile->save();
+        }else{
+            session()->put('role',$role);
         }
-        $role_string=rtrim($role_string,", ");
-        $profile=Auth::user()->profile;
-        $profile->personas=$role_string;
-        $profile->save();
-        return redirect('/e2e/details');                
-    }
-    public function set_string(){
-        $role_string="";
-        foreach ($this->selected as $value) {
-            $role_string.=__('e2e.roles.'.$value.'.label').', ';
-        }
-        $this->role_string=rtrim($role_string,", ");
+        return redirect('/e2e/login?role='.$role);                
     }
     public function render()
     {
