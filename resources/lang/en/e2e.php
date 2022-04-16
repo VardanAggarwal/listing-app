@@ -63,17 +63,29 @@ return [
     "selected"=>"value chains selected: "
   ],
   "actions"=>[
-    "title"=>"How can we help you today?",
-    "sell_input"=>"Sell inputs",
-    "buy_input"=>"Buy inputs",
-    "sell_material"=>"Sell material",
-    "buy_material"=>"Buy material",
-    "offer_training"=>"Promote training",
-    "offer_contract_farming"=>"Promote contract farming",
-    "sell_rent_machinery"=>"Sell/Rent machinery",
-    "get_training"=>"Training",
-    "do_contract_farming"=>"Contract farming",
-    "buy_rent_machinery"=>"Buy/Rent machinery",
-    "vc_discovery"=>"Suggest crop"
+    "sell_input"=>[
+      "label"=>"Sell inputs",
+      "description"=>"Get orders from interested farmers"
+    ],
+    "buy_input"=>[
+      "label"=>"Buy inputs",
+      "description"=>"Get quality inputs"
+    ],
+    "sell_produce"=>[
+      "label"=>"Sell produce",
+      "description"=>"Get best price"
+    ],
+    "buy_from_farmer"=>[
+      "label"=>"Buy produce",
+      "description"=>"Buy from farmers"
+    ],
+    "sell_to_buyer"=>[
+      "label"=>"Sell material",
+      "description"=>"Sell to buyers"
+    ],
+    "buy_material"=>[
+      "label"=>"Buy material",
+      "description"=>"Get quality material"
+    ],
   ]
 ];

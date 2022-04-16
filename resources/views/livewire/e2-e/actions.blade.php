@@ -1,13 +1,9 @@
-<div class="w-screen sm:max-w-3xl border-b">
-    <div class="flex flex-nowrap gap-5 justify-left overflow-auto p-2">
+<div class="border-b">
+    <div class="flex gap-4 justify-center overflow-auto p-4">
         @foreach($user_actions as $action)
-        <div id="" class="basis-12 flex flex-wrap justify-items-center items-center p-2">
-            <div class="mx-auto">
-                <img src="https://listing-app.s3.ap-south-1.amazonaws.com/public/actions/{{$action}}.jpg" loading="lazy" class="rounded-full object-cover h-10 w-10">
-            </div>
-            <div class="w-12">
-                <p class="leading-3 text-xs">{{__('e2e.actions.'.$action)}}</p>
-            </div>
+        <div class="grow grid px-4 py-2 rounded-xl {{$loop->index%2==0?'bg-primary text-black':'bg-brown text-white'}}">
+            <span class="text-xl font-semibold">{{__('e2e.actions.'.$action.'.label')}}</span>
+            <span class="italic">{{__('e2e.actions.'.$action.'.description')}}</span>
         </div>
         @endforeach
     </div>
