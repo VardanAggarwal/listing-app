@@ -42,7 +42,7 @@
         @endforeach
     </div>
     <div class="h-20"></div>
-    <div class="fixed w-screen sm:max-w-3xl bottom-20 border-t-8 border-green-50 flex flex-nowrap gap-0 justify-left overflow-auto bg-white">
+    <div class=" w-screen sm:max-w-3xl bottom-20 border-t-8 border-green-50 flex flex-nowrap gap-0 justify-left overflow-auto bg-white">
       @foreach ($resiliencies as $resiliency)
         <div class="grid basis-14 justify-items-center shrink-0 p-2 {{$selected_resiliency->id==$resiliency->id?'bg-green-50':''}}" wire:click="select({{$resiliency->id}})">
                 @if($resiliency->image_url)

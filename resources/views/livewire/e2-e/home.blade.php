@@ -3,14 +3,6 @@
     <div>
         @livewire('e2-e.actions')
     </div>
-    @if($screen=='price-discovery')
-        @livewire('e2-e.price-discovery')
-    @elseif($screen=='trades')
-        @livewire('e2-e.trades')    
-    @elseif($screen=='people')
-        @livewire('e2-e.people')
-    @else
-        @livewire('e2-e.price-discovery')
-    @endif
+    <div>@livewire('e2-e.screens.card-group',['screen'=>$screen])</div>
     @livewire('e2-e.bottom-nav')
 </div>
