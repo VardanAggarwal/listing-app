@@ -22,7 +22,7 @@ class Card extends Component
                 $this->title=$item->name;
                 if($item->price){
                     array_push($this->strings, "Rs. ".$item->price."/kg");
-                    $this->updated=$item->date;
+                    $this->updated=$item->updated_at->format('d.m.Y');
                 }
                 $this->image=$item->image_url;
                 break;
@@ -35,6 +35,18 @@ class Card extends Component
             case "select":
                 $this->title=$item->name;
                 $this->image=$item->image_url;
+                break;
+            case "supplier":
+                $this->title="Rs. ".$item->price."/kg";
+                if(isset($item->additional_info->image_url)){
+                    $this->image=$item->additional_info->image_url;
+                }else{
+                    $this->image=$item->item->image_url;
+                }
+                array_push($this->strings, $item->profile->name);
+                array_push($this->strings, $item->profile->address);
+                $this->updated=$item->updated_at->format('d.m.Y');
+                break;
         }
     }
 

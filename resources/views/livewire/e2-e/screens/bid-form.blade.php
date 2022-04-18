@@ -28,6 +28,7 @@
               <span class="items-center flex gap-2 px-4 py-2 w-full bg-white border border-brown rounded-xl"><i class="text-2xl text-brown fas fa-image"></i> {{__('e2e.bid-form.media.button')}}</span>
               <input id="media" class="hidden" wire:model="media" type="file" multiple/>
             </label>
+            @error('media') <div class="error text-red">{{ $message }}</div> @enderror
             <div class="flex mt-4 gap-2">
               @if($media)
                 @foreach ($media as $key=>$file)
