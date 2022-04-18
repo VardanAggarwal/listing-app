@@ -43,6 +43,7 @@ Route::get('/e2e/vcs',Livewire\E2E\VCs::class);
 Route::get('/e2e/actions',Livewire\E2E\Actions::class);
 Route::get('/e2e/login',Livewire\E2E\Login::class);
 Route::get('/e2e',Livewire\E2E\Home::class);
+Route::get('/e2e/bid-select/{model?}/{select?}/{type?}/{action?}',Livewire\E2E\Screens\Search::class);
 //main page
 Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');

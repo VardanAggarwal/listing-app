@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
     use HasFactory;
+    use Searchable;
     protected $guarded=[];
     public function resiliencies(){
         return $this->morphToMany(Resiliency::class,'reliable')->using(Reliable::class);

@@ -11,9 +11,13 @@ class Resiliency extends Model
     use HasFactory;
     use Searchable;
     protected $guarded=[];
-    public function getNameAttribute()
+    public function getNameAttribute($value)
         {
-            return  $this->additional_info['names'][App::currentLocale()];
+            if(isset($this->additional_info['names'][App::currentLocale()])){
+                return  $this->additional_info['names'][App::currentLocale()];
+            }else{
+                return $value;
+            }
         }
     public function getImageUrlAttribute($value)
         {

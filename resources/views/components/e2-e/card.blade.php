@@ -3,7 +3,7 @@
         <img src="{{$image}}" class="h-24 sm:h-36 mb-2 object-cover w-full" loading="lazy"/>
     @endif
     <span class="text-brown text-lg font-semibold">{{ucwords($title)}}</span>
-    @foreach($data as $string)
+    @foreach($strings as $string)
         <span class="text-black">{{ucwords($string)}}</span>
     @endforeach
     @if($updated)
