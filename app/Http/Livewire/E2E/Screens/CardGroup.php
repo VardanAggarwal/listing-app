@@ -28,7 +28,7 @@ class CardGroup extends Component
     {
         switch($this->screen){
             case 'my_inputs':
-            $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('distinct on (items.name) items.name,items.image_url, trades.media, trades.price, DATE(trades.updated_at)')->where('trades.type','sell')->where('items.type','input')->where('trades.profile_id',Auth::user()->profile->id)->orderBy('items.name')->orderByDesc('trades.updated_at');
+            $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('distinct on (items.name) items.name,items.image_url, trades.price, DATE(trades.updated_at)')->where('trades.type','sell')->where('items.type','input')->where('trades.profile_id',Auth::user()->profile->id)->orderBy('items.name')->orderByDesc('trades.updated_at');
             $type="trade";
                 break;
             case 'inputs':

@@ -31,12 +31,12 @@ class Search extends Component
             }else{
                 if($this->select=="multiple"){
                     $trades=collect($this->selected)->map(function($value,$key){
-                        return ["item_id"=>$value,"type"=>$this->type];
+                        return ["item_id"=>$value,"type"=>$this->action];
                     });
                     $trades=$profile->trades()->createMany($trades);
                     return redirect('/e2e');
                 }else{
-                    $trade=$profile->trades()->create(["item_id"=>$this->selected[0],"type"=>$this->type]);
+                    $trade=$profile->trades()->create(["item_id"=>$this->selected[0],"type"=>$this->action]);
                     return redirect("/e2e/bid-form"."/".$trade->id);
                 }
             }

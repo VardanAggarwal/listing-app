@@ -24,11 +24,7 @@ class Card extends Component
                     array_push($this->strings, "Rs. ".$item->price."/kg");
                     $this->updated=$item->date;
                 }
-                if($item->media){
-                    $this->image=$item->media;
-                }else{
-                    $this->image=$item->image_url;
-                }
+                $this->image=$item->image_url;
                 break;
             case "item":
                 $this->title=$item->name;

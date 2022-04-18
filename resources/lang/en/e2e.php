@@ -87,5 +87,52 @@ return [
       "label"=>"Buy material",
       "description"=>"Get quality material"
     ],
+  ],
+  "bid-form"=>[
+    "price"=>[
+      "input"=>"Price",
+      "produce"=>"Target price"
+    ],
+    "quantity"=>[
+      "input"=>["sell"=>"Minimum order"],
+      "produce"=>[
+        "buy"=>"Required Qty",
+        "sell"=>"Available Qty"
+      ]
+    ],
+    "location"=>"Delivery location",
+    "description_label"=>[
+      "input"=>["sell"=>"Description"],
+      "produce"=>[
+        "buy"=>"Expected quality",
+        "sell"=>"Description"
+      ]
+    ],
+    "description_placeholder"=>[
+      "input"=>["sell"=>"What is special about your input? Variety etc."],
+      "produce"=>[
+        "buy"=>"What kind of quality are you looking for? Quality parameters, variety etc.",
+        "sell"=>"What is special about your material? Quality parameters, variety etc."
+      ]
+    ],
+    "media"=>[
+      "label"=>"Images/Videos",
+      "button"=>"Upload files"
+    ],
+    "additional_info_label"=>"Additional details",
+    "additional_info_placeholder"=>[
+      "input"=>["sell"=>"Delivery mode, payment terms, germination guarantee etc."],
+      "produce"=>[
+        "buy"=>"Delivery terms, payment terms, quality deductions etc.",
+        "sell"=>"Payment expectations, delivery mode"
+      ]
+    ],
+    "button"=>[
+      "input"=>["sell"=>"Add input"],
+      "produce"=>[
+        "buy"=>"Add demand",
+        "sell"=>"Add material"
+      ]
+    ]
   ]
 ];

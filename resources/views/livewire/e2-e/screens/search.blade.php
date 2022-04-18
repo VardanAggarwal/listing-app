@@ -1,7 +1,7 @@
 <div class="mt-5" x-data="{selected: @entangle('selected').defer, select:@entangle('select')}">
     <div class="px-4">
         <h1 class="text-2xl font-semibold text-black">Select items</h1>
-        <div class=""><x-jet-input id="query" class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="query" type="text" name="query" autofocus /></div>
+        <div class=""><x-jet-input id="query" class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="query" type="text" name="query" autofocus placeholder="Type to search"/></div>
         <div class="mt-5"  wire:key="search_results">
             @error('item') <div class="error text-red">{{ $message }}</div> @enderror
             <div class="mt-4 grid grid-cols-2 gap-4">
