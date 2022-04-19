@@ -13,6 +13,7 @@ class Card extends Component
      */
     public $image;
     public $title;
+    public $type;
     public $strings=[];
     public $updated;
     public function __construct($item,$type)
@@ -22,7 +23,7 @@ class Card extends Component
                 $this->title=$item->name;
                 if($item->price){
                     array_push($this->strings, "Rs. ".$item->price."/kg");
-                    $this->updated=$item->updated_at->format('d.m.Y');
+                    $this->updated=$item->updated_at->format('d/m/Y');
                 }
                 $this->image=$item->image_url;
                 break;
@@ -45,7 +46,21 @@ class Card extends Component
                 }
                 array_push($this->strings, $item->profile->name);
                 array_push($this->strings, $item->profile->address);
-                $this->updated=$item->updated_at->format('d.m.Y');
+                $this->updated=$item->updated_at->format('d-m-Y');
+                break;
+            case "profile":
+                $this->title=$item->name;
+                if($item->type){
+                    $this->type=$item->type;
+                }
+                if($item->price){
+                    array_push($this->strings, "Rs. ".$item->price."/kg");
+                    $this->updated=$item->updated_at->format('d/m/Y');
+                }
+                if($item->quantity){
+                    array_push($this->strings, $item->quantity."kg");   
+                }
+                $this->image=$item->image_url;
                 break;
         }
     }

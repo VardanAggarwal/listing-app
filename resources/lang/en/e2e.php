@@ -5,6 +5,13 @@ return [
     "app_tagline"=>"From seed to industry",
     "app_description"=>"India’s first end to end platform for Medicinal & Aromatic Plants.",
   ],
+  "cards"=>[
+    "trade_type"=>[
+      "buy" => "Buy",
+      "sell" => "Sell"
+    ],
+    "date"=>"date"
+  ],
   "roles"=>[
     "input_provider"=>[
       "label"=>"Input provider",
@@ -56,7 +63,11 @@ return [
     "language"=>"Language",
     "button"=>"Save profile",
     "landholding"=>"Farm area",
-    "landholding_unit"=>"acre(s)"
+    "landholding_unit"=>"acre(s)",
+    "edit"=>"Edit profile",
+    "items_heading"=>"Items",
+    "items_add"=>"Add items",
+    "share_button"=>"Share profile"
   ],
   "vc_selection"=>[
     "title"=>"Select which value chains you work in",

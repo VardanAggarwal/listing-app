@@ -4,7 +4,7 @@
 
         <div class="w-24 h-24 border border-brown rounded-full grid place-items-center overflow-hidden">
           @if($image)
-            <img src="{{$image->temporaryUrl()}}">
+            <img src="{{$image->temporaryUrl()}}" class="object-cover">
           @else
             @if($profile->user->profile_photo_url)
               <img src="{{$profile->user->profile_photo_url}}" class="object-cover">

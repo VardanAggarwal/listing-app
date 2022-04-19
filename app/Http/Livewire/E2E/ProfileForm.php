@@ -22,7 +22,7 @@ class ProfileForm extends Component
         'profile.additional_info.business_id'=>'string|sometimes|nullable',
         'profile.additional_info.landholding'=>'string|sometimes|nullable',
         'profile.personas'=>'required|string',
-        'image'=>'image|max:10240'
+        'image'=>'image|max:10240|nullable'
     ];
     public function mount(){
         $this->lang=App::currentLocale();
@@ -44,7 +44,7 @@ class ProfileForm extends Component
         Auth::User()->save();
         session()->put('locale',$this->lang);
         App::setLocale($this->lang);
-        return redirect('/e2e/profile/'.$this->profile->id);
+        return redirect('/e2e/profiles/'.$this->profile->id);
     }
     public function render()
     {
