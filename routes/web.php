@@ -37,16 +37,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 //e2e
-Route::get('/e2e/role',Livewire\E2E\Role::class);
-Route::get('/e2e/details',Livewire\E2E\Details::class);
-Route::get('/e2e/vcs',Livewire\E2E\VCs::class);
-Route::get('/e2e/actions',Livewire\E2E\Actions::class);
-Route::get('/e2e/login',Livewire\E2E\Login::class);
-Route::get('/e2e',Livewire\E2E\Home::class);
-Route::get('/e2e/bid-select/{model?}/{select?}/{type?}/{action?}',Livewire\E2E\Screens\Search::class);
-Route::get('/e2e/bid-form/{trade}',Livewire\E2E\Screens\BidForm::class);
-Route::get('/e2e/bid-form',Livewire\E2E\Screens\Search::class);
-Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class);
+Route::get('/e2e/role',Livewire\E2E\Role::class)->middleware('e2e');
+Route::get('/e2e/details',Livewire\E2E\Details::class)->middleware('e2e');
+Route::get('/e2e/actions',Livewire\E2E\Actions::class)->middleware('e2e');
+Route::get('/e2e/login',Livewire\E2E\Login::class)->middleware('e2e');
+Route::get('/e2e',Livewire\E2E\Home::class)->middleware('e2e');
+Route::get('/e2e/bid-select/{model?}/{select?}/{type?}/{action?}',Livewire\E2E\Screens\Search::class)->middleware('e2e');
+Route::get('/e2e/bid-form/{trade}',Livewire\E2E\Screens\BidForm::class)->middleware('e2e');
+Route::get('/e2e/bid-form',Livewire\E2E\Screens\Search::class)->middleware('e2e');
+Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class)->middleware('e2e');
 Route::get('/e2e/trade/{trade}',Livewire\E2E\Screens\DetailPage::class);
 //main page
 Route::get('/',FeedList::class)->name('feed');

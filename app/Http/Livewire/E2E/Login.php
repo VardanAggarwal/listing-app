@@ -16,6 +16,9 @@ class Login extends Component
     protected $rules=[
         'phone_number'=>'numeric|required|digits:10'
     ];
+    public function mount(){
+        $this->role=session()->get('role');
+    }
     public function sign_in(){
         $this->validate();
         $phone_number="+91".$this->phone_number;
@@ -31,7 +34,7 @@ class Login extends Component
             $profile->personas=$this->role;
         }
         $profile->save();
-        return redirect('/e2e');
+        return redirect()->intended();
     }
     public function render()
     {

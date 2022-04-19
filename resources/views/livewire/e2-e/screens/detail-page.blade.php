@@ -55,6 +55,6 @@
         </div>
     @endif
     <button class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
-            Contact Supplier
+        {{$button}}
         </button>
 </div>

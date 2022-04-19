@@ -9,9 +9,16 @@ class DetailPage extends Component
 {
     public Trade $trade;
     public $media;
+    public $button;
     public function mount(){
         if($this->trade->media){
             $this->media=explode(',',$this->trade->media);
+        }
+        $this->button="Contact Supplier";
+        if(Auth::user()){
+            if(Auth::user()->profile->id==$this->trade->profile_id){
+                $this->button="Share on whatsapp";
+            }
         }
     }
     public function render()

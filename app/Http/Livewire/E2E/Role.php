@@ -28,7 +28,7 @@ class Role extends Component
         }else{
             session()->put('role',$role);
         }
-        return redirect('/e2e/login?role='.$role);                
+        return redirect()->intended('/e2e/login?role='.$role);                
     }
     public function render()
     {
