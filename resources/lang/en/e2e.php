@@ -33,29 +33,30 @@ return [
     "selected_roles"=>"You will be joining as"
   ],
   "profile"=>[
-    "title"=>"Tell us about yourself",
-    "name"=>"Organisation/Your name",
-    "address"=>"Address",
+    "title"=>"Update your profile",
+    "pic"=>"Upload picture",
+    "name_label"=>[
+      "individual"=>"Your name",
+      "company"=>"Company/your name", 
+    ],
+    "name_placeholder"=>[
+      "individual"=>"Thakur Singh",
+      "company"=>"ABC Pvt. Ltd", 
+    ],
+    "address"=>[
+      "label"=>"Address",
+      "placeholder"=>[
+        "individual"=>"Village, Tehsil, District, State",
+        "company"=>"Plot no., Locality, City, State"
+      ]
+    ],
     "pincode"=>"Pincode",
-    "producer_type"=>[
-      "label"=>"Are you a farmer or represent a farmer group?",
-      "farmer"=>"Farmer",
-      "farmer_group"=>"Farmer group"
-    ],
-    "organisation_type"=>[
-      "label"=>"How is your group registered?",
-      "fpo"=>"FPO",
-      "co_operative"=>"Co-operative",
-      "self_help_group"=>"Self help group",
-      "ngo"=>"NGO",
-      "private_company"=>"Private Limited",
-      "unregistered_group"=>"Unregistered group"
-    ],
-    "org"=>[
-      "members"=>"How many farmers are in your group?",
-      "landholding"=>"Total landholding of those farmers?"
-    ],
-    "landholding"=>"Your farm area"
+    "business_id"=>"GSTIN/PAN no.",
+    "role"=>"Role",
+    "language"=>"Language",
+    "button"=>"Save profile",
+    "landholding"=>"Farm area",
+    "landholding_unit"=>"acre(s)"
   ],
   "vc_selection"=>[
     "title"=>"Select which value chains you work in",
