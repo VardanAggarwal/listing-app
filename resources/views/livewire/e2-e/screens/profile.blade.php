@@ -14,7 +14,7 @@
         <h1 class="text-2xl font-semibold text-brown">{{$profile->name}}
         </h1>
         @if($edit)
-          <span class="float-right text-blue text-sm underline"><a href="/e2e/profile/edit">{{__('e2e.profile.edit')}}</a></span>
+          <span class="float-right text-blue underline"><a href="/e2e/profile/edit">{{__('e2e.profile.edit')}}</a></span>
         @endif
       </div>
       <span class="text-lg text-black">{{$profile->address}}</span>
@@ -26,7 +26,7 @@
     <div class="mt-4 flex justify-between items-center">
       <h1 class="font-semibold text-2xl text-black">{{__('e2e.profile.items_heading')}}</h1>
       @if($edit)
-        <span class="float-right text-blue text-sm underline"><a href="/e2e/profile/edit">{{__('e2e.profile.items_add')}}</a></span>
+        <span class="float-right text-blue underline"><a href="/e2e/profile/edit">{{__('e2e.profile.items_add')}}</a></span>
       @endif
     </div>
     <div class="px-4 mt-5" wire:loading.class="opacity-75">

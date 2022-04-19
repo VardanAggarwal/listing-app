@@ -6,12 +6,18 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 class Actions extends Component
 {
-    public $actions=["input_provider"=>["sell_input"], "farmer"=>["buy_input","sell_produce"], "trader"=>["buy_from_farmer","sell_to_buyer"], "buyer"=>["buy_material"]];
+    public $actions=["input_provider"=>["sell"=>"input"], "farmer"=>["buy"=>"input","sell"=>"produce"], "trader"=>["buy"=>"produce","sell"=>"produce"], "buyer"=>["buy"=>"produce"]];
     public $user_actions=[];
+    public $role;
+    public $allowed=false;
     public function mount(){
         if(Auth::user()){
             if(Auth::user()->profile->personas){
                 $this->user_actions=$this->actions[Auth::user()->profile->personas];
+                $this->role=Auth::user()->profile->personas;
+            }
+            if(Auth::user()->profile->name&&Auth::user()->profile->pincode){
+                $this->allowed=true;
             }
         }
     }

@@ -1,8 +1,8 @@
 <div><div class="grid p-4 mt-4">
     <h1 class="text-2xl font-semibold text-brown">{{__('e2e.profile.title')}}</h1>
-      <label class="mt-4 grid place-items-center">
-
-        <div class="w-24 h-24 border border-brown rounded-full grid place-items-center overflow-hidden">
+    <div  class="mt-4 grid place-items-center">
+      <label class="grid place-items-center">
+        <div class="w-24 h-24 border border-brown rounded-full overflow-hidden">
           @if($image)
             <img src="{{$image->temporaryUrl()}}" class="object-cover">
           @else
@@ -16,6 +16,7 @@
         <input class="hidden" wire:model="image" type="file"/>
         <span class="text-xs text-brown">{{__('e2e.profile.pic')}}</span>
       </label>
+    </div>
     <div class="mt-4">
       <x-jet-label for="name" value="{{$role=='farmer'?__('e2e.profile.name_label.individual'):__('e2e.profile.name_label.company')}}" class="text-brown font-semibold text-xl" />
       <div class="flex items-center">

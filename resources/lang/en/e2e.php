@@ -75,30 +75,34 @@ return [
     "selected"=>"value chains selected: "
   ],
   "actions"=>[
-    "sell_input"=>[
+    "input_provider_sell_input"=>[
       "label"=>"Sell inputs",
       "description"=>"Get orders from interested farmers"
     ],
-    "buy_input"=>[
+    "farmer_buy_input"=>[
       "label"=>"Buy inputs",
       "description"=>"Get quality inputs"
     ],
-    "sell_produce"=>[
+    "farmer_sell_produce"=>[
       "label"=>"Sell produce",
       "description"=>"Get best price"
     ],
-    "buy_from_farmer"=>[
+    "trader_buy_produce"=>[
       "label"=>"Buy produce",
       "description"=>"Buy from farmers"
     ],
-    "sell_to_buyer"=>[
+    "trader_sell_produce"=>[
       "label"=>"Sell material",
       "description"=>"Sell to buyers"
     ],
-    "buy_material"=>[
+    "buyer_buy_produce"=>[
       "label"=>"Buy material",
       "description"=>"Get quality material"
     ],
+    "profile_completion"=>[
+      "dialog"=>"Please complete your profile so that other people can connect with you.",
+      "button"=>"Complete profile"
+    ]
   ],
   "bid-form"=>[
     "price"=>[
