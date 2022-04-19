@@ -17,7 +17,13 @@ class Login extends Component
         'phone_number'=>'numeric|required|digits:10'
     ];
     public function mount(){
-        $this->role=session()->get('role');
+        if(Auth::user()){
+            if(isset(Auth::user()->profile->personas)){
+                $this->role=Auth::user()->profile->personas;
+            }
+        }else{
+            $this->role=session()->get('role');
+        }
     }
     public function sign_in(){
         $this->validate();

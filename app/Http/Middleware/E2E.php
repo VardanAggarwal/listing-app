@@ -20,6 +20,9 @@ class E2E
     {
         if(Auth::user()){
             if(isset(Auth::user()->profile->personas)){
+                if($request->is('e2e/login')){
+                    return redirect('e2e');
+                }
                 return $next($request);            
             }else{
                 app('redirect')->setIntendedUrl($request->url());

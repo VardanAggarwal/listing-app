@@ -9,6 +9,7 @@ class Language extends Component
     public $locale="English";
     public function setLocale($lang){
         App::setLocale($lang);
+        session()->put('locale',$lang);
     }
     public function render()
     {
