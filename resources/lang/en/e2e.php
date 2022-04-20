@@ -10,7 +10,11 @@ return [
       "buy" => "Buy",
       "sell" => "Sell"
     ],
-    "date"=>"date"
+    "count_label"=>[
+      "buy"=>"sellers",
+      "sell"=>"buyers"
+    ],
+    "date"=>"updated"
   ],
   "roles"=>[
     "input_provider"=>[

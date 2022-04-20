@@ -16,7 +16,7 @@ class Card extends Component
     public $type;
     public $strings=[];
     public $updated;
-    public function __construct($item,$type)
+    public function __construct($item,$type,$action=null)
     {
         switch($type){
             case "trade":
@@ -25,13 +25,24 @@ class Card extends Component
                     array_push($this->strings, "Rs. ".$item->price."/kg");
                     $this->updated=$item->updated_at->format('d/m/Y');
                 }
+                if($item->quantity){
+                    array_push($this->strings, $item->quantity."kg");   
+                }
                 $this->image=$item->image_url;
                 break;
             case "item":
                 $this->title=$item->name;
                 $this->image=$item->image_url;
-                array_push($this->strings, "Rs. ".$item->min."/kg - Rs.".$item->max."/kg");
-                array_push($this->strings, $item->count." Offers");
+                if($item->min){
+                    if($item->min!=$item->max){
+                        array_push($this->strings, "Rs. ".$item->min." - ".$item->max."/kg");
+                    }else{
+                        array_push($this->strings, "Rs. ".$item->min."/kg");
+                    }
+                }
+                if($item->count>0&&$action){
+                    array_push($this->strings, $item->count.' '.__('e2e.cards.count_label.'.$action));
+                }
                 break;
             case "select":
                 $this->title=$item->name;
@@ -39,6 +50,9 @@ class Card extends Component
                 break;
             case "supplier":
                 $this->title="Rs. ".$item->price."/kg";
+                if($item->quantity){
+                    $this->title.=", ".intval($item->quantity/100)." Qt.";
+                }
                 if(isset($item->additional_info->image_url)){
                     $this->image=$item->additional_info->image_url;
                 }else{
@@ -62,6 +76,9 @@ class Card extends Component
                 }
                 $this->image=$item->image_url;
                 break;
+        }
+        if(!$this->image){
+            $this->image="https://via.placeholder.com/300x200.jpg/".dechex(mt_rand(0x555555, 0xFFFFFF))."/000000?text=".urlencode($this->title);
         }
     }
 

@@ -17,7 +17,7 @@
     </div>
     <div class="mt-4 grid grid-cols-2 gap-4">
         @foreach($items as $item)
-            <x-e2-e.card :type="$type" :item="$item"/>
+            <x-e2-e.card :type="$type" :action="$action" :item="$item"/>
         @endforeach
     </div>
     <x-e2-e.scroll/>
