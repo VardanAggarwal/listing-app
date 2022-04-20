@@ -10,6 +10,7 @@ class CardGroup extends Component
     public $action;
     public $role;
     public $perPage=10;
+    public $days=30;
     protected $listeners=['navigate'];
     public function mount(){
         if(Auth::user()){
@@ -35,27 +36,27 @@ class CardGroup extends Component
                 break;
             case "farmer":
                 if($this->action=="buy"){
-                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','sell')->where('items.type','input')->groupBy('items.id','items.name','items.image_url');
+                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','sell')->where('items.type','input')->where('trades.updated_at','>',now()->subDays($this->days))->groupBy('items.id','items.name','items.image_url');
                     $type="item";
                 }
                 if($this->action=="sell"){
-                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','buy')->where('items.type','produce')->groupBy('items.id','items.name','items.image_url');
+                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','buy')->where('items.type','produce')->where('trades.updated_at','>',now()->subDays($this->days))->groupBy('items.id','items.name','items.image_url');
                     $type="item";
                 }
                 break;
             case "trader":
                 if($this->action=="buy"){
-                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','sell')->where('items.type','produce')->groupBy('items.id','items.name','items.image_url');
+                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','sell')->where('items.type','produce')->where('trades.updated_at','>',now()->subDays($this->days))->groupBy('items.id','items.name','items.image_url');
                     $type="item";
                 }
                 if($this->action=="sell"){
-                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','buy')->where('items.type','produce')->groupBy('items.id','items.name','items.image_url');
+                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','buy')->where('items.type','produce')->where('trades.updated_at','>',now()->subDays($this->days))->groupBy('items.id','items.name','items.image_url');
                     $type="item";    
                 }
                 break;
             case "buyer":
                 if($this->action=="buy"){
-                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','sell')->where('items.type','produce')->groupBy('items.id','items.name','items.image_url');
+                    $query=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->selectRaw('items.name,items.image_url, min(trades.price::DECIMAL), max(trades.price::DECIMAL), count(distinct(trades.profile_id))')->where('trades.type','sell')->where('items.type','produce')->where('trades.updated_at','>',now()->subDays($this->days))->groupBy('items.id','items.name','items.image_url');
                     $type="item";
                 }
                 break;

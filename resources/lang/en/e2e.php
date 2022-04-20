@@ -165,6 +165,15 @@ return [
     ],
     "buyer"=>[
       "buy"=>"Available supply"
+    ],
+    "last"=>"Last :days",
+    "date_label"=>"What's new in: ",
+    "days"=>[
+      "7"=> "7 days",
+      "30"=> "30 days",
+      "90"=> "3 months",
+      "180"=> "6 months",
+      "365"=> "1 year"
     ]
   ],
   "navigation"=>[
