@@ -6,18 +6,30 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 class BottomNav extends Component
 {
-    public $nav_actions=["input_provider"=>[], "farmer"=>["inputs","market"], "trader"=>["demand","supply"], "buyer"=>[]];
-    public $icons=["inputs"=>"seedling","market"=>"money-bill-wave","demand"=>"building-wheat","supply"=>"truck"];
-    public $nav_items=[];
+    public $items=[
+        "input_provider"=>[
+            "buy"=>"seedling"
+        ],
+        "farmer"=>[
+            "buy"=>"seedling",
+            "sell"=>"money-bill-wave"
+        ],
+        "trader"=>[
+            "sell"=>"building-wheat",
+            "buy"=>"truck"
+        ],
+        "buyer"=>[
+            "buy"=>"truck"
+        ]
+    ];
+    public $nav_items;
+    public $role;
+    public $action;
     public function mount(){
-        if(Auth::user()){
-            if(Auth::user()->profile->personas){
-                $this->nav_items=$this->nav_actions[Auth::user()->profile->personas];
-            }
-        }
+        $this->nav_items=$this->items[$this->role];
     }
     public function navigate($nav){
-        $this->emit('navigate',$screen=$nav);
+        $this->emit('navigate',$action=$nav);
     }
     public function render()
     {

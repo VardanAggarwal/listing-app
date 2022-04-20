@@ -6,18 +6,23 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 class Home extends Component
 {
-    public $screens=["input_provider"=>["my_inputs"],"farmer"=>["inputs","market"],"trader"=>["demand","supply"],"buyer"=>["supply"]];
-    public $screen;
+    public $role;
+    public $action;
     protected $listeners=['navigate'];
     public function mount(){
         if(Auth::user()){
             if(Auth::user()->profile->personas){
-                $this->screen=$this->screens[Auth::user()->profile->personas][0];
+                $this->role=Auth::user()->profile->personas;
             }
         }
+        if($this->role=="farmer" || $this->role=="buyer"){
+            $this->action="buy";
+        }else{
+            $this->action="sell";
+        }
     }
-    public function navigate($screen){
-        $this->screen=$screen;
+    public function navigate($action){
+        $this->action=$action;
     }
     public function render()
     {

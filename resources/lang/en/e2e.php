@@ -150,5 +150,37 @@ return [
         "sell"=>"Add material"
       ]
     ]
+  ],
+  "card-group"=>[
+    "input_provider"=>[
+      "sell"=>"Your inputs"
+    ],
+    "farmer"=>[
+      "sell"=>"Sell produce",
+      "buy"=>"Buy inputs"
+    ],
+    "trader"=>[
+      "sell"=>"Market demand",
+      "buy"=>"Available supply"
+    ],
+    "buyer"=>[
+      "buy"=>"Available supply"
+    ]
+  ],
+  "navigation"=>[
+    "input_provider"=>[
+      "sell"=>"Sell inputs"
+    ],
+    "farmer"=>[
+      "sell"=>"Market",
+      "buy"=>"Inputs"
+    ],
+    "trader"=>[
+      "sell"=>"Demand",
+      "buy"=>"Supply"
+    ],
+    "buyer"=>[
+      "buy"=>"Buy"
+    ]
   ]
 ];
