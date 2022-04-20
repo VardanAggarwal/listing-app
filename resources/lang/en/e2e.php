@@ -152,19 +152,37 @@ return [
     ]
   ],
   "card-group"=>[
-    "input_provider"=>[
-      "sell"=>"Your inputs"
+    "heading"=>[
+      "input_provider"=>[
+        "sell"=>"Your inputs"
+      ],
+      "farmer"=>[
+        "sell"=>"Sell produce",
+        "buy"=>"Buy inputs"
+      ],
+      "trader"=>[
+        "sell"=>"Market demand",
+        "buy"=>"Available supply"
+      ],
+      "buyer"=>[
+        "buy"=>"Available supply"
+      ]
     ],
-    "farmer"=>[
-      "sell"=>"Sell produce",
-      "buy"=>"Buy inputs"
-    ],
-    "trader"=>[
-      "sell"=>"Market demand",
-      "buy"=>"Available supply"
-    ],
-    "buyer"=>[
-      "buy"=>"Available supply"
+    "button"=>[
+      "input_provider"=>[
+        "sell"=>"List all inputs"
+      ],
+      "farmer"=>[
+        "sell"=>"List all produce",
+        "buy"=>"List inputs required"
+      ],
+      "trader"=>[
+        "sell"=>"List items to sell",
+        "buy"=>"List items to buy"
+      ],
+      "buyer"=>[
+        "buy"=>"List items to buy"
+      ]
     ],
     "last"=>"Last :days",
     "date_label"=>"What's new in: ",

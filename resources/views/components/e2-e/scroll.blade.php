@@ -17,7 +17,7 @@
       }"
       x-init="observe"
   ></div>
-  <div class="flex justify-center">
+  <div class="mt-4 flex justify-center">
     <img  wire:loading loading="lazy" class="" src="https://listing-app.s3.ap-south-1.amazonaws.com/public/loader.gif">
   </div>
 </div>

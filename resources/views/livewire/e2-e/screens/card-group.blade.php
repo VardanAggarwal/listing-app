@@ -1,6 +1,6 @@
 <div class="px-4 mt-5" wire:loading.class="opacity-75" x-data="{dates:false}">
     <div class="flex w-full justify-between">
-        <h1 class="font-semibold text-2xl text-black">{{__('e2e.card-group.'.$role.'.'.$action)}}</h1>
+        <h1 class="font-semibold text-2xl text-black">{{__('e2e.card-group.heading.'.$role.'.'.$action)}}</h1>
         <div class="flex items-center gap-1">
             <span class="text-xs text-blue">{{__('e2e.card-group.date_label')}}</span>
             <div class="relative cursor-pointer" @click="dates=!dates">
@@ -21,7 +21,8 @@
         @endforeach
     </div>
     <x-e2-e.scroll/>
-    <div class="grid justify-items-center"><button class="bg-brown text-white text-xl font-semibold px-20 py-4 rounded-xl my-16" wire:loading.attr="disabled">
-            List items
-        </button></div>
+    <div class="grid justify-items-center mt-4"><a href="/e2e/bid-select/multiple/{{$item_type}}/{{$action}}"><button class="bg-brown text-white text-xl font-semibold px-20 py-4 rounded-xl" wire:loading.attr="disabled">
+            {{__('e2e.card-group.button.'.$role.'.'.$action)}}
+        </button></a></div>
+    <div class="h-20"></div>
 </div>
