@@ -114,7 +114,10 @@ return [
       "produce"=>"Target price"
     ],
     "quantity"=>[
-      "input"=>["sell"=>"Minimum order"],
+      "input"=>[
+        "sell"=>"Minimum order",
+        "buy"=>"Required Qty",
+    ],
       "produce"=>[
         "buy"=>"Required Qty",
         "sell"=>"Available Qty"
@@ -122,14 +125,20 @@ return [
     ],
     "location"=>"Delivery location",
     "description_label"=>[
-      "input"=>["sell"=>"Description"],
+      "input"=>[
+        "sell"=>"Description",
+        "buy"=>"Description"
+      ],
       "produce"=>[
         "buy"=>"Expected quality",
         "sell"=>"Description"
       ]
     ],
     "description_placeholder"=>[
-      "input"=>["sell"=>"What is special about your input? Variety etc."],
+      "input"=>[
+        "sell"=>"What is special about your input? Variety etc.",
+        "buy"=>"Specific variety, soil or climate issues etc."
+      ],
       "produce"=>[
         "buy"=>"What kind of quality are you looking for? Quality parameters, variety etc.",
         "sell"=>"What is special about your material? Quality parameters, variety etc."
@@ -141,14 +150,20 @@ return [
     ],
     "additional_info_label"=>"Additional details",
     "additional_info_placeholder"=>[
-      "input"=>["sell"=>"Delivery mode, payment terms, germination guarantee etc."],
+      "input"=>[
+        "sell"=>"Delivery mode, payment terms, germination guarantee etc.",
+        "buy"=>"Any additional details."
+      ],
       "produce"=>[
         "buy"=>"Delivery terms, payment terms, quality deductions etc.",
         "sell"=>"Payment expectations, delivery mode"
       ]
     ],
     "button"=>[
-      "input"=>["sell"=>"Add input"],
+      "input"=>[
+        "sell"=>"Add input",
+        "buy"=>"Add requirement"
+    ],
       "produce"=>[
         "buy"=>"Add demand",
         "sell"=>"Add material"
