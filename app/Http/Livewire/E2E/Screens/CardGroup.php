@@ -26,12 +26,30 @@ class CardGroup extends Component
     public function loadMore(){
         $this->perPage+=10;
     }
+    public function cardclicked($type,$id){
+        $profile=Auth::user()->profile;
+        if($type=="trade"){
+            $trade=Models\Trade::find($id);
+            if($trade->profile_id==$profile->id){
+                return redirect('/e2e/trade/'.$id);
+            }else{
+                $id=$trade->item_id;
+            }
+        }
+        $trade=Models\Trade::where('type',$this->action)->where('item_id',$id)->where('trades.profile_id',$profile->id)->where('trades.updated_at','>',now()->subDays(30))->orderByDesc('updated_at')->first();
+        if($trade){
+            return redirect('/e2e/supplier-list/'.$trade->id);
+        }else{
+            $trade=Auth::user()->profile->trades()->create(["item_id"=>$id,"type"=>$this->action]);
+            return redirect("/e2e/bid-form"."/".$trade->id);   
+        }
+    }
     public function render()
     {
         switch($this->role){
             case "input_provider":
                 if($this->action=="sell"){
-                    $query=Models\Item::join('trades','items.id','=','trades.item_id')->selectRaw('distinct on (items.name) items.name,items.image_url, trades.price, trades.updated_at')->where('trades.type','sell')->where('items.type','input')->where('trades.profile_id',Auth::user()->profile->id)->orderBy('items.name')->orderByDesc('trades.updated_at');
+                    $query=Models\Item::join('trades','items.id','=','trades.item_id')->selectRaw('distinct on (items.name) items.name,items.image_url, trades.price, trades.updated_at,trades.id as id')->where('trades.type','sell')->where('items.type','input')->where('trades.profile_id',Auth::user()->profile->id)->orderBy('items.name')->orderByDesc('trades.updated_at');
                     $type="trade";
                     $item_type="input";
                 }
@@ -69,8 +87,8 @@ class CardGroup extends Component
                 break;
         }
         if($type=="item"){
-            $trades=Models\Item::join('trades','items.id','=','trades.item_id')->selectRaw('distinct on (items.id,trades.profile_id) items.name,items.image_url,trades.*')->where('trades.type',$trade_type)->where('items.type',$item_type)->orderBy('items.id')->orderBy('trades.profile_id')->orderByDesc('trades.updated_at');
-            $query=DB::table($trades,'trades')->selectRaw('name,image_url,max(updated_at) as date, min(price::DECIMAL), max(price::DECIMAL), count(distinct(profile_id))')->groupBy('item_id','name','image_url')->orderByDesc('date');
+            $trades=Models\Item::join('trades','items.id','=','trades.item_id')->selectRaw('distinct on (items.id,trades.profile_id) items.name,items.image_url,trades.*')->where('trades.type',$trade_type)->where('items.type',$item_type)->where('trades.updated_at','>',now()->subDays($this->days))->orderBy('items.id')->orderBy('trades.profile_id')->orderByDesc('trades.updated_at');
+            $query=DB::table($trades,'trades')->selectRaw('name,image_url,max(updated_at) as date, min(price::DECIMAL), max(price::DECIMAL), count(distinct(profile_id)), item_id as id')->groupBy('item_id','name','image_url')->orderByDesc('date');
         }
         if($query){
             $items=$query->cursorPaginate($this->perPage);

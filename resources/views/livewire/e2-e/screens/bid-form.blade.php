@@ -78,6 +78,7 @@
             <textarea class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="trade.additional_info.details" type="text" placeholder="{{__('e2e.bid-form.additional_info_placeholder.'.$trade->item->type.'.'.$trade->type)}}"></textarea>
           </div>
         </div>
+        <x-jet-validation-errors/>
         <div class="grid justify-items-center"><button class="bg-brown text-white text-xl font-semibold px-20 py-4 rounded-xl my-16" wire:click="save" wire:loading.attr="disabled">
                 {{__('e2e.bid-form.button.'.$trade->item->type.'.'.$trade->type)}}
             </button></div>

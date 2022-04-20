@@ -1,4 +1,4 @@
-<div class="relative grid rounded-xl justify-items-center shadow-lg bg-white">
+<div class="w-full h-full relative grid rounded-xl justify-items-center shadow-lg bg-white">
     @if($type)
         <div class="absolute px-2 py-1 top-3 left-0 {{$type=='buy'?'bg-primary':'bg-red'}}"><span class="text-xs float-right {{$type=='buy'?'text-black':'text-white'}}">{{__('e2e.cards.trade_type.'.$type)}}</span></div>
     @endif

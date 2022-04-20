@@ -172,6 +172,22 @@ return [
         "buy"=>"Available supply"
       ]
     ],
+    "click"=>[
+      "input_provider"=>[
+        "sell"=>"Details"
+      ],
+      "farmer"=>[
+        "sell"=>"Sell :name",
+        "buy"=>"Buy :name"
+      ],
+      "trader"=>[
+        "sell"=>"Sell :name",
+        "buy"=>"Buy :name"
+      ],
+      "buyer"=>[
+        "buy"=>"Buy :name"
+      ]
+    ],
     "button"=>[
       "input_provider"=>[
         "sell"=>"List all inputs"

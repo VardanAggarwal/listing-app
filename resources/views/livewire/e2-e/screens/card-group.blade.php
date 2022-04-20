@@ -1,23 +1,27 @@
 <div class="px-4 mt-5" wire:loading.class="opacity-75" x-data="{dates:false}">
     <div class="flex w-full justify-between">
         <h1 class="font-semibold text-2xl text-black">{{__('e2e.card-group.heading.'.$role.'.'.$action)}}</h1>
-        <div class="flex items-center gap-1">
-            <span class="text-xs text-blue">{{__('e2e.card-group.date_label')}}</span>
-            <div class="relative cursor-pointer" @click="dates=!dates">
-                <span class="px-2 py-1 flex gap-1 items-center text-xs border border-brown rounded text-brown">{{__('e2e.card-group.last',["days"=>__('e2e.card-group.days.'.$days)])}}<i class="fas text-lg fa-caret-down text-primary"></i></span>
-                <div class="bg-white border-brown border shadow rounded p-4 text-black absolute grid z-50 w-full text-xs gap-2" x-show="dates">
-                    <span wire:click="$set('days',7)">{{__('e2e.card-group.days.7')}}</span>
-                    <span wire:click="$set('days',30)">{{__('e2e.card-group.days.30')}}</span>
-                    <span wire:click="$set('days',90)">{{__('e2e.card-group.days.90')}}</span>
-                    <span wire:click="$set('days',180)">{{__('e2e.card-group.days.180')}}</span>
-                    <span wire:click="$set('days',365)">{{__('e2e.card-group.days.365')}}</span>
-                </div>
+        <div class="relative cursor-pointer" @click="dates=!dates">
+            <span class="px-2 py-1 flex gap-1 items-center text-xs border border-brown rounded text-brown">{{__('e2e.card-group.last',["days"=>__('e2e.card-group.days.'.$days)])}}<i class="fas text-lg fa-caret-down text-primary"></i></span>
+            <div class="bg-white border-brown border shadow rounded p-4 text-black absolute grid z-50 w-full text-xs gap-2" x-show="dates">
+                <span wire:click="$set('days',7)">{{__('e2e.card-group.days.7')}}</span>
+                <span wire:click="$set('days',30)">{{__('e2e.card-group.days.30')}}</span>
+                <span wire:click="$set('days',90)">{{__('e2e.card-group.days.90')}}</span>
+                <span wire:click="$set('days',180)">{{__('e2e.card-group.days.180')}}</span>
+                <span wire:click="$set('days',365)">{{__('e2e.card-group.days.365')}}</span>
             </div>
         </div>
     </div>
     <div class="mt-4 grid grid-cols-2 gap-4">
         @foreach($items as $item)
-            <x-e2-e.card :type="$type" :action="$action" :item="$item"/>
+            <div x-data="{click:false}" @click="click=!click" class="relative">
+                <x-e2-e.card :type="$type" :action="$action" :item="$item"/>
+                <div x-show="click" x-cloak class="absolute inset-0 rounded-xl inset-0">
+                    <div x-on:click="click=false" class="bg-black w-full h-full opacity-75 rounded-xl"></div>
+                    <div class="absolute inset-0 grid place-items-center"><button class="px-4 py-2 rounded-xl {{$action=='buy'?'bg-primary text-black':'bg-red text-white'}}" wire:click="cardclicked('{{$type}}','{{$item->id}}')">{{__('e2e.card-group.click.'.$role.'.'.$action,["name"=>$item->name])}}</button>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </div>
     <x-e2-e.scroll/>
