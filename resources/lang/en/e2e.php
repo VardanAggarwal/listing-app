@@ -4,6 +4,11 @@ return [
     "app_name"=>"Seed Savers Club",
     "app_tagline"=>"From seed to industry",
     "app_description"=>"India’s first end to end platform for Medicinal & Aromatic Plants.",
+    "units"=>[
+      "rupees"=>"Rs.",
+      "kg"=>"Kg",
+      "qt"=>"Qt"
+    ]
   ],
   "cards"=>[
     "trade_type"=>[
@@ -109,6 +114,11 @@ return [
     ]
   ],
   "bid-form"=>[
+    "title"=>[
+      "buy"=>"Buy :Name",
+      "sell"=>"Sell :Name"
+    ],
+    "check_price"=>"Check prices",
     "price"=>[
       "input"=>"Price",
       "produce"=>"Target price"
@@ -123,7 +133,8 @@ return [
         "sell"=>"Available Qty"
       ]
     ],
-    "location"=>"Delivery location",
+    "location_label"=>"Delivery location",
+    "location_placeholder"=>"Delhi",
     "description_label"=>[
       "input"=>[
         "sell"=>"Description",
@@ -146,7 +157,8 @@ return [
     ],
     "media"=>[
       "label"=>"Images/Videos",
-      "button"=>"Upload files"
+      "button"=>"Upload files",
+      "error"=>"Upload only images & videos less than 10 mb."
     ],
     "additional_info_label"=>"Additional details",
     "additional_info_placeholder"=>[

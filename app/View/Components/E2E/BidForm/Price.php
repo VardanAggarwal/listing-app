@@ -13,10 +13,12 @@ class Price extends Component
      */
     public $item_type;
     public $type;
-    public function __construct($itemType,$type)
+    public $prices;
+    public function __construct($itemType,$type,$prices)
     {
       $this->item_type=$itemType;
       $this->type=$type;
+      $this->prices=$prices;
     }
 
     /**
