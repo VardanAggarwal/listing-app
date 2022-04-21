@@ -244,5 +244,32 @@ return [
     "buyer"=>[
       "buy"=>"Buy"
     ]
+  ],
+  "search"=>[
+    "placeholder"=>"Type to search",
+    "error_text"=>"Select at least one item",
+    "button"=>"Continue",
+    "title"=>[
+      "buy"=>"Select items to buy",
+      "sell"=>"Select items to sell"
+    ],
+    "not_found"=>"Didn't find your item? Click to add new."
+  ],
+  "item"=>[
+    "title"=>"Add new item",
+    "name"=>[
+      "label"=>"Item name",
+      "placeholder"=>"Ashwagandha Roots",
+    ],
+    "type"=>[
+      "label"=>"Item type",
+      "produce"=>"Produce",
+      "input"=>"Input"
+    ],
+    "image"=>[
+      "label"=>"Item image",
+      "button"=>"Upload image"
+    ],
+    "button"=>"Create item"
   ]
 ];

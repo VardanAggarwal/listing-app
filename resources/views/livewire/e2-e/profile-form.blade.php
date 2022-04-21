@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="mt-4">
-      <x-jet-label for="role" value="{{__('e2e.profile.language')}}" class="text-brown font-semibold text-xl" />
+      <x-jet-label for="language" value="{{__('e2e.profile.language')}}" class="text-brown font-semibold text-xl" />
       <div class="flex items-center">
         <select class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="lang" >
             <option value="en" {{$lang=='en'?'selected':''}}>English</option>
