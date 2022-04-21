@@ -283,5 +283,19 @@ return [
       "button"=>"Upload image"
     ],
     "button"=>"Create item"
+  ],
+  "suppliers"=>[
+    "title"=>[
+      "sell"=>"Buyers for :Name",
+      "buy"=>"Suppliers for :Name"
+    ],
+    "button_action"=>[
+      "new"=>"Add new :Type",
+      "update"=>"See your :Type"
+    ],
+    "button_type"=>[
+      "sell"=>"Supply",
+      "buy"=>"Demand"
+    ]
   ]
 ];

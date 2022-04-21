@@ -12,11 +12,12 @@ class Actions extends Component
     public $allowed=false;
     public function mount(){
         if(Auth::user()){
-            if(Auth::user()->profile->personas){
-                $this->user_actions=$this->actions[Auth::user()->profile->personas];
-                $this->role=Auth::user()->profile->personas;
+            $profile=Auth::user()->profile;
+            if($profile->personas){
+                $this->user_actions=$this->actions[$profile->personas];
+                $this->role=$profile->personas;
             }
-            if(Auth::user()->profile->name&&Auth::user()->profile->pincode){
+            if($profile->name&&$profile->pincode){
                 $this->allowed=true;
             }
         }

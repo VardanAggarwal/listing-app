@@ -45,7 +45,7 @@ Route::get('/e2e',Livewire\E2E\Home::class)->middleware('e2e');
 Route::get('/e2e/bid-select/{select?}/{type?}/{action?}',Livewire\E2E\Screens\Search::class)->middleware('e2e');
 Route::get('/e2e/bid-form/{trade}',Livewire\E2E\Screens\BidForm::class)->middleware('e2e');
 Route::get('/e2e/bid-form',Livewire\E2E\Screens\Search::class)->middleware('e2e');
-Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class)->middleware('e2e');
+Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class);
 Route::get('/e2e/trade/{trade}',Livewire\E2E\Screens\DetailPage::class);
 Route::get('/e2e/item/new',Livewire\E2E\NewItem::class);
 //main page

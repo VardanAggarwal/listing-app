@@ -31,6 +31,7 @@ class Login extends Component
         $user=User::firstOrCreate(['phone_number'=>$phone_number]);
         if($user->profile){
             $profile=$user->profile;
+            $profile->contact_number=$phone_number;
         }else{
             $profile=Profile::firstOrCreate(['contact_number'=>$phone_number]);
             $profile->user()->associate($user);
