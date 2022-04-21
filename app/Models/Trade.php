@@ -14,6 +14,7 @@ class Trade extends Model
     protected $casts = [
              'additional_info' => AsCollection::class,
          ];
+    protected $with = ['item'];
     public function item(){
         return $this->belongsTo(Item::class);
     }

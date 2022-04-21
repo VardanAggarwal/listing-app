@@ -8,7 +8,8 @@ return [
       "rupees"=>"Rs.",
       "kg"=>"Kg",
       "qt"=>"Qt"
-    ]
+    ],
+    "pdf"=>"Download pdf file"
   ],
   "cards"=>[
     "trade_type"=>[
@@ -297,5 +298,26 @@ return [
       "sell"=>"Supply",
       "buy"=>"Demand"
     ]
+  ],
+  "trade"=>[
+    "edit"=>"Edit",
+    "trader"=>[
+      "buy"=>"Buyer",
+      "sell"=>"Seller"
+    ],
+    "trading"=>[
+      "buy"=>"selling",
+      "sell"=>"buying"
+    ],
+    "title"=>[
+      "buy"=>"Buying :Name",
+      "sell"=>"Selling :Name"
+    ],
+    "button"=>[
+      "contact"=>"Contact :trader",
+      "share"=>"Share on whatsapp"
+    ],
+    "contact_message"=>"Hello! I got your number from Seed Savers Club. I am interested in :trading :item as added by you here. :url",
+    "share_message"=>"Hello! I am :title. Check details on Seed Savers Club. :url"
   ]
 ];
