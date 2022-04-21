@@ -9,7 +9,7 @@
   </div>
   <div class="flex items-center">
     <span class="text-brown rounded-xl p-1 text-lg mr-2">{{__('e2e.global.units.rupees')}}</span>
-    <input class="px-4 block rounded-xl border-brown w-full bg-white" {{$attributes}} type="text"autofocus placeholder="500"/>
+    <input class="px-4 block rounded-xl border-brown w-full bg-white" {{$attributes}} type="number"autofocus placeholder="500"/>
     <span class="text-brown rounded-xl p-1 text-lg mr-2">/{{__('e2e.global.units.kg')}}</span>
   </div>
 </div>

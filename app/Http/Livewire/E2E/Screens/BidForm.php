@@ -18,8 +18,8 @@ class BidForm extends Component
     protected $prices;
     public $old_media;
     protected $rules=[
-        'trade.price'=>'numeric|nullable',
-        'trade.quantity'=>'numeric|nullable',
+        'trade.price'=>'required|numeric',
+        'trade.quantity'=>'required|numeric',
         'trade.description'=>'string|nullable',
         'trade.additional_info.location'=>'string|nullable|sometimes',
         'trade.additional_info.details'=>'string|nullable|sometimes'
