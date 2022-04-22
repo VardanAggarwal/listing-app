@@ -4,7 +4,7 @@
     <div class="flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-brown">{{__('e2e.trade.title.'.$trade->type,["name"=>$trade->item->name])}}</h1>
     @if($button=="share")
-    <a href="/e2e/bid-form/{{$trade->id}}"><span class="text-sm text-blue underline"><i class="fas fa-pen"></i> {{__('e2e.trade.edit')}}</span></a>
+    <a href="/e2e/bid-form/{{$trade->id}}"><span class="text-sm text-blue underline"><i class="fas fa-edit"></i> {{__('e2e.trade.edit')}}</span></a>
     @endif
     </div>
     @if($media)
@@ -46,7 +46,7 @@
     @if($button=="share")
     <a href="/e2e/supplier-list/{{$trade->id}}"><span class="text-lg font-semibold text-blue underline"><i class="fas fa-truck"></i> {{__('e2e.trade.suppliers.'.$trade->type,['name'=>$trade->item->name])}}</span></a>
     @endif
-    <p class="mt-4 text-lg font-semibold text-black">{{$trade->profile->name}}</p>
+    <a href="/e2e/profiles/{{$trade->profile_id}}" class="mt-4 text-lg font-semibold text-brown underline">{{$trade->profile->name}}</a>
     <p class="text-lg opacity-50 text-black">{{$trade->profile->address}}</p>
     @if(isset($trade->additional_info['location']))
       <div class="mt-4">

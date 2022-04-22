@@ -1,4 +1,5 @@
 <div class="flex flex-col">
+  <x-e2-e.top-nav/>
   <div class="p-4">
     <div class="mt-4 grid place-items-center">
       <div class="w-36 h-36 border border-brown rounded-full grid place-items-center overflow-hidden">
@@ -14,7 +15,7 @@
         <h1 class="text-2xl font-semibold text-brown">{{$profile->name}}
         </h1>
         @if($edit)
-          <span class="float-right text-blue underline"><a href="/e2e/profile/edit">{{__('e2e.profile.edit')}}</a></span>
+          <span class="float-right text-blue underline"><a href="/e2e/profile/edit"><i class="fas fa-edit"></i> {{__('e2e.profile.edit')}}</a></span>
         @endif
       </div>
       <span class="text-lg text-black">{{$profile->address}}</span>
@@ -25,9 +26,6 @@
     </div>
     <div class="mt-4 flex justify-between items-center">
       <h1 class="font-semibold text-2xl text-black">{{__('e2e.profile.items_heading')}}</h1>
-      @if($edit)
-        <span class="float-right text-blue underline"><a href="/e2e/profile/edit">{{__('e2e.profile.items_add')}}</a></span>
-      @endif
     </div>
     <div class="px-4 mt-5" wire:loading.class="opacity-75">
         <div class="mt-4 grid grid-cols-2 gap-4">
@@ -35,12 +33,18 @@
                 <x-e2-e.card type="profile" :item="$item"/>
             @endforeach
         </div>
-        <div class="grid justify-items-center"><button class="bg-brown text-white text-xl font-semibold px-20 py-4 rounded-xl my-16" wire:loading.attr="disabled">
-                List items
-            </button></div>
     </div>
-  </div>     
-    <button class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
-        {{__('e2e.profile.share_button')}}
+  </div>
+  @if($edit)
+  <div class="mt-10 border-t">
+      @livewire('e2-e.actions')
+  </div>
+  @endif
+  <div class="h-20"></div>     
+  <div x-data="{allowed:@entangle('allowed'),show:false}">
+    <button x-on:click="if(allowed){window.location.href='{{$href}}';}else{show=true;}" class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
+        {{__('e2e.profile.button.'.$button,['name'=>$profile->name])}}
     </button>
+    <livewire:e2-e.profile-check/>
+  </div>
 </div>

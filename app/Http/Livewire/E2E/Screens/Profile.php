@@ -4,14 +4,30 @@ namespace App\Http\Livewire\E2E\Screens;
 
 use Livewire\Component;
 use App\Models;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 class Profile extends Component
 {
     public Models\Profile $profile;
     public $edit=false;
+    public $button="contact";
+    public $allowed=false;
+    public $href;
     public function mount(){
-        if(Auth::user()->id==$this->profile->user_id){
-            $this->edit=true;
+        if(Auth::user()){
+            $profile=Auth::user()->profile;
+            if($profile->id==$this->profile->id){
+                $this->edit=true;
+                $this->button="share";
+            }
+            if($profile->name&&$profile->pincode&&$profile->personas){
+                $this->allowed=true;
+            }
+        }
+        if($this->button=="share"){
+            $this->href="https://wa.me/"."?text=".__('e2e.profile.message.share',['url'=>url('').'/e2e/profiles/'.$this->profile->id,'name'=>$this->profile->name]);
+        }else{
+            $this->href="https://wa.me/".Str::remove('+',$this->profile->contact_number)."?text=".__('e2e.profile.message.contact',['url'=>url('').'/e2e/profiles/'.$this->profile->id,'name'=>$this->profile->name]);
         }
     }
     public function render()

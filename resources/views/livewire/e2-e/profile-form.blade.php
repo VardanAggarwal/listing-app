@@ -75,6 +75,6 @@
     <div class="h-20"></div>
     </div>
     <button class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:click="submit" wire:loading.attr="disabled">
-        {{__('e2e.profile.button')}}
+        {{__('e2e.profile.button.save')}}
         </button>
 </div>

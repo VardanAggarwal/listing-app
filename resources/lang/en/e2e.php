@@ -71,13 +71,19 @@ return [
     "business_id"=>"GSTIN/PAN no.",
     "role"=>"Role",
     "language"=>"Language",
-    "button"=>"Save profile",
     "landholding"=>"Farm area",
     "landholding_unit"=>"acre(s)",
     "edit"=>"Edit profile",
     "items_heading"=>"Items",
-    "items_add"=>"Add items",
-    "share_button"=>"Share profile"
+    "message"=>[
+      "share"=>"Check my profile on Seed Savers Club. See the items I buy/sell at :url",
+      "contact"=>"I saw your profile on Seed Savers club. :url I am interested in doing business with you."
+    ],
+    "button"=>[
+      "share"=>"Share your profile",
+      "contact"=>"Contact :name",
+      "save"=>"Save profile",
+    ]
   ],
   "vc_selection"=>[
     "title"=>"Select which value chains you work in",
