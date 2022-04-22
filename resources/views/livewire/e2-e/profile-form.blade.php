@@ -1,4 +1,6 @@
-<div><div class="grid p-4 mt-4">
+<div>
+  <x-e2-e.top-nav/>
+  <div class="grid p-4 mt-4">
     <h1 class="text-2xl font-semibold text-brown">{{__('e2e.profile.title')}}</h1>
     <div  class="mt-4 grid place-items-center">
       <label class="grid place-items-center">
@@ -17,6 +19,7 @@
         <span class="text-xs text-brown">{{__('e2e.profile.pic')}}</span>
       </label>
     </div>
+    <x-jet-validation-errors/>
     <div class="mt-4">
       <x-jet-label for="name" value="{{$role=='farmer'?__('e2e.profile.name_label.individual'):__('e2e.profile.name_label.company')}}" class="text-brown font-semibold text-xl" />
       <div class="flex items-center">

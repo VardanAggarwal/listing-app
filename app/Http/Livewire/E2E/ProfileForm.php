@@ -16,9 +16,9 @@ class ProfileForm extends Component
     public $profile;
     public $image;
     protected $rules=[
-        'profile.name'=>'string|required',
-        'profile.address'=>'string|required',
-        'profile.pincode'=>'numeric|digits:6|required',
+        'profile.name'=>'required|string',
+        'profile.address'=>'required|string',
+        'profile.pincode'=>'required|numeric|digits:6',
         'profile.additional_info.business_id'=>'string|sometimes|nullable',
         'profile.additional_info.landholding'=>'string|sometimes|nullable',
         'profile.personas'=>'required|string',
@@ -44,6 +44,9 @@ class ProfileForm extends Component
         Auth::User()->save();
         session()->put('locale',$this->lang);
         App::setLocale($this->lang);
+        if(session()->has('profileCheckUrl')){
+            return redirect(session()->get('profileCheckUrl'));
+        }
         return redirect('/e2e/profiles/'.$this->profile->id);
     }
     public function render()
