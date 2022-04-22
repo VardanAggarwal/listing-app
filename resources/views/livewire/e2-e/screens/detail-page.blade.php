@@ -43,6 +43,9 @@
     @if($title)
       <h1 class="mt-4 text-2xl font-semibold text-black">{{$title}}</h1>
     @endif
+    @if($button=="share")
+    <a href="/e2e/supplier-list/{{$trade->id}}"><span class="text-lg font-semibold text-blue underline"><i class="fas fa-truck"></i> {{__('e2e.trade.suppliers.'.$trade->type,['name'=>$trade->item->name])}}</span></a>
+    @endif
     <p class="mt-4 text-lg font-semibold text-black">{{$trade->profile->name}}</p>
     <p class="text-lg opacity-50 text-black">{{$trade->profile->address}}</p>
     @if(isset($trade->additional_info['location']))

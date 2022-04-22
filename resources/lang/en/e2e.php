@@ -288,7 +288,7 @@ return [
   "suppliers"=>[
     "title"=>[
       "sell"=>"Buyers for :Name",
-      "buy"=>"Suppliers for :Name"
+      "buy"=>"Sellers for :Name"
     ],
     "button_action"=>[
       "new"=>"Add new :Type",
@@ -312,6 +312,10 @@ return [
     "title"=>[
       "buy"=>"Buying :Name",
       "sell"=>"Selling :Name"
+    ],
+    "suppliers"=>[
+      "buy"=>"Sellers for :name",
+      "sell"=>"Buyers for :name"
     ],
     "button"=>[
       "contact"=>"Contact :trader",
