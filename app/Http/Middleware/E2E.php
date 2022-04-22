@@ -24,6 +24,8 @@ class E2E
                     return redirect('e2e');
                 }
                 return $next($request);            
+            }else if($request->is('e2e/role')){
+                return $next($request);
             }else{
                 app('redirect')->setIntendedUrl($request->url());
                 return redirect('e2e/role');
@@ -35,7 +37,6 @@ class E2E
             app('redirect')->setIntendedUrl($request->url());
             return redirect('e2e/login');
         }else{
-            dd($request()->path());
             if($request->is('e2e/role')){
                 return $next($request);
             }else{
