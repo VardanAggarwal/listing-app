@@ -18,7 +18,7 @@
     </div>
     <x-e2-e.scroll/>
     <div>
-        <span class="text-center grid justify-items-center text-brown mt-4 underline" @click="newItem=true">{{__('e2e.search.not_found')}}</span>
+        <span class="text-center grid justify-items-center text-brown mt-4 underline" wire:click="$emit('remount')" @click="newItem=true">{{__('e2e.search.not_found')}}</span>
         <div x-cloak x-show="newItem" x-init="$watch('newItem',(value,oldValue)=>{if(value==false&&oldValue==true){window.scrollTo(0,0)}})">
             <div class="z-10 fixed inset-0 grid place-items-center" x-show="newItem">
                 <div class="bg-black opacity-50 fixed inset-0" x-on:click="newItem=false"></div>

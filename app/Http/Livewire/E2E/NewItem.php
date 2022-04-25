@@ -16,6 +16,7 @@ class NewItem extends Component
         'image'=>'image|max:10240|nullable',
         'item.type'=>'string|required'
     ];
+    protected $listeners=['remount'=>'mount'];
     public function mount($type="produce",$name=null){
         $this->item=new Item;
         $this->item->type=$type;
