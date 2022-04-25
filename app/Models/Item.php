@@ -19,14 +19,14 @@ class Item extends Model
         static::created(function($item){
             if(!$item->image_url){
                 $item->image_url="https://via.placeholder.com/300x200.jpg/".dechex(mt_rand(0, 0xFFFFFF))."?text=".urlencode($item->name);
+                $item->save();
             }
-            $item->save();
         });
         static::updated(function($item){
             if(!$item->image_url){
                 $item->image_url="https://via.placeholder.com/300x200.jpg/".dechex(mt_rand(0, 0xFFFFFF))."?text=".urlencode($item->name);
+                $item->save();
             }
-            $item->save();
         });
     }
     public function resiliencies(){
