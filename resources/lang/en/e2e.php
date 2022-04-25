@@ -280,6 +280,10 @@ return [
       "label"=>"Item name",
       "placeholder"=>"Ashwagandha Roots",
     ],
+    "scientific_name"=>[
+      "label"=>"Scientific name",
+      "placeholder"=>"Withania Somnifera",
+    ],
     "type"=>[
       "label"=>"Item type",
       "produce"=>"Produce",

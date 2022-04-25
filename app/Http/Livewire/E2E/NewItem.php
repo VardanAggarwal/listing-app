@@ -14,7 +14,8 @@ class NewItem extends Component
     protected $rules=[
         'item.name'=>'string|required',
         'image'=>'image|max:10240|nullable',
-        'item.type'=>'string|required'
+        'item.type'=>'string|required',
+        'item.additional_info.scientific_name'=>"string|nullable"
     ];
     protected $listeners=['remount'=>'mount'];
     public function mount($type="produce",$name=null){
