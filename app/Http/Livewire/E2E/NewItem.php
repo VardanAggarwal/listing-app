@@ -15,7 +15,8 @@ class NewItem extends Component
         'item.name'=>'string|required',
         'image'=>'image|max:10240|nullable',
         'item.type'=>'string|required',
-        'item.additional_info.scientific_name'=>"string|nullable"
+        'item.additional_info.scientific_name'=>"string|nullable",
+        'item.additional_info.plant_part'=>"string|nullable",
     ];
     protected $listeners=['remount'=>'mount'];
     public function mount($type="produce",$name=null){

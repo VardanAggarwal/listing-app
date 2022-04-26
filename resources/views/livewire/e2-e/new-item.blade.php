@@ -13,6 +13,12 @@
       </div>
     </div>
     <div class="mt-4">
+      <x-jet-label for="plant_part" value="{{__('e2e.item.plant_part.label')}}" class="text-brown font-semibold text-xl" />
+      <div class="flex items-center">
+        <input class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="item.additional_info.plant_part" type="text" placeholder="{{__('e2e.item.plant_part.placeholder')}}"/>
+      </div>
+    </div>
+    <div class="mt-4">
       <x-jet-label for="type" value="{{__('e2e.item.type.label')}}" class="text-brown font-semibold text-xl" />
       <div class="flex items-center">
         <select class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="item.type" >

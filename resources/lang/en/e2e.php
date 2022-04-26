@@ -286,6 +286,10 @@ return [
       "label"=>"Scientific name",
       "placeholder"=>"Withania Somnifera",
     ],
+    "plant_part"=>[
+      "label"=>"Plant part",
+      "placeholder"=>"Roots",
+    ],
     "type"=>[
       "label"=>"Item type",
       "produce"=>"Produce",
