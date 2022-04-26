@@ -85,11 +85,6 @@ return [
       "save"=>"Save profile",
     ]
   ],
-  "vc_selection"=>[
-    "title"=>"Select which value chains you work in",
-    "search"=>"Type to search",
-    "selected"=>"value chains selected: "
-  ],
   "actions"=>[
     "input_provider_sell_input"=>[
       "label"=>"Sell inputs",
