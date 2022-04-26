@@ -18,7 +18,7 @@ class SupplierList extends Component
             if($profile->name&&$profile->pincode&&$profile->personas){
                 $this->allowed=true;
             }
-            $this->myTrade=Trade::where('profile_id',$profile->id)->where('item_id',$this->trade->item_id)->where('type',$this->trade->type)->where('trades.updated_at','>',now()->subDays(30))->orderByDesc('updated_at')->first();
+            $this->myTrade=Trade::where('profile_id',$profile->id)->where('item_id',$this->trade->item_id)->where('type',$this->trade->type)->where('trades.updated_at','>',now()->subDays(30))->where('trades.deleted_at',null)->orderByDesc('updated_at')->first();
             if($this->myTrade){
                 $this->button="update";
             }
@@ -39,7 +39,7 @@ class SupplierList extends Component
     public function render()
     {
         $type=$this->trade->type=="sell"?"buy":"sell";
-        $suppliers=Trade::where("item_id",$this->trade->item_id)->where("type",$type);
+        $suppliers=Trade::where("item_id",$this->trade->item_id)->where('trades.deleted_at',null)->where("type",$type);
         if(Auth::user()){
             $suppliers=$suppliers->where("profile_id","<>",Auth::user()->profile->id);
         }

@@ -32,7 +32,7 @@ class Profile extends Component
     }
     public function render()
     {
-        $trades=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->where('trades.profile_id',$this->profile->id)->orderByDesc('trades.updated_at')->cursorPaginate();
+        $trades=Models\Item::leftJoin('trades','items.id','=','trades.item_id')->where('trades.deleted_at',null)->where('trades.profile_id',$this->profile->id)->orderByDesc('trades.updated_at')->cursorPaginate();
         return view('livewire.e2-e.screens.profile',['trades'=>$trades])->layout('layouts.e2e');
     }
 }
