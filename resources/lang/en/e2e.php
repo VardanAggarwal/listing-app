@@ -142,13 +142,15 @@ return [
     ],
     "location_label"=>"Delivery location",
     "location_placeholder"=>"Delhi",
+    "quality_label"=>"Quality",
+    "quality_placeholder"=>"Sortex",
     "description_label"=>[
       "input"=>[
         "sell"=>"Description",
         "buy"=>"Description"
       ],
       "produce"=>[
-        "buy"=>"Expected quality",
+        "buy"=>"Description",
         "sell"=>"Description"
       ]
     ],
@@ -158,8 +160,8 @@ return [
         "buy"=>"Specific variety, soil or climate issues etc."
       ],
       "produce"=>[
-        "buy"=>"What kind of quality are you looking for? Quality parameters, variety etc.",
-        "sell"=>"What is special about your material? Quality parameters, variety etc."
+        "buy"=>"What are your expectations from material? Quality parameters, variety, packaging etc.",
+        "sell"=>"What is special about your material? Quality parameters, variety, packaging etc."
       ]
     ],
     "media"=>[

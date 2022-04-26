@@ -30,7 +30,7 @@
     <div class="px-4 mt-5" wire:loading.class="opacity-75">
         <div class="mt-4 grid grid-cols-2 gap-4">
             @foreach($trades as $item)
-                <x-e2-e.card type="profile" :item="$item"/>
+                <a href="/e2e/trade/{{$item->id}}"><x-e2-e.card type="profile" :item="$item"/></a>
             @endforeach
         </div>
     </div>

@@ -17,6 +17,14 @@
         </div>
       </div>
     @endif
+    @if($trade->item->type=="produce")
+      <div class="mt-4">
+        <x-jet-label for="quality" value="{{__('e2e.bid-form.quality_label')}}" class="text-brown font-semibold text-xl" />
+        <div class="flex items-center">
+          <input class="px-4 block rounded-xl border-brown w-full bg-white" wire:model.defer="trade.additional_info.quality" type="text" placeholder="{{__('e2e.bid-form.quality_placeholder')}}"/>
+        </div>
+      </div>
+    @endif
     <div class="mt-4">
       <x-jet-label for="description" value="{{__('e2e.bid-form.description_label.'.$trade->item->type.'.'.$trade->type)}}" class="text-brown font-semibold text-xl" />
       <div class="flex items-center">

@@ -14,7 +14,7 @@
         @foreach($media as $key=>$file)
           <div class="w-full sm:max-w-xl">
             @php
-              $type=get_headers($file,true)["Content-Type"]
+              $type=get_headers($file,true)["Content-Type"];
             @endphp
             @switch($type)
               @case (str_contains($type,'image'))
@@ -50,8 +50,14 @@
     <p class="text-lg opacity-50 text-black">{{$trade->profile->address}}</p>
     @if(isset($trade->additional_info['location']))
       <div class="mt-4">
-        <p class="text-lg opacity-50 text-black">{{__('e2e.bid-form.location')}}</p>
+        <p class="text-lg opacity-50 text-black">{{__('e2e.bid-form.location_label')}}</p>
         <p class="text-black">{{$trade->additional_info['location']}}</p>
+      </div>
+    @endif
+    @if(isset($trade->additional_info['quality']))
+      <div class="mt-4">
+        <p class="text-lg opacity-50 text-black">{{__('e2e.bid-form.quality_label')}}</p>
+        <p class="text-black">{{$trade->additional_info['quality']}}</p>
       </div>
     @endif
     @if($trade->description)

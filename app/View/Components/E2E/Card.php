@@ -21,6 +21,9 @@ class Card extends Component
         switch($type){
             case "trade":
                 $this->title=$item->name;
+                if(isset($item->additional_info['quality'])){
+                    array_push($this->strings, $item->additional_info['quality']);
+                }
                 if($item->price){
                     array_push($this->strings, __('e2e.global.units.rupees')." ".$item->price."/".__('e2e.global.units.kg'));
                     $this->updated=$item->updated_at->format('d/m/Y');
@@ -28,7 +31,11 @@ class Card extends Component
                 if($item->quantity){
                     array_push($this->strings, $item->quantity.' '.__('e2e.global.units.kg'));   
                 }
-                $this->image=$item->image_url;
+                if(isset($item->additional_info['image_url'])){
+                    $this->image=$item->additional_info['image_url'];
+                }else{
+                    $this->image=$item->item->image_url;
+                }
                 break;
             case "item":
                 $this->title=$item->name;
@@ -53,8 +60,11 @@ class Card extends Component
                 if($item->quantity){
                     $this->title.=", ".intval($item->quantity/100)." ".__('e2e.global.units.qt');
                 }
-                if(isset($item->additional_info->image_url)){
-                    $this->image=$item->additional_info->image_url;
+                if(isset($item->additional_info['quality'])){
+                    array_push($this->strings, $item->additional_info['quality']);
+                }
+                if(isset($item->additional_info['image_url'])){
+                    $this->image=$item->additional_info['image_url'];
                 }else{
                     $this->image=$item->item->image_url;
                 }
@@ -67,6 +77,9 @@ class Card extends Component
                 if($item->type){
                     $this->type=$item->type;
                 }
+                if(isset($item->additional_info['quality'])){
+                    array_push($this->strings, $item->additional_info['quality']);
+                }
                 if($item->price){
                     array_push($this->strings, __('e2e.global.units.rupees')." ".$item->price."/".__('e2e.global.units.kg'));
                     $this->updated=$item->updated_at->format('d/m/Y');
@@ -74,7 +87,11 @@ class Card extends Component
                 if($item->quantity){
                     array_push($this->strings, $item->quantity.__('e2e.global.units.kg'));   
                 }
-                $this->image=$item->image_url;
+                if(isset($item->additional_info['image_url'])){
+                    $this->image=$item->additional_info['image_url'];
+                }else{
+                    $this->image=$item->image_url;
+                }
                 break;
         }
         if(!$this->image){

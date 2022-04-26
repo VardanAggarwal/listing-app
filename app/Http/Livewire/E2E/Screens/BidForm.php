@@ -22,7 +22,8 @@ class BidForm extends Component
         'trade.quantity'=>'required|numeric',
         'trade.description'=>'string|nullable',
         'trade.additional_info.location'=>'string|nullable|sometimes',
-        'trade.additional_info.details'=>'string|nullable|sometimes'
+        'trade.additional_info.details'=>'string|nullable|sometimes',
+        'trade.additional_info.quality'=>'string|nullable|sometimes',
     ];
     public function mount(){
         if(Auth::user()->profile->id!=$this->trade->profile_id){
@@ -65,8 +66,13 @@ class BidForm extends Component
             }
             $this->trade->media=trim($media->reduce(function($string,$url){
                 return $string.",".$url;
-            },""),',').','.implode(',',$this->old_media);
-            $this->trade->additional_info->image_url=$img;
+            },""),',');
+            if($this->old_media){
+                $this->trade->media.=','.implode(',',$this->old_media);
+            }
+            $info=$this->trade->additional_info;
+            $info['image_url']=$img;
+            $this->trade->additional_info=$info;
         }
         $this->trade->save();
         return redirect('/e2e/supplier-list/'.$this->trade->id);
