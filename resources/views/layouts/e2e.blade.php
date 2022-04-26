@@ -35,7 +35,7 @@
 
             <!-- Page Content -->
             <main>
-                <div class="grid min-h-screen w-screen bg-white sm:max-w-3xl sm:mx-auto">
+                <div class="flex flex-col min-h-screen w-screen bg-white sm:max-w-3xl sm:mx-auto">
                     {{ $slot }}
                 </div>
             </main>

@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="flex flex-col">
     <div>@livewire('e2-e.profile-nav')</div>
     <div>
         @livewire('e2-e.actions')
