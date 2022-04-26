@@ -34,7 +34,7 @@ class Card extends Component
                 if(isset($item->additional_info['image_url'])){
                     $this->image=$item->additional_info['image_url'];
                 }else{
-                    $this->image=$item->item->image_url;
+                    $this->image=$item->image_url;
                 }
                 break;
             case "item":

@@ -12,7 +12,7 @@
         <div id="left" class="z-10 w-8 absolute grid items-center h-full left-0" x-on:click="if(id!=0){id=id-1}else{id={{count($media)}}-1}"><i class="opacity-100 text-2xl text-black pl-2 fas fa-angle-left"></i></div>
         <div id="right"  class="z-10 w-8 absolute flex justify-end items-center h-full right-0" x-on:click="if(id!={{count($media)-1}}){id=id+1}else{id=0}"><i class="text-2xl opacity-100 pr-2 text-black fas fa-angle-right"></i></div>
         @foreach($media as $key=>$file)
-          <div class="w-full sm:max-w-xl">
+          <div class="w-full sm:max-w-xl sm:mx-auto">
             @php
               $type=get_headers($file,true)["Content-Type"];
             @endphp
@@ -38,6 +38,10 @@
             <span class="ml-2" @click="id={{$i}}"><i class="text-xs fa-circle" :class="id=={{$i}}?'fas':'far'"></i></span>
             @endfor
         </div>
+      </div>
+    @else
+      <div class="w-full sm:max-w-xl sm:mx-auto">
+        <img src="{{$trade->item->image_url}}" class="w-full object-cover order-first" x-data="{height:$el.offsetWidth}" x-effect="$el.style.height=height+'px';console.log(height)">
       </div>
     @endif
     @if($title)
