@@ -47,9 +47,9 @@ class Card extends Component
                         array_push($this->strings, __('e2e.global.units.rupees')." ".$item->min."/".__('e2e.global.units.kg'));
                     }
                 }
-                if($item->count>0&&$action){
+                /*if($item->count>0&&$action){
                     array_push($this->strings, $item->count.' '.__('e2e.cards.count_label.'.$action));
-                }
+                }*/
                 break;
             case "select":
                 $this->title=$item->name;

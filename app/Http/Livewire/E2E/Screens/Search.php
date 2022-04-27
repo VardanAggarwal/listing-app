@@ -39,10 +39,7 @@ class Search extends Component
                 $trades=$profile->trades()->createMany($trades);
                 return redirect('/e2e/profiles/'.$profile->id);
             }else{
-                $trade=Trade::where('profile_id',$profile->id)->where('item_id',$this->selected[0])->where('trades.updated_at','>',now()->subDays(30))->where('trades.deleted_at',null)->where('type',$this->action)->orderByDesc('updated_at')->first();
-                if(!$trade){
-                    $trade=$profile->trades()->create(["item_id"=>$this->selected[0],"type"=>$this->action]);
-                }
+                $trade=$profile->trades()->create(["item_id"=>$this->selected[0],"type"=>$this->action]);
                 return redirect("/e2e/bid-form"."/".$trade->id);
             }
         }

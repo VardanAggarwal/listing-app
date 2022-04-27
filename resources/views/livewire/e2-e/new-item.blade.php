@@ -22,8 +22,8 @@
       <x-jet-label for="type" value="{{__('e2e.item.type.label')}}" class="text-brown font-semibold text-xl" />
       <div class="flex items-center">
         <select class="px-4 block rounded-xl border-brown w-full bg-white" wire:model="item.type" >
-            <option value="produce" {{$item->type=='produce'?'selected':''}}>{{__('e2e.item.type.produce')}}</option>
-            <option value="input" {{$item->type=='input'?'selected':''}}>{{__('e2e.item.type.input')}}</option>
+            <option value="produce">{{__('e2e.item.type.produce')}}</option>
+            <option value="input">{{__('e2e.item.type.input')}}</option>
         </select>
       </div>
     </div>

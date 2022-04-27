@@ -9,7 +9,7 @@
             @enderror
             <div class="mt-4 grid grid-cols-2 gap-4">
                 @foreach($results as $item)
-                    <div class="rounded-xl border" wire:key="{{$loop->index}}" x-on:click="toggle(selected,{{$item->id}},select)" :class="selected.indexOf({{$item->id}})>=0?'order-first border-brown':'border-white'"
+                    <div class="rounded-xl border" wire:key="{{$loop->index.'-'.$item->id}}" x-on:click="toggle(selected,{{$item->id}},select)" :class="selected.indexOf({{$item->id}})>=0?'border-brown':'border-white'"
                         ><x-e2-e.card :item="$item" type="select"/>
                     </div>
                 @endforeach
@@ -18,13 +18,13 @@
     </div>
     <x-e2-e.scroll/>
     <div>
-        <span class="text-center grid justify-items-center text-brown mt-4 underline" wire:click="$emit('remount')" @click="newItem=true">{{__('e2e.search.not_found')}}</span>
+        <span class="text-center grid justify-items-center text-brown mt-4 underline" wire:click="$emit('remount',$type,$query)" @click="newItem=true">{{__('e2e.search.not_found')}}</span>
         <div x-cloak x-show="newItem" x-init="$watch('newItem',(value,oldValue)=>{if(value==false&&oldValue==true){window.scrollTo(0,0)}})">
             <div class="z-10 fixed inset-0 grid place-items-center" x-show="newItem">
                 <div class="bg-black opacity-50 fixed inset-0" x-on:click="newItem=false"></div>
                 <div class="z-50 bg-white border border-brown rounded-xl justify-items-center gap-5 relative">
                     <span class="absolute right-5 top-5" @click="newItem=false"><i class="fas fa-times text-xl text-red"></i></span>
-                    @livewire('e2-e.new-item',['type'=>$type,'name'=>$query])
+                    <livewire:e2-e.new-item :type="$type" :name="$query"/>
                 </div>
             </div>
         </div>
