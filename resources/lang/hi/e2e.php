@@ -338,6 +338,12 @@ return [
     ],
     "contact_message"=>"नमस्कार! Seed Savers एप्प पर आपका नंबर मिला. मैं :item :trading में इच्छुक हूँ। जो आपने यहाँ पोस्ट की है।  :url",
     "share_message"=>"नमस्कार! मैं :title।  Seed Savers एप्प पर पूरी जानकारी देखें। :url"
+  ],
+  "profile_nav"=>[
+    "profile"=>"प्रोफाइल",
+    "role"=>"भूमिका",
+    "contact"=>"संपर्क करें",
+    "logout"=>"लॉगआउट"
   ]
 ];
 

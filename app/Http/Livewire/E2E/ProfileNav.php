@@ -14,6 +14,10 @@ class ProfileNav extends Component
             $this->redirect="/e2e/profile/edit";
         }
     }
+    public function logout(){
+        Auth::logout();
+        return redirect('/e2e/');
+    }
     public function render()
     {
         return view('livewire.e2-e.profile-nav');

@@ -338,5 +338,11 @@ return [
     ],
     "contact_message"=>"Hello! I got your number from Seed Savers Club. I am interested in :trading :item as added by you here. :url",
     "share_message"=>"Hello! I am :title. Check details on Seed Savers Club. :url"
+  ],
+  "profile_nav"=>[
+    "profile"=>"Profile",
+    "role"=>"Role",
+    "contact"=>"Contact us",
+    "logout"=>"Logout"
   ]
 ];
