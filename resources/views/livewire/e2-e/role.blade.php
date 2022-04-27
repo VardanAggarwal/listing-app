@@ -16,4 +16,5 @@
         @endforeach
     </div>
     <span class="text-center grid justify-items-center text-brown my-10">{{__('e2e.role_selection.alert')}}</span>
+    <x-e2-e.loader/>
 </div>

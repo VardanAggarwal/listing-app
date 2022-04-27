@@ -9,7 +9,7 @@
     <x-jet-label for="phone_number" value="{{__('e2e.login.phone_number_label')}}" class="text-black font-semibold text-xl" />
     <div class="flex items-center">
       <span class="text-brown rounded-xl p-1 text-lg mr-2">+91</span>
-      <x-jet-input id="phone_number" class="block rounded-xl border-brown w-full bg-white" wire:model="phone_number" type="text" name="phone_number" maxlength="10" required autofocus />
+      <x-jet-input id="phone_number" class="block rounded-xl border-brown w-full bg-white" wire:model.defer="phone_number" type="text" name="phone_number" maxlength="10" required autofocus />
     </div>
     <x-jet-validation-errors/>
     <div wire:ignore class="flex justify-center pb-2 mt-4">
@@ -18,4 +18,5 @@
         </button>
     </div>
   </div>
+  <x-e2-e.loader/>
 </div>

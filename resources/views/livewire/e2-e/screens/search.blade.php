@@ -16,7 +16,9 @@
             </div>
         </div>
     </div>
-    <x-e2-e.scroll/>
+    @if($results->hasMorePages())
+        <x-e2-e.scroll/>
+    @endif
     <div>
         <span class="text-center grid justify-items-center text-brown mt-4 underline" wire:click="$emit('remount',$type,$query)" @click="newItem=true">{{__('e2e.search.not_found')}}</span>
         <div x-cloak x-show="newItem" x-init="$watch('newItem',(value,oldValue)=>{if(value==false&&oldValue==true){window.scrollTo(0,0)}})">
@@ -51,4 +53,5 @@
             }
         }
     </script>
+    <x-e2-e.loader/>
 </div>

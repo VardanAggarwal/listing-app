@@ -1,4 +1,4 @@
-<div class="px-4 mt-5" wire:loading.class="opacity-75" x-data="{dates:false}">
+<div class="px-4 mt-5" x-data="{dates:false}">
     <div class="flex w-full justify-between">
         <h1 class="font-semibold text-2xl text-black">{{__('e2e.card-group.heading.'.$role.'.'.$action)}}</h1>
         <div class="relative cursor-pointer" @click="dates=!dates">
@@ -28,9 +28,12 @@
             </div>
         @endforeach
     </div>
-    <x-e2-e.scroll/>
+    @if($items->hasMorePages())
+        <x-e2-e.scroll/>
+    @endif
     <div class="grid justify-items-center mt-4"><a href="/e2e/bid-select/multiple/{{$item_type}}/{{$action}}"><button class="bg-brown text-white text-xl font-semibold px-20 py-4 rounded-xl" wire:loading.attr="disabled">
             {{__('e2e.card-group.button.'.$role.'.'.$action)}}
         </button></a></div>
     <div class="h-20"></div>
+    <x-e2-e.loader/>
 </div>

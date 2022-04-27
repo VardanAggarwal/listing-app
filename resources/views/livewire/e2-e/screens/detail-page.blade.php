@@ -84,4 +84,5 @@
     </button>
     <livewire:e2-e.profile-check/>
   </div>
+  <x-e2-e.loader/>
 </div>

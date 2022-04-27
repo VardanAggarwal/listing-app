@@ -105,4 +105,5 @@
       this.style.height = (this.scrollHeight) + "px";
     }
   </script>
+  <x-e2-e.loader/>
 </div>

@@ -41,7 +41,7 @@ class Login extends Component
             $profile->personas=$this->role;
         }
         $profile->save();
-        return redirect()->intended();
+        return redirect()->intended('/e2e');
     }
     public function render()
     {

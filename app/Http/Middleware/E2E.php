@@ -31,7 +31,7 @@ class E2E
                 return redirect('e2e/role');
             }
         }elseif(session()->has('role')){
-            if($request->is('e2e/login')){
+            if($request->is('e2e/login')||$request->is('e2e/role')){
                 return $next($request);
             }
             app('redirect')->setIntendedUrl($request->url());

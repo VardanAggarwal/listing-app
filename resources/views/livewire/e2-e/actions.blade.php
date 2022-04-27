@@ -8,4 +8,5 @@
         @endforeach
     </div>
     <livewire:e2-e.profile-check/>
+    <x-e2-e.loader/>
 </div>
