@@ -26,7 +26,22 @@ class CardGroup extends Component
     public function loadMore(){
         $this->perPage+=10;
     }
-    public function cardclicked($type,$id){
+    public function supplierClicked($type,$id){
+        $profile=Auth::user()->profile;
+        if($type=="trade"){
+            $trade=Models\Trade::find($id);
+            return redirect('/e2e/supplier-list/'.$id);
+        }else{
+            $trade=Models\Trade::where('type',$this->action)->where('item_id',$id)->where('trades.profile_id',$profile->id)->orderByDesc('updated_at')->first();
+            if($trade){
+                return redirect('/e2e/supplier-list/'.$trade->id);
+            }else{
+                $trade=Auth::user()->profile->trades()->create(["item_id"=>$id,"type"=>$this->action]);
+                return redirect('/e2e/supplier-list/'.$trade->id);   
+            }
+        }
+    }
+    public function actionClicked($type,$id){
         $profile=Auth::user()->profile;
         if($type=="trade"){
             $trade=Models\Trade::find($id);
@@ -36,13 +51,8 @@ class CardGroup extends Component
                 $id=$trade->item_id;
             }
         }
-        $trade=Models\Trade::where('type',$this->action)->where('item_id',$id)->where('trades.profile_id',$profile->id)->where('trades.updated_at','>',now()->subDays(30))->orderByDesc('updated_at')->first();
-        if($trade){
-            return redirect('/e2e/supplier-list/'.$trade->id);
-        }else{
-            $trade=Auth::user()->profile->trades()->create(["item_id"=>$id,"type"=>$this->action]);
-            return redirect("/e2e/bid-form"."/".$trade->id);   
-        }
+        $trade=Auth::user()->profile->trades()->create(["item_id"=>$id,"type"=>$this->action]);
+            return redirect("/e2e/bid-form"."/".$trade->id);
     }
     public function render()
     {

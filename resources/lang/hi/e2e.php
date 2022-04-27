@@ -204,19 +204,23 @@ return [
       ]
     ],
     "click"=>[
+      "suppliers"=>[
+        "sell"=>"खरीदार देखें",
+        "buy"=>"विक्रेता देखें",
+      ],
       "input_provider"=>[
-        "sell"=>"जानकारी"
+        "sell"=>"जानकारी देखें"
       ],
       "farmer"=>[
-        "sell"=>"बेचें :name",
-        "buy"=>"खरीदें :name"
+        "sell"=>":name बेचें",
+        "buy"=>":name खरीदें"
       ],
       "trader"=>[
-        "sell"=>"बेचें  :name",
-        "buy"=>"खरीदें :name"
+        "sell"=>":name बेचें",
+        "buy"=>":name खरीदें"
       ],
       "buyer"=>[
-        "buy"=>"बेचें :name"
+        "sell"=>":name बेचें"
       ]
     ],
     "button"=>[

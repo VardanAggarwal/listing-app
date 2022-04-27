@@ -204,8 +204,12 @@ return [
       ]
     ],
     "click"=>[
+      "suppliers"=>[
+        "sell"=>"See buyers",
+        "buy"=>"See sellers",
+      ],
       "input_provider"=>[
-        "sell"=>"Details"
+        "sell"=>"See details"
       ],
       "farmer"=>[
         "sell"=>"Sell :name",

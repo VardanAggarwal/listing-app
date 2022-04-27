@@ -18,7 +18,11 @@
                 <x-e2-e.card :type="$type" :action="$action" :item="$item"/>
                 <div x-show="click" x-cloak class="absolute inset-0 rounded-xl inset-0">
                     <div x-on:click="click=false" class="bg-black w-full h-full opacity-75 rounded-xl"></div>
-                    <div class="absolute inset-0 grid place-items-center"><button class="px-4 py-2 rounded-xl {{$action=='buy'?'bg-primary text-black':'bg-red text-white'}}" wire:click="cardclicked('{{$type}}','{{$item->id}}')">{{__('e2e.card-group.click.'.$role.'.'.$action,["name"=>$item->name])}}</button>
+                    <div class="absolute inset-0 flex flex-col p-5 gap-5 justify-center place-items-center">
+                        @unless($role=='input_provider')
+                        <button class="px-4 py-2 rounded-xl bg-blue text-white" wire:click="supplierClicked('{{$type}}','{{$item->id}}')">{{__('e2e.card-group.click.suppliers.'.$action)}}</button>
+                        @endunless
+                        <button class="px-4 py-2 rounded-xl {{$action=='buy'?'bg-primary text-black':'bg-red text-white'}}" wire:click="actionClicked('{{$type}}','{{$item->id}}')">{{__('e2e.card-group.click.'.$role.'.'.$action,["name"=>$item->name])}}</button>
                     </div>
                 </div>
             </div>
