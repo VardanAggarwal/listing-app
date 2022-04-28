@@ -41,9 +41,17 @@ return [
     ],
   ],
   "login"=>[
-    "phone_number_label"=>"Your whatsapp number",
+    "phone_number_label"=>"Your mobile number",
     "title"=>"Let's get started",
-    "button"=>"Login"
+    "button"=>"Login",
+    "otp_title"=>"Please verify your number with OTP",
+    "selected_phone"=>"A 4 digit OTP has been sent to your phone number",
+    "otp_label"=>"Enter 4 digit OTP",
+    "otp_button"=>"Login",
+    "number_error"=>"Something went wrong. Please check your number and try again.",
+    "otp_error"=>"The OTP you entered is incorrect.",
+    "resend_otp"=>"Resend OTP",
+    "resend_in"=>"Resend OTP in: "
   ],
   "role_selection"=>[
     "alert"=>"Choose one of the roles above",
