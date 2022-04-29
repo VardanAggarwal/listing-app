@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 //e2e
+Route::redirect('/', '/e2e');
 Route::get('/e2e/profiles/{profile}',Livewire\E2E\Screens\Profile::class);
 Route::get('/e2e/role',Livewire\E2E\Role::class)->middleware('e2e');
 Route::get('/e2e/profile/edit',Livewire\E2E\ProfileForm::class)->middleware('e2e');
@@ -49,7 +50,7 @@ Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class
 Route::get('/e2e/trade/{trade}',Livewire\E2E\Screens\DetailPage::class);
 Route::get('/e2e/item/new',Livewire\E2E\NewItem::class);
 //main page
-Route::get('/',FeedList::class)->name('feed');
+//Route::get('/',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
 Route::get('custom_feed',Livewire\CustomPage::class);
