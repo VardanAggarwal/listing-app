@@ -1,9 +1,9 @@
 <?php
 return [
   "global"=>[
-    "app_name"=>"Seed Savers Club",
+    "app_name"=>"Seed Savers Club - Herbal Mandi",
     "app_tagline"=>"From seed to industry",
-    "app_description"=>"India’s first end to end platform for Medicinal & Aromatic Plants.",
+    "app_description"=>"India’s first digital mandi for Medicinal & Aromatic Plants.",
     "units"=>[
       "rupees"=>"Rs.",
       "kg"=>"Kg",
@@ -84,8 +84,8 @@ return [
     "edit"=>"Edit profile",
     "items_heading"=>"Items",
     "message"=>[
-      "share"=>"Check my profile on Seed Savers Club. See the items I buy/sell at :url",
-      "contact"=>"I saw your profile on Seed Savers club. :url I am interested in doing business with you."
+      "share"=>"Check my profile on Herbal Mandi App. See the items I buy/sell at :url",
+      "contact"=>"I saw your profile on Herbal Mandi App. :url I am interested in doing business with you."
     ],
     "button"=>[
       "share"=>"Share your profile",
@@ -344,8 +344,8 @@ return [
       "contact"=>"Contact :trader",
       "share"=>"Share on whatsapp"
     ],
-    "contact_message"=>"Hello! I got your number from Seed Savers Club. I am interested in :trading :item as added by you here. :url",
-    "share_message"=>"Hello! I am :title. Check details on Seed Savers Club. :url"
+    "contact_message"=>"Hello! I got your number from Herbal Mandi App. I am interested in :trading :item as added by you here. :url",
+    "share_message"=>"Hello! I am :title. Check details on Herbal Mandi App. :url"
   ],
   "profile_nav"=>[
     "profile"=>"Profile",
