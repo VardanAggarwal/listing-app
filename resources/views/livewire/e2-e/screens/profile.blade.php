@@ -41,10 +41,15 @@
   </div>
   @endif
   <div class="h-20"></div>     
-  <div x-data="{allowed:@entangle('allowed'),show:false}">
-    <button x-on:click="if(allowed){window.location.href='{{$href}}';}else{show=true;}" class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
+  <div x-data="{allowed:@entangle('allowed'),show:false,drawer:false}">
+    @if($href||$call)
+    <button x-on:click="if(allowed){drawer=true}else{show=true;}" class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
         {{__('e2e.profile.button.'.$button,['name'=>$profile->name])}}
     </button>
+    @endif
+    <div x-show='drawer' @click.outside="drawer=false" x-cloak>
+      <livewire:e2-e.contact :href="$href" :call="$call"/>
+    </div>
     <livewire:e2-e.profile-check/>
   </div>
   <x-e2-e.loader/>

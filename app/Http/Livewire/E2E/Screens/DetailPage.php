@@ -19,6 +19,9 @@ class DetailPage extends Component
         if($trade->media){
             $this->media=explode(',',$trade->media);
         }
+        if($this->trade->profile->contact_number){
+            $this->call='tel:'.$this->trade->profile->contact_number;
+        }
         $this->button="contact";
         if(Auth::user()){
             $profile=Auth::user()->profile;
@@ -31,7 +34,8 @@ class DetailPage extends Component
         }
         if($this->button=="share"){
             $this->href="https://wa.me/"."?text=".__('e2e.trade.share_message',['url'=>url('').'/e2e/trade/'.$trade->id,'title'=>__('e2e.trade.title.'.$trade->type,['name'=>$trade->item->name])]);
-        }else{
+        }elseif($trade->profile->contact_number){
+            $this->call='tel:'.$trade->profile->contact_number;
             $this->href="https://wa.me/".Str::remove('+',$trade->profile->contact_number)."?text=".__('e2e.trade.contact_message',['url'=>url('').'/e2e/profiles/'.$trade->id,'trading'=>__('e2e.trade.trading.'.$trade->type),'item'=>$trade->item->name]);
         }
         $title="";
