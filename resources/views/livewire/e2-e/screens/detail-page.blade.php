@@ -85,4 +85,12 @@
     <livewire:e2-e.profile-check/>
   </div>
   <x-e2-e.loader/>
+  <x-slot name="title">{{__('e2e.trade.title.'.$trade->type,['name'=>$trade->item->name])}}</x-slot>
+  @push('meta')
+  <meta property="og:title" content="{{__('e2e.trade.title.'.$trade->type,['name'=>$trade->item->name])}}">
+  <meta property="og:url" content="{{url()->current()}}">
+  <meta property="fb:app_id" content="852906262106769">
+  <meta property="og:description" content="{{__('e2e.trade.title.'.$trade->type,['name'=>$trade->item->name]).' - '.$title.'. '.substr($trade->description,0,300)}}">
+  <meta property="og:image" content="{{isset($trade->additional_info['image_url'])?$trade->additional_info['image_url']:$trade->item->image_url}}">
+  @endpush
 </div>

@@ -48,4 +48,12 @@
     <livewire:e2-e.profile-check/>
   </div>
   <x-e2-e.loader/>
+  <x-slot name="title">{{$profile->name??'Herbal Mandi'}}</x-slot>
+  @push('meta')
+  <meta property="og:title" content="{{$profile->name??'Herbal Mandi'}}">
+  <meta property="og:url" content="{{url()->current()}}">
+  <meta property="fb:app_id" content="852906262106769">
+  <meta property="og:description" content="{{$profile->name.' at Herbal Mandi, '.$profile->address.', '.$profile->pincode}}">
+  <meta property="og:image" content="{{isset($profile->user->profile_photo_url)?$profile->user->profile_photo_url:''}}">
+  @endpush
 </div>

@@ -17,4 +17,11 @@
     </div>
     <span class="text-center grid justify-items-center text-brown my-10">{{__('e2e.role_selection.alert')}}</span>
     <x-e2-e.loader/>
+    <x-slot name="title">Herbal Mandi</x-slot>
+    @push('meta')
+    <meta property="og:title" content="Herbal Mandi">
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="fb:app_id" content="852906262106769">
+    <meta property="og:description" content="{{__('e2e.global.app_description')}}">
+    @endpush
 </div>

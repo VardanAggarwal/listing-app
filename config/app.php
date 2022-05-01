@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'Seed Savers Club',
+    'name' => 'Seed Savers Club-Herbal Mandi',
 
     /*
     |--------------------------------------------------------------------------

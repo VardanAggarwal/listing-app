@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Seed Savers Club') }}</title>
+        <title>{{ $title??config('app.name', 'Seed Savers Club - Herbal Mandi') }}</title>
         @stack('meta')
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -53,17 +53,6 @@
         // but it's recommended you remove it for production
         mixpanel.init('356d40252226119fec46e32e2270c51f', {debug: true}); 
         mixpanel.track('Page visited');
-        </script>
-        <!-- Hotjar Tracking Code for seedsaversclub.com -->
-        <script>
-            (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:2412966,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
     </body>
 </html>
