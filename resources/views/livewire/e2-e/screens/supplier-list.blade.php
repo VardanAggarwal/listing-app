@@ -11,6 +11,7 @@
     @if($suppliers->hasMorePages())
         <x-e2-e.scroll/>
     @endif
+    <div class="h-20"></div>     
     <div x-data="{allowed:@entangle('allowed'),show:false}">
         <button class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled" x-on:click="if(allowed){$wire.button_clicked();}else{show=true;}">
             {{__('e2e.suppliers.button_action.'.$button,["type"=>__('e2e.suppliers.button_type.'.$trade->type)])}}
