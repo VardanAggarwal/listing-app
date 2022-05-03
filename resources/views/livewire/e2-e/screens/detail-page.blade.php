@@ -4,7 +4,9 @@
     <div class="flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-brown">{{__('e2e.trade.title.'.$trade->type,["name"=>$trade->item->name])}}</h1>
     @if($button=="share")
+    <div class="cursor-pointer flex gap-4 items-center">
     <a href="/e2e/bid-form/{{$trade->id}}"><span class="text-sm text-blue underline"><i class="fas fa-edit"></i> {{__('e2e.trade.edit')}}</span></a>
+    <span class="text-sm text-red underline" wire:click="delete" ><i class="fas fa-trash"></i> {{__('e2e.trade.delete')}}</span></div>
     @endif
     </div>
     @if($media)

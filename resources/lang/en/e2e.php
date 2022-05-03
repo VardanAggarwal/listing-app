@@ -324,6 +324,7 @@ return [
   ],
   "trade"=>[
     "edit"=>"Edit",
+    "delete"=>"Delete",
     "trader"=>[
       "buy"=>"Buyer",
       "sell"=>"Seller"

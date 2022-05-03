@@ -47,6 +47,10 @@ class DetailPage extends Component
         }
         $this->title=ltrim($title,', ');
     }
+    public function delete(){
+        $this->trade->delete();
+        return redirect('/e2e/profiles/'.Auth::user()->profile->id);
+    }
     public function render()
     {
         return view('livewire.e2-e.screens.detail-page')->layout('layouts.e2e');
