@@ -51,7 +51,7 @@ Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class
 Route::get('/e2e/trade/{trade}',Livewire\E2E\Screens\DetailPage::class);
 Route::get('/e2e/item/new',Livewire\E2E\NewItem::class);
 //main page
-//Route::get('/',FeedList::class)->name('feed');
+Route::get('/feed',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');
 Route::get('phone_login',PhoneAuth::class);
 Route::get('custom_feed',Livewire\CustomPage::class);
