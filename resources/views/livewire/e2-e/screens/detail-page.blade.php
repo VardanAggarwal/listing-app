@@ -48,7 +48,7 @@
     @endif
     @if($title)
       <h1 class="mt-4 text-2xl font-semibold text-black">{{$title}}</h1>
-    @elseif(!$requestSent && $button=="share" && $allowed)
+    @elseif(!$requestSent && $button!="share" && $allowed)
       <button class="mt-4 bg-primary text-black p-2" wire:click="sendRequest">{{__('e2e.trade.request_details')}}</button>
     @endif
     @if($button=="share")
