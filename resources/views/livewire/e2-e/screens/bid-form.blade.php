@@ -93,13 +93,18 @@
             {{__('e2e.bid-form.button.'.$trade->item->type.'.'.$trade->type)}}
     </button></div>
   </div>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
   <script type="text/javascript">
-    const tx = document.getElementsByTagName("textarea");
-    for (let i = 0; i < tx.length; i++) {
-      tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
-      tx[i].addEventListener("input", OnInput, false);
-    }
-
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      const tx = document.getElementsByTagName("textarea");
+      for (let i = 0; i < tx.length; i++) {
+        tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+        tx[i].addEventListener("input", OnInput, false);
+      }
+    });
     function OnInput() {
       this.style.height = "auto";
       this.style.height = (this.scrollHeight) + "px";
