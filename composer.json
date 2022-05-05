@@ -20,6 +20,7 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "livewire/livewire": "^2.5",
         "meilisearch/meilisearch-php": "^0.20.0",
+        "predis/predis": "^1.1",
         "tcg/voyager": "^1.5",
         "tinymce/tinymce": "^5.10"
     },

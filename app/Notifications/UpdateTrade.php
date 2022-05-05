@@ -11,7 +11,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Fcm\Resources\AndroidNotification;
 
-class UpdateTrade extends Notification
+class UpdateTrade extends Notification implements ShouldQueue
 {
     use Queueable;
 
