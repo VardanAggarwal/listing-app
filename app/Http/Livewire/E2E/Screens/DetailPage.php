@@ -13,6 +13,7 @@ class DetailPage extends Component
     public $title;
     public $button;
     public $href;
+    public $call;
     public $allowed=false;
     public function mount(){
         $trade=$this->trade;
