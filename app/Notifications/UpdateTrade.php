@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Models\Trade;
 use NotificationChannels\Fcm\FcmChannel;
 use NotificationChannels\Fcm\FcmMessage;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -19,9 +20,10 @@ class UpdateTrade extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public $trade;
+    public function __construct($id)
     {
-        //
+        $this->trade=Trade::find($id);
     }
 
     /**
@@ -42,10 +44,13 @@ class UpdateTrade extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toFcm($notifiable){
-        return FcmMessage::create()->setData(['url' => 'https://app.seedsaversclub.com/e2e/profile/edit'])
+        $trade=$this->trade;
+        return FcmMessage::create()->setData(['url' => 'https://app.seedsaversclub.com/e2e/bid-form/'.$trade->id])
         ->setNotification(\NotificationChannels\Fcm\Resources\Notification::create()
-            ->setTitle('Please update your profile.')
-            ->setBody('Add prices to your trades.'));
+            ->setTitle('People are showing interest in '.$trade->item->name)
+            ->setBody('Update your trade to get noticed.')
+            ->setImage($trade->item->image_url)
+        );
     }
 
     /**
