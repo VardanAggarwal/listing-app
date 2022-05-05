@@ -56,7 +56,9 @@ class Card extends Component
                 $this->image=$item->image_url;
                 break;
             case "supplier":
+                if($item->price){
                 $this->title=__('e2e.global.units.rupees')." ".$item->price."/".__('e2e.global.units.kg');
+                }
                 if($item->quantity){
                     $this->title.=", ".intval($item->quantity/100)." ".__('e2e.global.units.qt');
                 }
