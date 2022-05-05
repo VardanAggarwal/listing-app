@@ -26,7 +26,10 @@ class Profile extends Component
             }
         }
         if($this->button=="share"){
-            $this->href="https://wa.me/"."?text=".__('e2e.profile.message.share',['url'=>url('').'/e2e/profiles/'.$this->profile->id,'name'=>$this->profile->name]);
+            $dynamicLinks = app('firebase.dynamic_links');
+            $url = url('').'/e2e/profiles/'.$this->profile->id;
+            $link = $dynamicLinks->createShortLink($url);
+            $this->href="https://wa.me/"."?text=".__('e2e.profile.message.share',['url'=>$link,'name'=>$this->profile->name]);
         }elseif($this->profile->contact_number){
             $this->call='tel:'.$this->profile->contact_number;
             $this->href="https://wa.me/".Str::remove('+',$this->profile->contact_number)."?text=".__('e2e.profile.message.contact',['url'=>url('').'/e2e/profiles/'.$this->profile->id,'name'=>$this->profile->name]);

@@ -42,7 +42,12 @@
   @endif
   <div class="h-20"></div>     
   <div x-data="{allowed:@entangle('allowed'),show:false,drawer:false}">
-    @if($href||$call)
+    @if($button=="share")
+    <a href="{{$href}}"><button class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
+      {{__('e2e.profile.button.'.$button,['name'=>$profile->name])}}
+    </button>
+    </a>
+    @elseif($href||$call)
     <button x-on:click="if(allowed){drawer=true}else{show=true;}" class="fixed bottom-0 w-screen sm:max-w-3xl bg-brown text-white text-xl font-semibold py-4" wire:loading.attr="disabled">
         {{__('e2e.profile.button.'.$button,['name'=>$profile->name])}}
     </button>
