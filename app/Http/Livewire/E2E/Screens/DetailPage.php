@@ -38,7 +38,15 @@ class DetailPage extends Component
         if($this->button=="share"){
             $dynamicLinks = app('firebase.dynamic_links');
             $url = url('').'/e2e/trade/'.$trade->id;
-            $link = $dynamicLinks->createShortLink($url);
+            $parameters = [
+                'dynamicLinkInfo' => [
+                    'link' => $url,
+                    'androidInfo'=> [
+                        'androidPackageName'=> 'com.ssc.seedsavers'
+                    ],
+                ],
+            ];
+            $link = $dynamicLinks->createShortLink($parameters);
             $this->href="https://wa.me/"."?text=".__('e2e.trade.share_message',['url'=>$link,'title'=>__('e2e.trade.title.'.$trade->type,['name'=>$trade->item->name])]);
         }elseif($trade->profile->contact_number){
             $this->call='tel:'.$trade->profile->contact_number;

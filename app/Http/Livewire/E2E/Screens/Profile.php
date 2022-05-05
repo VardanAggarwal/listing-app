@@ -28,7 +28,15 @@ class Profile extends Component
         if($this->button=="share"){
             $dynamicLinks = app('firebase.dynamic_links');
             $url = url('').'/e2e/profiles/'.$this->profile->id;
-            $link = $dynamicLinks->createShortLink($url);
+            $parameters = [
+                'dynamicLinkInfo' => [
+                    'link' => $url,
+                    'androidInfo'=> [
+                        'androidPackageName'=> 'com.ssc.seedsavers'
+                    ],
+                ],
+            ];
+            $link = $dynamicLinks->createShortLink($parameters);
             $this->href="https://wa.me/"."?text=".__('e2e.profile.message.share',['url'=>$link,'name'=>$this->profile->name]);
         }elseif($this->profile->contact_number){
             $this->call='tel:'.$this->profile->contact_number;
