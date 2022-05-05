@@ -9,7 +9,8 @@ return [
       "kg"=>"Kg",
       "qt"=>"Qt"
     ],
-    "pdf"=>"Download pdf file"
+    "pdf"=>"Download pdf file",
+    "generic_user"=>"A user"
   ],
   "cards"=>[
     "trade_type"=>[
@@ -346,12 +347,19 @@ return [
       "share"=>"Share on whatsapp"
     ],
     "contact_message"=>"Hello! I got your number from Herbal Mandi App. I am interested in :trading :item as added by you here. :url",
-    "share_message"=>"Hello! I am :title. Check details on Herbal Mandi App. :url"
+    "share_message"=>"Hello! I am :title. Check details on Herbal Mandi App. :url",
+    "request_details"=>"Request details"
   ],
   "profile_nav"=>[
     "profile"=>"Profile",
     "role"=>"Role",
     "contact"=>"Contact us",
     "logout"=>"Logout"
+  ],
+  "notification"=>[
+    "request_details"=>[
+      "title"=>":Name is requesting you to add details for :item.",
+      "body"=>"Add details for :item to get noticed."
+    ]
   ]
 ];

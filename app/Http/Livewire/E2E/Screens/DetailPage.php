@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Trade;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\RequestDetails;
 class DetailPage extends Component
 {
     public Trade $trade;
@@ -14,6 +15,7 @@ class DetailPage extends Component
     public $button;
     public $href;
     public $call;
+    public $requestSent;
     public $allowed=false;
     public function mount(){
         $trade=$this->trade;
@@ -47,6 +49,14 @@ class DetailPage extends Component
             $title.=', '.$trade->quantity.' '.__('e2e.global.units.kg');
         }
         $this->title=ltrim($title,', ');
+    }
+    public function sendRequest(){
+        $name=__('e2e.global.generic_user');
+        if(Auth::user()){
+            $name=Auth::user()->name;
+        }
+        $this->trade->profile->notify(new  RequestDetails($this->trade->id,$name));
+        $this->requestSent=true;
     }
     public function delete(){
         $this->trade->delete();

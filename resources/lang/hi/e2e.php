@@ -9,7 +9,8 @@ return [
       "kg"=>"किलो",
       "qt"=>"क्विंटल"
     ],
-    "pdf"=>"फाइल डाउनलोड करें"
+    "pdf"=>"फाइल डाउनलोड करें",
+    "generic_user"=>"एक साथी"
   ],
   "cards"=>[
     "trade_type"=>[
@@ -346,13 +347,20 @@ return [
       "share"=>"Whatsapp पर शेयर करें"
     ],
     "contact_message"=>"नमस्कार! हर्बल मंडी एप्प पर आपका नंबर मिला. मैं :item :trading में इच्छुक हूँ। जो आपने यहाँ पोस्ट की है।  :url",
-    "share_message"=>"नमस्कार! मैं :title। हर्बल मंडी एप्प पर पूरी जानकारी देखें। :url"
+    "share_message"=>"नमस्कार! मैं :title। हर्बल मंडी एप्प पर पूरी जानकारी देखें। :url",
+    "request_details"=>"जानकारी मांगे"
   ],
   "profile_nav"=>[
     "profile"=>"प्रोफाइल",
     "role"=>"भूमिका",
     "contact"=>"संपर्क करें",
     "logout"=>"लॉगआउट"
+  ],
+  "notification"=>[
+    "request_details"=>[
+      "title"=>": name आपसे :item के लिए विवरण जोड़ने का अनुरोध कर रहे हैं।",
+      "body"=>":item की जानकारी जोड़ें"
+    ]
   ]
 ];
 
