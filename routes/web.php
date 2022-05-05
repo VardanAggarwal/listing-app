@@ -43,7 +43,7 @@ Route::get('/e2e/role',Livewire\E2E\Role::class)->middleware('e2e');
 Route::get('/e2e/analytics',Livewire\E2E\Analytics::class)->middleware('e2e');
 Route::get('/e2e/profile/edit',Livewire\E2E\ProfileForm::class)->middleware('e2e');
 Route::get('/e2e/login',Livewire\E2E\Login::class)->middleware('e2e');
-Route::get('/e2e',Livewire\E2E\Home::class)->middleware('e2e');
+Route::get('/e2e',Livewire\E2E\Home::class)->middleware(['e2e','fcm']);
 Route::get('/e2e/bid-select/{select?}/{type?}/{action?}',Livewire\E2E\Screens\Search::class)->middleware('e2e');
 Route::get('/e2e/bid-form/{trade}',Livewire\E2E\Screens\BidForm::class)->middleware('e2e');
 Route::get('/e2e/bid-form',Livewire\E2E\Screens\Search::class)->middleware('e2e');
