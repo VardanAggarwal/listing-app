@@ -12,11 +12,16 @@ class CardGroup extends Component
     public $role;
     public $perPage=10;
     public $days=30;
+    public $allowed=false;
     protected $listeners=['navigate'];
     public function mount(){
         if(Auth::user()){
-            if(Auth::user()->profile->personas){
-                $this->role=Auth::user()->profile->personas;
+            $profile=Auth::user()->profile;
+            if($profile->personas){
+                $this->role=$profile->personas;
+            }
+            if($profile->name&&$profile->pincode){
+                $this->allowed=true;
             }
         }
     }
