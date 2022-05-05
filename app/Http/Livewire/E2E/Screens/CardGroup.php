@@ -40,10 +40,13 @@ class CardGroup extends Component
             $trade=Models\Trade::where('type',$this->action)->where('item_id',$id)->where('trades.profile_id',$profile->id)->orderByDesc('updated_at')->first();
             if($trade){
                 return redirect('/e2e/supplier-list/'.$trade->id);
-            }else{
-                $trade=Auth::user()->profile->trades()->create(["item_id"=>$id,"type"=>$this->action]);
-                return redirect('/e2e/supplier-list/'.$trade->id);   
             }
+            $trade=Models\Trade::where('type',$this->action)->where('item_id',$id)->orderByDesc('updated_at')->first();
+            if($trade){
+              return redirect('/e2e/supplier-list/'.$trade->id);  
+            }
+            $trade=Auth::user()->profile->trades()->create(["item_id"=>$id,"type"=>$this->action]);
+            return redirect('/e2e/bid-form/'.$trade->id);
         }
     }
     public function actionClicked($type,$id){
