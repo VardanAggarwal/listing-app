@@ -361,5 +361,17 @@ return [
       "title"=>":Name is requesting you to add details for :item.",
       "body"=>"Add details for :item to get noticed."
     ]
+  ],
+  "price"=>[
+    "market"=>"Market",
+    "add"=>[
+      "title"=>"Add prices",
+      "market_placeholder"=>"Market name",
+      "item_placeholder"=>"Item name",
+      "price_min_placeholder"=>"Min price",
+      "price_max_placeholder"=>"Max price",
+      "price_avg_placeholder"=>"Avg price",
+      
+    ]
   ]
 ];

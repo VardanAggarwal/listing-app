@@ -50,6 +50,7 @@ Route::get('/e2e/bid-form',Livewire\E2E\Screens\Search::class)->middleware('e2e'
 Route::get('/e2e/supplier-list/{trade}',Livewire\E2E\Screens\SupplierList::class);
 Route::get('/e2e/trade/{trade}',Livewire\E2E\Screens\DetailPage::class);
 Route::get('/e2e/item/new',Livewire\E2E\NewItem::class);
+Route::get('/e2e/addprice',Livewire\E2E\AddPrice::class)->middleware('e2e','adminauth');
 //main page
 Route::get('/feed',FeedList::class)->name('feed');
 Route::get('/search',Search::class)->name('search');

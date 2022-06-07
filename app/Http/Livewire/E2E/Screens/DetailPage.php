@@ -50,7 +50,7 @@ class DetailPage extends Component
             $this->href="https://wa.me/"."?text=".__('e2e.trade.share_message',['url'=>$link,'title'=>__('e2e.trade.title.'.$trade->type,['name'=>$trade->item->name])]);
         }elseif($trade->profile->contact_number){
             $this->call='tel:'.$trade->profile->contact_number;
-            $this->href="https://wa.me/".Str::remove('+',$trade->profile->contact_number)."?text=".__('e2e.trade.contact_message',['url'=>url('').'/e2e/profiles/'.$trade->id,'trading'=>__('e2e.trade.trading.'.$trade->type),'item'=>$trade->item->name]);
+            $this->href="https://wa.me/".Str::remove('+',$trade->profile->contact_number)."?text=".__('e2e.trade.contact_message',['url'=>url('').'/e2e/trade/'.$trade->id,'trading'=>__('e2e.trade.trading.'.$trade->type),'item'=>$trade->item->name]);
         }
         $title="";
         if($trade->price){
