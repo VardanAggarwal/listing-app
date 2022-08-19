@@ -41,7 +41,7 @@
             @endfor
         </div>
       </div>
-    @else
+    @elseif($trade->item->image_url)
       <div class="w-full sm:max-w-xl sm:mx-auto">
         <img src="{{$trade->item->image_url}}" class="w-full object-cover order-first" x-data="{height:$el.offsetWidth}" x-effect="$el.style.height=height+'px';console.log(height)">
       </div>
