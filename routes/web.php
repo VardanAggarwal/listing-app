@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 //e2e
-Route::permanentRedirect('/', '/e2e');
+Route::permanentRedirect('/', '/feed');
 Route::get('/e2e/profiles/{profile}',Livewire\E2E\Screens\Profile::class);
 Route::get('/e2e/role',Livewire\E2E\Role::class)->middleware('e2e');
 Route::get('/e2e/analytics',Livewire\E2E\Analytics::class)->middleware('e2e');
